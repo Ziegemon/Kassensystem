@@ -98,9 +98,19 @@ offset_top = 70.0
 offset_right = 654.0
 offset_bottom = 556.0
 
+[node name="Preisanzeige" type="ColorRect" parent="Vorlage/AnzeigeFeld" unique_id=1863851056]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = 10.0
+offset_right = 514.0
+offset_bottom = 68.0
+grow_vertical = 0
+
 [node name="Tastatur" type="ColorRect" parent="Vorlage" unique_id=2040894850]
 offset_left = 140.0
-offset_top = 574.0
+offset_top = 634.0
 offset_right = 654.0
 offset_bottom = 1080.0
 
@@ -181,7 +191,7 @@ layout_mode = 0
 offset_left = 10.0
 offset_top = 376.0
 offset_right = 130.0
-offset_bottom = 496.0
+offset_bottom = 436.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
 
 [node name="Button2" type="ColorRect" parent="Vorlage/Tastatur" unique_id=2045859695]
@@ -189,7 +199,7 @@ layout_mode = 0
 offset_left = 132.0
 offset_top = 376.0
 offset_right = 252.0
-offset_bottom = 496.0
+offset_bottom = 436.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
 
 [node name="Button3" type="ColorRect" parent="Vorlage/Tastatur" unique_id=1616469583]
@@ -197,7 +207,7 @@ layout_mode = 0
 offset_left = 254.0
 offset_top = 376.0
 offset_right = 374.0
-offset_bottom = 496.0
+offset_bottom = 436.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
 
 [node name="Button7" type="ColorRect" parent="Vorlage/Tastatur" unique_id=450807006]
@@ -205,7 +215,7 @@ layout_mode = 0
 offset_left = 384.0
 offset_top = 376.0
 offset_right = 504.0
-offset_bottom = 496.0
+offset_bottom = 436.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
 
 [node name="Button4" type="ColorRect" parent="Vorlage/Tastatur" unique_id=504684908]
