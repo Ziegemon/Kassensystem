@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://btvddgd37iu0s"]
 
 [ext_resource type="Script" uid="uid://kgteq6c6od3w" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://bp5qlr7a6wq31" path="res://scenes/benutzerauswahl.tscn" id="2_0wfyh"]
 
 [node name="MAIN" type="Node2D" unique_id=864821337]
 script = ExtResource("1_o5qli")
@@ -91,6 +92,11 @@ offset_top = 936.0
 offset_right = 110.0
 offset_bottom = 1000.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Vorlage/Benutzerauswahl" unique_id=1495882002]
+layout_mode = 0
+offset_right = 120.0
+offset_bottom = 1010.0
 
 [node name="AnzeigeFeld" type="ColorRect" parent="Vorlage" unique_id=916858177]
 offset_left = 140.0
@@ -245,3 +251,9 @@ color = Color(0.400698, 0.400698, 0.400698, 1)
 [node name="Statusleiste" type="ColorRect" parent="Vorlage" unique_id=327475424]
 offset_right = 1920.0
 offset_bottom = 50.0
+
+[node name="Node" type="Node" parent="." unique_id=237817646]
+
+[node name="benutzerauswahl" parent="Node" unique_id=1642442183 instance=ExtResource("2_0wfyh")]
+position = Vector2(1049, 195)
+button_number = 1
