@@ -93,10 +93,28 @@ offset_right = 110.0
 offset_bottom = 1000.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
 
-[node name="NinePatchRect" type="NinePatchRect" parent="Vorlage/Benutzerauswahl" unique_id=1495882002]
+[node name="MarginContainer" type="MarginContainer" parent="Vorlage/Benutzerauswahl" unique_id=116757224]
 layout_mode = 0
-offset_right = 120.0
-offset_bottom = 1010.0
+offset_left = 817.0
+offset_top = 198.0
+offset_right = 1013.0
+offset_bottom = 746.0
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Vorlage/Benutzerauswahl/MarginContainer" unique_id=1025605890]
+layout_mode = 2
+theme_override_constants/separation = 102
+
+[node name="benutzerauswahl" parent="Vorlage/Benutzerauswahl/MarginContainer/VBoxContainer" unique_id=1930288221 instance=ExtResource("2_0wfyh")]
+layout_mode = 2
+
+[node name="benutzerauswahl2" parent="Vorlage/Benutzerauswahl/MarginContainer/VBoxContainer" unique_id=2048935818 instance=ExtResource("2_0wfyh")]
+layout_mode = 2
+
+[node name="benutzerauswahl3" parent="Vorlage/Benutzerauswahl/MarginContainer/VBoxContainer" unique_id=924850094 instance=ExtResource("2_0wfyh")]
+layout_mode = 2
 
 [node name="AnzeigeFeld" type="ColorRect" parent="Vorlage" unique_id=916858177]
 offset_left = 140.0
@@ -254,6 +272,9 @@ offset_bottom = 50.0
 
 [node name="Node" type="Node" parent="." unique_id=237817646]
 
-[node name="benutzerauswahl" parent="Node" unique_id=1642442183 instance=ExtResource("2_0wfyh")]
-position = Vector2(1049, 195)
+[node name="benutzerauswahl" parent="Node" unique_id=152275522 instance=ExtResource("2_0wfyh")]
+offset_left = 1049.0
+offset_top = 195.0
+offset_right = 1049.0
+offset_bottom = 195.0
 button_number = 1
