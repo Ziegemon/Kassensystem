@@ -1,0 +1,237 @@
+[gd_scene format=3 uid="uid://btvddgd37iu0s"]
+
+[ext_resource type="Script" uid="uid://kgteq6c6od3w" path="res://scenes/main.gd" id="1_o5qli"]
+
+[node name="MAIN" type="Node2D" unique_id=864821337]
+script = ExtResource("1_o5qli")
+
+[node name="Vorlage" type="Node2D" parent="." unique_id=1982382078]
+
+[node name="Benutzerauswahl" type="ColorRect" parent="Vorlage" unique_id=1227213436]
+offset_top = 70.0
+offset_right = 120.0
+offset_bottom = 1080.0
+
+[node name="1" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=1533829412]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 110.0
+offset_bottom = 110.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="2" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=302038600]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 112.0
+offset_right = 110.0
+offset_bottom = 212.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="3" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=1658783325]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 214.0
+offset_right = 110.0
+offset_bottom = 314.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="4" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=1424978556]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 316.0
+offset_right = 110.0
+offset_bottom = 416.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="5" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=2139300345]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 418.0
+offset_right = 110.0
+offset_bottom = 518.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="6" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=138041087]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 520.0
+offset_right = 110.0
+offset_bottom = 620.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="7" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=217616078]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 622.0
+offset_right = 110.0
+offset_bottom = 722.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="8" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=1346320460]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 724.0
+offset_right = 110.0
+offset_bottom = 824.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="9" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=2112467877]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 826.0
+offset_right = 110.0
+offset_bottom = 926.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="S" type="ColorRect" parent="Vorlage/Benutzerauswahl" unique_id=1059085179]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 936.0
+offset_right = 110.0
+offset_bottom = 1000.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="AnzeigeFeld" type="ColorRect" parent="Vorlage" unique_id=916858177]
+offset_left = 140.0
+offset_top = 70.0
+offset_right = 654.0
+offset_bottom = 556.0
+
+[node name="Tastatur" type="ColorRect" parent="Vorlage" unique_id=2040894850]
+offset_left = 140.0
+offset_top = 574.0
+offset_right = 654.0
+offset_bottom = 1080.0
+
+[node name="1" type="ColorRect" parent="Vorlage/Tastatur" unique_id=306759551]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 130.0
+offset_bottom = 130.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="2" type="ColorRect" parent="Vorlage/Tastatur" unique_id=125122787]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 10.0
+offset_right = 252.0
+offset_bottom = 130.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="3" type="ColorRect" parent="Vorlage/Tastatur" unique_id=816164890]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 10.0
+offset_right = 374.0
+offset_bottom = 130.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="4" type="ColorRect" parent="Vorlage/Tastatur" unique_id=1081032699]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 132.0
+offset_right = 130.0
+offset_bottom = 252.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="5" type="ColorRect" parent="Vorlage/Tastatur" unique_id=1366411080]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 132.0
+offset_right = 252.0
+offset_bottom = 252.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="6" type="ColorRect" parent="Vorlage/Tastatur" unique_id=475092524]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 132.0
+offset_right = 374.0
+offset_bottom = 252.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="7" type="ColorRect" parent="Vorlage/Tastatur" unique_id=1359341691]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 254.0
+offset_right = 130.0
+offset_bottom = 374.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="8" type="ColorRect" parent="Vorlage/Tastatur" unique_id=948693451]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 254.0
+offset_right = 252.0
+offset_bottom = 374.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="9" type="ColorRect" parent="Vorlage/Tastatur" unique_id=319329849]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 254.0
+offset_right = 374.0
+offset_bottom = 374.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Button" type="ColorRect" parent="Vorlage/Tastatur" unique_id=542978235]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 376.0
+offset_right = 130.0
+offset_bottom = 496.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Button2" type="ColorRect" parent="Vorlage/Tastatur" unique_id=2045859695]
+layout_mode = 0
+offset_left = 132.0
+offset_top = 376.0
+offset_right = 252.0
+offset_bottom = 496.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Button3" type="ColorRect" parent="Vorlage/Tastatur" unique_id=1616469583]
+layout_mode = 0
+offset_left = 254.0
+offset_top = 376.0
+offset_right = 374.0
+offset_bottom = 496.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Button7" type="ColorRect" parent="Vorlage/Tastatur" unique_id=450807006]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 376.0
+offset_right = 504.0
+offset_bottom = 496.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Button4" type="ColorRect" parent="Vorlage/Tastatur" unique_id=504684908]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 10.0
+offset_right = 504.0
+offset_bottom = 130.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Button5" type="ColorRect" parent="Vorlage/Tastatur" unique_id=596129707]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 132.0
+offset_right = 504.0
+offset_bottom = 252.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Button6" type="ColorRect" parent="Vorlage/Tastatur" unique_id=1476145848]
+layout_mode = 0
+offset_left = 384.0
+offset_top = 254.0
+offset_right = 504.0
+offset_bottom = 374.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="Statusleiste" type="ColorRect" parent="Vorlage" unique_id=327475424]
+offset_right = 1920.0
+offset_bottom = 50.0
