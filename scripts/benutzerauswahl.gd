@@ -9,6 +9,7 @@ class_name Benutzerauswahl
 @export var selected_button_color : Color
 var basic_button_color = Color(0.4, 0.4, 0.4)
 
+var style_names = ["normal", "pressed", "hover", "hover_pressed", "disabled", "focus"]
 
 signal user_selected(button_number)
 
@@ -66,12 +67,28 @@ func removeUser():
 
 func userSelected():
 	background.color = selected_button_color
+	
+	for child in get_node("../../../../keyboard/buttons_main/GridContainer").get_children():
+		#child.normal.bg_color = selected_button_color
+		
+		for style in style_names:
+			var style_box = child.get_theme_stylebox(style)
+			var new_style_box = style_box.duplicate()
+			new_style_box.bg_color = selected_button_color
+			child.add_theme_stylebox_override(style, new_style_box)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func userDeSelected():
 	background.color = basic_button_color
-
+	for child in get_node("../../../../keyboard/buttons_main/GridContainer").get_children():
+		#child.normal.bg_color = basic_button_color
+		
+		for style in style_names:
+			var style_box = child.get_theme_stylebox(style)
+			var new_style_box = style_box.duplicate()
+			new_style_box.bg_color = basic_button_color
+			child.add_theme_stylebox_override(style, new_style_box)
 
 #---------------------------------------------------------------------------------------------------
 

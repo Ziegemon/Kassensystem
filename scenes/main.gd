@@ -27,14 +27,15 @@ func _process(delta: float) -> void:
 
 func connectBenutzerauswahlSignals():
 	for child in $user_selection/MarginContainer/VBoxContainer.get_children():
-		child.user_selected.connect(_on_user_selected)
+		if child.has_signal("user_selected"):
+			child.user_selected.connect(_on_user_selected)
 
 #---------------------------------------------------------------------------------------------------
 
 func _on_user_selected(button_number: int) -> void:
 	current_user = button_number
 	activateCurrentuser()
-	print("User ausgewählt: ", button_number)
+	#print("User ausgewählt: ", button_number)
 
 #---------------------------------------------------------------------------------------------------
 
