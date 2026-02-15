@@ -1,4 +1,5 @@
 extends Control
+class_name Benutzerauswahl
 
 #---------------------------------------------------------------------------------------------------
 
@@ -7,7 +8,7 @@ var basic_button_color = Color(0.4, 0.4, 0.4)
 @export var selected_button_color : Color
 @export var user : user_data
 
-signal user_selected()
+signal user_selected(button_number)
 
 #signal user_changed
 #signal user_removed
@@ -18,7 +19,6 @@ signal user_selected()
 @onready var label_number: Label = $label_number
 @onready var label_name: Label = $label_name
 @onready var label_number_s: Label = $label_number_s
-
 
 
 #---------------------------------------------------------------------------------------------------
@@ -71,4 +71,4 @@ func removeUser():
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_button_up() -> void:
-	pass # Replace with function body.
+	emit_signal("user_selected", button_number)
