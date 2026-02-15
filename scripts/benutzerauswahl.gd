@@ -4,9 +4,11 @@ class_name Benutzerauswahl
 #---------------------------------------------------------------------------------------------------
 
 @export var button_number : int
-var basic_button_color = Color(0.4, 0.4, 0.4)
-@export var selected_button_color : Color
 @export var user : user_data
+
+@export var selected_button_color : Color
+var basic_button_color = Color(0.4, 0.4, 0.4)
+
 
 signal user_selected(button_number)
 
@@ -29,6 +31,9 @@ func _ready() -> void:
 	background.color = basic_button_color
 	label_number.text = str(button_number)
 	label_number_s.text = str(button_number)
+	
+	if user != null:
+		setupUser()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -42,8 +47,7 @@ func _ready() -> void:
 func setupUser():
 	label_number.hide()
 	label_number_s.show()
-	background.color = selected_button_color
-	
+	#background.color = selected_button_color
 	
 	label_name.text = user.username
 	label_name.show()
@@ -54,9 +58,20 @@ func removeUser():
 	label_number_s.hide()
 	label_name.hide()
 	label_number.show()
-	background.color = basic_button_color
+	#background.color = basic_button_color
 	
 	label_name.text = ""
+
+#---------------------------------------------------------------------------------------------------
+
+func userSelected():
+	background.color = selected_button_color
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func userDeSelected():
+	background.color = basic_button_color
+
 
 #---------------------------------------------------------------------------------------------------
 
