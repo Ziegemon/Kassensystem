@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://kgteq6c6od3w" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bp5qlr7a6wq31" path="res://scenes/benutzerauswahl.tscn" id="2_0wfyh"]
-[ext_resource type="Resource" uid="uid://bc4k2nxinwqti" path="res://data/users/place_holder_1.tres" id="3_jyhfs"]
-[ext_resource type="Resource" uid="uid://dsysqsybft0ni" path="res://data/users/thilo_mutz.tres" id="3_sugp2"]
-[ext_resource type="Resource" uid="uid://b8m16prewh13" path="res://data/users/placeholder_2.tres" id="4_tbgi4"]
+[ext_resource type="Resource" uid="uid://bc4k2nxinwqti" path="res://data/users/2.tres" id="3_jyhfs"]
+[ext_resource type="Resource" uid="uid://dsysqsybft0ni" path="res://data/users/1.tres" id="3_sugp2"]
+[ext_resource type="Resource" uid="uid://b8m16prewh13" path="res://data/users/3.tres" id="4_tbgi4"]
 [ext_resource type="Script" uid="uid://fac8hsb1owaw" path="res://scripts/benutzerauswahl_extra.gd" id="6_tefeu"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eel67"]
@@ -152,32 +152,51 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_jde1m")
 
 [node name="status_bar" type="Control" parent="." unique_id=302359964]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 1920.0
+offset_bottom = 72.0
 
 [node name="Statusleiste" type="ColorRect" parent="status_bar" unique_id=511242819]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 72.0
 
+[node name="Label_user_id" type="Label" parent="status_bar" unique_id=874542087]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 92.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_user_name" type="Label" parent="status_bar" unique_id=2144657417]
+layout_mode = 0
+offset_left = 134.0
+offset_right = 644.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 38
+text = "Name Surname"
+vertical_alignment = 1
+
 [node name="keyboard" type="Control" parent="." unique_id=176270028]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="background" type="ColorRect" parent="keyboard" unique_id=1202769312]
-layout_mode = 0
 offset_left = 130.0
 offset_top = 634.0
 offset_right = 644.0
 offset_bottom = 1080.0
 
+[node name="background" type="ColorRect" parent="keyboard" unique_id=1202769312]
+layout_mode = 0
+offset_right = 514.0
+offset_bottom = 446.0
+
 [node name="buttons_main" type="MarginContainer" parent="keyboard" unique_id=1790949247]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 634.0
-offset_right = 514.0
-offset_bottom = 1080.0
+offset_right = 384.0
+offset_bottom = 447.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -347,10 +366,9 @@ text = ","
 
 [node name="buttons_secodary" type="MarginContainer" parent="keyboard" unique_id=313342378]
 layout_mode = 0
-offset_left = 504.0
-offset_top = 634.0
-offset_right = 644.0
-offset_bottom = 1080.0
+offset_left = 374.0
+offset_right = 514.0
+offset_bottom = 446.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
