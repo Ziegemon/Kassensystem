@@ -7,4 +7,4 @@ class_name item_data
 
 @export_category("Daten")
 @export var price : float
-@export var Wiegeprodukt : bool
+@export var wiegeprodukt : bool

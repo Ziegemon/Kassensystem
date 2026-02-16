@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://buc2jh6s8lsjj"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_7khge"]
+
+[resource]
+script = ExtResource("1_7khge")
+name = "Laugenzopf"
+price = 1.05
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

@@ -2,25 +2,30 @@ extends Control
 
 #---------------------------------------------------------------------------------------------------
 
-@export var item_category_id : int
-@export var item_category_name : String
-@export var items_array : Array[item_data] = []
+var button_item_data : item_data
 
-signal category_selected(item_category_id)
+signal item_button_pressed(button_item_data : item_data)
 
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 
 
-func _ready() -> void:
-	$Button.text = item_category_name
+func _process(delta: float) -> void:
+	setUpItemButton()
 
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
 
 
+func setUpItemButton():
+	if button_item_data != null:
+		$Button.text = button_item_data.name
+	else:
+		$Button.text = ""
+
+#---------------------------------------------------------------------------------------------------
 
 func _on_button_button_up() -> void:
-	emit_signal("category_selected", item_category_id)
+	emit_signal("item_button_pressed", button_item_data)

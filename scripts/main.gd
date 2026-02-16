@@ -25,6 +25,7 @@ func _ready() -> void:
 	setUpStatusBar()
 	
 	connectItemCategorylSignals()
+	loadCategoryItems(0)
 
 #---------------------------------------------------------------------------------------------------
 
@@ -101,10 +102,20 @@ func connectItemCategorylSignals():
 func _on_category_selected(item_category_id: int) -> void:
 	loadCategoryItems(item_category_id)
 
-#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+#---------------------------------------------------------------------------------------------------
 
 func loadCategoryItems(item_category_id: int):
+	clearItemButtons()
+	
 	var item_array = $item_categories/MarginContainer/GridContainer.get_child(item_category_id).items_array
 	
-	for i in item_array:
-		$items/MarginContainer/GridContainer.get_child(i).item_data = item_array[i]
+	
+	for i in range(item_array.size()):
+		$items/MarginContainer/GridContainer.get_child(i).button_item_data = item_array[i]
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func clearItemButtons():
+	for y in range($items/MarginContainer/GridContainer.get_child_count()):
+		$items/MarginContainer/GridContainer.get_child(y).button_item_data = null
+	
