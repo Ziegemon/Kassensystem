@@ -5,6 +5,14 @@ extends Control
 var current_user : int
 var current_selected_user : Benutzerauswahl_raw
 
+#---------------------------------------------------------------------------------------------------
+
+@onready var label_user_id: Label = $status_bar/Label_user_id
+@onready var label_user_name: Label = $status_bar/Label_user_name
+@onready var label_clock: Label = $status_bar/Label_clock
+@onready var label_date: Label = $status_bar/Label_date
+
+
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -48,33 +56,33 @@ func activateCurrentuser():
 	current_selected_user.userSelected()
 	
 	if current_selected_user is Benutzerauswahl && current_selected_user.user != null:
-		$status_bar/Label_user_id.text = str(current_selected_user.user.user_id)
-		$status_bar/Label_user_name.text = str(current_selected_user.user.username)
+		label_user_id.text = str(current_selected_user.user.user_id)
+		label_user_name.text = str(current_selected_user.user.username)
 	elif current_selected_user is Benutzerauswahl_extra:
-		$status_bar/Label_user_id.text = "X"
-		$status_bar/Label_user_name.text = "EXTRA"
+		label_user_id.text = "X"
+		label_user_name.text = "EXTRA"
 	else:
-		$status_bar/Label_user_id.text = "X"
-		$status_bar/Label_user_name.text = "______________________"
+		label_user_id.text = "X"
+		label_user_name.text = "__________________"
 
 #---------------------------------------------------------------------------------------------------
 
 func setUpStatusBar():
 	if current_selected_user is Benutzerauswahl && current_selected_user.user != null:
-		$status_bar/Label_user_id.text = str(current_selected_user.user.user_id)
-		$status_bar/Label_user_name.text = str(current_selected_user.user.username)
+		label_user_id.text = str(current_selected_user.user.user_id)
+		label_user_name.text = str(current_selected_user.user.username)
 	elif current_selected_user is Benutzerauswahl_extra:
-		$status_bar/Label_user_id.text = "X"
-		$status_bar/Label_user_name.text = "EXTRA"
+		label_user_id.text = "X"
+		label_user_name.text = "EXTRA"
 	else:
-		$status_bar/Label_user_id.text = "X"
-		$status_bar/Label_user_name.text = "______________________"
+		label_user_id.text = "X"
+		label_user_name.text = "__________________"
 
 #---------------------------------------------------------------------------------------------------
 
 func updateClockDate():
 	var t = Time.get_time_dict_from_system()
-	$status_bar/Label_clock.text = "%02d:%02d" % [t.hour, t.minute]
+	label_clock.text = "%02d:%02d" % [t.hour, t.minute]
 	
 	var d = Time.get_date_dict_from_system()
-	$status_bar/Label_date.text = "%02d.%02d.%04d" % [d.day, d.month, d.year]
+	label_date.text = "%02d.%02d.%04d" % [d.day, d.month, d.year]
