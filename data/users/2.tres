@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="user_data" format=3 uid="uid://bc4k2nxinwqti"]
+[gd_resource type="Resource" script_class="user_data" format=3 uid="uid://b8m16prewh13"]
 
-[ext_resource type="Script" uid="uid://cga6rarqcn5dh" path="res://scripts/user_data.gd" id="1_18w38"]
+[ext_resource type="Script" uid="uid://cga6rarqcn5dh" path="res://scripts/user_data.gd" id="1_3nuxf"]
 
 [resource]
-script = ExtResource("1_18w38")
-user_id = 1
-username = "Placeholder 1"
+script = ExtResource("1_3nuxf")
+user_id = 2
+username = "Name surname"
 metadata/_custom_type_script = "uid://cga6rarqcn5dh"
