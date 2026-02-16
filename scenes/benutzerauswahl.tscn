@@ -4,7 +4,8 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eel67"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_vi1qw"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7uxc"]
+bg_color = Color(0.8352941, 0.8352941, 0.8352941, 0.37254903)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2o50"]
 
@@ -64,7 +65,7 @@ layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 theme_override_styles/normal = SubResource("StyleBoxEmpty_eel67")
-theme_override_styles/pressed = SubResource("StyleBoxEmpty_vi1qw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y7uxc")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_r2o50")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c605q")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2n5uk")
