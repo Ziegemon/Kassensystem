@@ -19,6 +19,8 @@ bg_color = Color(0.8352941, 0.8352941, 0.8352941, 0.37254903)
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_y7uxc")
+button_number = null
+selected_button_color = null
 
 [node name="background" type="ColorRect" parent="." unique_id=1774228619]
 layout_mode = 0

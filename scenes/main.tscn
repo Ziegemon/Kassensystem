@@ -1,10 +1,24 @@
 [gd_scene format=3 uid="uid://btvddgd37iu0s"]
 
-[ext_resource type="Script" uid="uid://kgteq6c6od3w" path="res://scenes/main.gd" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://kgteq6c6od3w" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bp5qlr7a6wq31" path="res://scenes/benutzerauswahl.tscn" id="2_0wfyh"]
 [ext_resource type="Resource" uid="uid://bc4k2nxinwqti" path="res://data/users/place_holder_1.tres" id="3_jyhfs"]
 [ext_resource type="Resource" uid="uid://dsysqsybft0ni" path="res://data/users/thilo_mutz.tres" id="3_sugp2"]
 [ext_resource type="Resource" uid="uid://b8m16prewh13" path="res://data/users/placeholder_2.tres" id="4_tbgi4"]
+[ext_resource type="Script" uid="uid://fac8hsb1owaw" path="res://scripts/benutzerauswahl_extra.gd" id="6_tefeu"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eel67"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7uxc"]
+bg_color = Color(0.8352941, 0.8352941, 0.8352941, 0.37254903)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2o50"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c605q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n5uk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jde1m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
@@ -50,8 +64,8 @@ selected_button_color = Color(0, 0, 1, 1)
 
 [node name="benutzerauswahl2" parent="user_selection/MarginContainer/VBoxContainer" unique_id=521222676 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
-button_number = 2
 user = ExtResource("3_jyhfs")
+button_number = 2
 selected_button_color = Color(0.11637341, 0.16594988, 0.21798795, 1)
 
 [node name="benutzerauswahl3" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1733035155 instance=ExtResource("2_0wfyh")]
@@ -66,8 +80,8 @@ selected_button_color = Color(0.50854063, 0.00018424452, 0.5085371, 1)
 
 [node name="benutzerauswahl5" parent="user_selection/MarginContainer/VBoxContainer" unique_id=2121822527 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
-button_number = 5
 user = ExtResource("4_tbgi4")
+button_number = 5
 selected_button_color = Color(1, 0, 0, 1)
 
 [node name="benutzerauswahl6" parent="user_selection/MarginContainer/VBoxContainer" unique_id=922359481 instance=ExtResource("2_0wfyh")]
@@ -87,9 +101,54 @@ selected_button_color = Color(0.7145807, 0.21435747, 0.52860373, 1)
 
 [node name="benutzerauswahl9" parent="user_selection/MarginContainer/VBoxContainer" unique_id=250460063 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
-button_number = 9
 user = ExtResource("3_sugp2")
+button_number = 9
 selected_button_color = Color(0, 0.3019608, 0, 1)
+
+[node name="benutzerauswahl_extra" type="Control" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1576214631]
+layout_mode = 2
+script = ExtResource("6_tefeu")
+button_number = 10
+selected_button_color = Color(0.48845845, 0.10567536, 0, 1)
+
+[node name="background" type="ColorRect" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=1774228619]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 61.0
+color = Color(0.400698, 0.400698, 0.400698, 1)
+
+[node name="label_name" type="Label" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=1405446427]
+texture_filter = 1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 61.0
+theme_override_constants/line_spacing = -5
+theme_override_font_sizes/font_size = 15
+text = "EXTRA"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+uppercase = true
+
+[node name="label_number_s" type="Label" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=1815907581]
+texture_filter = 1
+layout_mode = 0
+offset_left = 3.0
+offset_right = 17.0
+offset_bottom = 23.0
+text = "10"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=1254202878]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 61.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eel67")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y7uxc")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_r2o50")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c605q")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2n5uk")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jde1m")
 
 [node name="status_bar" type="Control" parent="." unique_id=302359964]
 anchors_preset = 0
@@ -374,3 +433,5 @@ offset_top = 10.0
 offset_right = 514.0
 offset_bottom = 68.0
 grow_vertical = 0
+
+[connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
