@@ -160,25 +160,50 @@ layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 72.0
 
+[node name="Statusleiste2" type="ColorRect" parent="status_bar" unique_id=129699225]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 72.0
+
 [node name="Label_user_id" type="Label" parent="status_bar" unique_id=874542087]
 layout_mode = 0
-offset_left = 26.0
-offset_right = 92.0
+offset_right = 66.0
 offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 38
+theme_override_font_sizes/font_size = 30
 text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="Label_user_name" type="Label" parent="status_bar" unique_id=2144657417]
 layout_mode = 0
-offset_left = 134.0
+offset_left = 66.0
+offset_right = 420.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "Name Surname"
+vertical_alignment = 1
+
+[node name="Label_clock" type="Label" parent="status_bar" unique_id=1171869456]
+layout_mode = 0
+offset_left = 372.0
+offset_right = 475.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+text = "00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label_date" type="Label" parent="status_bar" unique_id=2038572480]
+layout_mode = 0
+offset_left = 483.0
 offset_right = 644.0
 offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 38
-text = "Name Surname"
+theme_override_font_sizes/font_size = 30
+text = "01.01.2026"
 vertical_alignment = 1
 
 [node name="keyboard" type="Control" parent="." unique_id=176270028]

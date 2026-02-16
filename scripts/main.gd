@@ -18,8 +18,8 @@ func _ready() -> void:
 
 #---------------------------------------------------------------------------------------------------
 
-#func _process(delta: float) -> void:
-	#pass
+func _process(delta: float) -> void:
+	updateClockDate()
 
 
 #---------------------------------------------------------------------------------------------------
@@ -69,3 +69,12 @@ func setUpStatusBar():
 	else:
 		$status_bar/Label_user_id.text = "X"
 		$status_bar/Label_user_name.text = "______________________"
+
+#---------------------------------------------------------------------------------------------------
+
+func updateClockDate():
+	var t = Time.get_time_dict_from_system()
+	$status_bar/Label_clock.text = "%02d:%02d" % [t.hour, t.minute]
+	
+	var d = Time.get_date_dict_from_system()
+	$status_bar/Label_date.text = "%02d.%02d.%04d" % [d.day, d.month, d.year]
