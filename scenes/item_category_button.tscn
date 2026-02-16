@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cqa6c3pekb4yt"]
+
+[ext_resource type="Script" uid="uid://dwjwku3rnoahq" path="res://scripts/item_category_button.gd" id="1_c8tuh"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f4jp6"]
+bg_color = Color(0, 0.68235296, 0.6901961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c8tuh"]
+bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_idjcq"]
+bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8f3t"]
+bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q50vg"]
+bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eqhos"]
+bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
+
+[node name="item_category_button" type="Control" unique_id=1322757492]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c8tuh")
+
+[node name="Button1" type="Button" parent="." unique_id=1132054017]
+texture_filter = 1
+clip_contents = true
+custom_minimum_size = Vector2(149, 75)
+layout_mode = 0
+offset_right = 149.0
+offset_bottom = 75.0
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_f4jp6")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_c8tuh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_idjcq")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_x8f3t")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_q50vg")
+theme_override_styles/focus = SubResource("StyleBoxFlat_eqhos")
+text = "Beschreibung"
+autowrap_mode = 3
+
+[connection signal="button_up" from="Button1" to="." method="_on_button_1_button_up"]

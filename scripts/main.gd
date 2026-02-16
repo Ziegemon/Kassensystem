@@ -23,6 +23,8 @@ func _ready() -> void:
 	current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(0)
 	current_selected_user.userSelected()
 	setUpStatusBar()
+	
+	connectItemCategorylSignals()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -39,7 +41,7 @@ func connectBenutzerauswahlSignals():
 		if child.has_signal("user_selected"):
 			child.user_selected.connect(_on_user_selected)
 
-#---------------------------------------------------------------------------------------------------
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func _on_user_selected(button_number: int) -> void:
 	current_user = button_number
@@ -86,3 +88,23 @@ func updateClockDate():
 	
 	var d = Time.get_date_dict_from_system()
 	label_date.text = "%02d.%02d.%04d" % [d.day, d.month, d.year]
+
+#---------------------------------------------------------------------------------------------------
+
+func connectItemCategorylSignals():
+	for child in $item_categories/MarginContainer/GridContainer.get_children():
+		if child.has_signal("category_selected"):
+			child.category_selected.connect(_on_category_selected)
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func _on_category_selected(item_category_id: int) -> void:
+	loadCategoryItems(item_category_id)
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func loadCategoryItems(item_category_id: int):
+	var item_array = $item_categories/MarginContainer/GridContainer.get_child(item_category_id).items_array
+	
+	for i in item_array:
+		$items/MarginContainer/GridContainer.get_child(i).item_data = item_array[i]
