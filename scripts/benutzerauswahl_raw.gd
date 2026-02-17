@@ -16,6 +16,8 @@ signal user_selected(button_number)
 
 @onready var background: ColorRect = $background
 
+@onready var current_item_list_array : Array[item_data_list_element]
+
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------

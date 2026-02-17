@@ -29,3 +29,5 @@ func setUpItemButton():
 
 func _on_button_button_up() -> void:
 	emit_signal("item_button_pressed", button_item_data)
+
+#---------------------------------------------------------------------------------------------------

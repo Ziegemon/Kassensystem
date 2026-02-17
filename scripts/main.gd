@@ -12,6 +12,9 @@ var current_selected_user : Benutzerauswahl_raw
 @onready var label_clock: Label = $status_bar/Label_clock
 @onready var label_date: Label = $status_bar/Label_date
 
+#---------------------------------------------------------------------------------------------------
+
+var current_keyboard_input : float = 1
 
 
 #---------------------------------------------------------------------------------------------------
@@ -26,6 +29,8 @@ func _ready() -> void:
 	
 	connectItemCategorylSignals()
 	loadCategoryItems(0)
+	
+	connectItemButtonSignals()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -119,3 +124,28 @@ func clearItemButtons():
 	for y in range($items/MarginContainer/GridContainer.get_child_count()):
 		$items/MarginContainer/GridContainer.get_child(y).button_item_data = null
 	
+
+#---------------------------------------------------------------------------------------------------
+
+func connectItemButtonSignals():
+	for child in $items/MarginContainer/GridContainer.get_children():
+		if child.has_signal("item_button_pressed"):
+			child.item_button_pressed.connect(_on_item_button_pressed)
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func _on_item_button_pressed(button_item_data: item_data) -> void:
+	createNewItemDataListElement(button_item_data)
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func createNewItemDataListElement(item: item_data):
+	var new_element = item_data_list_element.new()
+	new_element.item = item
+	
+	if item.wiegeprodukt == false:
+		new_element.quantity = current_keyboard_input
+		new_element.weight = null
+	else:
+		new_element.quantity = 1
+		new_element.weight = current_keyboard_input
