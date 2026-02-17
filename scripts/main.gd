@@ -14,7 +14,10 @@ var current_selected_user : Benutzerauswahl_raw
 
 #---------------------------------------------------------------------------------------------------
 
-var current_keyboard_input : float = 1
+var current_keyboard_input : float = 0.0
+var zwischensumme : bool = false
+@onready var label_current_price: Label = $displays/display_money/Label_current_price
+
 
 
 #---------------------------------------------------------------------------------------------------
@@ -136,6 +139,7 @@ func connectItemButtonSignals():
 
 func _on_item_button_pressed(button_item_data: item_data) -> void:
 	createNewItemDataListElement(button_item_data)
+	zwischensumme = false
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -144,8 +148,24 @@ func createNewItemDataListElement(item: item_data):
 	new_element.item = item
 	
 	if item.wiegeprodukt == false:
-		new_element.quantity = current_keyboard_input
-		new_element.weight = null
+		new_element.weight = 0.0
+		if current_keyboard_input == 0.0:
+			new_element.quantity = 1
+		else:
+			new_element.quantity = current_keyboard_input
 	else:
 		new_element.quantity = 1
 		new_element.weight = current_keyboard_input
+
+#---------------------------------------------------------------------------------------------------
+
+func updateKeyboardInput():
+	if current_keyboard_input == 0.0 && zwischensumme == false:
+		label_current_price.hide()
+	else:
+		label_current_price.show()
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func resetKeyboardInput():
+	current_keyboard_input = 0.0
