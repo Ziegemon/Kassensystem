@@ -34,7 +34,7 @@ func _ready() -> void:
 func userSelected():
 	background.color = selected_button_color
 	
-	for child in get_node("../../../../keyboard/buttons_main/GridContainer").get_children():
+	for child in (get_node("../../../../keyboard/buttons_main/GridContainer").get_children() + get_node("../../../../keyboard/buttons_main2/GridContainer2").get_children()):
 		#child.normal.bg_color = selected_button_color
 		
 		for style in style_names:

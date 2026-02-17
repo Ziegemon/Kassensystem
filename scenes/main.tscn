@@ -68,7 +68,7 @@ offset_bottom = 446.0
 [node name="buttons_main" type="MarginContainer" parent="keyboard" unique_id=1790949247]
 layout_mode = 0
 offset_right = 384.0
-offset_bottom = 447.0
+offset_bottom = 384.0
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
@@ -197,9 +197,25 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "3"
 
-[node name="Button0" type="Button" parent="keyboard/buttons_main/GridContainer" unique_id=1722640936]
+[node name="buttons_main2" type="MarginContainer" parent="keyboard" unique_id=608955005]
+layout_mode = 0
+offset_top = 366.0
+offset_right = 384.0
+offset_bottom = 447.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="GridContainer2" type="GridContainer" parent="keyboard/buttons_main2" unique_id=1194247562]
+layout_mode = 2
+theme_override_constants/h_separation = 2
+theme_override_constants/v_separation = 2
+columns = 3
+
+[node name="Button0" type="Button" parent="keyboard/buttons_main2/GridContainer2" unique_id=1825312592]
 texture_filter = 1
-custom_minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
@@ -210,22 +226,9 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "0"
 
-[node name="Button00" type="Button" parent="keyboard/buttons_main/GridContainer" unique_id=22208753]
+[node name="Button," type="Button" parent="keyboard/buttons_main2/GridContainer2" unique_id=448394297]
 texture_filter = 1
-custom_minimum_size = Vector2(120, 60)
-layout_mode = 2
-theme_override_font_sizes/font_size = 44
-theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tbgi4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
-text = "00"
-
-[node name="Button," type="Button" parent="keyboard/buttons_main/GridContainer" unique_id=1580512793]
-texture_filter = 1
-custom_minimum_size = Vector2(120, 60)
+custom_minimum_size = Vector2(180, 60)
 layout_mode = 2
 theme_override_font_sizes/font_size = 44
 theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
