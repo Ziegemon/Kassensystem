@@ -38,15 +38,15 @@ func userSelected():
 		#child.normal.bg_color = selected_button_color
 		
 		for style in style_names:
-			var style_box = child.get_theme_stylebox(style)
+			var style_box = child.get_child(0).get_theme_stylebox(style)
 			var new_style_box = style_box.duplicate()
 			new_style_box.bg_color = selected_button_color
-			child.add_theme_stylebox_override(style, new_style_box)
+			child.get_child(0).add_theme_stylebox_override(style, new_style_box)
 		
-		var style_box_pressed = child.get_theme_stylebox("pressed")
+		var style_box_pressed = child.get_child(0).get_theme_stylebox("pressed")
 		var new_style_box_pressed = style_box_pressed.duplicate()
 		new_style_box_pressed.bg_color = selected_button_color * 0.5
-		child.add_theme_stylebox_override("pressed", new_style_box_pressed)
+		child.get_child(0).add_theme_stylebox_override("pressed", new_style_box_pressed)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 

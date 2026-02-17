@@ -17,6 +17,7 @@ var current_selected_user : Benutzerauswahl_raw
 var current_keyboard_input : float = 0.0
 var zwischensumme : bool = false
 @onready var label_current_price: Label = $displays/display_money/Label_current_price
+var show_label_current_price_nevertheless : bool = false
 
 
 
@@ -34,11 +35,15 @@ func _ready() -> void:
 	loadCategoryItems(0)
 	
 	connectItemButtonSignals()
+	
+	connectKeyboardButtonsSignals()
+	resetKeyboardInput()
 
 #---------------------------------------------------------------------------------------------------
 
 func _process(delta: float) -> void:
 	updateClockDate()
+	#updateKeyboardInput()
 
 
 #---------------------------------------------------------------------------------------------------
@@ -55,6 +60,7 @@ func connectBenutzerauswahlSignals():
 func _on_user_selected(button_number: int) -> void:
 	current_user = button_number
 	activateCurrentuser()
+	resetKeyboardInput()
 	#print("User ausgewählt: ", button_number)
 
 #---------------------------------------------------------------------------------------------------
@@ -159,8 +165,29 @@ func createNewItemDataListElement(item: item_data):
 
 #---------------------------------------------------------------------------------------------------
 
+func connectKeyboardButtonsSignals():
+	for child in ($keyboard/buttons_main/GridContainer.get_children() + $keyboard/buttons_main2/GridContainer2.get_children()):
+		if child.has_signal("keyboard_button_pressed"):
+			child.keyboard_button_pressed.connect(_on_keyboard_button_pressed)
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func _on_keyboard_button_pressed(button_number: int) -> void:
+	if current_keyboard_input == 0.0:
+		current_keyboard_input = button_number
+	else:
+		current_keyboard_input = (current_keyboard_input + button_number)
+		#if button_number == 0:
+			#show_label_current_price_nevertheless = true
+			#print("grr")
+		#else:
+			#show_label_current_price_nevertheless = false
+	label_current_price.show()
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
 func updateKeyboardInput():
-	if current_keyboard_input == 0.0 && zwischensumme == false:
+	if current_keyboard_input == 0.0 && zwischensumme == false && show_label_current_price_nevertheless == false:
 		label_current_price.hide()
 	else:
 		label_current_price.show()
@@ -169,3 +196,4 @@ func updateKeyboardInput():
 
 func resetKeyboardInput():
 	current_keyboard_input = 0.0
+	label_current_price.hide()

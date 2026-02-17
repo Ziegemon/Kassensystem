@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://ddcrr3wydri4k"]
+
+[ext_resource type="Script" uid="uid://br0neq556c0or" path="res://scripts/keyboard_button.gd" id="1_o6sjv"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_enf7a"]
+bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6sjv"]
+bg_color = Color(0.54509807, 0.54509807, 0.54509807, 1)
+
+[node name="keyboard_button" type="Control" unique_id=1534406046]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1800.0
+offset_bottom = -960.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_o6sjv")
+
+[node name="Button" type="Button" parent="." unique_id=1930997519]
+texture_filter = 1
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 0
+theme_override_font_sizes/font_size = 44
+theme_override_styles/normal = SubResource("StyleBoxFlat_enf7a")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_o6sjv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_enf7a")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_enf7a")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_enf7a")
+theme_override_styles/focus = SubResource("StyleBoxFlat_enf7a")
+text = "1"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
