@@ -147,7 +147,8 @@ func connectItemButtonSignals():
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func _on_item_button_pressed(button_item_data: item_data) -> void:
-	createNewItemDataListElement(button_item_data)
+	if current_selected_user.user != null:
+		createNewItemDataListElement(button_item_data)
 	zwischensumme = false
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -161,10 +162,25 @@ func createNewItemDataListElement(item: item_data):
 		if current_keyboard_input == "0,00":
 			new_element.quantity = 1
 		else:
-			new_element.quantity = current_keyboard_input
+			new_element.quantity = keayboardInoutToFloat(current_keyboard_input)
 	else:
 		new_element.quantity = 1
-		new_element.weight = current_keyboard_input
+		new_element.weight = keayboardInoutToFloat(current_keyboard_input)
+	
+	current_selected_user.current_item_list_array.append(new_element)
+	
+	print("-----------------------------------")
+	for e in current_selected_user.current_item_list_array:
+		print(e.item.name + " x " + str(e.quantity) + " " + str(e.quantity * e.item.price))
+	
+	print("-----------------------------------")
+	
+	resetKeyboardInput()
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func keayboardInoutToFloat(text : String) -> float:
+	return text.replace(",", ".").to_float()
 
 #---------------------------------------------------------------------------------------------------
 
