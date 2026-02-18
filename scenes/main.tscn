@@ -14,6 +14,7 @@
 [ext_resource type="Resource" uid="uid://5sb123kynxr4" path="res://data/items/Semmeln/Lauge/Breze.tres" id="11_trceg"]
 [ext_resource type="Resource" uid="uid://bjf8pvkrpbjar" path="res://data/items/Semmeln/Lauge/Laugenstange.tres" id="12_a8y0u"]
 [ext_resource type="Resource" uid="uid://buc2jh6s8lsjj" path="res://data/items/Semmeln/Lauge/Laugenzopf.tres" id="13_jkv2x"]
+[ext_resource type="Resource" uid="uid://e3tqsxrmlw66" path="res://data/items/Brote/Roggenmischbrote/roggen_vollkorn.tres" id="15_jkv2x"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
@@ -806,6 +807,38 @@ offset_top = 1.0
 offset_right = 514.0
 offset_bottom = 475.0
 
+[node name="Label_items_quantity_weight" type="Label" parent="displays/display_items" unique_id=2027524621]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 110.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "1,512 kg"
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Label_items_names" type="Label" parent="displays/display_items" unique_id=1463209160]
+layout_mode = 0
+offset_left = 135.0
+offset_right = 423.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Roggenvollkorn 100%"
+vertical_alignment = 2
+
+[node name="Label_items_price" type="Label" parent="displays/display_items" unique_id=551730510]
+layout_mode = 0
+offset_left = 399.0
+offset_right = 504.0
+offset_bottom = 474.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "12,87 €"
+horizontal_alignment = 2
+vertical_alignment = 2
+
 [node name="display_money" type="ColorRect" parent="displays" unique_id=1863851056]
 layout_mode = 1
 anchors_preset = 2
@@ -818,12 +851,12 @@ grow_vertical = 0
 [node name="Label_current_price" type="Label" parent="displays/display_money" unique_id=1269887257]
 texture_filter = 1
 layout_mode = 0
-offset_left = 320.0
-offset_right = 493.0
+offset_left = 331.0
+offset_right = 504.0
 offset_bottom = 58.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
-text = "0,00"
+text = "0,000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
@@ -1071,6 +1104,8 @@ item_category_id = 14
 [node name="item_category_button15" parent="item_categories/MarginContainer/GridContainer" unique_id=638579679 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 15
+item_category_name = "Roggenmisch-brot"
+items_array = Array[ExtResource("9_choun")]([null, null, null, ExtResource("15_jkv2x")])
 
 [node name="item_category_button16" parent="item_categories/MarginContainer/GridContainer" unique_id=1944257804 instance=ExtResource("7_o6xl0")]
 layout_mode = 2

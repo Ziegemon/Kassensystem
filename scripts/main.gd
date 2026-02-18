@@ -14,13 +14,17 @@ var current_selected_user : Benutzerauswahl_raw
 
 #---------------------------------------------------------------------------------------------------
 
-var current_keyboard_input : String = "0,00"
+var current_keyboard_input : String = "0,000"
 var current_keyboard_input_blank : String = "0"
 var current_keyboard_input_semicolon : String
 var zwischensumme : bool = false
 @onready var label_current_price: Label = $displays/display_money/Label_current_price
 var semicolon_pressed : bool = false
-#var decimals_to_the_right : int = 0
+
+@onready var label_items_quantity_weight: Label = $displays/display_items/Label_items_quantity_weight
+@onready var label_items_names: Label = $displays/display_items/Label_items_names
+@onready var label_items_price: Label = $displays/display_items/Label_items_price
+
 
 
 #---------------------------------------------------------------------------------------------------
@@ -64,7 +68,7 @@ func _on_user_selected(button_number: int) -> void:
 	current_user = button_number
 	activateCurrentuser()
 	resetKeyboardInput()
-	#print("User ausgewählt: ", button_number)
+	loadCategoryItems(0)
 
 #---------------------------------------------------------------------------------------------------
 
@@ -159,7 +163,7 @@ func createNewItemDataListElement(item: item_data):
 	
 	if item.wiegeprodukt == false:
 		new_element.weight = 0.0
-		if current_keyboard_input == "0,00":
+		if current_keyboard_input == "0,000":
 			new_element.quantity = 1
 		else:
 			new_element.quantity = keayboardInoutToFloat(current_keyboard_input)
@@ -169,13 +173,8 @@ func createNewItemDataListElement(item: item_data):
 	
 	current_selected_user.current_item_list_array.append(new_element)
 	
-	print("-----------------------------------")
-	for e in current_selected_user.current_item_list_array:
-		print(e.item.name + " x " + str(e.quantity) + " " + str(e.quantity * e.item.price))
-	
-	print("-----------------------------------")
-	
 	resetKeyboardInput()
+	updateItemListLabel()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -198,20 +197,25 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 	if button_semicolon == true && semicolon_pressed == false: #semicolon just got pressed for the first tim -> new numbers are now added after the semicolon
 		current_keyboard_input_semicolon = (current_keyboard_input_blank + ",")
 		semicolon_pressed = true
+		current_keyboard_input = "0,"
 	
 	
-	if current_keyboard_input == "0,00": #if the label is "empty", the clicked button replaces the 0
-		current_keyboard_input = (str(button_number) + ",00")
+	if current_keyboard_input == "0,000": #if the label is "empty", the clicked button replaces the 0
+		current_keyboard_input = (str(button_number) + ",000")
 		current_keyboard_input_blank = str(button_number)
+		
 	elif semicolon_pressed == false: #there already is a number =/= 0 -> new number is added behind it but before the semicolon
-		current_keyboard_input = (current_keyboard_input_blank + str(button_number) + ",00")
+		current_keyboard_input = (current_keyboard_input_blank + str(button_number) + ",000")
 		current_keyboard_input_blank += str(button_number)
-	elif button_semicolon == false && getDecimalCount(current_keyboard_input_semicolon) < 2: #semicolon has been pressed and there are less then 2 decimals -> number added after semicolon/ number after semicolon
+		
+	elif button_semicolon == false && getDecimalCount(current_keyboard_input_semicolon) < 3: #semicolon has been pressed and there are less then 2 decimals -> number added after semicolon/ number after semicolon
 		current_keyboard_input = (current_keyboard_input_semicolon + str(button_number))
 		current_keyboard_input_semicolon += str(button_number)
 		
-		if getDecimalCount(current_keyboard_input) < 2: #ensures there are always the decimals after the semicolon
+		if getDecimalCount(current_keyboard_input) == 2: #ensures there are always the decimals after the semicolon
 			current_keyboard_input += "0"
+		elif getDecimalCount(current_keyboard_input) < 2:
+			current_keyboard_input += "00"
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -232,8 +236,55 @@ func getDecimalCount(text : String) -> int:
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func resetKeyboardInput():
-	current_keyboard_input = "0,00"
+	current_keyboard_input = "0,000"
 	current_keyboard_input_blank = "0"
 	current_keyboard_input_semicolon = ""
 	semicolon_pressed = false
 	label_current_price.hide()
+
+#---------------------------------------------------------------------------------------------------
+#text.replace(",", ".").to_float()
+func updateItemListLabel():
+	var lines_names : Array[String]
+	
+	for e in current_selected_user.current_item_list_array:
+		var line : String = e.item.name
+		lines_names.append(line)
+	
+	label_items_names.text = "\n".join(lines_names)
+	
+	#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+	
+	var lines_quantity_weigth : Array[String]
+	
+	for e in current_selected_user.current_item_list_array:
+		var line : String
+		if e.item.wiegeprodukt == false:
+			line = (str(e.quantity).replace(".", ",") + " x")
+		else:
+			line = (str(e.weight).replace(".", ",") + " kg")
+			
+		lines_quantity_weigth.append(line)
+	
+	label_items_quantity_weight.text = "\n".join(lines_quantity_weigth)
+	
+	#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
+	
+	var lines_price : Array[String]
+	
+	for e in current_selected_user.current_item_list_array:
+		var line : String
+		if e.item.wiegeprodukt == false:
+			line = (formatPrice(e.item.price * e.quantity) + " €")
+		else:
+			line = (formatPrice(e.item.price * e.weight) + " €")
+		
+		lines_price.append(line)
+	
+	label_items_price.text = "\n".join(lines_price)
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func formatPrice(price : float) -> String:
+	return ("%.2f" % price).replace(".", ",")
+	#return ("%.2f" % price).to_float()
