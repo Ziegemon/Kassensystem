@@ -44,6 +44,8 @@ func _ready() -> void:
 	
 	connectKeyboardButtonsSignals()
 	resetKeyboardInput()
+	
+	setUpDisplayLabels()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -69,6 +71,7 @@ func _on_user_selected(button_number: int) -> void:
 	activateCurrentuser()
 	resetKeyboardInput()
 	loadCategoryItems(0)
+	updateItemListLabel()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -151,7 +154,9 @@ func connectItemButtonSignals():
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func _on_item_button_pressed(button_item_data: item_data) -> void:
-	if current_selected_user.user != null:
+	if !(current_selected_user is Benutzerauswahl_extra) && current_selected_user.user != null:
+		createNewItemDataListElement(button_item_data)
+	elif current_selected_user is Benutzerauswahl_extra:
 		createNewItemDataListElement(button_item_data)
 	zwischensumme = false
 
@@ -197,7 +202,8 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 	if button_semicolon == true && semicolon_pressed == false: #semicolon just got pressed for the first tim -> new numbers are now added after the semicolon
 		current_keyboard_input_semicolon = (current_keyboard_input_blank + ",")
 		semicolon_pressed = true
-		current_keyboard_input = "0,"
+		if current_keyboard_input == "0,000":
+			current_keyboard_input = "0,"
 	
 	
 	if current_keyboard_input == "0,000": #if the label is "empty", the clicked button replaces the 0
@@ -243,7 +249,7 @@ func resetKeyboardInput():
 	label_current_price.hide()
 
 #---------------------------------------------------------------------------------------------------
-#text.replace(",", ".").to_float()
+
 func updateItemListLabel():
 	var lines_names : Array[String]
 	
@@ -288,3 +294,14 @@ func updateItemListLabel():
 func formatPrice(price : float) -> String:
 	return ("%.2f" % price).replace(".", ",")
 	#return ("%.2f" % price).to_float()
+
+#---------------------------------------------------------------------------------------------------
+
+func setUpDisplayLabels():
+	#label_items_quantity_weight.hide()
+	#label_items_names.hide()
+	#label_items_price.hide()
+	
+	label_items_quantity_weight.text = ""
+	label_items_names.text = ""
+	label_items_price.text = ""
