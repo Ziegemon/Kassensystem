@@ -11,7 +11,7 @@ extends Control
 @export var custom_minimum_size_x : int = 120
 @export var custom_minimum_size_y : int = 120
 
-signal keyboard_button_pressed(button_number)
+signal keyboard_button_pressed(button_number, button_semicolon)
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -26,8 +26,7 @@ func _ready() -> void:
 
 
 func _on_button_button_up() -> void:
-	emit_signal("keyboard_button_pressed", button_number)
-	print("emitted")
+	emit_signal("keyboard_button_pressed", button_number, button_semicolon)
 
 #---------------------------------------------------------------------------------------------------
 

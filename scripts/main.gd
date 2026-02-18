@@ -14,11 +14,13 @@ var current_selected_user : Benutzerauswahl_raw
 
 #---------------------------------------------------------------------------------------------------
 
-var current_keyboard_input : float = 0.0
+var current_keyboard_input : String = "0,00"
+var current_keyboard_input_blank : String = "0"
+var current_keyboard_input_semicolon : String
 var zwischensumme : bool = false
 @onready var label_current_price: Label = $displays/display_money/Label_current_price
-var show_label_current_price_nevertheless : bool = false
-
+var semicolon_pressed : bool = false
+#var decimals_to_the_right : int = 0
 
 
 #---------------------------------------------------------------------------------------------------
@@ -43,6 +45,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	updateClockDate()
+	label_current_price.text = current_keyboard_input
 	#updateKeyboardInput()
 
 
@@ -155,7 +158,7 @@ func createNewItemDataListElement(item: item_data):
 	
 	if item.wiegeprodukt == false:
 		new_element.weight = 0.0
-		if current_keyboard_input == 0.0:
+		if current_keyboard_input == "0,00":
 			new_element.quantity = 1
 		else:
 			new_element.quantity = current_keyboard_input
@@ -172,28 +175,49 @@ func connectKeyboardButtonsSignals():
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-func _on_keyboard_button_pressed(button_number: int) -> void:
-	if current_keyboard_input == 0.0:
-		current_keyboard_input = button_number
-	else:
-		current_keyboard_input = (current_keyboard_input + button_number)
-		#if button_number == 0:
-			#show_label_current_price_nevertheless = true
-			#print("grr")
-		#else:
-			#show_label_current_price_nevertheless = false
+#shows the pressed buttons from the keyboard on the label_current_price
+func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) -> void:
 	label_current_price.show()
+	
+	if button_semicolon == true && semicolon_pressed == false: #semicolon just got pressed for the first tim -> new numbers are now added after the semicolon
+		current_keyboard_input_semicolon = (current_keyboard_input_blank + ",")
+		semicolon_pressed = true
+	
+	
+	if current_keyboard_input == "0,00": #if the label is "empty", the clicked button replaces the 0
+		current_keyboard_input = (str(button_number) + ",00")
+		current_keyboard_input_blank = str(button_number)
+	elif semicolon_pressed == false: #there already is a number =/= 0 -> new number is added behind it but before the semicolon
+		current_keyboard_input = (current_keyboard_input_blank + str(button_number) + ",00")
+		current_keyboard_input_blank += str(button_number)
+	elif button_semicolon == false && getDecimalCount(current_keyboard_input_semicolon) < 2: #semicolon has been pressed and there are less then 2 decimals -> number added after semicolon/ number after semicolon
+		current_keyboard_input = (current_keyboard_input_semicolon + str(button_number))
+		current_keyboard_input_semicolon += str(button_number)
+		
+		if getDecimalCount(current_keyboard_input) < 2: #ensures there are always the decimals after the semicolon
+			current_keyboard_input += "0"
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-func updateKeyboardInput():
-	if current_keyboard_input == 0.0 && zwischensumme == false && show_label_current_price_nevertheless == false:
-		label_current_price.hide()
+func getDecimalCount(text : String) -> int:
+	if !text.contains(","):
+		return 0
 	else:
-		label_current_price.show()
+		return text.split(",")[1].length()
+
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+#func updateKeyboardInput():
+	#if current_keyboard_input == 0.0 && zwischensumme == false && show_label_current_price_nevertheless == false:
+		#label_current_price.hide()
+	#else:
+		#label_current_price.show()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func resetKeyboardInput():
-	current_keyboard_input = 0.0
+	current_keyboard_input = "0,00"
+	current_keyboard_input_blank = "0"
+	current_keyboard_input_semicolon = ""
+	semicolon_pressed = false
 	label_current_price.hide()
