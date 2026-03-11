@@ -817,6 +817,7 @@ theme_override_font_sizes/font_size = 22
 text = "1,512 kg"
 horizontal_alignment = 2
 vertical_alignment = 2
+autowrap_mode = 1
 
 [node name="Label_items_names" type="Label" parent="displays/display_items" unique_id=1463209160]
 layout_mode = 0
@@ -827,6 +828,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
 text = "Roggenvollkorn 100%"
 vertical_alignment = 2
+autowrap_mode = 1
 
 [node name="Label_items_price" type="Label" parent="displays/display_items" unique_id=551730510]
 layout_mode = 0
@@ -838,6 +840,7 @@ theme_override_font_sizes/font_size = 22
 text = "12,87 €"
 horizontal_alignment = 2
 vertical_alignment = 2
+autowrap_mode = 1
 
 [node name="display_money" type="ColorRect" parent="displays" unique_id=1863851056]
 layout_mode = 1

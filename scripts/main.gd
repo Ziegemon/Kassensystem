@@ -176,10 +176,11 @@ func createNewItemDataListElement(item: item_data):
 		new_element.quantity = 1
 		new_element.weight = keayboardInoutToFloat(current_keyboard_input)
 	
-	current_selected_user.current_item_list_array.append(new_element)
+	if !(item.wiegeprodukt == true && keayboardInoutToFloat(current_keyboard_input) == 0.0): #not added to item lsit if is wiegeprodukt but no number/weight was entered
+		current_selected_user.current_item_list_array.append(new_element)
 	
-	resetKeyboardInput()
-	updateItemListLabel()
+		resetKeyboardInput()
+		updateItemListLabel()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
