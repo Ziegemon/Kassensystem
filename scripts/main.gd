@@ -198,6 +198,9 @@ func connectKeyboardButtonsSignals():
 
 #shows the pressed buttons from the keyboard on the label_current_price
 func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) -> void:
+	if current_selected_user.user == null:
+		return
+		
 	label_current_price.show()
 	
 	if button_semicolon == true && semicolon_pressed == false: #semicolon just got pressed for the first tim -> new numbers are now added after the semicolon
