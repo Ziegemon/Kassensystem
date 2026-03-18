@@ -6,4 +6,5 @@
 script = ExtResource("1_7khge")
 name = "Laugenzopf"
 price = 1.05
+item_id = 22
 metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

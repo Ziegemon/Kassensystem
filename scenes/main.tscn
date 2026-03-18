@@ -810,11 +810,11 @@ offset_bottom = 475.0
 [node name="Label_items_quantity_weight" type="Label" parent="displays/display_items" unique_id=2027524621]
 layout_mode = 0
 offset_left = 5.0
-offset_right = 110.0
+offset_right = 119.0
 offset_bottom = 474.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 22
-text = "1,512 kg"
+text = "1,572 kg"
 horizontal_alignment = 2
 vertical_alignment = 2
 autowrap_mode = 1
