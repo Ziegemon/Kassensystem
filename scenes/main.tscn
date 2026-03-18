@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kgteq6c6od3w" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bp5qlr7a6wq31" path="res://scenes/benutzerauswahl.tscn" id="2_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://ddcrr3wydri4k" path="res://scenes/keyboard_button.tscn" id="2_a8y0u"]
+[ext_resource type="Texture2D" uid="uid://cdmfetbiclh00" path="res://assets/symbol_eraser.png" id="3_jbj1t"]
 [ext_resource type="Resource" uid="uid://bc4k2nxinwqti" path="res://data/users/1.tres" id="3_jyhfs"]
 [ext_resource type="Resource" uid="uid://dsysqsybft0ni" path="res://data/users/0.tres" id="3_sugp2"]
 [ext_resource type="Resource" uid="uid://b8m16prewh13" path="res://data/users/2.tres" id="4_tbgi4"]
@@ -179,7 +180,6 @@ text = "Rechnung drucken"
 autowrap_mode = 3
 
 [node name="Button2" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=538525454]
-texture_filter = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -194,8 +194,12 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
-text = "Im Haus Verzehr"
+text = "Korrrektur"
+icon = ExtResource("3_jbj1t")
 autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Button3" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=260860436]
 texture_filter = 1
@@ -1166,5 +1170,6 @@ item_category_id = 28
 layout_mode = 2
 item_category_id = 289
 
+[connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_up"]
 [connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
 [connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/Button7" to="." method="_on_button_ZWS_button_up"]

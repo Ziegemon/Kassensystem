@@ -354,3 +354,8 @@ func change_zwischensummen_status(zws_status : bool):
 		
 	else:
 		$toolbar_bottom_2/background.color = Color(1, 1, 1)
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_button_X_button_up() -> void:
+	current_keyboard_input = "0,000"
