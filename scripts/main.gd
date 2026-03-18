@@ -158,7 +158,7 @@ func _on_item_button_pressed(button_item_data: item_data) -> void:
 		createNewItemDataListElement(button_item_data)
 	elif current_selected_user is Benutzerauswahl_extra:
 		createNewItemDataListElement(button_item_data)
-	zwischensumme = false
+	change_zwischensummen_status(false)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -223,6 +223,8 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 			current_keyboard_input += "0"
 		elif getDecimalCount(current_keyboard_input) < 2:
 			current_keyboard_input += "00"
+	
+	change_zwischensummen_status(false)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -339,3 +341,16 @@ func _on_button_ZWS_button_up() -> void:
 	
 	current_selected_user.current_item_list_array = temp_new_item_list_array
 	updateItemListLabel()
+	change_zwischensummen_status(true)
+
+#---------------------------------------------------------------------------------------------------
+
+func change_zwischensummen_status(zws_status : bool):
+	zwischensumme = zws_status
+	
+	if zwischensumme == true:
+		#$toolbar_bottom_2/background.color = Color(0.0, 0.611, 0.0)
+		$toolbar_bottom_2/background.color = Color(0.678, 1.0, 0.655)
+		
+	else:
+		$toolbar_bottom_2/background.color = Color(1, 1, 1)
