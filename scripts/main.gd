@@ -308,3 +308,34 @@ func setUpDisplayLabels():
 	label_items_price.text = ""
 
 #---------------------------------------------------------------------------------------------------
+
+func _on_button_ZWS_button_up() -> void:
+	var temp_new_item_list_array : Array[item_data_list_element]
+	var temp_item_ids_in_for_new_array : Array[int]
+	
+	#every id from current_selected_user.current_item_list_array gets added to temp_item_ids_in_for_new_array once, wiegeprodukte are showen directly
+	for e in current_selected_user.current_item_list_array:
+		if e.item.item_id not in temp_item_ids_in_for_new_array && e.item.wiegeprodukt == false:
+			temp_item_ids_in_for_new_array.append(e.item.item_id)
+		elif e.item.wiegeprodukt == true:
+			temp_new_item_list_array.append(e)
+	
+	#for every id in temp_item_ids_in_for_new_array, the quantity of all objects with this id in current_selected_user.current_item_list_array are summed up, amde into a new object and get appended to the new sorted array
+	for i in temp_item_ids_in_for_new_array:
+		var summed_up_item_quantity : int = 0
+		var new_item_data_list_element = item_data_list_element.new()
+		var item_already_set : bool = false
+		
+		for e in current_selected_user.current_item_list_array:
+			if e.item.item_id == i:
+				summed_up_item_quantity += e.quantity
+			
+				if item_already_set == false:
+					new_item_data_list_element.item = e.item
+					item_already_set = true
+			
+		new_item_data_list_element.quantity = summed_up_item_quantity
+		temp_new_item_list_array.append(new_item_data_list_element)
+	
+	current_selected_user.current_item_list_array = temp_new_item_list_array
+	updateItemListLabel()

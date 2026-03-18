@@ -1167,3 +1167,4 @@ layout_mode = 2
 item_category_id = 289
 
 [connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/Button7" to="." method="_on_button_ZWS_button_up"]
