@@ -201,7 +201,6 @@ func setLabelCurrentPrice():
 		line = (formatPrice(element.item.price * element.weight) + " €")
 	
 	label_current_price.text = line
-	print(line)
 	label_current_price.show()
 
 #---------------------------------------------------------------------------------------------------
@@ -383,7 +382,7 @@ func change_zwischensummen_status(zws_status : bool):
 		#$toolbar_bottom_2/background.color = Color(0.0, 0.611, 0.0)
 		$toolbar_bottom_2/background.color = Color(0.678, 1.0, 0.655)
 		
-		label_current_price.text = formatPrice(summedUpPrice)
+		label_current_price.text = (formatPrice(summedUpPrice) + " €")
 		label_current_price.show()
 		
 	else:
@@ -393,3 +392,4 @@ func change_zwischensummen_status(zws_status : bool):
 
 func _on_button_X_button_up() -> void:
 	current_keyboard_input = "0,000"
+	label_current_price.text = current_keyboard_input
