@@ -51,7 +51,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	updateClockDate()
-	label_current_price.text = current_keyboard_input
+	#label_current_price.text = current_keyboard_input
 	#updateKeyboardInput()
 
 
@@ -91,6 +91,8 @@ func activateCurrentuser():
 	else:
 		label_user_id.text = "X"
 		label_user_name.text = "__________________"
+	
+	change_zwischensummen_status(false)
 
 #---------------------------------------------------------------------------------------------------
 
@@ -180,12 +182,27 @@ func createNewItemDataListElement(item: item_data):
 		current_selected_user.current_item_list_array.append(new_element)
 	
 		resetKeyboardInput()
-		updateItemListLabel()
+		updateItemListLabel() 
+		setLabelCurrentPrice()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func keayboardInoutToFloat(text : String) -> float:
 	return text.replace(",", ".").to_float()
+
+#---------------------------------------------------------------------------------------------------
+
+func setLabelCurrentPrice():
+	var element = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
+	var line : String
+	if element.item.wiegeprodukt == false:
+		line = (formatPrice(element.item.price * element.quantity) + " €")
+	else:
+		line = (formatPrice(element.item.price * element.weight) + " €")
+	
+	label_current_price.text = line
+	print(line)
+	label_current_price.show()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -198,9 +215,10 @@ func connectKeyboardButtonsSignals():
 
 #shows the pressed buttons from the keyboard on the label_current_price
 func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) -> void:
+	
 	if current_selected_user.user == null:
 		return
-		
+	
 	label_current_price.show()
 	
 	if button_semicolon == true && semicolon_pressed == false: #semicolon just got pressed for the first tim -> new numbers are now added after the semicolon
@@ -228,6 +246,8 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 			current_keyboard_input += "00"
 	
 	change_zwischensummen_status(false)
+	
+	label_current_price.text = current_keyboard_input
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -351,9 +371,20 @@ func _on_button_ZWS_button_up() -> void:
 func change_zwischensummen_status(zws_status : bool):
 	zwischensumme = zws_status
 	
-	if zwischensumme == true:
+	var summedUpPrice : float = 0
+	
+	for e in current_selected_user.current_item_list_array:
+		if e.item.wiegeprodukt == false:
+			summedUpPrice += (e.item.price * e.quantity)
+		else:
+			summedUpPrice += (e.item.price * e.weight)
+	
+	if zwischensumme == true && summedUpPrice > 0.000:
 		#$toolbar_bottom_2/background.color = Color(0.0, 0.611, 0.0)
 		$toolbar_bottom_2/background.color = Color(0.678, 1.0, 0.655)
+		
+		label_current_price.text = formatPrice(summedUpPrice)
+		label_current_price.show()
 		
 	else:
 		$toolbar_bottom_2/background.color = Color(1, 1, 1)
