@@ -3,7 +3,12 @@
 [ext_resource type="Script" uid="uid://e5rpxearmenj" path="res://scripts/display_item_element.gd" id="1_0qw3t"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a54qp"]
-bg_color = Color(0.9172586, 0.41343492, 0.48913884, 1)
+bg_color = Color(1, 1, 1, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0qw3t"]
+bg_color = Color(0.6421081, 0.911724, 0.97953504, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xou4p"]
 
 [node name="display_item_element" type="Control" unique_id=719278787]
 custom_minimum_size = Vector2(0, 31)
@@ -19,9 +24,11 @@ script = ExtResource("1_0qw3t")
 
 [node name="display_item_element_button" type="Button" parent="." unique_id=521281308]
 layout_mode = 0
-offset_right = 499.0
+offset_right = 506.0
 offset_bottom = 31.0
 theme_override_styles/normal = SubResource("StyleBoxFlat_a54qp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_0qw3t")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_xou4p")
 
 [node name="Label_items_quantity_weight" type="Label" parent="." unique_id=1289117402]
 layout_mode = 0

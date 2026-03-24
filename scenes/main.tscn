@@ -811,52 +811,15 @@ offset_top = 1.0
 offset_right = 514.0
 offset_bottom = 475.0
 
-[node name="Label_items_quantity_weight" type="Label" parent="displays/display_items" unique_id=2027524621]
-layout_mode = 0
-offset_left = 5.0
-offset_right = 119.0
-offset_bottom = 474.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
-text = "1,572 kg"
-horizontal_alignment = 2
-vertical_alignment = 2
-autowrap_mode = 1
-
-[node name="Label_items_names" type="Label" parent="displays/display_items" unique_id=1463209160]
-layout_mode = 0
-offset_left = 135.0
-offset_right = 423.0
-offset_bottom = 474.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
-text = "Roggenvollkorn 100%"
-vertical_alignment = 2
-autowrap_mode = 1
-
-[node name="Label_items_price" type="Label" parent="displays/display_items" unique_id=551730510]
-layout_mode = 0
-offset_left = 399.0
-offset_right = 504.0
-offset_bottom = 474.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 22
-text = "12,87 €"
-horizontal_alignment = 2
-vertical_alignment = 2
-autowrap_mode = 1
-
-[node name="Labels_items_VScrollBar" type="VScrollBar" parent="displays/display_items" unique_id=839529173]
+[node name="Labels_items_VScrollContainer" type="ScrollContainer" parent="displays/display_items" unique_id=768485192]
 layout_mode = 0
 offset_right = 514.0
-offset_bottom = 291.0
+offset_bottom = 474.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="displays/display_items/Labels_items_VScrollBar" unique_id=768664492]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 1.0
-offset_right = 513.0
-offset_bottom = 291.0
+[node name="VBoxContainer" type="VBoxContainer" parent="displays/display_items/Labels_items_VScrollContainer" unique_id=768664492]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 2
 
 [node name="display_money" type="ColorRect" parent="displays" unique_id=1863851056]

@@ -21,13 +21,7 @@ var zwischensumme : bool = false
 @onready var label_current_price: Label = $displays/display_money/Label_current_price
 var semicolon_pressed : bool = false
 
-@onready var labels_items_v_scroll_bar_vbox_container: VBoxContainer = $displays/display_items/Labels_items_VScrollBar/VBoxContainer
-
-#vllt weg machen, veraltet
-@onready var label_items_quantity_weight: Label = $displays/display_items/Label_items_quantity_weight
-@onready var label_items_names: Label = $displays/display_items/Label_items_names
-@onready var label_items_price: Label = $displays/display_items/Label_items_price
-
+@onready var labels_items_scroll_container_vbox_container: VBoxContainer = $displays/display_items/Labels_items_VScrollContainer/VBoxContainer
 
 
 #---------------------------------------------------------------------------------------------------
@@ -48,7 +42,6 @@ func _ready() -> void:
 	connectKeyboardButtonsSignals()
 	resetKeyboardInput()
 	
-	setUpDisplayLabels()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -74,7 +67,7 @@ func _on_user_selected(button_number: int) -> void:
 	activateCurrentuser()
 	resetKeyboardInput()
 	loadCategoryItems(0)
-	updateItemListLabel()
+	updateItemListLabelV3()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -185,10 +178,7 @@ func createNewItemDataListElement(item: item_data):
 		current_selected_user.current_item_list_array.append(new_element)
 	
 		resetKeyboardInput()
-		updateItemListLabel() 
 		setLabelCurrentPrice()
-		
-		#updateItemListLabelV2(new_element)
 		addItemToList(new_element)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
@@ -281,47 +271,6 @@ func resetKeyboardInput():
 
 #---------------------------------------------------------------------------------------------------
 
-func updateItemListLabel():
-	var lines_names : Array[String]
-	
-	for e in current_selected_user.current_item_list_array:
-		var line : String = e.item.name
-		lines_names.append(line)
-	
-	label_items_names.text = "\n".join(lines_names)
-	
-	#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-	
-	var lines_quantity_weigth : Array[String]
-	
-	for e in current_selected_user.current_item_list_array:
-		var line : String
-		if e.item.wiegeprodukt == false:
-			line = (str(e.quantity).replace(".", ",") + " x")
-		else:
-			line = (str(e.weight).replace(".", ",") + " kg")
-			
-		lines_quantity_weigth.append(line)
-	
-	label_items_quantity_weight.text = "\n".join(lines_quantity_weigth)
-	
-	#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -
-	
-	var lines_price : Array[String]
-	
-	for e in current_selected_user.current_item_list_array:
-		var line : String
-		if e.item.wiegeprodukt == false:
-			line = (formatPrice(e.item.price * e.quantity) + " €")
-		else:
-			line = (formatPrice(e.item.price * e.weight) + " €")
-		
-		lines_price.append(line)
-	
-	label_items_price.text = "\n".join(lines_price)
-	
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 func formatPrice(price : float) -> String:
 	return ("%.2f" % price).replace(".", ",")
 	#return ("%.2f" % price).to_float()
@@ -331,39 +280,28 @@ func formatPrice(price : float) -> String:
 func updateItemListLabelV2(item: item_data_list_element):
 	for e in current_selected_user.current_item_list_array:
 		var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
-		labels_items_v_scroll_bar_vbox_container.add_child(new_display_item_element)
+		labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
 		new_display_item_element.setUpItemListElement(item)
 		
-		#labels_items_v_scroll_bar_vbox_container.add_child(display_item_element.new(item))
+		#labels_items_scroll_container_vbox_container.add_child(display_item_element.new(item))
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func addItemToList(item: item_data_list_element):
 	var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
-	labels_items_v_scroll_bar_vbox_container.add_child(new_display_item_element)
+	labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
 	new_display_item_element.setUpItemListElement(item)
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func updateItemListLabelV3():
-	for child in labels_items_v_scroll_bar_vbox_container.get_children():
+	for child in labels_items_scroll_container_vbox_container.get_children():
 		child.queue_free()
 	
 	for e in current_selected_user.current_item_list_array:
 		var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
-		labels_items_v_scroll_bar_vbox_container.add_child(new_display_item_element)
+		labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
 		new_display_item_element.setUpItemListElement(e)
-
-#---------------------------------------------------------------------------------------------------
-
-func setUpDisplayLabels():
-	#label_items_quantity_weight.hide()
-	#label_items_names.hide()
-	#label_items_price.hide()
-	
-	label_items_quantity_weight.text = ""
-	label_items_names.text = ""
-	label_items_price.text = ""
 
 #---------------------------------------------------------------------------------------------------
 
@@ -396,10 +334,8 @@ func _on_button_ZWS_button_up() -> void:
 		temp_new_item_list_array.append(new_item_data_list_element)
 	
 	current_selected_user.current_item_list_array = temp_new_item_list_array
-	updateItemListLabel()
-	change_zwischensummen_status(true)
-	
 	updateItemListLabelV3()
+	change_zwischensummen_status(true)
 
 #---------------------------------------------------------------------------------------------------
 
