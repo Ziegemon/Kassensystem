@@ -22,6 +22,8 @@ var zwischensumme : bool = false
 var semicolon_pressed : bool = false
 
 @onready var labels_items_scroll_container_vbox_container: VBoxContainer = $displays/display_items/Labels_items_VScrollContainer/VBoxContainer
+@onready var labels_items_v_scroll_container: ScrollContainer = $displays/display_items/Labels_items_VScrollContainer
+
 
 
 #---------------------------------------------------------------------------------------------------
@@ -41,10 +43,10 @@ func _ready() -> void:
 	
 	connectKeyboardButtonsSignals()
 	resetKeyboardInput()
-	
 
 #---------------------------------------------------------------------------------------------------
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	updateClockDate()
 	#label_current_price.text = current_keyboard_input
@@ -291,6 +293,15 @@ func addItemToList(item: item_data_list_element):
 	var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
 	labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
 	new_display_item_element.setUpItemListElement(item)
+	
+	#labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.scroll_vertical.Range.max_value
+	
+	#var scroll = labels_items_v_scroll_container
+	#scroll.set_deferred("scroll_vertical", scroll.get_v_scroll_bar().max_value)
+	#print(scroll.get_v_scroll_bar().max_value)
+	await get_tree().create_timer(0.005).timeout
+	@warning_ignore("narrowing_conversion")
+	labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.get_v_scroll_bar().max_value
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
