@@ -21,9 +21,12 @@ var zwischensumme : bool = false
 @onready var label_current_price: Label = $displays/display_money/Label_current_price
 var semicolon_pressed : bool = false
 
+#---------------------------------------------------------------------------------------------------
+
 @onready var labels_items_scroll_container_vbox_container: VBoxContainer = $displays/display_items/Labels_items_VScrollContainer/VBoxContainer
 @onready var labels_items_v_scroll_container: ScrollContainer = $displays/display_items/Labels_items_VScrollContainer
 
+var current_selcted_item_list_item : int = -1
 
 
 #---------------------------------------------------------------------------------------------------
@@ -91,6 +94,9 @@ func activateCurrentuser():
 		label_user_name.text = "__________________"
 	
 	change_zwischensummen_status(false)
+	
+	for e in labels_items_scroll_container_vbox_container.get_children():
+		e.display_item_element_button_transmit_id.connect(_on_display_item_element_button_transmit_id)#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa weg damit? aber es geht trotzdem nicht
 
 #---------------------------------------------------------------------------------------------------
 
@@ -256,14 +262,6 @@ func getDecimalCount(text : String) -> int:
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-#func updateKeyboardInput():
-	#if current_keyboard_input == 0.0 && zwischensumme == false && show_label_current_price_nevertheless == false:
-		#label_current_price.hide()
-	#else:
-		#label_current_price.show()
-
-#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
-
 func resetKeyboardInput():
 	current_keyboard_input = "0,000"
 	current_keyboard_input_blank = "0"
@@ -279,20 +277,12 @@ func formatPrice(price : float) -> String:
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-func updateItemListLabelV2(item: item_data_list_element):
-	for e in current_selected_user.current_item_list_array:
-		var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
-		labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
-		new_display_item_element.setUpItemListElement(item)
-		
-		#labels_items_scroll_container_vbox_container.add_child(display_item_element.new(item))
-
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func addItemToList(item: item_data_list_element):
 	var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
 	labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
-	new_display_item_element.setUpItemListElement(item)
+	new_display_item_element.setUpItemListElement(item, labels_items_scroll_container_vbox_container.get_child_count() - 1)
+	new_display_item_element.display_item_element_button_transmit_id.connect(_on_display_item_element_button_transmit_id)
 	
 	#labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.scroll_vertical.Range.max_value
 	
@@ -302,17 +292,30 @@ func addItemToList(item: item_data_list_element):
 	await get_tree().create_timer(0.005).timeout
 	@warning_ignore("narrowing_conversion")
 	labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.get_v_scroll_bar().max_value
+	
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+func _on_display_item_element_button_transmit_id(button_id : int):
+	for e in labels_items_scroll_container_vbox_container.get_children():
+		e.get_child(0).button_pressed = false
+	
+	labels_items_scroll_container_vbox_container.get_child(button_id).get_child(0).button_pressed = true #!!!!!!!!!!!!!!!!!!!!!!!!!kann get_child(button_id) bleiben, wenn die button_ids nach KOrrektur neu zugewiesenw erden
+	current_selcted_item_list_item = button_id
+	print("current it l it: " + str(current_selcted_item_list_item))
+	
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func updateItemListLabelV3():
 	for child in labels_items_scroll_container_vbox_container.get_children():
 		child.queue_free()
+	await get_tree().process_frame
 	
-	for e in current_selected_user.current_item_list_array:
+	print("updated")
+	for e in range(current_selected_user.current_item_list_array.size()):
 		var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
 		labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
-		new_display_item_element.setUpItemListElement(e)
+		new_display_item_element.setUpItemListElement(current_selected_user.current_item_list_array[e], e)
+		print(e)
 
 #---------------------------------------------------------------------------------------------------
 
@@ -376,3 +379,23 @@ func change_zwischensummen_status(zws_status : bool):
 func _on_button_X_button_up() -> void:
 	current_keyboard_input = "0,000"
 	label_current_price.text = current_keyboard_input
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_korrektur_button_button_up() -> void:
+	print("#--")
+	print(current_selcted_item_list_item)
+	if current_selcted_item_list_item == -1:
+		current_selected_user.current_item_list_array.remove_at(current_selected_user.current_item_list_array.size() - 1)
+	else:
+		current_selected_user.current_item_list_array.remove_at(current_selcted_item_list_item)
+	
+	current_selcted_item_list_item = -1
+	
+	updateItemListLabelV3()
+	#button_ids neu setzen------
+	
+	#var new_buttons_ids : int = 0
+	#for e in labels_items_scroll_container_vbox_container.get_children():
+		#e.item_list_element_id = new_buttons_ids
+		#new_buttons_ids += 1

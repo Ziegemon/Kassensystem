@@ -179,7 +179,7 @@ theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "Rechnung drucken"
 autowrap_mode = 3
 
-[node name="Button2" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=538525454]
+[node name="Korrektur_button" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=538525454]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -1149,6 +1149,7 @@ item_category_id = 28
 layout_mode = 2
 item_category_id = 289
 
+[connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_button_up"]
 [connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_up"]
 [connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
 [connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/Button7" to="." method="_on_button_ZWS_button_up"]
