@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://ba6pnhi1gmmx4"]
+
+[ext_resource type="Script" uid="uid://e5rpxearmenj" path="res://scripts/display_item_element.gd" id="1_0qw3t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a54qp"]
+bg_color = Color(0.9172586, 0.41343492, 0.48913884, 1)
+
+[node name="display_item_element" type="Control" unique_id=719278787]
+custom_minimum_size = Vector2(0, 31)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1421.0
+offset_bottom = -1049.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0qw3t")
+
+[node name="display_item_element_button" type="Button" parent="." unique_id=521281308]
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 31.0
+theme_override_styles/normal = SubResource("StyleBoxFlat_a54qp")
+
+[node name="Label_items_quantity_weight" type="Label" parent="." unique_id=1289117402]
+layout_mode = 0
+offset_left = 5.0
+offset_right = 119.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "1,572 kg"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 1
+
+[node name="Label_items_names" type="Label" parent="." unique_id=578509486]
+layout_mode = 0
+offset_left = 135.0
+offset_right = 394.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "Roggenvollkorn 100%"
+vertical_alignment = 2
+autowrap_mode = 1
+
+[node name="Label_items_price" type="Label" parent="." unique_id=92982169]
+layout_mode = 0
+offset_left = 394.0
+offset_right = 499.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 22
+text = "12,87 €"
+horizontal_alignment = 2
+vertical_alignment = 2
+autowrap_mode = 1

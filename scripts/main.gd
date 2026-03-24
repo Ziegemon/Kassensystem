@@ -21,6 +21,9 @@ var zwischensumme : bool = false
 @onready var label_current_price: Label = $displays/display_money/Label_current_price
 var semicolon_pressed : bool = false
 
+@onready var labels_items_v_scroll_bar_vbox_container: VBoxContainer = $displays/display_items/Labels_items_VScrollBar/VBoxContainer
+
+#vllt weg machen, veraltet
 @onready var label_items_quantity_weight: Label = $displays/display_items/Label_items_quantity_weight
 @onready var label_items_names: Label = $displays/display_items/Label_items_names
 @onready var label_items_price: Label = $displays/display_items/Label_items_price
@@ -184,6 +187,9 @@ func createNewItemDataListElement(item: item_data):
 		resetKeyboardInput()
 		updateItemListLabel() 
 		setLabelCurrentPrice()
+		
+		#updateItemListLabelV2(new_element)
+		addItemToList(new_element)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -313,12 +319,40 @@ func updateItemListLabel():
 		lines_price.append(line)
 	
 	label_items_price.text = "\n".join(lines_price)
-
+	
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func formatPrice(price : float) -> String:
 	return ("%.2f" % price).replace(".", ",")
 	#return ("%.2f" % price).to_float()
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func updateItemListLabelV2(item: item_data_list_element):
+	for e in current_selected_user.current_item_list_array:
+		var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
+		labels_items_v_scroll_bar_vbox_container.add_child(new_display_item_element)
+		new_display_item_element.setUpItemListElement(item)
+		
+		#labels_items_v_scroll_bar_vbox_container.add_child(display_item_element.new(item))
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func addItemToList(item: item_data_list_element):
+	var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
+	labels_items_v_scroll_bar_vbox_container.add_child(new_display_item_element)
+	new_display_item_element.setUpItemListElement(item)
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func updateItemListLabelV3():
+	for child in labels_items_v_scroll_bar_vbox_container.get_children():
+		child.queue_free()
+	
+	for e in current_selected_user.current_item_list_array:
+		var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
+		labels_items_v_scroll_bar_vbox_container.add_child(new_display_item_element)
+		new_display_item_element.setUpItemListElement(e)
 
 #---------------------------------------------------------------------------------------------------
 
@@ -364,6 +398,8 @@ func _on_button_ZWS_button_up() -> void:
 	current_selected_user.current_item_list_array = temp_new_item_list_array
 	updateItemListLabel()
 	change_zwischensummen_status(true)
+	
+	updateItemListLabelV3()
 
 #---------------------------------------------------------------------------------------------------
 
