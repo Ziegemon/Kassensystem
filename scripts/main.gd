@@ -11,6 +11,8 @@ var current_selected_user : Benutzerauswahl_raw
 @onready var label_user_name: Label = $status_bar/Label_user_name
 @onready var label_clock: Label = $status_bar/Label_clock
 @onready var label_date: Label = $status_bar/Label_date
+@onready var label_rabatt: Label = $status_bar/Label_rabatt
+
 
 #---------------------------------------------------------------------------------------------------
 
@@ -46,14 +48,14 @@ func _ready() -> void:
 	
 	connectKeyboardButtonsSignals()
 	resetKeyboardInput()
+	
+	label_rabatt.hide()
 
 #---------------------------------------------------------------------------------------------------
 
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	updateClockDate()
-	#label_current_price.text = current_keyboard_input
-	#updateKeyboardInput()
 
 
 #---------------------------------------------------------------------------------------------------
@@ -73,6 +75,11 @@ func _on_user_selected(button_number: int) -> void:
 	resetKeyboardInput()
 	loadCategoryItems(0)
 	updateItemListLabelV3()
+	
+	if current_selected_user.rabatt == 1.0:
+		label_rabatt.hide()
+	else:
+		label_rabatt.show()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -197,9 +204,9 @@ func setLabelCurrentPrice():
 	var element = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
 	var line : String
 	if element.item.wiegeprodukt == false:
-		line = (formatPrice(element.item.price * element.quantity) + " €")
+		line = (formatPrice(element.item.price * element.quantity * current_selected_user.rabatt) + " €")
 	else:
-		line = (formatPrice(element.item.price * element.weight) + " €")
+		line = (formatPrice(element.item.price * element.weight * current_selected_user.rabatt) + " €")
 	
 	label_current_price.text = line
 	label_current_price.show()
@@ -358,7 +365,7 @@ func change_zwischensummen_status(zws_status : bool):
 		#$toolbar_bottom_2/background.color = Color(0.0, 0.611, 0.0)
 		$toolbar_bottom_2/background.color = Color(0.678, 1.0, 0.655)
 		
-		label_current_price.text = (formatPrice(summedUpPrice) + " €")
+		label_current_price.text = (formatPrice(summedUpPrice * current_selected_user.rabatt) + " €")
 		label_current_price.show()
 		
 	else:
@@ -384,9 +391,25 @@ func _on_korrektur_button_button_up() -> void:
 	change_zwischensummen_status(false)
 	label_current_price.text = ""
 
-	#button_ids neu setzen------
+#---------------------------------------------------------------------------------------------------
+
+func _on_rabatt_button_pressed() -> void:
+	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer.show()
+	$toolbar_bottom_1/MarginContainer/HBoxContainer.hide()
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func set_n_apply_rabatt(new_rabatt : float):
+	current_selected_user.rabatt = clamp(1 - new_rabatt, 0.0, 1.0)
+	label_rabatt.text = "Rabatt: " + str(int(new_rabatt * 100)) + "%"
 	
-	#var new_buttons_ids : int = 0
-	#for e in labels_items_scroll_container_vbox_container.get_children():
-		#e.item_list_element_id = new_buttons_ids
-		#new_buttons_ids += 1
+	if new_rabatt == 0.0:
+		label_rabatt.hide()
+	else:
+		label_rabatt.show()
+		
+	label_current_price.text = ""
+	
+	updateItemListLabelV3()
+	
+	change_zwischensummen_status(false)

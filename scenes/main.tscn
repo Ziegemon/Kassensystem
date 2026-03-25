@@ -11,6 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://cqa6c3pekb4yt" path="res://scenes/item_category_button.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cr6rualrsbw38" path="res://scenes/item_button.tscn" id="7_tipki"]
 [ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="9_choun"]
+[ext_resource type="Texture2D" uid="uid://co3qjjownfku3" path="res://assets/rabatt_icon_expanded_top.png" id="9_pibwh"]
+[ext_resource type="Script" uid="uid://co4feobmwvg1c" path="res://scripts/rabatt_h_box_container.gd" id="10_5he1u"]
+[ext_resource type="Texture2D" uid="uid://cvesq86f5wsja" path="res://assets/return_icon_02_expanded.png" id="10_c6pm6"]
 [ext_resource type="Resource" uid="uid://b75vvknh2ttwe" path="res://data/items/Semmeln/helle Semmeln/Kaisersemmel.tres" id="10_ya4ey"]
 [ext_resource type="Resource" uid="uid://5sb123kynxr4" path="res://data/items/Semmeln/Lauge/Breze.tres" id="11_trceg"]
 [ext_resource type="Resource" uid="uid://bjf8pvkrpbjar" path="res://data/items/Semmeln/Lauge/Laugenstange.tres" id="12_a8y0u"]
@@ -56,6 +59,24 @@ bg_color = Color(0.8352941, 0.8352941, 0.8352941, 0.37254903)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n5uk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jde1m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pibwh"]
+bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5he1u"]
+bg_color = Color(1, 0.2627451, 0.19215687, 0.6862745)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6pm6"]
+bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5poiv"]
+bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cjbq"]
+bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_chjal"]
+bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
 bg_color = Color(0.54509807, 0.54509807, 0.54509807, 1)
@@ -316,6 +337,17 @@ offset_bottom = 72.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 30
 text = "01.01.2026"
+vertical_alignment = 1
+
+[node name="Label_rabatt" type="Label" parent="status_bar" unique_id=1736758596]
+texture_filter = 1
+layout_mode = 0
+offset_left = 693.0
+offset_right = 866.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 0.2627451, 0.19215687, 1)
+theme_override_font_sizes/font_size = 30
+text = "Rabatt: 50%"
 vertical_alignment = 1
 
 [node name="user_selection" type="Control" parent="." unique_id=217765284]
@@ -657,19 +689,30 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 3
 
-[node name="Button1" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=427787326]
+[node name="Rabatt_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=427787326]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
-theme_override_font_sizes/font_size = 44
-theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tbgi4")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
-text = "
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+text = "Rabatt
 "
+icon = ExtResource("9_pibwh")
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="Button2" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=1484104536]
 texture_filter = 1
@@ -754,6 +797,180 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "
 "
+
+[node name="Rabatt_HBoxContainer" type="HBoxContainer" parent="toolbar_bottom_1/MarginContainer" unique_id=755734832]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 3
+script = ExtResource("10_5he1u")
+
+[node name="reset_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=255223351]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+text = "reset
+0%
+"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="5_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=517611348]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+text = "5 %
+"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="10_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1696005902]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+text = "10 %
+"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="15_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=313556530]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+text = "15 %
+"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="25_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=327222668]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+text = "25 %
+"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="50_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=813202614]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+text = "50 %
+"
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="return_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1477647368]
+texture_filter = 1
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
+theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
+icon = ExtResource("10_c6pm6")
+autowrap_mode = 3
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
 
 [node name="toolbar_bottom_2" type="Control" parent="." unique_id=1911317101]
 anchors_preset = 0
@@ -1170,7 +1387,16 @@ item_category_id = 28
 layout_mode = 2
 item_category_id = 289
 
+[connection signal="keyboard_button_pressed" from="keyboard/buttons_main/GridContainer/keyboard_button9" to="." method="_on_keyboard_button_9_keyboard_button_pressed"]
 [connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_button_up"]
 [connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_up"]
 [connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]
+[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/reset_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_reset_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/5_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_5_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/10_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_10_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/15_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_15_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/25_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_25_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/50_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_50_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/return_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_return_button_button_up"]
 [connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/Button7" to="." method="_on_button_ZWS_button_up"]

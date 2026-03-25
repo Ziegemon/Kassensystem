@@ -38,9 +38,9 @@ func setUpItemListElement(item : item_data_list_element, button_id : int):
 		label_items_quantity_weight.text = (str(item.weight).replace(".", ",") + " kg")
 	
 	if item.weight == 0.0:
-		label_items_price.text = (formatPrice(item.item.price * item.quantity) + " €")
+		label_items_price.text = (formatPrice(item.item.price * item.quantity * get_tree().get_root().get_node("MAIN").current_selected_user.rabatt) + " €")
 	else:
-		label_items_price.text = (formatPrice(item.item.price * item.weight) + " €")
+		label_items_price.text = (formatPrice(item.item.price * item.weight * get_tree().get_root().get_node("MAIN").current_selected_user.rabatt) + " €")
 	
 	item_list_element_id = button_id
 
