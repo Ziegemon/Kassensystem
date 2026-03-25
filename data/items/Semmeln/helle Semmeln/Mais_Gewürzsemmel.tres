@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://uc8uh3ptbobc"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_uulu7"]
+
+[resource]
+script = ExtResource("1_uulu7")
+name = "Mais-Gewürzsemmel"
+price = 1.15
+item_id = 13
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

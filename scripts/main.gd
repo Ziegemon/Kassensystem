@@ -368,7 +368,7 @@ func change_zwischensummen_status(zws_status : bool):
 
 func _on_button_X_button_up() -> void:
 	current_keyboard_input = "0,000"
-	label_current_price.text = current_keyboard_input
+	label_current_price.text = ""
 
 #---------------------------------------------------------------------------------------------------
 
@@ -381,6 +381,9 @@ func _on_korrektur_button_button_up() -> void:
 	current_selcted_item_list_item = -1
 	
 	updateItemListLabelV3()
+	change_zwischensummen_status(false)
+	label_current_price.text = ""
+
 	#button_ids neu setzen------
 	
 	#var new_buttons_ids : int = 0

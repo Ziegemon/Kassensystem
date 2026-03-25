@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://yfx0j5nocsx1"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_rh672"]
+
+[resource]
+script = ExtResource("1_rh672")
+name = "Maurer doppelt"
+price = 1.6
+item_id = 9
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

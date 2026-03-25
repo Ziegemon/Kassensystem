@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://dy6fdh72wgki0"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_rra77"]
+
+[resource]
+script = ExtResource("1_rra77")
+name = "Rosinensemmel"
+price = 0.95
+item_id = 16
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

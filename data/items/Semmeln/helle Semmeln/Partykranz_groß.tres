@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://n410tdr4gfs8"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_2uy8c"]
+
+[resource]
+script = ExtResource("1_2uy8c")
+name = "Partykranz groß"
+price = 8.0
+item_id = 20
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

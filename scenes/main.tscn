@@ -11,11 +11,32 @@
 [ext_resource type="PackedScene" uid="uid://cqa6c3pekb4yt" path="res://scenes/item_category_button.tscn" id="7_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://cr6rualrsbw38" path="res://scenes/item_button.tscn" id="7_tipki"]
 [ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="9_choun"]
-[ext_resource type="Resource" uid="uid://b75vvknh2ttwe" path="res://data/items/Semmeln/Kaisersemmel.tres" id="10_ya4ey"]
+[ext_resource type="Resource" uid="uid://b75vvknh2ttwe" path="res://data/items/Semmeln/helle Semmeln/Kaisersemmel.tres" id="10_ya4ey"]
 [ext_resource type="Resource" uid="uid://5sb123kynxr4" path="res://data/items/Semmeln/Lauge/Breze.tres" id="11_trceg"]
 [ext_resource type="Resource" uid="uid://bjf8pvkrpbjar" path="res://data/items/Semmeln/Lauge/Laugenstange.tres" id="12_a8y0u"]
+[ext_resource type="Resource" uid="uid://6tsd1qr3wkxq" path="res://data/items/Semmeln/helle Semmeln/Krusti.tres" id="13_j8jky"]
 [ext_resource type="Resource" uid="uid://buc2jh6s8lsjj" path="res://data/items/Semmeln/Lauge/Laugenzopf.tres" id="13_jkv2x"]
+[ext_resource type="Resource" uid="uid://dan36kpydo75j" path="res://data/items/Semmeln/helle Semmeln/Schnittsemmel.tres" id="14_kmb1v"]
+[ext_resource type="Resource" uid="uid://lgd6lsesrj1g" path="res://data/items/Semmeln/helle Semmeln/Mohnsemmel.tres" id="15_fuf3a"]
 [ext_resource type="Resource" uid="uid://e3tqsxrmlw66" path="res://data/items/Brote/Roggenmischbrote/roggen_vollkorn.tres" id="15_jkv2x"]
+[ext_resource type="Resource" uid="uid://b4w5lyr1072y5" path="res://data/items/Semmeln/helle Semmeln/Sesamsemmel.tres" id="16_pibwh"]
+[ext_resource type="Resource" uid="uid://cpcwb0af0wqop" path="res://data/items/Semmeln/helle Semmeln/Schnürlbaguette_natur.tres" id="17_c6pm6"]
+[ext_resource type="Resource" uid="uid://bmo8jp3cnw4du" path="res://data/items/Semmeln/helle Semmeln/Schnürlbaguette_Sesam.tres" id="18_5he1u"]
+[ext_resource type="Resource" uid="uid://c822e13lk2ao1" path="res://data/items/Semmeln/helle Semmeln/Schnürlbaguette_gewürzt.tres" id="19_5poiv"]
+[ext_resource type="Resource" uid="uid://8sr1waftiqyg" path="res://data/items/Semmeln/helle Semmeln/Maurer.tres" id="20_2cjbq"]
+[ext_resource type="Resource" uid="uid://yfx0j5nocsx1" path="res://data/items/Semmeln/helle Semmeln/Maurer_doppelt.tres" id="21_chjal"]
+[ext_resource type="Resource" uid="uid://cviwr8lecg352" path="res://data/items/Semmeln/helle Semmeln/Wallnusssemmel.tres" id="22_cjqg0"]
+[ext_resource type="Resource" uid="uid://uc8uh3ptbobc" path="res://data/items/Semmeln/helle Semmeln/Mais_Gewürzsemmel.tres" id="23_vchkt"]
+[ext_resource type="Resource" uid="uid://dm8dy8cgd6hg0" path="res://data/items/Semmeln/helle Semmeln/Knusperstangerl_Bergkäse.tres" id="24_txyw0"]
+[ext_resource type="Resource" uid="uid://c71dyet2mnpmr" path="res://data/items/Semmeln/helle Semmeln/Ciabattini.tres" id="25_vc5cj"]
+[ext_resource type="Resource" uid="uid://cwhjv6fccoscs" path="res://data/items/Semmeln/helle Semmeln/Schweizer_Knoten_natur.tres" id="26_fuf3a"]
+[ext_resource type="Resource" uid="uid://dy6fdh72wgki0" path="res://data/items/Semmeln/helle Semmeln/Rosinensemmel.tres" id="26_nvyfr"]
+[ext_resource type="Resource" uid="uid://d356y013ggsse" path="res://data/items/Semmeln/helle Semmeln/Schweizer_Knoten_körnig.tres" id="27_pibwh"]
+[ext_resource type="Resource" uid="uid://b531nel5hplxq" path="res://data/items/Semmeln/helle Semmeln/Müslisemmel.tres" id="27_ty1g6"]
+[ext_resource type="Resource" uid="uid://be2vd1mc6j0kc" path="res://data/items/Semmeln/helle Semmeln/Bratwurstsemmel.tres" id="28_j2jfr"]
+[ext_resource type="Resource" uid="uid://clpatbkni6w7w" path="res://data/items/Semmeln/helle Semmeln/Partysemmel.tres" id="29_bjg73"]
+[ext_resource type="Resource" uid="uid://b4wesi878t2qx" path="res://data/items/Semmeln/helle Semmeln/Partykranz_klein.tres" id="30_bu4jf"]
+[ext_resource type="Resource" uid="uid://n410tdr4gfs8" path="res://data/items/Semmeln/helle Semmeln/Partykranz_groß.tres" id="31_o7ddy"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.54497427, 0.5449743, 0.5449741, 1)
@@ -1025,7 +1046,7 @@ columns = 3
 [node name="item_category_button0" parent="item_categories/MarginContainer/GridContainer" unique_id=1322757492 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_name = "helle Semmeln"
-items_array = Array[ExtResource("9_choun")]([ExtResource("10_ya4ey"), ExtResource("10_ya4ey"), null, ExtResource("10_ya4ey"), ExtResource("10_ya4ey")])
+items_array = Array[ExtResource("9_choun")]([ExtResource("10_ya4ey"), ExtResource("13_j8jky"), ExtResource("14_kmb1v"), null, ExtResource("15_fuf3a"), ExtResource("16_pibwh"), null, null, ExtResource("17_c6pm6"), ExtResource("18_5he1u"), ExtResource("19_5poiv"), null, ExtResource("20_2cjbq"), ExtResource("21_chjal"), ExtResource("22_cjqg0"), ExtResource("23_vchkt"), ExtResource("24_txyw0"), ExtResource("25_vc5cj"), null, null, ExtResource("26_fuf3a"), ExtResource("27_pibwh"), null, null, ExtResource("26_nvyfr"), ExtResource("27_ty1g6"), null, null, null, null, null, null, ExtResource("28_j2jfr"), ExtResource("29_bjg73"), ExtResource("30_bu4jf"), ExtResource("31_o7ddy"), null, null, null, null])
 
 [node name="item_category_button1" parent="item_categories/MarginContainer/GridContainer" unique_id=2009049061 instance=ExtResource("7_o6xl0")]
 layout_mode = 2

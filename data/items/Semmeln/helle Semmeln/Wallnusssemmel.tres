@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://cviwr8lecg352"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_vlvdi"]
+
+[resource]
+script = ExtResource("1_vlvdi")
+name = "Wallnusssemmel"
+price = 1.05
+item_id = 10
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"
