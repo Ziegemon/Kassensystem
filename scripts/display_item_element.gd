@@ -53,4 +53,3 @@ func formatPrice(price : float) -> String:
 
 func _on_display_item_element_button_pressed() -> void:
 	emit_signal("display_item_element_button_transmit_id", item_list_element_id)
-	print(item_list_element_id)

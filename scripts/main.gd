@@ -94,9 +94,6 @@ func activateCurrentuser():
 		label_user_name.text = "__________________"
 	
 	change_zwischensummen_status(false)
-	
-	for e in labels_items_scroll_container_vbox_container.get_children():
-		e.display_item_element_button_transmit_id.connect(_on_display_item_element_button_transmit_id)#aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa weg damit? aber es geht trotzdem nicht
 
 #---------------------------------------------------------------------------------------------------
 
@@ -284,11 +281,6 @@ func addItemToList(item: item_data_list_element):
 	new_display_item_element.setUpItemListElement(item, labels_items_scroll_container_vbox_container.get_child_count() - 1)
 	new_display_item_element.display_item_element_button_transmit_id.connect(_on_display_item_element_button_transmit_id)
 	
-	#labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.scroll_vertical.Range.max_value
-	
-	#var scroll = labels_items_v_scroll_container
-	#scroll.set_deferred("scroll_vertical", scroll.get_v_scroll_bar().max_value)
-	#print(scroll.get_v_scroll_bar().max_value)
 	await get_tree().create_timer(0.005).timeout
 	@warning_ignore("narrowing_conversion")
 	labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.get_v_scroll_bar().max_value
@@ -301,8 +293,7 @@ func _on_display_item_element_button_transmit_id(button_id : int):
 	
 	labels_items_scroll_container_vbox_container.get_child(button_id).get_child(0).button_pressed = true #!!!!!!!!!!!!!!!!!!!!!!!!!kann get_child(button_id) bleiben, wenn die button_ids nach KOrrektur neu zugewiesenw erden
 	current_selcted_item_list_item = button_id
-	print("current it l it: " + str(current_selcted_item_list_item))
-	
+
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func updateItemListLabelV3():
@@ -310,12 +301,11 @@ func updateItemListLabelV3():
 		child.queue_free()
 	await get_tree().process_frame
 	
-	print("updated")
 	for e in range(current_selected_user.current_item_list_array.size()):
 		var new_display_item_element = preload("uid://ba6pnhi1gmmx4").instantiate()
 		labels_items_scroll_container_vbox_container.add_child(new_display_item_element)
 		new_display_item_element.setUpItemListElement(current_selected_user.current_item_list_array[e], e)
-		print(e)
+		new_display_item_element.display_item_element_button_transmit_id.connect(_on_display_item_element_button_transmit_id)
 
 #---------------------------------------------------------------------------------------------------
 
@@ -383,8 +373,6 @@ func _on_button_X_button_up() -> void:
 #---------------------------------------------------------------------------------------------------
 
 func _on_korrektur_button_button_up() -> void:
-	print("#--")
-	print(current_selcted_item_list_item)
 	if current_selcted_item_list_item == -1:
 		current_selected_user.current_item_list_array.remove_at(current_selected_user.current_item_list_array.size() - 1)
 	else:
