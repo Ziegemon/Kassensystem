@@ -347,6 +347,10 @@ func _on_button_ZWS_button_up() -> void:
 	current_selected_user.current_item_list_array = temp_new_item_list_array
 	updateItemListLabelV3()
 	change_zwischensummen_status(true)
+	
+	await get_tree().create_timer(0.005).timeout
+	@warning_ignore("narrowing_conversion")
+	labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.get_v_scroll_bar().max_value
 
 #---------------------------------------------------------------------------------------------------
 

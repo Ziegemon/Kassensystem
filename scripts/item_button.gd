@@ -11,6 +11,7 @@ signal item_button_pressed(button_item_data : item_data)
 #---------------------------------------------------------------------------------------------------
 
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	setUpItemButton()
 

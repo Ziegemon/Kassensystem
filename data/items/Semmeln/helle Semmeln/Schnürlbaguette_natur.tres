@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_ei4je")
-name = "Schnürlbaguette natur"
+name = "Schnürlbgte. natur"
 price = 1.85
 item_id = 5
 metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"
