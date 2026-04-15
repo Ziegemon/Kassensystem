@@ -181,12 +181,12 @@ func createNewItemDataListElement(item: item_data):
 		if current_keyboard_input == "0,000":
 			new_element.quantity = 1
 		else:
-			new_element.quantity = clamp(keayboardInoutToFloat(current_keyboard_input), 1, 999)
+			new_element.quantity = clamp(keayboardInputToFloat(current_keyboard_input), 1, 999)
 	else:
 		new_element.quantity = 1
-		new_element.weight = clamp(keayboardInoutToFloat(current_keyboard_input), 0.001, 999.999)
+		new_element.weight = clamp(keayboardInputToFloat(current_keyboard_input), 0.001, 999.999)
 	
-	if !(item.wiegeprodukt == true && keayboardInoutToFloat(current_keyboard_input) == 0.0): #not added to item lsit if is wiegeprodukt but no number/weight was entered
+	if !(item.wiegeprodukt == true && keayboardInputToFloat(current_keyboard_input) == 0.0): #not added to item lsit if is wiegeprodukt but no number/weight was entered
 		current_selected_user.current_item_list_array.append(new_element)
 	
 		resetKeyboardInput()
@@ -195,7 +195,7 @@ func createNewItemDataListElement(item: item_data):
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-func keayboardInoutToFloat(text : String) -> float:
+func keayboardInputToFloat(text : String) -> float:
 	return text.replace(",", ".").to_float()
 
 #---------------------------------------------------------------------------------------------------
@@ -382,17 +382,49 @@ func _on_button_X_button_up() -> void:
 	label_current_price.text = ""
 
 #---------------------------------------------------------------------------------------------------
-
+ 
 func _on_korrektur_button_button_up() -> void:
-	if current_selcted_item_list_item == -1:
-		current_selected_user.current_item_list_array.remove_at(current_selected_user.current_item_list_array.size() - 1)
-	else:
-		current_selected_user.current_item_list_array.remove_at(current_selcted_item_list_item)
+	if current_selcted_item_list_item == -1: #no item in array selected
+		var last_element_in_array = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
+		
+		if (last_element_in_array.weight == 0.000 && keayboardInputToFloat(current_keyboard_input) != 0.000): #if item != wiegeprodukt -= reduces entered quantity
+			if last_element_in_array.quantity - clamp(keayboardInputToFloat(current_keyboard_input), 1, 999) <= 0:
+				current_selected_user.current_item_list_array.remove_at(current_selected_user.current_item_list_array.size() - 1) #removes last added item
+			else:
+				last_element_in_array.quantity -= clamp(keayboardInputToFloat(current_keyboard_input), 1, 999)
+		
+		elif (last_element_in_array.weight != 0.000 && keayboardInputToFloat(current_keyboard_input) != 0.000): #if item == wiegeprodukt -> reduces weight
+			if last_element_in_array.weight - clamp(keayboardInputToFloat(current_keyboard_input), 0.001, 999.999) <= 0:
+				current_selected_user.current_item_list_array.remove_at(current_selected_user.current_item_list_array.size() - 1) #removes last added item
+			else:
+				last_element_in_array.weight -= clamp(keayboardInputToFloat(current_keyboard_input), 0.001, 999.999)
+		
+		else:
+			current_selected_user.current_item_list_array.remove_at(current_selected_user.current_item_list_array.size() - 1) #removes last added item
+		
+	else: #an item in the array is selected
+		var  seleceted_item_in_array = current_selected_user.current_item_list_array[current_selcted_item_list_item]
+		
+		if (seleceted_item_in_array.weight == 0.000 && keayboardInputToFloat(current_keyboard_input) != 0.000): #if item != wiegeprodukt -= reduces entered quantity
+			if seleceted_item_in_array.quantity - clamp(keayboardInputToFloat(current_keyboard_input), 1, 999) <= 0:
+				current_selected_user.current_item_list_array.remove_at(current_selcted_item_list_item) #removes selected item
+			else:
+				seleceted_item_in_array.quantity -= clamp(keayboardInputToFloat(current_keyboard_input), 1, 999)
+		
+		elif (seleceted_item_in_array.weight != 0.000 && keayboardInputToFloat(current_keyboard_input) != 0.000): #if item == wiegeprodukt -> reduces weight
+			if seleceted_item_in_array.weight - clamp(keayboardInputToFloat(current_keyboard_input), 0.001, 999.999) <= 0:
+				current_selected_user.current_item_list_array.remove_at(current_selcted_item_list_item) #removes selected item
+			else:
+				seleceted_item_in_array.weight -= clamp(keayboardInputToFloat(current_keyboard_input), 0.001, 999.999)
+		
+		else:
+			current_selected_user.current_item_list_array.remove_at(current_selcted_item_list_item)
 	
 	current_selcted_item_list_item = -1
 	
 	updateItemListLabelV3()
 	change_zwischensummen_status(false)
+	resetKeyboardInput()
 	label_current_price.text = ""
 
 #---------------------------------------------------------------------------------------------------
