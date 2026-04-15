@@ -30,6 +30,11 @@ var semicolon_pressed : bool = false
 
 var current_selcted_item_list_item : int = -1
 
+#---------------------------------------------------------------------------------------------------
+
+var etf_running_EC : bool = false
+var etf_running_BAR : bool = false
+
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -222,6 +227,8 @@ func connectKeyboardButtonsSignals():
 
 #shows the pressed buttons from the keyboard on the label_current_price
 func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) -> void:
+	if current_selected_user.user_etf_running == true:
+		return
 	
 	if current_selected_user.user == null:
 		return
@@ -232,7 +239,7 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 		current_keyboard_input_semicolon = (current_keyboard_input_blank + ",")
 		semicolon_pressed = true
 		if current_keyboard_input == "0,000":
-			current_keyboard_input = "0,"
+			current_keyboard_input = "0," 
 	
 	
 	if current_keyboard_input == "0,000": #if the label is "empty", the clicked button replaces the 0
@@ -312,6 +319,9 @@ func updateItemListLabelV3():
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_ZWS_button_up() -> void:
+	if current_selected_user.user_etf_running == true:
+		return
+		
 	var temp_new_item_list_array : Array[item_data_list_element]
 	var temp_item_ids_in_for_new_array : Array[int]
 	
@@ -370,6 +380,21 @@ func change_zwischensummen_status(zws_status : bool):
 	else:
 		$toolbar_bottom_2/background.color = Color(1, 1, 1)
 
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func show_summed_up_price_for_running_etfs():
+	var summedUpPrice : float = 0
+	
+	for e in current_selected_user.current_item_list_array:
+		if e.item.wiegeprodukt == false:
+			summedUpPrice += (e.item.price * e.quantity)
+		else:
+			summedUpPrice += (e.item.price * e.weight)
+		
+		label_current_price.text = (formatPrice(summedUpPrice * current_selected_user.rabatt) + " €")
+		label_current_price.show()
+	
+
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_X_button_up() -> void:
@@ -425,6 +450,9 @@ func _on_korrektur_button_button_up() -> void:
 #---------------------------------------------------------------------------------------------------
 
 func _on_rabatt_button_pressed() -> void:
+	if current_selected_user.user_etf_running == true:
+		return
+	
 	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer.show()
 	$toolbar_bottom_1/MarginContainer/HBoxContainer.hide()
 
@@ -444,3 +472,43 @@ func set_n_apply_rabatt(new_rabatt : float):
 	updateItemListLabelV3()
 	
 	change_zwischensummen_status(false)
+
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_ec_button_button_up() -> void:
+	if zwischensumme == true && etf_running_EC == false:
+		change_zwischensummen_status(false)
+		etf_running_EC = true
+		current_selected_user.startEtf(0)
+	elif etf_running_EC == true:
+		errorEtfEcAlreadyInUse()
+	else:
+		errorNoZws()
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func _on_bar_button_button_up() -> void:
+	if zwischensumme == true && etf_running_BAR == false:
+		change_zwischensummen_status(false)
+		etf_running_BAR = true
+		current_selected_user.startEtf(1)
+	elif etf_running_BAR == true:
+		errorEtfBarAlreadyInUse()
+	else:
+		errorNoZws()
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func errorNoZws():
+	pass
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func errorEtfEcAlreadyInUse():
+	pass
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func errorEtfBarAlreadyInUse():
+	pass

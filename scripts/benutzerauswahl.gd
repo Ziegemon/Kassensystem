@@ -14,8 +14,8 @@ class_name Benutzerauswahl
 
 
 @onready var label_number: Label = $label_number
-@onready var label_name: Label = $label_name
-@onready var label_number_s: Label = $label_number_s
+#@onready var label_name: Label = $label_name
+#@onready var label_number_s: Label = $label_number_s
 
 
 #---------------------------------------------------------------------------------------------------

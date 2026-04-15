@@ -399,7 +399,7 @@ selected_button_color = Color(0.50854063, 0.00018424452, 0.5085371, 1)
 layout_mode = 2
 user = ExtResource("4_tbgi4")
 button_number = 5
-selected_button_color = Color(0.7943986, 3.2247603e-06, 9.62615e-07, 1)
+selected_button_color = Color(0.3204539, 0, 0, 1)
 
 [node name="benutzerauswahl6" parent="user_selection/MarginContainer/VBoxContainer" unique_id=922359481 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
@@ -414,13 +414,13 @@ selected_button_color = Color(0, 0.56078434, 0.4745098, 1)
 [node name="benutzerauswahl8" parent="user_selection/MarginContainer/VBoxContainer" unique_id=684778366 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 button_number = 8
-selected_button_color = Color(0.7145807, 0.21435747, 0.52860373, 1)
+selected_button_color = Color(0.61337304, 0.1673353, 0.45078683, 1)
 
 [node name="benutzerauswahl9" parent="user_selection/MarginContainer/VBoxContainer" unique_id=250460063 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 user = ExtResource("3_sugp2")
 button_number = 9
-selected_button_color = Color(0, 0.3019608, 0, 1)
+selected_button_color = Color(7.009041e-07, 0.23470658, 0, 1)
 
 [node name="benutzerauswahl_extra" type="Control" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1576214631]
 layout_mode = 2
@@ -997,7 +997,7 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="Button6" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=145640174]
+[node name="EC_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=145640174]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
@@ -1010,7 +1010,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "EC"
 
-[node name="Button7" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=1941898043]
+[node name="ZWS_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=1941898043]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
@@ -1023,7 +1023,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "ZWS"
 
-[node name="Button8" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=1707056944]
+[node name="BAR_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=1707056944]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
@@ -1399,4 +1399,6 @@ item_category_id = 289
 [connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/25_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_25_button_button_up"]
 [connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/50_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_50_button_button_up"]
 [connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/return_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_return_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/Button7" to="." method="_on_button_ZWS_button_up"]
+[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/EC_button" to="." method="_on_ec_button_button_up"]
+[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/ZWS_button" to="." method="_on_button_ZWS_button_up"]
+[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/BAR_button" to="." method="_on_bar_button_button_up"]
