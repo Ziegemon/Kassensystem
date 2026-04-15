@@ -246,11 +246,6 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 	elif button_semicolon == false && getDecimalCount(current_keyboard_input_semicolon) < 3: #semicolon has been pressed and there are less then 2 decimals -> number added after semicolon/ number after semicolon
 		current_keyboard_input = (current_keyboard_input_semicolon + str(button_number))
 		current_keyboard_input_semicolon += str(button_number)
-		
-		#if getDecimalCount(current_keyboard_input) == 2: #ensures there are always the decimals after the semicolon
-			#current_keyboard_input += "0"
-		#elif getDecimalCount(current_keyboard_input) < 2:
-			#current_keyboard_input += "00"
 	
 	change_zwischensummen_status(false)
 	

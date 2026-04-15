@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_y3qul")
-name = "Schweizer Knoten natur"
+name = "Schwz.  Knoten natur"
 price = 10.0
 wiegeprodukt = true
 item_id = 11
