@@ -61,6 +61,8 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	updateClockDate()
+	#print("EC_r: " + str(etf_running_EC))
+	#print("BAR_r: " + str(etf_running_BAR))
 
 
 #---------------------------------------------------------------------------------------------------
