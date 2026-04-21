@@ -158,7 +158,7 @@ func eftFailed():
 		get_tree().root.get_node("MAIN").eft_running_BAR = false
 	
 	while user_eft_running == true:
-		label_number_s.add_theme_color_override("font_color", eft_font_color)
+		label_number_s.add_theme_color_override("font_color", eft_font_color) 
 		label_name.add_theme_color_override("font_color", eft_font_color)
 		if get_tree().root.get_node("MAIN").current_user == button_number:
 			zws_background.color = eft_font_color

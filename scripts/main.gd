@@ -522,3 +522,11 @@ func errorEftEcAlreadyInUse():
 
 func errorEftBarAlreadyInUse():
 	pass
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_duplizieren_button_button_up() -> void:
+	if current_selected_user != null && current_selected_user.current_item_list_array.size() - 1:
+		var last_element_in_array = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
+		
+		
