@@ -109,7 +109,7 @@ func startEft(used_payment_method : int):
 			zws_background.color = eft_font_color
 	
 	#simulation of paymentprocessing due to lack of external ec terminal and cash machiene
-	var eft_waiting_duration = randi_range(4, 40)
+	var eft_waiting_duration = randi_range(4, 28)
 	match  eft_waiting_duration:
 		28, 40:
 			await get_tree().create_timer(eft_waiting_duration).timeout
@@ -134,7 +134,9 @@ func eftEnded():
 		get_tree().root.get_node("MAIN").eft_running_EC = false
 	else:
 		get_tree().root.get_node("MAIN").eft_running_BAR = false
-		
+	
+	rabatt = 1.0
+	
 	await get_tree().create_timer(5).timeout
 	if get_tree().root.get_node("MAIN").current_user == button_number:
 		user_eft_ended = false

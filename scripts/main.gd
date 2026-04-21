@@ -82,6 +82,8 @@ func _on_user_selected(button_number: int) -> void:
 	resetKeyboardInput()
 	loadCategoryItems(0)
 	updateItemListLabelV3()
+	changeRabattVisualizer()
+	
 	
 	if current_selected_user.rabatt == 1.0:
 		label_rabatt.hide()
@@ -474,6 +476,12 @@ func set_n_apply_rabatt(new_rabatt : float):
 	updateItemListLabelV3()
 	
 	change_zwischensummen_status(false)
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func changeRabattVisualizer():
+	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer._on_return_button_button_up()
+	label_rabatt.text = "Rabatt: " + str(int(round((1 - current_selected_user.rabatt) * 100))) + "%"
 
 
 #---------------------------------------------------------------------------------------------------
