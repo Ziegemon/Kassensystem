@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_0pgys")
-name = "Bratwurstsemmel"
+name = "Bratwurst-semmel"
 price = 1.2
 item_id = 18
 metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"
