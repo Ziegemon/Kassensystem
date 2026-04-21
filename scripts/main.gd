@@ -526,7 +526,16 @@ func errorEftBarAlreadyInUse():
 #---------------------------------------------------------------------------------------------------
 
 func _on_duplizieren_button_button_up() -> void:
-	if current_selected_user != null && current_selected_user.current_item_list_array.size() - 1:
-		var last_element_in_array = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
+	if !(current_selected_user == null && current_selected_user.current_item_list_array.is_empty()):
+		if current_selcted_item_list_item == -1: #no item in array selected
+			var last_element_in_array = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
+			current_selected_user.current_item_list_array.append(last_element_in_array)
+			addItemToList(last_element_in_array)
+			
+		else: #an item in the array is selected
+			var  seleceted_item_in_array = current_selected_user.current_item_list_array[current_selcted_item_list_item]
+			current_selected_user.current_item_list_array.append(seleceted_item_in_array)
+			addItemToList(seleceted_item_in_array)
+			current_selcted_item_list_item = -1
 		
-		
+		change_zwischensummen_status(false)
