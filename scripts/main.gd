@@ -414,6 +414,9 @@ func _on_button_X_button_up() -> void:
 #---------------------------------------------------------------------------------------------------
  
 func _on_korrektur_button_button_up() -> void:
+	if current_selected_user.current_item_list_array.is_empty():
+		return
+	
 	if current_selcted_item_list_item == -1: #no item in array selected
 		var last_element_in_array = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
 		
