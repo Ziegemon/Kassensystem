@@ -575,3 +575,9 @@ func updateEftIndicators():
 		color_rect_bar_indicator.color = eft_indicator_color_running
 	else:
 		color_rect_bar_indicator.color = eft_indicator_color_free
+
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_button_zahlung_abbrechen_button_up() -> void:
+	current_selected_user.user_eft_stopped = true

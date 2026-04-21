@@ -27,6 +27,7 @@ var rabatt : float = 1.0
 var user_eft_running : bool = false
 var user_eft_failed : bool = false
 var user_eft_ended : bool = false
+var user_eft_stopped : bool = false
 var basic_font_color = Color(0.0, 0.0, 0.0)
 var eft_font_color = Color(1.0, 0.0, 0.0)
 var eft_done_font_color = Color(0.0, 0.463, 0.0)
@@ -109,14 +110,37 @@ func startEft(used_payment_method : int):
 			zws_background.color = eft_font_color
 	
 	#simulation of paymentprocessing due to lack of external ec terminal and cash machiene
-	var eft_waiting_duration = randi_range(4, 28)
-	match  eft_waiting_duration:
-		28, 40:
-			await get_tree().create_timer(eft_waiting_duration).timeout
-			eftFailed()
-		_:
-			await get_tree().create_timer(eft_waiting_duration).timeout
-			eftEnded()
+	while user_eft_stopped == false:
+		var eft_waiting_duration = randi_range(4, 28) #raise back to 40
+		var elapsed = 0.0
+
+		while elapsed < eft_waiting_duration:
+			if user_eft_stopped:
+				user_eft_stopped = false
+				user_eft_running = false
+				zws_background.color = Color(1, 1, 1)
+				label_number_s.add_theme_color_override("font_color", basic_font_color)
+				label_name.add_theme_color_override("font_color", basic_font_color)
+				if payment_method_used == 0:
+					get_tree().root.get_node("MAIN").eft_running_EC = false
+				else:
+					get_tree().root.get_node("MAIN").eft_running_BAR = false
+				
+				return
+			
+			await get_tree().create_timer(0.1).timeout
+			elapsed += 0.1
+		
+		if user_eft_stopped == true:
+			return
+		
+		match  eft_waiting_duration:
+			28, 4, 40:
+				#await get_tree().create_timer(eft_waiting_duration).timeout
+				eftFailed()
+
+	
+	
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
