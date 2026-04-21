@@ -35,6 +35,12 @@ var current_selcted_item_list_item : int = -1
 var eft_running_EC : bool = false
 var eft_running_BAR : bool = false
 
+var eft_indicator_color_free = Color(0.0, 0.463, 0.0)
+var eft_indicator_color_running = Color(1, 0, 0)
+@onready var color_rect_bar_indicator: ColorRect = $status_bar/EFT_indicators/ColorRectBARIndicator
+@onready var color_rect_ec_indicator: ColorRect = $status_bar/EFT_indicators/ColorRectECIndicator
+
+
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -61,8 +67,7 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	updateClockDate()
-	#print("EC_r: " + str(eft_running_EC))
-	#print("BAR_r: " + str(eft_running_BAR))
+	updateEftIndicators()
 
 
 #---------------------------------------------------------------------------------------------------
@@ -557,3 +562,16 @@ func _on_duplizieren_button_button_up() -> void:
 			current_selcted_item_list_item = -1
 		
 		change_zwischensummen_status(false)
+
+#---------------------------------------------------------------------------------------------------
+
+func updateEftIndicators():
+	if eft_running_EC == true:
+		color_rect_ec_indicator.color = eft_indicator_color_running
+	else:
+		color_rect_ec_indicator.color = eft_indicator_color_free
+	
+	if eft_running_BAR == true:
+		color_rect_bar_indicator.color = eft_indicator_color_running
+	else:
+		color_rect_bar_indicator.color = eft_indicator_color_free

@@ -368,6 +368,86 @@ theme_override_font_sizes/font_size = 30
 text = "Rabatt: 50%"
 vertical_alignment = 1
 
+[node name="EFT_indicators" type="Control" parent="status_bar" unique_id=1917646308]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="line0" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=1791613468]
+layout_mode = 0
+offset_left = 1830.0
+offset_right = 1833.0
+offset_bottom = 72.0
+color = Color(0, 0, 0, 1)
+
+[node name="line1" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=276963646]
+layout_mode = 0
+offset_left = 1917.0
+offset_right = 1920.0
+offset_bottom = 72.0
+color = Color(0, 0, 0, 1)
+
+[node name="line4" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=563775333]
+layout_mode = 0
+offset_left = 1830.0
+offset_top = 34.0
+offset_right = 1920.0
+offset_bottom = 38.0
+color = Color(0, 0, 0, 1)
+
+[node name="line5" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=1792901066]
+layout_mode = 0
+offset_left = 1830.0
+offset_top = 69.0
+offset_right = 1920.0
+offset_bottom = 72.0
+color = Color(0, 0, 0, 1)
+
+[node name="line3" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=2092060760]
+layout_mode = 0
+offset_left = 1830.0
+offset_right = 1920.0
+offset_bottom = 3.0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRectBARIndicator" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=852014692]
+layout_mode = 0
+offset_left = 1833.0
+offset_top = 3.0
+offset_right = 1917.0
+offset_bottom = 34.0
+color = Color(0, 0.463, 0, 1)
+
+[node name="Label_BAR_running" type="Label" parent="status_bar/EFT_indicators/ColorRectBARIndicator" unique_id=218688460]
+texture_filter = 1
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "EFT BAR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColorRectECIndicator" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=906741811]
+layout_mode = 0
+offset_left = 1833.0
+offset_top = 38.0
+offset_right = 1917.0
+offset_bottom = 69.0
+color = Color(0, 0.463, 0, 1)
+
+[node name="Label_EC_running" type="Label" parent="status_bar/EFT_indicators/ColorRectECIndicator" unique_id=1059850227]
+texture_filter = 1
+layout_mode = 0
+offset_right = 84.0
+offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "EFT EC"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="user_selection" type="Control" parent="." unique_id=217765284]
 anchors_preset = 0
 offset_top = 82.0
