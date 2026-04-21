@@ -173,6 +173,9 @@ func connectItemButtonSignals():
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func _on_item_button_pressed(button_item_data: item_data) -> void:
+	if current_selected_user.user_eft_running == true:
+		return
+		
 	if !(current_selected_user is Benutzerauswahl_extra) && current_selected_user.user != null:
 		createNewItemDataListElement(button_item_data)
 	elif current_selected_user is Benutzerauswahl_extra:
@@ -182,6 +185,9 @@ func _on_item_button_pressed(button_item_data: item_data) -> void:
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func createNewItemDataListElement(item: item_data):
+	if current_selected_user.user_eft_running == true:
+		return
+	
 	var new_element = item_data_list_element.new()
 	new_element.item = item
 	
@@ -487,7 +493,10 @@ func changeRabattVisualizer():
 #---------------------------------------------------------------------------------------------------
 
 func _on_ec_button_button_up() -> void:
-	if zwischensumme == true && eft_running_EC == false:
+	if current_selected_user.user_eft_running == true:
+		return
+	
+	if zwischensumme == true && eft_running_EC == false && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
 		change_zwischensummen_status(false)
 		eft_running_EC = true
 		current_selected_user.startEft(0)
@@ -499,7 +508,10 @@ func _on_ec_button_button_up() -> void:
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_bar_button_button_up() -> void:
-	if zwischensumme == true && eft_running_BAR == false:
+	if current_selected_user.user_eft_running == true:
+		return
+	
+	if zwischensumme == true && eft_running_BAR == false && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
 		change_zwischensummen_status(false)
 		eft_running_BAR = true
 		current_selected_user.startEft(1)
@@ -526,7 +538,10 @@ func errorEftBarAlreadyInUse():
 #---------------------------------------------------------------------------------------------------
 
 func _on_duplizieren_button_button_up() -> void:
-	if !(current_selected_user == null && current_selected_user.current_item_list_array.is_empty()):
+	if current_selected_user.user_eft_running == true:
+		return
+	
+	if !(current_selected_user.user == null && current_selected_user.current_item_list_array.is_empty()):
 		if current_selcted_item_list_item == -1: #no item in array selected
 			var last_element_in_array = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
 			current_selected_user.current_item_list_array.append(last_element_in_array)
