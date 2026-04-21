@@ -24,12 +24,12 @@ var rabatt : float = 1.0
 
 #---------------------------------------------------------------------------------------------------
 
-var user_etf_running : bool = false
-var user_etf_failed : bool = false
-var user_etf_ended : bool = false
+var user_eft_running : bool = false
+var user_eft_failed : bool = false
+var user_eft_ended : bool = false
 var basic_font_color = Color(0.0, 0.0, 0.0)
-var etf_font_color = Color(1.0, 0.0, 0.0)
-var etf_done_font_color = Color(0.0, 0.463, 0.0)
+var eft_font_color = Color(1.0, 0.0, 0.0)
+var eft_done_font_color = Color(0.0, 0.463, 0.0)
 @onready var label_number_s: Label = $label_number_s
 @onready var label_name: Label = $label_name
 
@@ -68,24 +68,24 @@ func userSelected():
 		new_style_box_pressed.bg_color = selected_button_color * 0.5
 		child.get_child(0).add_theme_stylebox_override("pressed", new_style_box_pressed)
 	
-	if user_etf_failed == true:
-		user_etf_failed = false
-		user_etf_running = false
+	if user_eft_failed == true:
+		user_eft_failed = false
+		user_eft_running = false
 		
-	elif user_etf_ended == true:
-		user_etf_ended = false
+	elif user_eft_ended == true:
+		user_eft_ended = false
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
 		
 		if payment_method_used == 0:
-			get_tree().root.get_node("MAIN").etf_running_EC = false
+			get_tree().root.get_node("MAIN").eft_running_EC = false
 		else:
-			get_tree().root.get_node("MAIN").etf_running_BAR = false
+			get_tree().root.get_node("MAIN").eft_running_BAR = false
 	
-	elif user_etf_running:
+	elif user_eft_running:
 		await get_tree().create_timer(0.1).timeout
-		zws_background.color = etf_font_color
-		get_tree().root.get_node("MAIN").show_summed_up_price_for_running_etfs()
+		zws_background.color = eft_font_color
+		get_tree().root.get_node("MAIN").show_summed_up_price_for_running_efts()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -99,45 +99,45 @@ func _on_button_button_up() -> void:
 
 #---------------------------------------------------------------------------------------------------
 
-func startEtf(used_payment_method : int):
-	user_etf_running = true
+func startEft(used_payment_method : int):
+	user_eft_running = true
 	payment_method_used = used_payment_method
-	label_number_s.add_theme_color_override("font_color", etf_font_color)
-	label_name.add_theme_color_override("font_color", etf_font_color)
+	label_number_s.add_theme_color_override("font_color", eft_font_color)
+	label_name.add_theme_color_override("font_color", eft_font_color)
 	
 	if get_tree().root.get_node("MAIN").current_user == button_number:
-			zws_background.color = etf_font_color
+			zws_background.color = eft_font_color
 	
 	#simulation of paymentprocessing due to lack of external ec terminal and cash machiene
-	var etf_waiting_duration = randi_range(4, 40)
-	match  etf_waiting_duration:
+	var eft_waiting_duration = randi_range(4, 40)
+	match  eft_waiting_duration:
 		28, 40:
-			await get_tree().create_timer(etf_waiting_duration).timeout
-			etfFailed()
+			await get_tree().create_timer(eft_waiting_duration).timeout
+			eftFailed()
 		_:
-			await get_tree().create_timer(etf_waiting_duration).timeout
-			etfEnded()
+			await get_tree().create_timer(eft_waiting_duration).timeout
+			eftEnded()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-func etfEnded():
-	user_etf_ended = true
-	user_etf_running = false
-	label_number_s.add_theme_color_override("font_color", etf_done_font_color)
-	label_name.add_theme_color_override("font_color", etf_done_font_color)
+func eftEnded():
+	user_eft_ended = true
+	user_eft_running = false
+	label_number_s.add_theme_color_override("font_color", eft_done_font_color)
+	label_name.add_theme_color_override("font_color", eft_done_font_color)
 	if get_tree().root.get_node("MAIN").current_user == button_number:
-			zws_background.color = etf_done_font_color
+			zws_background.color = eft_done_font_color
 	current_item_list_array.clear()
 	get_tree().root.get_node("MAIN").updateItemListLabelV3()
 	
 	if payment_method_used == 0:
-		get_tree().root.get_node("MAIN").etf_running_EC = false
+		get_tree().root.get_node("MAIN").eft_running_EC = false
 	else:
-		get_tree().root.get_node("MAIN").etf_running_BAR = false
+		get_tree().root.get_node("MAIN").eft_running_BAR = false
 		
 	await get_tree().create_timer(5).timeout
 	if get_tree().root.get_node("MAIN").current_user == button_number:
-		user_etf_ended = false
+		user_eft_ended = false
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
 	
@@ -145,21 +145,21 @@ func etfEnded():
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-func etfFailed():
-	user_etf_failed = true
+func eftFailed():
+	user_eft_failed = true
 	#get_tree().root.get_node("MAIN").change_zwischensummen_status(false)
-	breakEtfFailed()
+	breakEftFailed()
 	
 	if payment_method_used == 0:
-		get_tree().root.get_node("MAIN").etf_running_EC = false
+		get_tree().root.get_node("MAIN").eft_running_EC = false
 	else:
-		get_tree().root.get_node("MAIN").etf_running_BAR = false
+		get_tree().root.get_node("MAIN").eft_running_BAR = false
 	
-	while user_etf_running == true:
-		label_number_s.add_theme_color_override("font_color", etf_font_color)
-		label_name.add_theme_color_override("font_color", etf_font_color)
+	while user_eft_running == true:
+		label_number_s.add_theme_color_override("font_color", eft_font_color)
+		label_name.add_theme_color_override("font_color", eft_font_color)
 		if get_tree().root.get_node("MAIN").current_user == button_number:
-			zws_background.color = etf_font_color
+			zws_background.color = eft_font_color
 		
 		await get_tree().create_timer(0.5).timeout
 		
@@ -172,10 +172,10 @@ func etfFailed():
 
 #-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    - 
 
-func breakEtfFailed():
+func breakEftFailed():
 	await get_tree().create_timer(7).timeout
 	if get_tree().root.get_node("MAIN").current_user == button_number:
-		user_etf_failed = false
-		user_etf_running = false
+		user_eft_failed = false
+		user_eft_running = false
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)

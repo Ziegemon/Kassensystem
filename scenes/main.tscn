@@ -61,16 +61,10 @@ bg_color = Color(0.8352941, 0.8352941, 0.8352941, 0.37254903)
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jde1m"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pibwh"]
-bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
+bg_color = Color(0.96222645, 0.061499193, 3.85046e-07, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5he1u"]
-bg_color = Color(1, 0.2627451, 0.19215687, 0.6862745)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6pm6"]
-bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5poiv"]
-bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
+bg_color = Color(0.9607843, 0.0627451, 0, 0.7764706)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2cjbq"]
 bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
@@ -80,6 +74,12 @@ bg_color = Color(0.9999737, 0.26083693, 0.19342998, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbgi4"]
 bg_color = Color(0.54509807, 0.54509807, 0.54509807, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c6pm6"]
+bg_color = Color(0.9607843, 0.0627451, 0, 0.7764706)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5poiv"]
+bg_color = Color(0.9607843, 0.0627451, 0, 0.7764706)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
 bg_color = Color(0.18431373, 0.6509804, 0.84313726, 1)
@@ -702,8 +702,8 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_5he1u")
-theme_override_styles/hover = SubResource("StyleBoxFlat_c6pm6")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
 theme_override_styles/focus = SubResource("StyleBoxFlat_chjal")
 text = "Rabatt

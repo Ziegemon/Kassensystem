@@ -32,8 +32,8 @@ var current_selcted_item_list_item : int = -1
 
 #---------------------------------------------------------------------------------------------------
 
-var etf_running_EC : bool = false
-var etf_running_BAR : bool = false
+var eft_running_EC : bool = false
+var eft_running_BAR : bool = false
 
 
 #---------------------------------------------------------------------------------------------------
@@ -61,8 +61,8 @@ func _ready() -> void:
 @warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	updateClockDate()
-	#print("EC_r: " + str(etf_running_EC))
-	#print("BAR_r: " + str(etf_running_BAR))
+	#print("EC_r: " + str(eft_running_EC))
+	#print("BAR_r: " + str(eft_running_BAR))
 
 
 #---------------------------------------------------------------------------------------------------
@@ -229,7 +229,7 @@ func connectKeyboardButtonsSignals():
 
 #shows the pressed buttons from the keyboard on the label_current_price
 func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) -> void:
-	if current_selected_user.user_etf_running == true:
+	if current_selected_user.user_eft_running == true:
 		return
 	
 	if current_selected_user.user == null:
@@ -321,7 +321,7 @@ func updateItemListLabelV3():
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_ZWS_button_up() -> void:
-	if current_selected_user.user_etf_running == true:
+	if current_selected_user.user_eft_running == true:
 		return
 		
 	var temp_new_item_list_array : Array[item_data_list_element]
@@ -384,7 +384,7 @@ func change_zwischensummen_status(zws_status : bool):
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-func show_summed_up_price_for_running_etfs():
+func show_summed_up_price_for_running_efts():
 	var summedUpPrice : float = 0
 	
 	for e in current_selected_user.current_item_list_array:
@@ -452,7 +452,7 @@ func _on_korrektur_button_button_up() -> void:
 #---------------------------------------------------------------------------------------------------
 
 func _on_rabatt_button_pressed() -> void:
-	if current_selected_user.user_etf_running == true:
+	if current_selected_user.user_eft_running == true:
 		return
 	
 	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer.show()
@@ -479,24 +479,24 @@ func set_n_apply_rabatt(new_rabatt : float):
 #---------------------------------------------------------------------------------------------------
 
 func _on_ec_button_button_up() -> void:
-	if zwischensumme == true && etf_running_EC == false:
+	if zwischensumme == true && eft_running_EC == false:
 		change_zwischensummen_status(false)
-		etf_running_EC = true
-		current_selected_user.startEtf(0)
-	elif etf_running_EC == true:
-		errorEtfEcAlreadyInUse()
+		eft_running_EC = true
+		current_selected_user.startEft(0)
+	elif eft_running_EC == true:
+		errorEftEcAlreadyInUse()
 	else:
 		errorNoZws()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_bar_button_button_up() -> void:
-	if zwischensumme == true && etf_running_BAR == false:
+	if zwischensumme == true && eft_running_BAR == false:
 		change_zwischensummen_status(false)
-		etf_running_BAR = true
-		current_selected_user.startEtf(1)
-	elif etf_running_BAR == true:
-		errorEtfBarAlreadyInUse()
+		eft_running_BAR = true
+		current_selected_user.startEft(1)
+	elif eft_running_BAR == true:
+		errorEftBarAlreadyInUse()
 	else:
 		errorNoZws()
 
@@ -507,10 +507,10 @@ func errorNoZws():
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-func errorEtfEcAlreadyInUse():
+func errorEftEcAlreadyInUse():
 	pass
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-func errorEtfBarAlreadyInUse():
+func errorEftBarAlreadyInUse():
 	pass
