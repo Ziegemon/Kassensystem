@@ -597,7 +597,3 @@ func updateEftIndicators():
 func _on_button_zahlung_abbrechen_button_up() -> void:
 	current_selected_user.user_eft_cancelled = true
 	current_selected_user.eft_session_id += 1 #stops running EFTs
-	
-	
-	
-	#current_selected_user.user_eft_ended = true

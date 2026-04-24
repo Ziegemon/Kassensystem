@@ -783,7 +783,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button7" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=553763282]
+[node name="BarOfflinieButton" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=553763282]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -801,7 +801,6 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
 theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "Bar offline"
 icon = ExtResource("10_cjqg0")
 autowrap_mode = 2
@@ -1523,7 +1522,7 @@ item_category_id = 289
 [connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_button_up"]
 [connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_up"]
 [connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
-[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button7" to="." method="_on_bar_offline_button_button_up"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_button_up"]
 [connection signal="button_up" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_button_up"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]
 [connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/reset_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_reset_button_button_up"]
