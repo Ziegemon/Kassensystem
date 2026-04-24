@@ -1523,6 +1523,7 @@ item_category_id = 289
 [connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_button_up"]
 [connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_up"]
 [connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button7" to="." method="_on_bar_offline_button_button_up"]
 [connection signal="button_up" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_button_up"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]
 [connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/reset_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_reset_button_button_up"]

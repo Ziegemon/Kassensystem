@@ -27,7 +27,6 @@ var rabatt : float = 1.0
 var user_eft_running : bool = false
 var user_eft_failed : bool = false
 var user_eft_ended : bool = false
-var user_eft_stopped : bool = false
 var basic_font_color = Color(0.0, 0.0, 0.0)
 var eft_font_color = Color(1.0, 0.0, 0.0)
 var eft_done_font_color = Color(0.0, 0.463, 0.0)
@@ -110,13 +109,13 @@ func startEft(used_payment_method : int):
 			zws_background.color = eft_font_color
 	
 	#simulation of paymentprocessing due to lack of external ec terminal and cash machiene
-	while user_eft_stopped == false:
-		var eft_waiting_duration = randi_range(4, 28) #raise back to 40
+	while user_eft_ended == false:
+		var eft_waiting_duration = 5#randi_range(4, 28) #maybe raise back to 40
 		var elapsed = 0.0
 
 		while elapsed < eft_waiting_duration:
-			if user_eft_stopped:
-				user_eft_stopped = false
+			if user_eft_ended == true:
+				user_eft_ended = false
 				user_eft_running = false
 				zws_background.color = Color(1, 1, 1)
 				label_number_s.add_theme_color_override("font_color", basic_font_color)
@@ -131,26 +130,58 @@ func startEft(used_payment_method : int):
 			await get_tree().create_timer(0.1).timeout
 			elapsed += 0.1
 		
-		if user_eft_stopped == true:
+		if user_eft_ended == true:
 			return
 		
 		match  eft_waiting_duration:
 			28, 4, 40:
 				#await get_tree().create_timer(eft_waiting_duration).timeout
 				eftFailed()
+			#_:
+				#eftEnded()
 
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
+
+func startEftOffline():
+	if get_tree().root.get_node("MAIN").current_user == button_number:
+			zws_background.color = eft_done_font_color
+	label_number_s.add_theme_color_override("font_color", eft_done_font_color)
+	label_name.add_theme_color_override("font_color", eft_done_font_color)
 	
+	current_item_list_array.clear()
+	get_tree().root.get_node("MAIN").updateItemListLabelV3()
 	
+	rabatt = 1.0
+	
+	eftOfflineCashReturn()
+
+#-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -   
+
+func eftOfflineCashReturn():
+	var current_keyboard_input = get_tree().root.get_node("MAIN").current_keyboard_input
+	var payed_cash : float = 0.0
+	
+	get_tree().root.get_node("MAIN").label_current_price.hide()
+	
+	if current_keyboard_input != "0,000":
+		payed_cash = snapped(get_tree().root.get_node("MAIN").keayboardInputToFloat(current_keyboard_input), 0.01)
+		get_tree().root.get_node("MAIN").label_current_price.show()
+		print(payed_cash)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func eftEnded():
+	if current_item_list_array.is_empty():
+		return
+	
 	user_eft_ended = true
 	user_eft_running = false
+	
 	label_number_s.add_theme_color_override("font_color", eft_done_font_color)
 	label_name.add_theme_color_override("font_color", eft_done_font_color)
 	if get_tree().root.get_node("MAIN").current_user == button_number:
 			zws_background.color = eft_done_font_color
+	
 	current_item_list_array.clear()
 	get_tree().root.get_node("MAIN").updateItemListLabelV3()
 	
@@ -161,18 +192,21 @@ func eftEnded():
 	
 	rabatt = 1.0
 	
-	await get_tree().create_timer(5).timeout
-	if get_tree().root.get_node("MAIN").current_user == button_number:
+	get_tree().root.get_node("MAIN").label_current_price.hide()
+	
+	await get_tree().create_timer(3).timeout
+	#user_eft_ended = false
+	if get_tree().root.get_node("MAIN").current_user == button_number &&  current_item_list_array.is_empty():
 		user_eft_ended = false
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
-	
-	
+		zws_background.color = Color(1, 1, 1)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func eftFailed():
 	user_eft_failed = true
+	user_eft_ended = true
 	#get_tree().root.get_node("MAIN").change_zwischensummen_status(false)
 	breakEftFailed()
 	
@@ -199,7 +233,8 @@ func eftFailed():
 #-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    - 
 
 func breakEftFailed():
-	await get_tree().create_timer(7).timeout
+	await get_tree().create_timer(4).timeout
+	user_eft_ended = false
 	if get_tree().root.get_node("MAIN").current_user == button_number:
 		user_eft_failed = false
 		user_eft_running = false

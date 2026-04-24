@@ -269,7 +269,7 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 		current_keyboard_input = (current_keyboard_input_semicolon + str(button_number))
 		current_keyboard_input_semicolon += str(button_number)
 	
-	change_zwischensummen_status(false)
+	#change_zwischensummen_status(false)
 	
 	label_current_price.text = current_keyboard_input
 
@@ -414,6 +414,9 @@ func show_summed_up_price_for_running_efts():
 
 func _on_button_X_button_up() -> void:
 	current_keyboard_input = "0,000"
+	current_keyboard_input_blank = ""
+	current_keyboard_input_semicolon = ""
+	semicolon_pressed = false
 	label_current_price.text = ""
 
 #---------------------------------------------------------------------------------------------------
@@ -530,6 +533,18 @@ func _on_bar_button_button_up() -> void:
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
+func _on_bar_offline_button_button_up() -> void:
+	if current_selected_user.user_eft_running == true:
+		return
+	
+	if zwischensumme == true && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
+		change_zwischensummen_status(false)
+		current_selected_user.startEftOffline()
+	else:
+		errorNoZws()
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
 func errorNoZws():
 	pass
 
@@ -549,7 +564,7 @@ func _on_duplizieren_button_button_up() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 	
-	if !(current_selected_user.user == null && current_selected_user.current_item_list_array.is_empty()):
+	if !(current_selected_user.user == null || current_selected_user.current_item_list_array.is_empty()):
 		if current_selcted_item_list_item == -1: #no item in array selected
 			var last_element_in_array = current_selected_user.current_item_list_array[current_selected_user.current_item_list_array.size() - 1]
 			current_selected_user.current_item_list_array.append(last_element_in_array)
@@ -580,4 +595,4 @@ func updateEftIndicators():
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_zahlung_abbrechen_button_up() -> void:
-	current_selected_user.user_eft_stopped = true
+	current_selected_user.user_eft_ended = true
