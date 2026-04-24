@@ -26,7 +26,9 @@ var rabatt : float = 1.0
 
 var user_eft_running : bool = false
 var user_eft_failed : bool = false
-var user_eft_ended : bool = false
+#var user_eft_ended : bool = false #weg?-------
+var user_eft_cancelled : bool = false #---------
+var eft_session_id : int = 0 #------------------
 var basic_font_color = Color(0.0, 0.0, 0.0)
 var eft_font_color = Color(1.0, 0.0, 0.0)
 var eft_done_font_color = Color(0.0, 0.463, 0.0)
@@ -70,22 +72,26 @@ func userSelected():
 	
 	if user_eft_failed == true:
 		user_eft_failed = false
-		user_eft_running = false
+		#user_eft_running = false
 		
-	elif user_eft_ended == true:
-		user_eft_ended = false
-		label_number_s.add_theme_color_override("font_color", basic_font_color)
-		label_name.add_theme_color_override("font_color", basic_font_color)
-		
-		if payment_method_used == 0:
-			get_tree().root.get_node("MAIN").eft_running_EC = false
-		else:
-			get_tree().root.get_node("MAIN").eft_running_BAR = false
+	#elif user_eft_ended == true:
+		#user_eft_ended = false
+		#label_number_s.add_theme_color_override("font_color", basic_font_color)
+		#label_name.add_theme_color_override("font_color", basic_font_color)
+		#
+		#if payment_method_used == 0:
+			#get_tree().root.get_node("MAIN").eft_running_EC = false
+		#else:
+			#get_tree().root.get_node("MAIN").eft_running_BAR = false
 	
-	elif user_eft_running:
+	elif user_eft_running == true:
 		await get_tree().create_timer(0.1).timeout
 		zws_background.color = eft_font_color
 		get_tree().root.get_node("MAIN").show_summed_up_price_for_running_efts()
+	
+	else:
+		label_number_s.add_theme_color_override("font_color", basic_font_color)
+		label_name.add_theme_color_override("font_color", basic_font_color)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -100,45 +106,84 @@ func _on_button_button_up() -> void:
 #---------------------------------------------------------------------------------------------------
 
 func startEft(used_payment_method : int):
+	eft_session_id += 1
+	var this_eft_session_id = eft_session_id
+	
 	user_eft_running = true
+	user_eft_cancelled = false
 	payment_method_used = used_payment_method
+	
 	label_number_s.add_theme_color_override("font_color", eft_font_color)
 	label_name.add_theme_color_override("font_color", eft_font_color)
 	
 	if get_tree().root.get_node("MAIN").current_user == button_number:
-			zws_background.color = eft_font_color
+		zws_background.color = eft_font_color #red
 	
-	#simulation of paymentprocessing due to lack of external ec terminal and cash machiene
-	while user_eft_ended == false:
-		var eft_waiting_duration = 5#randi_range(4, 28) #maybe raise back to 40
-		var elapsed = 0.0
-
-		while elapsed < eft_waiting_duration:
-			if user_eft_ended == true:
-				user_eft_ended = false
-				user_eft_running = false
-				zws_background.color = Color(1, 1, 1)
-				label_number_s.add_theme_color_override("font_color", basic_font_color)
-				label_name.add_theme_color_override("font_color", basic_font_color)
-				if payment_method_used == 0:
-					get_tree().root.get_node("MAIN").eft_running_EC = false
-				else:
-					get_tree().root.get_node("MAIN").eft_running_BAR = false
-				
-				return
-			
-			await get_tree().create_timer(0.1).timeout
-			elapsed += 0.1
-		
-		if user_eft_ended == true:
+	#übrtflüssig?
+	#if user_eft_cancelled || this_eft_session_id != eft_session_id:
+		#cleanUpEft()
+		#return
+	
+	#simulation of paymentprocessing due to lack of external ec terminal and cash machine
+	var eft_waiting_duration = randi_range(4, 28) #maybe raise back to 40 ----------------------------------
+	var elapsed = 0.0
+	
+	while elapsed < eft_waiting_duration:
+		if user_eft_cancelled || this_eft_session_id != eft_session_id:
+			cleanUpEft()
 			return
 		
-		match  eft_waiting_duration:
-			28, 4, 40:
-				#await get_tree().create_timer(eft_waiting_duration).timeout
-				eftFailed()
-			#_:
-				#eftEnded()
+		await get_tree().create_timer(0.1).timeout
+		elapsed += 0.1
+	
+	if user_eft_cancelled || this_eft_session_id != eft_session_id:
+		cleanUpEft()
+		return
+	
+	match  eft_waiting_duration:
+		4, 28, 40:
+			#await get_tree().create_timer(eft_waiting_duration).timeout
+			eftFailed(this_eft_session_id)
+		_:
+			eftEnded(this_eft_session_id)
+	
+	
+	
+	#
+	#
+	##simulation of paymentprocessing due to lack of external ec terminal and cash machiene
+	#while user_eft_ended == false:
+		#
+		#
+		#var eft_waiting_duration = 5#randi_range(4, 28) #maybe raise back to 40
+		#var elapsed = 0.0
+#
+		#while elapsed < eft_waiting_duration:
+			#if user_eft_ended == true:
+				#user_eft_ended = false
+				#user_eft_running = false
+				#zws_background.color = Color(1, 1, 1)
+				#label_number_s.add_theme_color_override("font_color", basic_font_color)
+				#label_name.add_theme_color_override("font_color", basic_font_color)
+				#if payment_method_used == 0:
+					#get_tree().root.get_node("MAIN").eft_running_EC = false
+				#else:
+					#get_tree().root.get_node("MAIN").eft_running_BAR = false
+				#
+				#return
+			#
+			#await get_tree().create_timer(0.1).timeout
+			#elapsed += 0.1
+		#
+		#if user_eft_ended == true:
+			#return
+		#
+		#match  eft_waiting_duration:
+			#28, 4, 40:
+				##await get_tree().create_timer(eft_waiting_duration).timeout
+				#eftFailed()
+			##_:
+				##eftEnded()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -170,17 +215,16 @@ func eftOfflineCashReturn():
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-func eftEnded():
-	if current_item_list_array.is_empty():
+func eftEnded(session_id: int):
+	if session_id != eft_session_id:
 		return
 	
-	user_eft_ended = true
 	user_eft_running = false
 	
 	label_number_s.add_theme_color_override("font_color", eft_done_font_color)
 	label_name.add_theme_color_override("font_color", eft_done_font_color)
 	if get_tree().root.get_node("MAIN").current_user == button_number:
-			zws_background.color = eft_done_font_color
+		zws_background.color = eft_done_font_color
 	
 	current_item_list_array.clear()
 	get_tree().root.get_node("MAIN").updateItemListLabelV3()
@@ -195,33 +239,90 @@ func eftEnded():
 	get_tree().root.get_node("MAIN").label_current_price.hide()
 	
 	await get_tree().create_timer(3).timeout
-	#user_eft_ended = false
-	if get_tree().root.get_node("MAIN").current_user == button_number &&  current_item_list_array.is_empty():
-		user_eft_ended = false
+	if session_id != eft_session_id:
+		return
+	
+	if get_tree().root.get_node("MAIN").current_user == button_number:
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
 		zws_background.color = Color(1, 1, 1)
+	
+	
+	
+	
+	#
+	#if current_item_list_array.is_empty():
+		#return
+	#
+	#user_eft_ended = true
+	#user_eft_running = false
+	#
+	#label_number_s.add_theme_color_override("font_color", eft_done_font_color)
+	#label_name.add_theme_color_override("font_color", eft_done_font_color)
+	#if get_tree().root.get_node("MAIN").current_user == button_number:
+			#zws_background.color = eft_done_font_color
+	#
+	#current_item_list_array.clear()
+	#get_tree().root.get_node("MAIN").updateItemListLabelV3()
+	#
+	#if payment_method_used == 0:
+		#get_tree().root.get_node("MAIN").eft_running_EC = false
+	#else:
+		#get_tree().root.get_node("MAIN").eft_running_BAR = false
+	#
+	#rabatt = 1.0
+	#
+	#get_tree().root.get_node("MAIN").label_current_price.hide()
+	#
+	#await get_tree().create_timer(3).timeout
+	##user_eft_ended = false
+	#if get_tree().root.get_node("MAIN").current_user == button_number &&  current_item_list_array.is_empty():
+		#user_eft_ended = false
+		#label_number_s.add_theme_color_override("font_color", basic_font_color)
+		#label_name.add_theme_color_override("font_color", basic_font_color)
+		#zws_background.color = Color(1, 1, 1)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
-func eftFailed():
+func eftFailed(session_id: int):
+	if session_id != eft_session_id:
+		cleanUpEft()
+		return
+	
+	user_eft_running = false
 	user_eft_failed = true
-	user_eft_ended = true
+	#user_eft_ended = true
 	#get_tree().root.get_node("MAIN").change_zwischensummen_status(false)
-	breakEftFailed()
+	
+	#breakEftFailed()
 	
 	if payment_method_used == 0:
 		get_tree().root.get_node("MAIN").eft_running_EC = false
 	else:
 		get_tree().root.get_node("MAIN").eft_running_BAR = false
 	
-	while user_eft_running == true:
+	var eft_failed_blinking_timer = Timer.new()
+	eft_failed_blinking_timer.wait_time = 4.0
+	eft_failed_blinking_timer.one_shot = true
+	add_child(eft_failed_blinking_timer)
+	eft_failed_blinking_timer.start()
+	
+	
+	while user_eft_failed == true:
+		if session_id != eft_session_id || (eft_failed_blinking_timer.is_stopped() && get_tree().root.get_node("MAIN").current_user == button_number):
+			cleanUpEft()
+			return
+		
 		label_number_s.add_theme_color_override("font_color", eft_font_color) 
 		label_name.add_theme_color_override("font_color", eft_font_color)
 		if get_tree().root.get_node("MAIN").current_user == button_number:
 			zws_background.color = eft_font_color
 		
 		await get_tree().create_timer(0.5).timeout
+		
+		if session_id != eft_session_id || (eft_failed_blinking_timer.is_stopped() && get_tree().root.get_node("MAIN").current_user == button_number) || user_eft_failed == false:
+			cleanUpEft()
+			return
 		
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
@@ -232,11 +333,26 @@ func eftFailed():
 
 #-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    - 
 
-func breakEftFailed():
-	await get_tree().create_timer(4).timeout
-	user_eft_ended = false
+#func breakEftFailed():
+	#await get_tree().create_timer(4).timeout
+	#user_eft_ended = false
+	#if get_tree().root.get_node("MAIN").current_user == button_number:
+		#user_eft_failed = false
+		#user_eft_running = false
+		#label_number_s.add_theme_color_override("font_color", basic_font_color)
+		#label_name.add_theme_color_override("font_color", basic_font_color)
+
+
+func cleanUpEft():
+	user_eft_running = false
+	user_eft_cancelled = false
+	
+	label_number_s.add_theme_color_override("font_color", basic_font_color)
+	label_name.add_theme_color_override("font_color", basic_font_color)
 	if get_tree().root.get_node("MAIN").current_user == button_number:
-		user_eft_failed = false
-		user_eft_running = false
-		label_number_s.add_theme_color_override("font_color", basic_font_color)
-		label_name.add_theme_color_override("font_color", basic_font_color)
+		zws_background.color = Color(1, 1, 1)
+	
+	if payment_method_used == 0:
+		get_tree().root.get_node("MAIN").eft_running_EC = false
+	else:
+		get_tree().root.get_node("MAIN").eft_running_BAR = false
