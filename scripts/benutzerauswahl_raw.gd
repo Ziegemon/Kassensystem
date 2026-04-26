@@ -22,6 +22,8 @@ signal user_selected(button_number)
 
 var rabatt : float = 1.0
 
+var summedUpPrice : float = 0.0
+
 #---------------------------------------------------------------------------------------------------
 
 var user_eft_running : bool = false
@@ -145,19 +147,23 @@ func startEftOffline():
 	rabatt = 1.0
 	
 	eftOfflineCashReturn()
+	
 
 #-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -   
 
 func eftOfflineCashReturn():
 	var current_keyboard_input = get_tree().root.get_node("MAIN").current_keyboard_input
 	var payed_cash : float = 0.0
+	#summedUpPrice = get_tree().root.get_node("MAIN").summ_up_price()
 	
 	get_tree().root.get_node("MAIN").label_current_price.hide()
 	
 	if current_keyboard_input != "0,000":
 		payed_cash = snapped(get_tree().root.get_node("MAIN").keayboardInputToFloat(current_keyboard_input), 0.01)
 		get_tree().root.get_node("MAIN").label_current_price.show()
-		print(payed_cash)
+		get_tree().root.get_node("MAIN").label_current_price.text = (get_tree().root.get_node("MAIN").formatPrice(payed_cash - summedUpPrice) + " €")
+	
+	get_tree().root.get_node("MAIN")._on_button_X_button_up(true)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 

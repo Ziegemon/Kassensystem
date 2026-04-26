@@ -68,6 +68,8 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	updateClockDate()
 	updateEftIndicators()
+	
+	#print(current_keyboard_input)
 
 
 #---------------------------------------------------------------------------------------------------
@@ -374,8 +376,11 @@ func _on_button_ZWS_button_up() -> void:
 
 #---------------------------------------------------------------------------------------------------
 
-func change_zwischensummen_status(zws_status : bool):
+func change_zwischensummen_status(zws_status : bool, clearCurrentKeyboardInput : bool = true):
 	zwischensumme = zws_status
+	
+	if clearCurrentKeyboardInput == true:
+		_on_button_X_button_up(true)
 	
 	var summedUpPrice : float = 0
 	
@@ -394,6 +399,8 @@ func change_zwischensummen_status(zws_status : bool):
 		
 	else:
 		$toolbar_bottom_2/background.color = Color(1, 1, 1)
+	
+	current_selected_user.summedUpPrice = summedUpPrice
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -408,16 +415,16 @@ func show_summed_up_price_for_running_efts():
 		
 		label_current_price.text = (formatPrice(summedUpPrice * current_selected_user.rabatt) + " €")
 		label_current_price.show()
-	
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_button_X_button_up() -> void:
+func _on_button_X_button_up(dontChangeLabel : bool = false) -> void:
 	current_keyboard_input = "0,000"
 	current_keyboard_input_blank = ""
 	current_keyboard_input_semicolon = ""
 	semicolon_pressed = false
-	label_current_price.text = ""
+	if dontChangeLabel == false:
+		label_current_price.text = ""
 
 #---------------------------------------------------------------------------------------------------
  
@@ -538,7 +545,7 @@ func _on_bar_offline_button_button_up() -> void:
 		return
 	
 	if zwischensumme == true && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
-		change_zwischensummen_status(false)
+		change_zwischensummen_status(false, false)
 		current_selected_user.startEftOffline()
 	else:
 		errorNoZws()
