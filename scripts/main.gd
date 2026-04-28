@@ -335,7 +335,7 @@ func updateItemListLabelV3():
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_button_ZWS_button_up() -> void:
+func _on_button_ZWS_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 		
@@ -380,7 +380,7 @@ func change_zwischensummen_status(zws_status : bool, clearCurrentKeyboardInput :
 	zwischensumme = zws_status
 	
 	if clearCurrentKeyboardInput == true:
-		_on_button_X_button_up(true)
+		_on_button_X_button_pressed(true)
 	
 	var summedUpPrice : float = 0
 	
@@ -418,7 +418,10 @@ func show_summed_up_price_for_running_efts():
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_button_X_button_up(dontChangeLabel : bool = false) -> void:
+func _on_button_X_button_pressed(dontChangeLabel : bool = false) -> void:
+	if  current_selected_user.user_eft_running == true:
+		return
+	
 	current_keyboard_input = "0,000"
 	current_keyboard_input_blank = ""
 	current_keyboard_input_semicolon = ""
@@ -428,7 +431,7 @@ func _on_button_X_button_up(dontChangeLabel : bool = false) -> void:
 
 #---------------------------------------------------------------------------------------------------
  
-func _on_korrektur_button_button_up() -> void:
+func _on_korrektur_button_pressed() -> void:
 	if current_selected_user.current_item_list_array.is_empty() || current_selected_user.user_eft_running == true:
 		return
 	
@@ -504,13 +507,13 @@ func set_n_apply_rabatt(new_rabatt : float):
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func changeRabattVisualizer():
-	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer._on_return_button_button_up()
+	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer._on_return_button_pressed()
 	label_rabatt.text = "Rabatt: " + str(int(round((1 - current_selected_user.rabatt) * 100))) + "%"
 
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_ec_button_button_up() -> void:
+func _on_ec_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 	
@@ -525,7 +528,7 @@ func _on_ec_button_button_up() -> void:
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-func _on_bar_button_button_up() -> void:
+func _on_bar_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 	
@@ -540,7 +543,7 @@ func _on_bar_button_button_up() -> void:
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-func _on_bar_offline_button_button_up() -> void:
+func _on_bar_offline_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 	
@@ -567,7 +570,7 @@ func errorEftBarAlreadyInUse():
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_duplizieren_button_button_up() -> void:
+func _on_duplizieren_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 	
@@ -601,6 +604,6 @@ func updateEftIndicators():
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_button_zahlung_abbrechen_button_up() -> void:
+func _on_button_zahlung_abbrechen_pressed() -> void:
 	current_selected_user.user_eft_cancelled = true
 	current_selected_user.eft_session_id += 1 #stops running EFTs

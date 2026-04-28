@@ -28,7 +28,7 @@ func setUpItemButton():
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_button_button_up() -> void:
+func _on_button_pressed() -> void:
 	if button_item_data != null:
 		emit_signal("item_button_pressed", button_item_data)
 

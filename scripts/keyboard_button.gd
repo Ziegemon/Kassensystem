@@ -25,7 +25,7 @@ func _ready() -> void:
 #---------------------------------------------------------------------------------------------------
 
 
-func _on_button_button_up() -> void:
+func _on_button_pressed() -> void:
 	emit_signal("keyboard_button_pressed", button_number, button_semicolon)
 
 #---------------------------------------------------------------------------------------------------

@@ -21,6 +21,5 @@ func _ready() -> void:
 #---------------------------------------------------------------------------------------------------
 
 
-
-func _on_button_button_up() -> void:
+func _on_button_pressed() -> void:
 	emit_signal("category_selected", item_category_id)

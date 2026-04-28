@@ -92,7 +92,7 @@ func userDeSelected():
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_button_button_up() -> void:
+func _on_button_pressed() -> void:
 	emit_signal("user_selected", button_number)
 
 #---------------------------------------------------------------------------------------------------
@@ -164,7 +164,7 @@ func eftOfflineCashReturn():
 		MAIN.label_current_price.show()
 		MAIN.label_current_price.text = (MAIN.formatPrice(payed_cash - summedUpPrice) + " €")
 	
-	MAIN._on_button_X_button_up(true)
+	MAIN._on_button_X_button_pressed(true)
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 

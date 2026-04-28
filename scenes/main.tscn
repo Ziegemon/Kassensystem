@@ -946,7 +946,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjqg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
@@ -971,7 +971,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjqg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
@@ -995,7 +995,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjqg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
@@ -1019,7 +1019,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjqg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
@@ -1043,7 +1043,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjqg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
@@ -1067,7 +1067,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjqg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
@@ -1091,7 +1091,7 @@ theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_pibwh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_pibwh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cjqg0")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_pibwh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_2cjbq")
@@ -1518,20 +1518,20 @@ layout_mode = 2
 item_category_id = 289
 
 [connection signal="keyboard_button_pressed" from="keyboard/buttons_main/GridContainer/keyboard_button9" to="." method="_on_keyboard_button_9_keyboard_button_pressed"]
-[connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_button_up"]
-[connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_button_up"]
-[connection signal="button_up" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_up"]
+[connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_pressed"]
+[connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_pressed"]
+[connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_pressed"]
 [connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
-[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_button_up"]
-[connection signal="button_up" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_button_up"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_pressed"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]
-[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/reset_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_reset_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/5_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_5_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/10_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_10_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/15_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_15_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/25_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_25_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/50_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_50_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/return_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_return_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/EC_button" to="." method="_on_ec_button_button_up"]
-[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/ZWS_button" to="." method="_on_button_ZWS_button_up"]
-[connection signal="button_up" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/BAR_button" to="." method="_on_bar_button_button_up"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/reset_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_reset_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/5_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_5_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/10_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_10_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/15_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_15_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/25_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_25_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/50_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_50_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/return_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_return_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/EC_button" to="." method="_on_ec_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/ZWS_button" to="." method="_on_button_ZWS_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/BAR_button" to="." method="_on_bar_button_pressed"]

@@ -74,4 +74,4 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c605q")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2n5uk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jde1m")
 
-[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
