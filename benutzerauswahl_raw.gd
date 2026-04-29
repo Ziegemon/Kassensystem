@@ -146,6 +146,7 @@ func startEftOffline():
 	MAIN.updateItemListLabelV3()
 	
 	rabatt = 1.0
+	MAIN.label_rabatt.hide()
 	
 	eftOfflineCashReturn()
 	
