@@ -3,6 +3,8 @@ class_name Benutzerauswahl_raw
 
 #---------------------------------------------------------------------------------------------------
 
+var user_raw
+
 @export var button_number : int
 
 @export var selected_button_color : Color
@@ -146,7 +148,6 @@ func startEftOffline():
 	MAIN.updateItemListLabelV3()
 	
 	rabatt = 1.0
-	MAIN.label_rabatt.hide()
 	
 	eftOfflineCashReturn()
 	
@@ -190,9 +191,11 @@ func eftEnded(session_id: int):
 		MAIN.eft_running_BAR = false
 	
 	rabatt = 1.0
-	MAIN.label_rabatt.hide()
 	
 	MAIN.label_current_price.hide()
+	
+	var newRechnungslistenelement = rechnungsliste_element.new(user_raw, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR
+	SystemData.rechnungsliste.append(newRechnungslistenelement)
 	
 	await get_tree().create_timer(3).timeout
 	if session_id != eft_session_id:
