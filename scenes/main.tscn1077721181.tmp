@@ -523,6 +523,8 @@ selected_button_color = Color(0, 0.235294, 0, 1)
 [node name="benutzerauswahl_extra" type="Control" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1164589248]
 layout_mode = 2
 script = ExtResource("6_tefeu")
+button_number = 10
+selected_button_color = Color(0.831373, 0.34902, 0, 1)
 
 [node name="background" type="ColorRect" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=990901350]
 layout_mode = 0

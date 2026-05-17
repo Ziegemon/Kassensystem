@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="user" format=3 uid="uid://dsysqsybft0ni"]
-
-[ext_resource type="Script" uid="uid://cga6rarqcn5dh" path="res://scripts/user_data.gd" id="1_x3nem"]
-
-[resource]
-script = ExtResource("1_x3nem")
-username = "Thilo Mutz"
-metadata/_custom_type_script = "uid://cga6rarqcn5dh"

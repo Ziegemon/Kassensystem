@@ -3,6 +3,8 @@ class_name Benutzerauswahl_raw
 
 #---------------------------------------------------------------------------------------------------
 
+var user_raw : user_data
+
 @export var button_number : int
 
 @export var selected_button_color : Color
@@ -192,6 +194,14 @@ func eftEnded(session_id: int):
 	
 	MAIN.label_current_price.hide()
 	
+	var newRechnungslistenelement
+	if user_raw != null:
+		newRechnungslistenelement = rechnungsliste_element.new(user_raw.username, user_raw.user_id, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR
+	else: #EXTRA user used
+		newRechnungslistenelement = rechnungsliste_element.new("EXTRA", 0, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR
+
+	SystemData.rechnungsliste.append(newRechnungslistenelement)
+	
 	await get_tree().create_timer(3).timeout
 	if session_id != eft_session_id:
 		cleanUpEft()
@@ -201,6 +211,11 @@ func eftEnded(session_id: int):
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
 		zws_background.color = Color(1, 1, 1)
+	
+	#print all rechningsliste_elements
+	for e in SystemData.rechnungsliste:
+		print("User: " + e.user_name + " Revenue: " + str(e.revenue))
+	#print all rechningsliste_elements
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 

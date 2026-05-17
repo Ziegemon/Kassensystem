@@ -28,6 +28,7 @@ func _ready() -> void:
 	label_number_s.text = str(button_number)
 	
 	if user != null:
+		user_raw = user
 		setupUser()
 
 #---------------------------------------------------------------------------------------------------
