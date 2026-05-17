@@ -214,7 +214,8 @@ func eftEnded(session_id: int):
 	
 	#print all rechningsliste_elements
 	for e in SystemData.rechnungsliste:
-		print("User: " + e.user_name + " Revenue: " + str(e.revenue))
+		print("%02d:%02d:%02d" % [e.time.hour, e.time.minute, e.time.second] + " User: " + e.user_name + " Revenue: " + str(e.revenue))
+	print("------")
 	#print all rechningsliste_elements
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
