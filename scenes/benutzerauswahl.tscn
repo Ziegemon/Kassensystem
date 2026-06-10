@@ -1,103 +1,32 @@
-[gd_scene format=3 uid="uid://bp5qlr7a6wq31"]
+[gd_scene load_steps=8 format=3 uid="uid://bp5qlr7a6wq31"]
 
-[sub_resource type="GDScript" id="GDScript_ny5b6"]
-script/source = "extends Benutzerauswahl_raw
-class_name Benutzerauswahl
-
-#---------------------------------------------------------------------------------------------------
-
-
-@export var user : user_data
-
-
-#signal user_changed
-#signal user_removed
-
-#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
-
-
-@onready var label_number: Label = $label_number
-#@onready var label_name: Label = $label_name
-#@onready var label_number_s: Label = $label_number_s
-
-
-#---------------------------------------------------------------------------------------------------
-#---------------------------------------------------------------------------------------------------
-
-
-func _ready() -> void:
-	background.color = basic_button_color
-	label_number.text = str(button_number)
-	label_number_s.text = str(button_number)
-	
-	if user != null:
-		setupUser()
-
-#---------------------------------------------------------------------------------------------------
-
-#func _process(delta: float) -> void:
-#	pass
-
-
-#---------------------------------------------------------------------------------------------------
-#---------------------------------------------------------------------------------------------------
-
-func setupUser():
-	label_number.hide()
-	label_number_s.show()
-	#background.color = selected_button_color
-	
-	label_name.text = user.username
-	label_name.show()
-
-#---------------------------------------------------------------------------------------------------
-
-func removeUser():
-	label_number_s.hide()
-	label_name.hide()
-	label_number.show()
-	#background.color = basic_button_color
-	
-	label_name.text = \"\"
-
-#---------------------------------------------------------------------------------------------------
-
-#func _on_user_changed() -> void:
-	#setupUser()
-
-#---------------------------------------------------------------------------------------------------
-
-#func _on_user_removed() -> void:
-	#removeUser()
-
-#---------------------------------------------------------------------------------------------------
-"
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eel67"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7uxc"]
-bg_color = Color(0.8352941, 0.8352941, 0.8352941, 0.37254903)
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2o50"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c605q"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n5uk"]
+[ext_resource type="Script" path="res://scripts/benutzerauswahl.gd" id="1_d0fg7"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jde1m"]
 
-[node name="benutzerauswahl" type="Control" unique_id=1930288221]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2n5uk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c605q"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_r2o50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7uxc"]
+bg_color = Color(0.835294, 0.835294, 0.835294, 0.372549)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_eel67"]
+
+[node name="benutzerauswahl" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-script = SubResource("GDScript_ny5b6")
+script = ExtResource("1_d0fg7")
 
-[node name="background" type="ColorRect" parent="." unique_id=1774228619]
+[node name="background" type="ColorRect" parent="."]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
 
-[node name="label_number" type="Label" parent="." unique_id=642642272]
+[node name="label_number" type="Label" parent="."]
 texture_filter = 1
 layout_mode = 0
 offset_right = 100.0
@@ -108,7 +37,7 @@ text = "1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="label_name" type="Label" parent="." unique_id=1405446427]
+[node name="label_name" type="Label" parent="."]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -123,7 +52,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="label_number_s" type="Label" parent="." unique_id=1815907581]
+[node name="label_number_s" type="Label" parent="."]
 visible = false
 texture_filter = 1
 layout_mode = 0
@@ -134,15 +63,15 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "1"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="." unique_id=1254202878]
+[node name="Button" type="Button" parent="."]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 100.0
-theme_override_styles/normal = SubResource("StyleBoxEmpty_eel67")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_y7uxc")
-theme_override_styles/hover = SubResource("StyleBoxEmpty_r2o50")
-theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c605q")
-theme_override_styles/disabled = SubResource("StyleBoxEmpty_2n5uk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jde1m")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_2n5uk")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c605q")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_r2o50")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_y7uxc")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_eel67")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
