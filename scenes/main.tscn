@@ -107,24 +107,24 @@ bg_color = Color(0.154876, 0.154876, 0.154876, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choun"]
 bg_color = Color(0.29219, 0.29219, 0.29219, 1)
 
-[node name="MAIN" type="Control" unique_id=370272144]
+[node name="MAIN" type="Control" unique_id=1770059592]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_o5qli")
 
-[node name="keyboard" type="Control" parent="." unique_id=1635874149]
+[node name="keyboard" type="Control" parent="." unique_id=1578435927]
 anchors_preset = 0
 offset_left = 130.0
 offset_top = 634.0
 offset_right = 644.0
 offset_bottom = 1080.0
 
-[node name="background" type="ColorRect" parent="keyboard" unique_id=375507338]
+[node name="background" type="ColorRect" parent="keyboard" unique_id=1970347603]
 layout_mode = 0
 offset_right = 514.0
 offset_bottom = 446.0
 
-[node name="buttons_main" type="MarginContainer" parent="keyboard" unique_id=748197984]
+[node name="buttons_main" type="MarginContainer" parent="keyboard" unique_id=423543119]
 layout_mode = 0
 offset_right = 384.0
 offset_bottom = 384.0
@@ -133,49 +133,49 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="keyboard/buttons_main" unique_id=240245113]
+[node name="GridContainer" type="GridContainer" parent="keyboard/buttons_main" unique_id=836755404]
 layout_mode = 2
 theme_override_constants/h_separation = 122
 theme_override_constants/v_separation = 122
 columns = 3
 
-[node name="keyboard_button7" parent="keyboard/buttons_main/GridContainer" unique_id=1091167146 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button7" parent="keyboard/buttons_main/GridContainer" unique_id=1066669485 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 7
 
-[node name="keyboard_button8" parent="keyboard/buttons_main/GridContainer" unique_id=57763154 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button8" parent="keyboard/buttons_main/GridContainer" unique_id=1435114836 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 8
 
-[node name="keyboard_button9" parent="keyboard/buttons_main/GridContainer" unique_id=808581892 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button9" parent="keyboard/buttons_main/GridContainer" unique_id=1378110252 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 9
 
-[node name="keyboard_button4" parent="keyboard/buttons_main/GridContainer" unique_id=1674901019 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button4" parent="keyboard/buttons_main/GridContainer" unique_id=805345536 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 4
 
-[node name="keyboard_button5" parent="keyboard/buttons_main/GridContainer" unique_id=2032372797 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button5" parent="keyboard/buttons_main/GridContainer" unique_id=724890325 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 5
 
-[node name="keyboard_button6" parent="keyboard/buttons_main/GridContainer" unique_id=215369486 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button6" parent="keyboard/buttons_main/GridContainer" unique_id=1690070030 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 6
 
-[node name="keyboard_button1" parent="keyboard/buttons_main/GridContainer" unique_id=831098653 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button1" parent="keyboard/buttons_main/GridContainer" unique_id=971789154 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 1
 
-[node name="keyboard_button2" parent="keyboard/buttons_main/GridContainer" unique_id=923995148 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button2" parent="keyboard/buttons_main/GridContainer" unique_id=1390724993 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 2
 
-[node name="keyboard_button3" parent="keyboard/buttons_main/GridContainer" unique_id=686677866 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button3" parent="keyboard/buttons_main/GridContainer" unique_id=1946519827 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_number = 3
 
-[node name="buttons_main2" type="MarginContainer" parent="keyboard" unique_id=1299438234]
+[node name="buttons_main2" type="MarginContainer" parent="keyboard" unique_id=1232097694]
 layout_mode = 0
 offset_top = 366.0
 offset_right = 384.0
@@ -185,24 +185,24 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer2" type="GridContainer" parent="keyboard/buttons_main2" unique_id=113522790]
+[node name="GridContainer2" type="GridContainer" parent="keyboard/buttons_main2" unique_id=606068396]
 layout_mode = 2
 theme_override_constants/h_separation = 184
 theme_override_constants/v_separation = 2
 columns = 2
 
-[node name="keyboard_button2" parent="keyboard/buttons_main2/GridContainer2" unique_id=1003906400 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button2" parent="keyboard/buttons_main2/GridContainer2" unique_id=375708686 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 custom_minimum_size_x = 180
 custom_minimum_size_y = 61
 
-[node name="keyboard_button3" parent="keyboard/buttons_main2/GridContainer2" unique_id=258559678 instance=ExtResource("2_a8y0u")]
+[node name="keyboard_button3" parent="keyboard/buttons_main2/GridContainer2" unique_id=1382524028 instance=ExtResource("2_a8y0u")]
 layout_mode = 2
 button_semicolon = true
 custom_minimum_size_x = 180
 custom_minimum_size_y = 61
 
-[node name="buttons_secodary" type="MarginContainer" parent="keyboard" unique_id=891818971]
+[node name="buttons_secodary" type="MarginContainer" parent="keyboard" unique_id=2140791281]
 layout_mode = 0
 offset_left = 374.0
 offset_right = 514.0
@@ -212,11 +212,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="keyboard/buttons_secodary" unique_id=973919940]
+[node name="VBoxContainer" type="VBoxContainer" parent="keyboard/buttons_secodary" unique_id=2053696385]
 layout_mode = 2
 theme_override_constants/separation = 2
 
-[node name="Duplizieren_Button" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=1986928412]
+[node name="Duplizieren_Button" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=330449531]
 texture_filter = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
@@ -239,7 +239,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Korrektur_button" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=1389036710]
+[node name="Korrektur_button" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=476264184]
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -261,7 +261,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button3" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=2112587042]
+[node name="Button3" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=1816007679]
 texture_filter = 1
 custom_minimum_size = Vector2(120, 120)
 layout_mode = 2
@@ -279,7 +279,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "X"
 
-[node name="Button4" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=972503027]
+[node name="Button4" type="Button" parent="keyboard/buttons_secodary/VBoxContainer" unique_id=425884396]
 texture_filter = 1
 custom_minimum_size = Vector2(120, 60)
 layout_mode = 2
@@ -297,22 +297,22 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "Enter"
 
-[node name="status_bar" type="Control" parent="." unique_id=306204679]
+[node name="status_bar" type="Control" parent="." unique_id=251353978]
 anchors_preset = 0
 offset_right = 1920.0
 offset_bottom = 72.0
 
-[node name="Statusleiste" type="ColorRect" parent="status_bar" unique_id=406303088]
+[node name="Statusleiste" type="ColorRect" parent="status_bar" unique_id=1202024279]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 72.0
 
-[node name="Statusleiste2" type="ColorRect" parent="status_bar" unique_id=1302751781]
+[node name="Statusleiste2" type="ColorRect" parent="status_bar" unique_id=223033942]
 layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 72.0
 
-[node name="Label_user_id" type="Label" parent="status_bar" unique_id=1290837489]
+[node name="Label_user_id" type="Label" parent="status_bar" unique_id=1637809223]
 texture_filter = 1
 layout_mode = 0
 offset_right = 66.0
@@ -323,7 +323,7 @@ text = "00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label_user_name" type="Label" parent="status_bar" unique_id=341282206]
+[node name="Label_user_name" type="Label" parent="status_bar" unique_id=270463119]
 texture_filter = 1
 layout_mode = 0
 offset_left = 66.0
@@ -334,7 +334,7 @@ theme_override_font_sizes/font_size = 30
 text = "Name Surname"
 vertical_alignment = 1
 
-[node name="Label_clock" type="Label" parent="status_bar" unique_id=1413539198]
+[node name="Label_clock" type="Label" parent="status_bar" unique_id=44375253]
 texture_filter = 1
 layout_mode = 0
 offset_left = 372.0
@@ -346,7 +346,7 @@ text = "00:00"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label_date" type="Label" parent="status_bar" unique_id=1670114256]
+[node name="Label_date" type="Label" parent="status_bar" unique_id=1856712266]
 texture_filter = 1
 layout_mode = 0
 offset_left = 483.0
@@ -357,7 +357,7 @@ theme_override_font_sizes/font_size = 30
 text = "01.01.2026"
 vertical_alignment = 1
 
-[node name="Label_rabatt" type="Label" parent="status_bar" unique_id=29191419]
+[node name="Label_rabatt" type="Label" parent="status_bar" unique_id=1005416758]
 texture_filter = 1
 layout_mode = 0
 offset_left = 693.0
@@ -368,26 +368,26 @@ theme_override_font_sizes/font_size = 30
 text = "Rabatt: 50%"
 vertical_alignment = 1
 
-[node name="EFT_indicators" type="Control" parent="status_bar" unique_id=2131123930]
+[node name="EFT_indicators" type="Control" parent="status_bar" unique_id=915387612]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="line0" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=2085480557]
+[node name="line0" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=1571095184]
 layout_mode = 0
 offset_left = 1830.0
 offset_right = 1833.0
 offset_bottom = 72.0
 color = Color(0, 0, 0, 1)
 
-[node name="line1" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=568821315]
+[node name="line1" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=2095425103]
 layout_mode = 0
 offset_left = 1917.0
 offset_right = 1920.0
 offset_bottom = 72.0
 color = Color(0, 0, 0, 1)
 
-[node name="line4" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=2121360803]
+[node name="line4" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=766205529]
 layout_mode = 0
 offset_left = 1830.0
 offset_top = 34.0
@@ -395,7 +395,7 @@ offset_right = 1920.0
 offset_bottom = 38.0
 color = Color(0, 0, 0, 1)
 
-[node name="line5" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=701655082]
+[node name="line5" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=574394482]
 layout_mode = 0
 offset_left = 1830.0
 offset_top = 69.0
@@ -403,14 +403,14 @@ offset_right = 1920.0
 offset_bottom = 72.0
 color = Color(0, 0, 0, 1)
 
-[node name="line3" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=1283413247]
+[node name="line3" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=1020262749]
 layout_mode = 0
 offset_left = 1830.0
 offset_right = 1920.0
 offset_bottom = 3.0
 color = Color(0, 0, 0, 1)
 
-[node name="ColorRectBARIndicator" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=2010241035]
+[node name="ColorRectBARIndicator" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=983424100]
 layout_mode = 0
 offset_left = 1833.0
 offset_top = 3.0
@@ -418,7 +418,7 @@ offset_right = 1917.0
 offset_bottom = 34.0
 color = Color(0, 0.463, 0, 1)
 
-[node name="Label_BAR_running" type="Label" parent="status_bar/EFT_indicators/ColorRectBARIndicator" unique_id=1986793869]
+[node name="Label_BAR_running" type="Label" parent="status_bar/EFT_indicators/ColorRectBARIndicator" unique_id=1897283675]
 texture_filter = 1
 layout_mode = 0
 offset_right = 84.0
@@ -429,7 +429,7 @@ text = "EFT BAR"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ColorRectECIndicator" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=1350285998]
+[node name="ColorRectECIndicator" type="ColorRect" parent="status_bar/EFT_indicators" unique_id=3766024]
 layout_mode = 0
 offset_left = 1833.0
 offset_top = 38.0
@@ -437,7 +437,7 @@ offset_right = 1917.0
 offset_bottom = 69.0
 color = Color(0, 0.463, 0, 1)
 
-[node name="Label_EC_running" type="Label" parent="status_bar/EFT_indicators/ColorRectECIndicator" unique_id=2046743083]
+[node name="Label_EC_running" type="Label" parent="status_bar/EFT_indicators/ColorRectECIndicator" unique_id=1221154652]
 texture_filter = 1
 layout_mode = 0
 offset_right = 84.0
@@ -448,18 +448,18 @@ text = "EFT EC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="user_selection" type="Control" parent="." unique_id=1276463688]
+[node name="user_selection" type="Control" parent="." unique_id=1357200962]
 anchors_preset = 0
 offset_top = 82.0
 offset_right = 120.0
 offset_bottom = 1080.0
 
-[node name="background" type="ColorRect" parent="user_selection" unique_id=621544441]
+[node name="background" type="ColorRect" parent="user_selection" unique_id=411575131]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 998.0
 
-[node name="MarginContainer" type="MarginContainer" parent="user_selection" unique_id=1841047913]
+[node name="MarginContainer" type="MarginContainer" parent="user_selection" unique_id=890561505]
 layout_mode = 0
 offset_right = 120.0
 offset_bottom = 998.0
@@ -468,71 +468,69 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="user_selection/MarginContainer" unique_id=417172244]
+[node name="VBoxContainer" type="VBoxContainer" parent="user_selection/MarginContainer" unique_id=1970245965]
 layout_mode = 2
 theme_override_constants/separation = 102
 
-[node name="benutzerauswahl" parent="user_selection/MarginContainer/VBoxContainer" unique_id=764228385 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl" parent="user_selection/MarginContainer/VBoxContainer" unique_id=665998001 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 button_number = 1
 selected_button_color = Color(0, 0, 1, 1)
 
-[node name="benutzerauswahl2" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1203575683 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl2" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1610535480 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 user = ExtResource("3_jyhfs")
 button_number = 2
 selected_button_color = Color(0.231373, 0.305882, 0.396078, 1)
 
-[node name="benutzerauswahl3" parent="user_selection/MarginContainer/VBoxContainer" unique_id=658982203 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl3" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1682543149 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 button_number = 3
 selected_button_color = Color(0.729412, 0.584314, 0, 1)
 
-[node name="benutzerauswahl4" parent="user_selection/MarginContainer/VBoxContainer" unique_id=246199748 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl4" parent="user_selection/MarginContainer/VBoxContainer" unique_id=414493427 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 button_number = 4
 selected_button_color = Color(0.509804, 0, 0.509804, 1)
 
-[node name="benutzerauswahl5" parent="user_selection/MarginContainer/VBoxContainer" unique_id=2060002807 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl5" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1534896607 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 user = ExtResource("4_tbgi4")
 button_number = 5
 selected_button_color = Color(0.321569, 0, 0, 1)
 
-[node name="benutzerauswahl6" parent="user_selection/MarginContainer/VBoxContainer" unique_id=398779513 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl6" parent="user_selection/MarginContainer/VBoxContainer" unique_id=800933696 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 button_number = 6
 selected_button_color = Color(0, 0.560784, 0.47451, 1)
 
-[node name="benutzerauswahl7" parent="user_selection/MarginContainer/VBoxContainer" unique_id=354757111 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl7" parent="user_selection/MarginContainer/VBoxContainer" unique_id=244788853 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 button_number = 7
 selected_button_color = Color(0, 0.560784, 0.47451, 1)
 
-[node name="benutzerauswahl8" parent="user_selection/MarginContainer/VBoxContainer" unique_id=371231274 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl8" parent="user_selection/MarginContainer/VBoxContainer" unique_id=283427 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 button_number = 8
 selected_button_color = Color(0.611765, 0.168627, 0.45098, 1)
 
-[node name="benutzerauswahl9" parent="user_selection/MarginContainer/VBoxContainer" unique_id=723530497 instance=ExtResource("2_0wfyh")]
+[node name="benutzerauswahl9" parent="user_selection/MarginContainer/VBoxContainer" unique_id=658582855 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
 user = ExtResource("3_sugp2")
 button_number = 9
 selected_button_color = Color(0, 0.235294, 0, 1)
 
-[node name="benutzerauswahl_extra" type="Control" parent="user_selection/MarginContainer/VBoxContainer" unique_id=440429213]
+[node name="benutzerauswahl_extra" type="Control" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1164589248]
 layout_mode = 2
 script = ExtResource("6_tefeu")
-button_number = 10
-selected_button_color = Color(1, 0.368627, 0, 1)
 
-[node name="background" type="ColorRect" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=263934860]
+[node name="background" type="ColorRect" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=990901350]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 61.0
 color = Color(0.400698, 0.400698, 0.400698, 1)
 
-[node name="label_name" type="Label" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=653563150]
+[node name="label_name" type="Label" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=1037275847]
 texture_filter = 1
 layout_mode = 0
 offset_right = 100.0
@@ -546,7 +544,7 @@ vertical_alignment = 1
 autowrap_mode = 3
 uppercase = true
 
-[node name="label_number_s" type="Label" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=742120305]
+[node name="label_number_s" type="Label" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=595665161]
 texture_filter = 1
 layout_mode = 0
 offset_left = 3.0
@@ -556,7 +554,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "10"
 horizontal_alignment = 1
 
-[node name="Button" type="Button" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=944017890]
+[node name="Button" type="Button" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=409238700]
 layout_mode = 0
 offset_right = 100.0
 offset_bottom = 61.0
@@ -567,19 +565,19 @@ theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_c605q")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_2n5uk")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_jde1m")
 
-[node name="toolbar_right" type="Control" parent="." unique_id=244279863]
+[node name="toolbar_right" type="Control" parent="." unique_id=738817574]
 anchors_preset = 0
 offset_left = 1830.0
 offset_top = 82.0
 offset_right = 1920.0
 offset_bottom = 1080.0
 
-[node name="background" type="ColorRect" parent="toolbar_right" unique_id=732858995]
+[node name="background" type="ColorRect" parent="toolbar_right" unique_id=249867685]
 layout_mode = 0
 offset_right = 90.0
 offset_bottom = 998.0
 
-[node name="MarginContainer" type="MarginContainer" parent="toolbar_right" unique_id=29289531]
+[node name="MarginContainer" type="MarginContainer" parent="toolbar_right" unique_id=1239379282]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 90.0
@@ -589,11 +587,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="toolbar_right/MarginContainer" unique_id=1352067075]
+[node name="VBoxContainer" type="VBoxContainer" parent="toolbar_right/MarginContainer" unique_id=867360126]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Button0" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=2057819544]
+[node name="Button0" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1755479472]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -620,7 +618,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button1" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1378745433]
+[node name="Button1" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1403017609]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -647,7 +645,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button2" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=781806898]
+[node name="Button2" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1813754446]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -675,7 +673,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button3" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=157530209]
+[node name="Button3" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=2006079042]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -702,7 +700,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button4" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=265038340]
+[node name="Button4" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=603649136]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -729,7 +727,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button5" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=226971232]
+[node name="Button5" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=574349411]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -756,7 +754,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button6" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=429119490]
+[node name="Button6" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=932639844]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -783,7 +781,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="BarOfflinieButton" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=592924095]
+[node name="BarOfflinieButton" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=244945421]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -809,11 +807,11 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Placeholder" type="Control" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=753806464]
+[node name="Placeholder" type="Control" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1508290917]
 custom_minimum_size = Vector2(70, 21)
 layout_mode = 2
 
-[node name="Button_Zahlung_abbrechen" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=366134407]
+[node name="Button_Zahlung_abbrechen" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1997799749]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 70)
@@ -834,19 +832,19 @@ text = "Zahlung abbrechen"
 autowrap_mode = 2
 clip_text = true
 
-[node name="toolbar_bottom_1" type="Control" parent="." unique_id=913051329]
+[node name="toolbar_bottom_1" type="Control" parent="." unique_id=660111446]
 anchors_preset = 0
 offset_left = 654.0
 offset_top = 990.0
 offset_right = 1180.0
 offset_bottom = 1080.0
 
-[node name="background" type="ColorRect" parent="toolbar_bottom_1" unique_id=1747599319]
+[node name="background" type="ColorRect" parent="toolbar_bottom_1" unique_id=1618247755]
 layout_mode = 0
 offset_right = 526.0
 offset_bottom = 90.0
 
-[node name="MarginContainer" type="MarginContainer" parent="toolbar_bottom_1" unique_id=808206047]
+[node name="MarginContainer" type="MarginContainer" parent="toolbar_bottom_1" unique_id=1740776548]
 layout_mode = 0
 offset_right = 526.0
 offset_bottom = 90.0
@@ -855,11 +853,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="toolbar_bottom_1/MarginContainer" unique_id=466485429]
+[node name="HBoxContainer" type="HBoxContainer" parent="toolbar_bottom_1/MarginContainer" unique_id=1731045169]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Rabatt_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=555700632]
+[node name="Rabatt_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=1315481202]
 texture_filter = 1
 custom_minimum_size = Vector2(165, 70)
 layout_mode = 2
@@ -883,7 +881,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button2" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=924301849]
+[node name="Button2" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=460609665]
 texture_filter = 1
 custom_minimum_size = Vector2(165, 70)
 layout_mode = 2
@@ -906,7 +904,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button3" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=1488461936]
+[node name="Button3" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=1308277721]
 texture_filter = 1
 custom_minimum_size = Vector2(165, 70)
 layout_mode = 2
@@ -928,13 +926,13 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Rabatt_HBoxContainer" type="HBoxContainer" parent="toolbar_bottom_1/MarginContainer" unique_id=1237877155]
+[node name="Rabatt_HBoxContainer" type="HBoxContainer" parent="toolbar_bottom_1/MarginContainer" unique_id=90078741]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 3
 script = ExtResource("10_5he1u")
 
-[node name="reset_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=907089952]
+[node name="reset_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1864174568]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -959,7 +957,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="5_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1715649702]
+[node name="5_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=603399003]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -983,7 +981,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="10_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1376187442]
+[node name="10_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1097923858]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -1007,7 +1005,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="15_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1139062097]
+[node name="15_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1382686395]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -1031,7 +1029,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="25_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1073327646]
+[node name="25_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=2096677869]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -1055,7 +1053,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="50_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=1842082584]
+[node name="50_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=277341178]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -1079,7 +1077,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="return_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=783242993]
+[node name="return_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" unique_id=481026463]
 texture_filter = 1
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -1102,19 +1100,19 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="toolbar_bottom_2" type="Control" parent="." unique_id=698931129]
+[node name="toolbar_bottom_2" type="Control" parent="." unique_id=668671752]
 anchors_preset = 0
 offset_left = 1190.0
 offset_top = 990.0
 offset_right = 1820.0
 offset_bottom = 1080.0
 
-[node name="background" type="ColorRect" parent="toolbar_bottom_2" unique_id=1612626997]
+[node name="background" type="ColorRect" parent="toolbar_bottom_2" unique_id=1471013137]
 layout_mode = 0
 offset_right = 630.0
 offset_bottom = 90.0
 
-[node name="MarginContainer2" type="MarginContainer" parent="toolbar_bottom_2" unique_id=423686833]
+[node name="MarginContainer2" type="MarginContainer" parent="toolbar_bottom_2" unique_id=1248734804]
 layout_mode = 0
 offset_right = 630.0
 offset_bottom = 90.0
@@ -1123,11 +1121,11 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="HBoxContainer" type="HBoxContainer" parent="toolbar_bottom_2/MarginContainer2" unique_id=1638073723]
+[node name="HBoxContainer" type="HBoxContainer" parent="toolbar_bottom_2/MarginContainer2" unique_id=1617602656]
 layout_mode = 2
 theme_override_constants/separation = 5
 
-[node name="EC_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=361121047]
+[node name="EC_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=1561771294]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
@@ -1140,7 +1138,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "EC"
 
-[node name="ZWS_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=586234842]
+[node name="ZWS_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=1621969879]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
@@ -1153,7 +1151,7 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "ZWS"
 
-[node name="BAR_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=1398248591]
+[node name="BAR_button" type="Button" parent="toolbar_bottom_2/MarginContainer2/HBoxContainer" unique_id=23138458]
 texture_filter = 1
 custom_minimum_size = Vector2(200, 70)
 layout_mode = 2
@@ -1166,33 +1164,33 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "BAR"
 
-[node name="displays" type="Control" parent="." unique_id=1155752414]
+[node name="displays" type="Control" parent="." unique_id=431451624]
 anchors_preset = 0
 offset_left = 130.0
 offset_top = 81.0
 offset_right = 644.0
 offset_bottom = 624.0
 
-[node name="display_items" type="ColorRect" parent="displays" unique_id=110111740]
+[node name="display_items" type="ColorRect" parent="displays" unique_id=1271456246]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 514.0
 offset_bottom = 475.0
 
-[node name="Labels_items_VScrollContainer" type="ScrollContainer" parent="displays/display_items" unique_id=1717773842]
+[node name="Labels_items_VScrollContainer" type="ScrollContainer" parent="displays/display_items" unique_id=262312579]
 clip_children = 2
 layout_mode = 0
 offset_right = 514.0
 offset_bottom = 474.0
 vertical_scroll_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="displays/display_items/Labels_items_VScrollContainer" unique_id=290313622]
+[node name="VBoxContainer" type="VBoxContainer" parent="displays/display_items/Labels_items_VScrollContainer" unique_id=1848568331]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
 
-[node name="display_money" type="ColorRect" parent="displays" unique_id=1741090951]
+[node name="display_money" type="ColorRect" parent="displays" unique_id=915281186]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
@@ -1201,7 +1199,7 @@ offset_top = -58.0
 offset_right = 514.0
 grow_vertical = 0
 
-[node name="Label_current_price" type="Label" parent="displays/display_money" unique_id=840312151]
+[node name="Label_current_price" type="Label" parent="displays/display_money" unique_id=430455359]
 texture_filter = 1
 layout_mode = 0
 offset_left = 331.0
@@ -1213,19 +1211,19 @@ text = "0,000"
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="items" type="Control" parent="." unique_id=1557349645]
+[node name="items" type="Control" parent="." unique_id=1268045622]
 anchors_preset = 0
 offset_left = 654.0
 offset_top = 82.0
 offset_right = 1314.0
 offset_bottom = 980.0
 
-[node name="ColorRect" type="ColorRect" parent="items" unique_id=1942955203]
+[node name="ColorRect" type="ColorRect" parent="items" unique_id=966681849]
 layout_mode = 0
 offset_right = 660.0
 offset_bottom = 898.0
 
-[node name="MarginContainer" type="MarginContainer" parent="items" unique_id=226208313]
+[node name="MarginContainer" type="MarginContainer" parent="items" unique_id=119236954]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 661.0
@@ -1235,145 +1233,145 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="items/MarginContainer" unique_id=509004150]
+[node name="GridContainer" type="GridContainer" parent="items/MarginContainer" unique_id=1030270875]
 layout_mode = 2
 theme_override_constants/h_separation = 164
 theme_override_constants/v_separation = 89
 columns = 4
 
-[node name="item_button0" parent="items/MarginContainer/GridContainer" unique_id=1979206454 instance=ExtResource("7_tipki")]
+[node name="item_button0" parent="items/MarginContainer/GridContainer" unique_id=1906186583 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button1" parent="items/MarginContainer/GridContainer" unique_id=1834452941 instance=ExtResource("7_tipki")]
+[node name="item_button1" parent="items/MarginContainer/GridContainer" unique_id=1232465483 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button2" parent="items/MarginContainer/GridContainer" unique_id=1689727799 instance=ExtResource("7_tipki")]
+[node name="item_button2" parent="items/MarginContainer/GridContainer" unique_id=751073952 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button3" parent="items/MarginContainer/GridContainer" unique_id=1822825903 instance=ExtResource("7_tipki")]
+[node name="item_button3" parent="items/MarginContainer/GridContainer" unique_id=1036333007 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button4" parent="items/MarginContainer/GridContainer" unique_id=1103103770 instance=ExtResource("7_tipki")]
+[node name="item_button4" parent="items/MarginContainer/GridContainer" unique_id=1274799966 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button5" parent="items/MarginContainer/GridContainer" unique_id=1235785270 instance=ExtResource("7_tipki")]
+[node name="item_button5" parent="items/MarginContainer/GridContainer" unique_id=1356852913 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button6" parent="items/MarginContainer/GridContainer" unique_id=1348599327 instance=ExtResource("7_tipki")]
+[node name="item_button6" parent="items/MarginContainer/GridContainer" unique_id=1502624540 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button7" parent="items/MarginContainer/GridContainer" unique_id=1385785933 instance=ExtResource("7_tipki")]
+[node name="item_button7" parent="items/MarginContainer/GridContainer" unique_id=884837867 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button8" parent="items/MarginContainer/GridContainer" unique_id=655521263 instance=ExtResource("7_tipki")]
+[node name="item_button8" parent="items/MarginContainer/GridContainer" unique_id=1193095990 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button9" parent="items/MarginContainer/GridContainer" unique_id=1013373254 instance=ExtResource("7_tipki")]
+[node name="item_button9" parent="items/MarginContainer/GridContainer" unique_id=1187491824 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button10" parent="items/MarginContainer/GridContainer" unique_id=634279307 instance=ExtResource("7_tipki")]
+[node name="item_button10" parent="items/MarginContainer/GridContainer" unique_id=190978868 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button11" parent="items/MarginContainer/GridContainer" unique_id=936616403 instance=ExtResource("7_tipki")]
+[node name="item_button11" parent="items/MarginContainer/GridContainer" unique_id=1475265392 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button12" parent="items/MarginContainer/GridContainer" unique_id=773936852 instance=ExtResource("7_tipki")]
+[node name="item_button12" parent="items/MarginContainer/GridContainer" unique_id=1087168369 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button13" parent="items/MarginContainer/GridContainer" unique_id=794555199 instance=ExtResource("7_tipki")]
+[node name="item_button13" parent="items/MarginContainer/GridContainer" unique_id=2050638294 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button14" parent="items/MarginContainer/GridContainer" unique_id=1246333527 instance=ExtResource("7_tipki")]
+[node name="item_button14" parent="items/MarginContainer/GridContainer" unique_id=1538392142 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button15" parent="items/MarginContainer/GridContainer" unique_id=1682548846 instance=ExtResource("7_tipki")]
+[node name="item_button15" parent="items/MarginContainer/GridContainer" unique_id=468988665 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button16" parent="items/MarginContainer/GridContainer" unique_id=1530184797 instance=ExtResource("7_tipki")]
+[node name="item_button16" parent="items/MarginContainer/GridContainer" unique_id=947341123 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button17" parent="items/MarginContainer/GridContainer" unique_id=668544558 instance=ExtResource("7_tipki")]
+[node name="item_button17" parent="items/MarginContainer/GridContainer" unique_id=746195676 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button18" parent="items/MarginContainer/GridContainer" unique_id=327195199 instance=ExtResource("7_tipki")]
+[node name="item_button18" parent="items/MarginContainer/GridContainer" unique_id=1775316639 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button19" parent="items/MarginContainer/GridContainer" unique_id=2110562165 instance=ExtResource("7_tipki")]
+[node name="item_button19" parent="items/MarginContainer/GridContainer" unique_id=1471472093 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button20" parent="items/MarginContainer/GridContainer" unique_id=1785606659 instance=ExtResource("7_tipki")]
+[node name="item_button20" parent="items/MarginContainer/GridContainer" unique_id=1767228191 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button21" parent="items/MarginContainer/GridContainer" unique_id=139296948 instance=ExtResource("7_tipki")]
+[node name="item_button21" parent="items/MarginContainer/GridContainer" unique_id=539513152 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button22" parent="items/MarginContainer/GridContainer" unique_id=998643875 instance=ExtResource("7_tipki")]
+[node name="item_button22" parent="items/MarginContainer/GridContainer" unique_id=1960471559 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button23" parent="items/MarginContainer/GridContainer" unique_id=294006354 instance=ExtResource("7_tipki")]
+[node name="item_button23" parent="items/MarginContainer/GridContainer" unique_id=1831635775 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button24" parent="items/MarginContainer/GridContainer" unique_id=1565660746 instance=ExtResource("7_tipki")]
+[node name="item_button24" parent="items/MarginContainer/GridContainer" unique_id=811828217 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button25" parent="items/MarginContainer/GridContainer" unique_id=1189345564 instance=ExtResource("7_tipki")]
+[node name="item_button25" parent="items/MarginContainer/GridContainer" unique_id=1206451912 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button26" parent="items/MarginContainer/GridContainer" unique_id=816404466 instance=ExtResource("7_tipki")]
+[node name="item_button26" parent="items/MarginContainer/GridContainer" unique_id=1247802169 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button27" parent="items/MarginContainer/GridContainer" unique_id=2067866247 instance=ExtResource("7_tipki")]
+[node name="item_button27" parent="items/MarginContainer/GridContainer" unique_id=84607987 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button28" parent="items/MarginContainer/GridContainer" unique_id=1728109068 instance=ExtResource("7_tipki")]
+[node name="item_button28" parent="items/MarginContainer/GridContainer" unique_id=332902394 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button29" parent="items/MarginContainer/GridContainer" unique_id=905463052 instance=ExtResource("7_tipki")]
+[node name="item_button29" parent="items/MarginContainer/GridContainer" unique_id=1489267029 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button30" parent="items/MarginContainer/GridContainer" unique_id=579628510 instance=ExtResource("7_tipki")]
+[node name="item_button30" parent="items/MarginContainer/GridContainer" unique_id=1411995687 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button31" parent="items/MarginContainer/GridContainer" unique_id=123592043 instance=ExtResource("7_tipki")]
+[node name="item_button31" parent="items/MarginContainer/GridContainer" unique_id=1449431449 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button32" parent="items/MarginContainer/GridContainer" unique_id=554016428 instance=ExtResource("7_tipki")]
+[node name="item_button32" parent="items/MarginContainer/GridContainer" unique_id=1233480883 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button33" parent="items/MarginContainer/GridContainer" unique_id=1312399174 instance=ExtResource("7_tipki")]
+[node name="item_button33" parent="items/MarginContainer/GridContainer" unique_id=952656523 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button34" parent="items/MarginContainer/GridContainer" unique_id=1680307504 instance=ExtResource("7_tipki")]
+[node name="item_button34" parent="items/MarginContainer/GridContainer" unique_id=158369580 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button35" parent="items/MarginContainer/GridContainer" unique_id=1258348965 instance=ExtResource("7_tipki")]
+[node name="item_button35" parent="items/MarginContainer/GridContainer" unique_id=1467645868 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button36" parent="items/MarginContainer/GridContainer" unique_id=1513249776 instance=ExtResource("7_tipki")]
+[node name="item_button36" parent="items/MarginContainer/GridContainer" unique_id=903687434 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button37" parent="items/MarginContainer/GridContainer" unique_id=259394467 instance=ExtResource("7_tipki")]
+[node name="item_button37" parent="items/MarginContainer/GridContainer" unique_id=1617255978 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button38" parent="items/MarginContainer/GridContainer" unique_id=119899115 instance=ExtResource("7_tipki")]
+[node name="item_button38" parent="items/MarginContainer/GridContainer" unique_id=2024397526 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_button39" parent="items/MarginContainer/GridContainer" unique_id=1711541436 instance=ExtResource("7_tipki")]
+[node name="item_button39" parent="items/MarginContainer/GridContainer" unique_id=958811019 instance=ExtResource("7_tipki")]
 layout_mode = 2
 
-[node name="item_categories" type="Control" parent="." unique_id=350418794]
+[node name="item_categories" type="Control" parent="." unique_id=132007922]
 anchors_preset = 0
 offset_left = 1324.0
 offset_top = 82.0
 offset_right = 1820.0
 offset_bottom = 980.0
 
-[node name="ColorRect" type="ColorRect" parent="item_categories" unique_id=1803671420]
+[node name="ColorRect" type="ColorRect" parent="item_categories" unique_id=1531948915]
 layout_mode = 0
 offset_right = 496.0
 offset_bottom = 898.0
 
-[node name="MarginContainer" type="MarginContainer" parent="item_categories" unique_id=90664631]
+[node name="MarginContainer" type="MarginContainer" parent="item_categories" unique_id=1172469433]
 layout_mode = 0
 offset_top = 1.0
 offset_right = 497.0
@@ -1383,136 +1381,136 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="GridContainer" type="GridContainer" parent="item_categories/MarginContainer" unique_id=1636084720]
+[node name="GridContainer" type="GridContainer" parent="item_categories/MarginContainer" unique_id=793599049]
 layout_mode = 2
 theme_override_constants/h_separation = 164
 theme_override_constants/v_separation = 89
 columns = 3
 
-[node name="item_category_button0" parent="item_categories/MarginContainer/GridContainer" unique_id=1374170922 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button0" parent="item_categories/MarginContainer/GridContainer" unique_id=1808811201 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_name = "helle Semmeln"
 items_array = Array[ExtResource("9_choun")]([ExtResource("10_ya4ey"), ExtResource("13_j8jky"), ExtResource("14_kmb1v"), null, ExtResource("15_fuf3a"), ExtResource("16_pibwh"), null, null, ExtResource("17_c6pm6"), ExtResource("18_5he1u"), ExtResource("19_5poiv"), null, ExtResource("20_2cjbq"), ExtResource("21_chjal"), ExtResource("22_cjqg0"), ExtResource("23_vchkt"), ExtResource("24_txyw0"), ExtResource("25_vc5cj"), null, null, ExtResource("26_fuf3a"), ExtResource("27_pibwh"), null, null, ExtResource("26_nvyfr"), ExtResource("27_ty1g6"), null, null, null, null, null, null, ExtResource("28_j2jfr"), ExtResource("29_bjg73"), ExtResource("30_bu4jf"), ExtResource("31_o7ddy"), null, null, null, null])
 
-[node name="item_category_button1" parent="item_categories/MarginContainer/GridContainer" unique_id=1324235189 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button1" parent="item_categories/MarginContainer/GridContainer" unique_id=614843379 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 1
 
-[node name="item_category_button2" parent="item_categories/MarginContainer/GridContainer" unique_id=1222416036 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button2" parent="item_categories/MarginContainer/GridContainer" unique_id=2003912992 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 2
 
-[node name="item_category_button3" parent="item_categories/MarginContainer/GridContainer" unique_id=2139657742 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button3" parent="item_categories/MarginContainer/GridContainer" unique_id=1026300357 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 3
 item_category_name = "Laugengebäck"
 items_array = Array[ExtResource("9_choun")]([ExtResource("11_trceg"), ExtResource("12_a8y0u"), ExtResource("13_jkv2x"), null, null, null])
 
-[node name="item_category_button4" parent="item_categories/MarginContainer/GridContainer" unique_id=116137924 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button4" parent="item_categories/MarginContainer/GridContainer" unique_id=969957191 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 4
 
-[node name="item_category_button5" parent="item_categories/MarginContainer/GridContainer" unique_id=2048886316 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button5" parent="item_categories/MarginContainer/GridContainer" unique_id=2018858188 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 5
 
-[node name="item_category_button6" parent="item_categories/MarginContainer/GridContainer" unique_id=1700615819 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button6" parent="item_categories/MarginContainer/GridContainer" unique_id=284279473 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 6
 item_category_name = "Dinkelsemmel"
 items_array = Array[ExtResource("9_choun")]([null, null])
 
-[node name="item_category_button7" parent="item_categories/MarginContainer/GridContainer" unique_id=2114284937 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button7" parent="item_categories/MarginContainer/GridContainer" unique_id=55502348 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 7
 
-[node name="item_category_button8" parent="item_categories/MarginContainer/GridContainer" unique_id=1748822052 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button8" parent="item_categories/MarginContainer/GridContainer" unique_id=1699819301 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 8
 
-[node name="item_category_button9" parent="item_categories/MarginContainer/GridContainer" unique_id=1625062268 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button9" parent="item_categories/MarginContainer/GridContainer" unique_id=92203587 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 9
 
-[node name="item_category_button10" parent="item_categories/MarginContainer/GridContainer" unique_id=984868791 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button10" parent="item_categories/MarginContainer/GridContainer" unique_id=660175166 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 10
 
-[node name="item_category_button11" parent="item_categories/MarginContainer/GridContainer" unique_id=758138525 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button11" parent="item_categories/MarginContainer/GridContainer" unique_id=635879131 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 11
 
-[node name="item_category_button12" parent="item_categories/MarginContainer/GridContainer" unique_id=364677965 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button12" parent="item_categories/MarginContainer/GridContainer" unique_id=1745032526 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 12
 
-[node name="item_category_button13" parent="item_categories/MarginContainer/GridContainer" unique_id=1187216574 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button13" parent="item_categories/MarginContainer/GridContainer" unique_id=1123684054 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 13
 
-[node name="item_category_button14" parent="item_categories/MarginContainer/GridContainer" unique_id=1325902693 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button14" parent="item_categories/MarginContainer/GridContainer" unique_id=1314074350 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 14
 
-[node name="item_category_button15" parent="item_categories/MarginContainer/GridContainer" unique_id=286404493 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button15" parent="item_categories/MarginContainer/GridContainer" unique_id=453843286 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 15
 item_category_name = "Roggenmisch-brot"
 items_array = Array[ExtResource("9_choun")]([null, null, null, ExtResource("15_jkv2x")])
 
-[node name="item_category_button16" parent="item_categories/MarginContainer/GridContainer" unique_id=1406679065 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button16" parent="item_categories/MarginContainer/GridContainer" unique_id=1290676551 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 16
 
-[node name="item_category_button17" parent="item_categories/MarginContainer/GridContainer" unique_id=951189524 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button17" parent="item_categories/MarginContainer/GridContainer" unique_id=143127195 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 17
 
-[node name="item_category_button18" parent="item_categories/MarginContainer/GridContainer" unique_id=180875884 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button18" parent="item_categories/MarginContainer/GridContainer" unique_id=2110559010 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 18
 
-[node name="item_category_button19" parent="item_categories/MarginContainer/GridContainer" unique_id=1337121376 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button19" parent="item_categories/MarginContainer/GridContainer" unique_id=1519102172 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 19
 
-[node name="item_category_button20" parent="item_categories/MarginContainer/GridContainer" unique_id=2055419812 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button20" parent="item_categories/MarginContainer/GridContainer" unique_id=801852030 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 20
 
-[node name="item_category_button21" parent="item_categories/MarginContainer/GridContainer" unique_id=611889120 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button21" parent="item_categories/MarginContainer/GridContainer" unique_id=1902172721 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 21
 
-[node name="item_category_button22" parent="item_categories/MarginContainer/GridContainer" unique_id=1613799001 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button22" parent="item_categories/MarginContainer/GridContainer" unique_id=612685576 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 22
 
-[node name="item_category_button23" parent="item_categories/MarginContainer/GridContainer" unique_id=868694597 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button23" parent="item_categories/MarginContainer/GridContainer" unique_id=1129920283 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 23
 
-[node name="item_category_button24" parent="item_categories/MarginContainer/GridContainer" unique_id=451009597 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button24" parent="item_categories/MarginContainer/GridContainer" unique_id=1105311188 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 24
 
-[node name="item_category_button25" parent="item_categories/MarginContainer/GridContainer" unique_id=1982071301 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button25" parent="item_categories/MarginContainer/GridContainer" unique_id=1082117806 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 25
 
-[node name="item_category_button26" parent="item_categories/MarginContainer/GridContainer" unique_id=1463580511 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button26" parent="item_categories/MarginContainer/GridContainer" unique_id=1422369807 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 26
 
-[node name="item_category_button27" parent="item_categories/MarginContainer/GridContainer" unique_id=1610288507 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button27" parent="item_categories/MarginContainer/GridContainer" unique_id=87453205 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 27
 
-[node name="item_category_button28" parent="item_categories/MarginContainer/GridContainer" unique_id=251874390 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button28" parent="item_categories/MarginContainer/GridContainer" unique_id=1821209226 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 28
 
-[node name="item_category_button29" parent="item_categories/MarginContainer/GridContainer" unique_id=1497818106 instance=ExtResource("7_o6xl0")]
+[node name="item_category_button29" parent="item_categories/MarginContainer/GridContainer" unique_id=1329989286 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 289
 
@@ -1520,7 +1518,7 @@ item_category_id = 289
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_pressed"]
-[connection signal="pressed" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_pressed"]
+[connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]

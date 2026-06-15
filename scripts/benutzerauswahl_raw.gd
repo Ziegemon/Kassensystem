@@ -14,8 +14,6 @@ var style_names = ["normal", "pressed", "hover", "hover_pressed", "disabled", "f
 
 signal user_selected(button_number)
 
-var last_rechnungslisten_array_index : int = 0
-
 #---------------------------------------------------------------------------------------------------
 
 @onready var background: ColorRect = $background
@@ -44,7 +42,7 @@ var eft_done_font_color = Color(0.0, 0.463, 0.0)
 var zws_background_basic_color = Color(1, 1, 1)
 @onready var zws_background = get_tree().root.get_node("MAIN/toolbar_bottom_2/background")
 
-var payment_method_used : int #0 = EC , 1 = BAR , 2 = BAR Offline
+var payment_method_used : int #0 = EC & 1 = BAR
 
 @onready var MAIN = get_tree().root.get_node("MAIN")
 
@@ -81,8 +79,7 @@ func userSelected():
 		user_eft_failed = false
 	
 	elif user_eft_running == true:
-		await get_tree().process_frame
-		#await get_tree().create_timer(0.1).timeout
+		await get_tree().create_timer(0.1).timeout
 		zws_background.color = eft_font_color
 		MAIN.show_summed_up_price_for_running_efts()
 	
@@ -117,7 +114,7 @@ func startEft(used_payment_method : int):
 		zws_background.color = eft_font_color #red
 	
 	#simulation of paymentprocessing due to lack of external ec terminal and cash machine
-	var eft_waiting_duration = randi_range(4, 28) #maybe raise back to 40, Grrrr Rentner mit viel Kleingeld --------------------------------
+	var eft_waiting_duration = randi_range(4, 28) #maybe raise back to 40 --------------------------------
 	var elapsed = 0.0
 	
 	while elapsed < eft_waiting_duration:
@@ -139,7 +136,7 @@ func startEft(used_payment_method : int):
 		_:
 			eftEnded(this_eft_session_id)
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func startEftOffline():
 	#if MAIN.current_user == button_number:
@@ -147,29 +144,20 @@ func startEftOffline():
 	#label_number_s.add_theme_color_override("font_color", eft_done_font_color)
 	#label_name.add_theme_color_override("font_color", eft_done_font_color)
 	
-	eft_session_id += 1
-	var this_eft_session_id = eft_session_id
-	payment_method_used = 2
+	current_item_list_array.clear()
+	MAIN.updateItemListLabelV3()
 	
-	eftEnded(this_eft_session_id)
-	
-	#current_item_list_array.clear()
-	#MAIN.updateItemListLabelV3()
-	#
-	#rabatt = 1.0
+	rabatt = 1.0
 	
 	eftOfflineCashReturn()
 	
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+#-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -   
 
 func eftOfflineCashReturn():
 	var current_keyboard_input = MAIN.current_keyboard_input
 	var payed_cash : float = 0.0
 	#summedUpPrice = MAIN.summ_up_price()
-	
-	if MAIN.current_user != button_number:
-		return
 	
 	MAIN.label_current_price.hide()
 	
@@ -180,7 +168,7 @@ func eftOfflineCashReturn():
 	
 	MAIN._on_button_X_button_pressed(true)
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func eftEnded(session_id: int):
 	if session_id != eft_session_id:
@@ -199,23 +187,20 @@ func eftEnded(session_id: int):
 	
 	if payment_method_used == 0:
 		MAIN.eft_running_EC = false
-	elif payment_method_used == 1:
+	else:
 		MAIN.eft_running_BAR = false
 	
 	rabatt = 1.0
 	
-	if MAIN.current_user == button_number:
-		MAIN.label_current_price.hide()
+	MAIN.label_current_price.hide()
 	
 	var newRechnungslistenelement
 	if user_raw != null:
-		newRechnungslistenelement = rechnungsliste_element.new(user_raw.username, user_raw.user_id, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR , 2 = BAR Offline
+		newRechnungslistenelement = rechnungsliste_element.new(user_raw.username, user_raw.user_id, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR
 	else: #EXTRA user used
-		newRechnungslistenelement = rechnungsliste_element.new("EXTRA", 0, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR , 2 = BAR Offline
+		newRechnungslistenelement = rechnungsliste_element.new("EXTRA", 0, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR
 
 	SystemData.rechnungsliste.append(newRechnungslistenelement)
-	last_rechnungslisten_array_index = (SystemData.rechnungsliste.size() - 1)
-	printRechnung(last_rechnungslisten_array_index)
 	
 	await get_tree().create_timer(3).timeout
 	if session_id != eft_session_id:
@@ -233,7 +218,7 @@ func eftEnded(session_id: int):
 	print("------")
 	#print all rechningsliste_elements
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func eftFailed(session_id: int):
 	if session_id != eft_session_id:
@@ -282,7 +267,7 @@ func eftFailed(session_id: int):
 		
 		await get_tree().create_timer(0.5).timeout
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+#-    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    -    - 
 
 #func breakEftFailed():
 	#await get_tree().create_timer(4).timeout
@@ -293,7 +278,7 @@ func eftFailed(session_id: int):
 		#label_number_s.add_theme_color_override("font_color", basic_font_color)
 		#label_name.add_theme_color_override("font_color", basic_font_color)
 
-#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+#-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func cleanUpEft():
 	user_eft_running = false
@@ -308,10 +293,3 @@ func cleanUpEft():
 		MAIN.eft_running_EC = false
 	else:
 		MAIN.eft_running_BAR = false
-
-#---------------------------------------------------------------------------------------------------
-
-func printRechnung(index : int):
-	var rechnugsliste_element = SystemData.rechnungsliste[index]
-	
-	#alle variabablen von rechnugsliste_element printn
