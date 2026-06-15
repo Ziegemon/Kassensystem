@@ -21,7 +21,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SystemData="*uid://dk1fn60krmcxg"
+SystemData="*uid://itcypxuc78le"
 
 [display]
 
