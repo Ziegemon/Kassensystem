@@ -108,11 +108,9 @@ func activateCurrentuser():
 	current_selected_user.userSelected()
 	
 	if current_selected_user is Benutzerauswahl && current_selected_user.user != null:
-		print("a")
 		label_user_id.text = str(current_selected_user.user.user_id)
 		label_user_name.text = str(current_selected_user.user.username)
 	elif current_selected_user is Benutzerauswahl_extra:
-		print("b")
 		label_user_id.text = "X"
 		label_user_name.text = "EXTRA"
 	else:
@@ -615,5 +613,12 @@ func _on_button_zahlung_abbrechen_pressed() -> void:
 
 #---------------------------------------------------------------------------------------------------
 
-func _on_button_anmelden_button_pressed() -> void:
+func _on_button_anmelden_pressed() -> void:
 	current_selected_user.logInUser(user_login_id)
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+
+
+func _on_button_abmelden_pressed() -> void:
+	current_selected_user.logOutUser()

@@ -58,6 +58,7 @@ func removeUser():
 	
 	label_name.text = ""
 	
+	user = null
 	user_raw = null
 
 #---------------------------------------------------------------------------------------------------
@@ -84,3 +85,11 @@ func logInUser(user_id : int):
 		user_raw = ResourceLoader.load(path)
 		get_tree().get_root().get_node("MAIN").activateCurrentuser()
 		setupUser()
+	
+	#zeoiterfassung???????????-------------------------
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func logOutUser():
+	removeUser()
+	get_tree().get_root().get_node("MAIN").activateCurrentuser()
