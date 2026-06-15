@@ -4,6 +4,7 @@ extends Control
 
 var current_user : int
 var current_selected_user : Benutzerauswahl_raw
+var user_login_id : int
 
 #---------------------------------------------------------------------------------------------------
 
@@ -107,9 +108,11 @@ func activateCurrentuser():
 	current_selected_user.userSelected()
 	
 	if current_selected_user is Benutzerauswahl && current_selected_user.user != null:
+		print("a")
 		label_user_id.text = str(current_selected_user.user.user_id)
 		label_user_name.text = str(current_selected_user.user.username)
 	elif current_selected_user is Benutzerauswahl_extra:
+		print("b")
 		label_user_id.text = "X"
 		label_user_name.text = "EXTRA"
 	else:
@@ -248,6 +251,7 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 		return
 	
 	if current_selected_user.user == null:
+		user_login_id = int(str(user_login_id) + str(button_number))
 		return
 	
 	label_current_price.show()
@@ -607,3 +611,9 @@ func updateEftIndicators():
 func _on_button_zahlung_abbrechen_pressed() -> void:
 	current_selected_user.user_eft_cancelled = true
 	current_selected_user.eft_session_id += 1 #stops running EFTs
+
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_button_anmelden_button_pressed() -> void:
+	current_selected_user.logInUser(user_login_id)

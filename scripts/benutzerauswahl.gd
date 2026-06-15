@@ -57,6 +57,8 @@ func removeUser():
 	#background.color = basic_button_color
 	
 	label_name.text = ""
+	
+	user_raw = null
 
 #---------------------------------------------------------------------------------------------------
 
@@ -69,3 +71,16 @@ func removeUser():
 	#removeUser()
 
 #---------------------------------------------------------------------------------------------------
+
+func logInUser(user_id : int):
+	var path := "res://data/users/%d.tres" % user_id
+	
+	get_tree().get_root().get_node("MAIN").user_login_id = 0
+	
+	if !(ResourceLoader.exists(path)):
+		return
+	else:
+		user = ResourceLoader.load(path)
+		user_raw = ResourceLoader.load(path)
+		get_tree().get_root().get_node("MAIN").activateCurrentuser()
+		setupUser()

@@ -314,4 +314,4 @@ func cleanUpEft():
 func printRechnung(index : int):
 	var rechnugsliste_element = SystemData.rechnungsliste[index]
 	
-	#alle variabablen von rechnugsliste_element printn
+	#alle variabablen von rechnugsliste_element printn + Rechnungsgeplenkl
