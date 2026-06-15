@@ -93,3 +93,4 @@ func logInUser(user_id : int):
 func logOutUser():
 	removeUser()
 	get_tree().get_root().get_node("MAIN").activateCurrentuser()
+#
