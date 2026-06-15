@@ -80,7 +80,7 @@ func logInUser(user_id : int):
 	
 	if !(ResourceLoader.exists(path)):
 		return
-	else:
+	elif user == null:
 		user = ResourceLoader.load(path)
 		user_raw = ResourceLoader.load(path)
 		get_tree().get_root().get_node("MAIN").activateCurrentuser()
