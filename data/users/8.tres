@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="user_data" format=3 uid="uid://cqppw6v3jy8v0"]
+
+[ext_resource type="Script" uid="uid://cuosv2a1p7qit" path="res://scripts/user_data.gd" id="1_3j2dx"]
+
+[resource]
+script = ExtResource("1_3j2dx")
+user_id = 8
+username = "Thoren Grothe"
+metadata/_custom_type_script = "uid://cuosv2a1p7qit"

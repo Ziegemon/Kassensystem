@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="user_data" format=3 uid="uid://b7cnqcvnlq0oj"]
+
+[ext_resource type="Script" uid="uid://cuosv2a1p7qit" path="res://scripts/user_data.gd" id="1_u5uwr"]
+
+[resource]
+script = ExtResource("1_u5uwr")
+user_id = 5
+username = "Angelika Erhardt"
+metadata/_custom_type_script = "uid://cuosv2a1p7qit"

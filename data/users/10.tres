@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="user_data" format=3 uid="uid://dss16mwfq85ly"]
+
+[ext_resource type="Script" uid="uid://cuosv2a1p7qit" path="res://scripts/user_data.gd" id="1_p2inr"]
+
+[resource]
+script = ExtResource("1_p2inr")
+user_id = 10
+username = "Elias Büttner"
+metadata/_custom_type_script = "uid://cuosv2a1p7qit"

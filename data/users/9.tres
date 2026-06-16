@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="user_data" format=3 uid="uid://hh0jfnaypi2c"]
+
+[ext_resource type="Script" uid="uid://cuosv2a1p7qit" path="res://scripts/user_data.gd" id="1_6xmir"]
+
+[resource]
+script = ExtResource("1_6xmir")
+user_id = 9
+username = "Basir Musawi"
+metadata/_custom_type_script = "uid://cuosv2a1p7qit"
