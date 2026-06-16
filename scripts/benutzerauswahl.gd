@@ -78,8 +78,14 @@ func logInUser(user_id : int):
 	
 	get_tree().get_root().get_node("MAIN").user_login_id = 0
 	
+	var vBoxChildren = get_tree().get_root().get_node("MAIN/user_selection/MarginContainer/VBoxContainer").get_children()
+	for e in range(vBoxChildren.size() - 1):
+		if vBoxChildren[e].user == ResourceLoader.load(path):
+			return
+	
 	if !(ResourceLoader.exists(path)):
 		return
+	
 	elif user == null:
 		user = ResourceLoader.load(path)
 		user_raw = ResourceLoader.load(path)
@@ -93,4 +99,3 @@ func logInUser(user_id : int):
 func logOutUser():
 	removeUser()
 	get_tree().get_root().get_node("MAIN").activateCurrentuser()
-#

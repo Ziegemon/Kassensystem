@@ -523,6 +523,8 @@ selected_button_color = Color(0, 0.235294, 0, 1)
 [node name="benutzerauswahl_extra" type="Control" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1164589248]
 layout_mode = 2
 script = ExtResource("6_tefeu")
+button_number = 10
+selected_button_color = Color(0.85060406, 0.47021794, 1.540184e-06, 1)
 
 [node name="background" type="ColorRect" parent="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" unique_id=990901350]
 layout_mode = 0
@@ -1518,7 +1520,7 @@ item_category_id = 289
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_pressed"]
-[connection signal="button_up" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_button_up"]
+[connection signal="pressed" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button4" to="." method="_on_button_anmelden_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button6" to="." method="_on_button_abmelden_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_pressed"]
