@@ -315,3 +315,8 @@ func printRechnung(index : int):
 	var rechnugsliste_element = SystemData.rechnungsliste[index]
 	
 	#alle variabablen von rechnugsliste_element printn + Rechnungsgeplenkl
+
+#---------------------------------------------------------------------------------------------------
+
+func printLastRechnung():
+	pass
