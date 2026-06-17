@@ -648,3 +648,9 @@ func _on_button_abmelden_pressed() -> void:
 
 func hideFehlermeldung():
 	$Fehlermeldungen.hide()
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_button_artikelinfo_pressed() -> void:
+	pass
+	#muss aktiviert sein bis nächstes item gedrückt wird - dann info pushen

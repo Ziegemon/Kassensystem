@@ -1535,6 +1535,7 @@ offset_bottom = 81.0
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Button3" to="." method="_on_button_artikelinfo_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/reset_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/5_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_5_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/10_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_10_button_pressed"]
