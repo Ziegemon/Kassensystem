@@ -1518,6 +1518,7 @@ layout_mode = 2
 item_category_id = 289
 
 [node name="Fehlermeldungen" parent="." unique_id=71681328 instance=ExtResource("52_bu4jf")]
+visible = false
 layout_mode = 1
 offset_left = 130.0
 offset_top = 81.0

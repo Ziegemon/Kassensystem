@@ -1,7 +1,7 @@
 extends Control
 
 #var text : String
-@onready var fehlermeledung_label : Label = $Fehlermeldungen/Fehlermeldung_Label
+@onready var fehlermeledung_label : Label = $Fehlermeldung_Label
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------

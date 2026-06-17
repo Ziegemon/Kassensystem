@@ -41,7 +41,7 @@ var eft_indicator_color_running = Color(1, 0, 0)
 @onready var color_rect_bar_indicator: ColorRect = $status_bar/EFT_indicators/ColorRectBARIndicator
 @onready var color_rect_ec_indicator: ColorRect = $status_bar/EFT_indicators/ColorRectECIndicator
 
-
+@onready var fehlermeldungen : Control = $Fehlermeldungen
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -532,6 +532,8 @@ func _on_ec_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 	
+	hideFehlermeldung()
+	
 	if zwischensumme == true && eft_running_EC == false && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
 		change_zwischensummen_status(false)
 		eft_running_EC = true
@@ -540,14 +542,13 @@ func _on_ec_button_pressed() -> void:
 		errorEftEcAlreadyInUse()
 	else:
 		errorNoZws()
-	
-	hideFehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_bar_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
+	hideFehlermeldung()
 	
 	if zwischensumme == true && eft_running_BAR == false && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
 		change_zwischensummen_status(false)
@@ -557,8 +558,6 @@ func _on_bar_button_pressed() -> void:
 		errorEftBarAlreadyInUse()
 	else:
 		errorNoZws()
-	
-	hideFehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -575,17 +574,17 @@ func _on_bar_offline_button_pressed() -> void:
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func errorNoZws():
-	pass
+	fehlermeldungen.pushError("Zwischensummenzwang")
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func errorEftEcAlreadyInUse():
-	pass
+	fehlermeldungen.pushError("EC Terminal belegt")
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func errorEftBarAlreadyInUse():
-	pass
+	fehlermeldungen.pushError("BAR-Automat belegt")
 
 #---------------------------------------------------------------------------------------------------
 
