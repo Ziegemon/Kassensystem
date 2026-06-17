@@ -91,6 +91,7 @@ func _on_user_selected(button_number: int) -> void:
 	loadCategoryItems(0)
 	updateItemListLabelV3()
 	changeRabattVisualizer()
+	hideFehlermeldung()
 	
 	
 	if current_selected_user.rabatt == 1.0:
@@ -152,6 +153,7 @@ func connectItemCategorylSignals():
 
 func _on_category_selected(item_category_id: int) -> void:
 	loadCategoryItems(item_category_id)
+	hideFehlermeldung()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -189,6 +191,7 @@ func _on_item_button_pressed(button_item_data: item_data) -> void:
 	elif current_selected_user is Benutzerauswahl_extra:
 		createNewItemDataListElement(button_item_data)
 	change_zwischensummen_status(false)
+	hideFehlermeldung()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -275,7 +278,9 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 	
 	#change_zwischensummen_status(false)
 	
-	label_current_price.text = current_keyboard_input
+	label_current_price.text = current_keyboard_input 
+	
+	hideFehlermeldung()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -403,6 +408,8 @@ func change_zwischensummen_status(zws_status : bool, clearCurrentKeyboardInput :
 		$toolbar_bottom_2/background.color = Color(1, 1, 1)
 	
 	current_selected_user.summedUpPrice = summedUpPrice
+	
+	hideFehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -430,6 +437,8 @@ func _on_button_X_button_pressed(dontChangeLabel : bool = false) -> void:
 	semicolon_pressed = false
 	if dontChangeLabel == false:
 		label_current_price.text = ""
+	
+	hideFehlermeldung()
 
 #---------------------------------------------------------------------------------------------------
  
@@ -479,6 +488,8 @@ func _on_korrektur_button_pressed() -> void:
 	change_zwischensummen_status(false)
 	resetKeyboardInput()
 	label_current_price.text = ""
+	
+	hideFehlermeldung()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -488,6 +499,8 @@ func _on_rabatt_button_pressed() -> void:
 	
 	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer.show()
 	$toolbar_bottom_1/MarginContainer/HBoxContainer.hide()
+	
+	hideFehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -527,6 +540,8 @@ func _on_ec_button_pressed() -> void:
 		errorEftEcAlreadyInUse()
 	else:
 		errorNoZws()
+	
+	hideFehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -542,6 +557,8 @@ func _on_bar_button_pressed() -> void:
 		errorEftBarAlreadyInUse()
 	else:
 		errorNoZws()
+	
+	hideFehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -609,16 +626,26 @@ func updateEftIndicators():
 func _on_button_zahlung_abbrechen_pressed() -> void:
 	current_selected_user.user_eft_cancelled = true
 	current_selected_user.eft_session_id += 1 #stops running EFTs
+	
+	hideFehlermeldung()
 
 
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_anmelden_pressed() -> void:
 	current_selected_user.logInUser(user_login_id)
+	
+	hideFehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 
-
 func _on_button_abmelden_pressed() -> void:
 	current_selected_user.logOutUser()
+	
+	hideFehlermeldung()
+
+#---------------------------------------------------------------------------------------------------
+
+func hideFehlermeldung():
+	$Fehlermeldungen.hide()

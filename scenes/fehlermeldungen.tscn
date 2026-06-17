@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://bhawr0ffulv2c"]
+
+[ext_resource type="Script" uid="uid://bq8llyrj6opr6" path="res://scripts/fehlermeldungen.gd" id="1_2uprd"]
+
+[node name="Fehlermeldungen" type="Control" unique_id=71681328]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 570.0
+offset_top = 231.0
+offset_right = 570.0
+offset_bottom = 231.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2uprd")
+
+[node name="raus löschen" type="ColorRect" parent="." unique_id=379243323]
+visible = false
+layout_mode = 0
+offset_top = 1.0
+offset_right = 514.0
+offset_bottom = 475.0
+
+[node name="display_items2" type="ColorRect" parent="." unique_id=687616009]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 504.0
+offset_bottom = 464.0
+color = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
+
+[node name="Überschrift" type="Label" parent="." unique_id=1792513588]
+layout_mode = 0
+offset_left = 180.0
+offset_top = 10.0
+offset_right = 326.0
+offset_bottom = 77.0
+theme_override_font_sizes/font_size = 48
+text = "Fehler"
+
+[node name="Fehlermeldung_Label" type="Label" parent="." unique_id=1776395245]
+layout_mode = 0
+offset_left = 12.0
+offset_top = 110.0
+offset_right = 502.0
+offset_bottom = 410.0
+theme_override_font_sizes/font_size = 20
+text = "																						Exklusiver Fehler 11:
+Scheiß Kasse ist schon wieder abgestürzt"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3

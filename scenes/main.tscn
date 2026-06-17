@@ -51,6 +51,7 @@
 [ext_resource type="Resource" uid="uid://clpatbkni6w7w" path="res://data/items/Semmeln/helle Semmeln/Partysemmel.tres" id="29_bjg73"]
 [ext_resource type="Resource" uid="uid://b4wesi878t2qx" path="res://data/items/Semmeln/helle Semmeln/Partykranz_klein.tres" id="30_bu4jf"]
 [ext_resource type="Resource" uid="uid://n410tdr4gfs8" path="res://data/items/Semmeln/helle Semmeln/Partykranz_groß.tres" id="31_o7ddy"]
+[ext_resource type="PackedScene" uid="uid://bhawr0ffulv2c" path="res://scenes/fehlermeldungen.tscn" id="52_bu4jf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.544974, 0.544974, 0.544974, 1)
@@ -1515,6 +1516,13 @@ item_category_id = 28
 [node name="item_category_button29" parent="item_categories/MarginContainer/GridContainer" unique_id=1329989286 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 289
+
+[node name="Fehlermeldungen" parent="." unique_id=71681328 instance=ExtResource("52_bu4jf")]
+layout_mode = 1
+offset_left = 130.0
+offset_top = 81.0
+offset_right = 130.0
+offset_bottom = 81.0
 
 [connection signal="keyboard_button_pressed" from="keyboard/buttons_main/GridContainer/keyboard_button9" to="." method="_on_keyboard_button_9_keyboard_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_pressed"]

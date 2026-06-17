@@ -281,6 +281,7 @@ func eftFailed(session_id: int):
 			zws_background.color = zws_background_basic_color
 		
 		await get_tree().create_timer(0.5).timeout
+		
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
@@ -314,6 +315,19 @@ func cleanUpEft():
 func printRechnung(index : int):
 	var rechnugsliste_element = SystemData.rechnungsliste[index]
 	
+	print("--------------------------------")
+	
+	print("Baäckerei Kasprovicz")
+	print("Tel: 08153 / 9527091")
+	print("Wörthsee 82237")
+	print("Zum Kuckuksheim 3")
+	print("")
+	print("")
+	print("")
+	print("")
+	print("Es bediente Sie: " + rechnugsliste_element.user_name)
+	
+	print("--------------------------------")
 	#alle variabablen von rechnugsliste_element printn + Rechnungsgeplenkl
 
 #---------------------------------------------------------------------------------------------------
