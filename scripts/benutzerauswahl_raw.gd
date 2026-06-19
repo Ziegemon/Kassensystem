@@ -398,51 +398,54 @@ func format_line(left: String, right: String, width: int) -> String:
 
 func actuallyPrintRechnung(rl_element: rechnungsliste_element):
 	var width := 45
-
+	
 	print("")
 	print("")
 	print("-----------------------------------------------")
-
+	
 	print(center_text("Bäckerei Kasprovicz", width + 2))
 	print(center_text("Tel: 08153 / 9527091", width + 2))
 	print(center_text("Zum Kuckuksheim 3", width + 2))
 	print(center_text("Wörthsee 82237", width + 2))
-
+	
 	print("")
 	print("-----------------------------------------------")
 	print("")
-
-	# ---------------- ITEMS ----------------
+	
+	#-------
+	#items
 	
 	for i in rl_element.item_list_array:
 		var item_name = i.item.name
 		var quantity = ""
 		var price = ""
-
+	
 		if i.weight == 0.0:
 			quantity = "%d x" % i.quantity
 			price = "%.2f€" % i.item.price
 		else:
 			quantity = "%.3f kg" % i.weight
 			price = "%.2f€" % (i.item.price * i.weight)
-
+	
 		print("%-25s %-10s %10s" % [item_name, quantity, price])
-
+	
 	print("")
 	print("-----------------------------------------------")
-
-	# ---------------- SUMME / RABATT ----------------
-
+	
+	#-------
+	#Rabatt & Summe
+	
 	if rl_element.rabatt == 1:
 		print(format_line("Betrag", "%.2f€" % rl_element.revenue, width + 2))
 	else:
 		print(format_line("Rabatt", str(int(round((1 - rl_element.rabatt) * 100))) + "%", width + 2))
 		print(format_line("Betrag", "%.2f€" % (rl_element.revenue * rl_element.rabatt), width + 2))
-
+	
 	print("-----------------------------------------------")
 	print("")
-
-	# ---------------- DATUM ----------------
+	
+	#------
+	#date & end
 	var day = Time.get_date_dict_from_system()
 	var date_str = "%02d.%02d.%02d" % [day.day, day.month, day.year]
 	var time_str = "%02d:%02d:%02d" % [
@@ -450,10 +453,10 @@ func actuallyPrintRechnung(rl_element: rechnungsliste_element):
 		rl_element.time.minute,
 		rl_element.time.second
 	]
-
+	
 	print(center_text(date_str, width))
 	print(center_text(time_str, width))
-
+	
 	print(center_text("Es bediente Sie: " + rl_element.user_name, width))
-
+	
 	print("-----------------------------------------------")
