@@ -18,3 +18,13 @@ func _ready() -> void:
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
+
+func printLastRechnung():
+	var this_users_rechnungen : Array[rechnungsliste_element] = []
+	
+	for e in SystemData.rechnungsliste:
+		if e.user_id == 0:
+			this_users_rechnungen.append(e)
+	
+	if this_users_rechnungen.size() > 0:
+		printRechnungFromRechnungslisteElement(this_users_rechnungen[this_users_rechnungen.size() - 1])
