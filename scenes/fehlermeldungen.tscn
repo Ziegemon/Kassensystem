@@ -15,19 +15,17 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_2uprd")
 
-[node name="raus löschen, geht übers iPad nicht" type="ColorRect" parent="." unique_id=379243323]
-visible = false
-layout_mode = 0
-offset_top = 1.0
-offset_right = 514.0
-offset_bottom = 475.0
-
 [node name="background" type="ColorRect" parent="." unique_id=687616009]
 layout_mode = 0
-offset_top = 1.0
 offset_right = 514.0
-offset_bottom = 475.0
+offset_bottom = 474.0
 color = Color(0.6857328, 3.1044335e-06, 5.7756904e-07, 1)
+
+[node name="line" type="ColorRect" parent="." unique_id=837073859]
+layout_mode = 0
+offset_top = 82.0
+offset_right = 514.0
+offset_bottom = 87.0
 
 [node name="Überschrift" type="Label" parent="." unique_id=1792513588]
 layout_mode = 0
@@ -50,3 +48,11 @@ Scheiß Kasse ist schon wieder abgestürzt"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
+
+[node name="Button" type="Button" parent="." unique_id=1446883944]
+layout_mode = 0
+offset_right = 514.0
+offset_bottom = 474.0
+flat = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

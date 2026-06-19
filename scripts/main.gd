@@ -41,7 +41,13 @@ var eft_indicator_color_running = Color(1, 0, 0)
 @onready var color_rect_bar_indicator: ColorRect = $status_bar/EFT_indicators/ColorRectBARIndicator
 @onready var color_rect_ec_indicator: ColorRect = $status_bar/EFT_indicators/ColorRectECIndicator
 
-@onready var fehlermeldungen : Control = $Fehlermeldungen
+@onready var fehlermeldungen : Control = $displays/display_items/Fehlermeldungen
+@onready var artikelinfo: Control = $displays/display_items/Artikelinfo
+
+var artikleinfo_switch : bool = false
+@onready var artikelinfo_button: Button = $toolbar_bottom_1/MarginContainer/HBoxContainer/Artikelinfo_Button
+@onready var artikelinfo_button_on: Button = $toolbar_bottom_1/MarginContainer/Artikelinfo_Button_on
+
 
 #---------------------------------------------------------------------------------------------------
 #---------------------------------------------------------------------------------------------------
@@ -91,8 +97,8 @@ func _on_user_selected(button_number: int) -> void:
 	loadCategoryItems(0)
 	updateItemListLabelV3()
 	changeRabattVisualizer()
-	hideFehlermeldung()
-	
+	hide_Fehlermeldung()
+	end_artikelinfo()
 	
 	if current_selected_user.rabatt == 1.0:
 		label_rabatt.hide()
@@ -153,7 +159,8 @@ func connectItemCategorylSignals():
 
 func _on_category_selected(item_category_id: int) -> void:
 	loadCategoryItems(item_category_id)
-	hideFehlermeldung()
+	hide_Fehlermeldung()
+	end_artikelinfo()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -185,13 +192,18 @@ func connectItemButtonSignals():
 func _on_item_button_pressed(button_item_data: item_data) -> void:
 	if current_selected_user.user_eft_running == true:
 		return
-		
+	
+	if artikleinfo_switch == true:
+		artikelinfo.pushArtikelinfo(button_item_data.description)
+		artikleinfo_switch = false
+		return
+	
 	if !(current_selected_user is Benutzerauswahl_extra) && current_selected_user.user != null:
 		createNewItemDataListElement(button_item_data)
 	elif current_selected_user is Benutzerauswahl_extra:
 		createNewItemDataListElement(button_item_data)
 	change_zwischensummen_status(false)
-	hideFehlermeldung()
+	hide_Fehlermeldung()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -280,7 +292,7 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 	
 	label_current_price.text = current_keyboard_input 
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
 
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
@@ -345,7 +357,7 @@ func updateItemListLabelV3():
 func _on_button_ZWS_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
-		
+	
 	var temp_new_item_list_array : Array[item_data_list_element]
 	var temp_item_ids_in_for_new_array : Array[int]
 	
@@ -409,7 +421,8 @@ func change_zwischensummen_status(zws_status : bool, clearCurrentKeyboardInput :
 	
 	current_selected_user.summedUpPrice = summedUpPrice
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
+	end_artikelinfo()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -438,12 +451,16 @@ func _on_button_X_button_pressed(dontChangeLabel : bool = false) -> void:
 	if dontChangeLabel == false:
 		label_current_price.text = ""
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
+	end_artikelinfo()
 
 #---------------------------------------------------------------------------------------------------
  
 func _on_korrektur_button_pressed() -> void:
-	if current_selected_user.current_item_list_array.is_empty() || current_selected_user.user_eft_running == true:
+	if current_selected_user.user_eft_running == true:
+		return
+	elif current_selected_user.current_item_list_array.is_empty():
+		end_artikelinfo()
 		return
 	
 	if current_selcted_item_list_item == -1: #no item in array selected
@@ -489,7 +506,7 @@ func _on_korrektur_button_pressed() -> void:
 	resetKeyboardInput()
 	label_current_price.text = ""
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
 
 #---------------------------------------------------------------------------------------------------
 
@@ -500,7 +517,7 @@ func _on_rabatt_button_pressed() -> void:
 	$toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer.show()
 	$toolbar_bottom_1/MarginContainer/HBoxContainer.hide()
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -532,7 +549,8 @@ func _on_ec_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
+	end_artikelinfo()
 	
 	if zwischensumme == true && eft_running_EC == false && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
 		change_zwischensummen_status(false)
@@ -548,7 +566,9 @@ func _on_ec_button_pressed() -> void:
 func _on_bar_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
-	hideFehlermeldung()
+	
+	hide_Fehlermeldung()
+	end_artikelinfo()
 	
 	if zwischensumme == true && eft_running_BAR == false && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
 		change_zwischensummen_status(false)
@@ -564,6 +584,9 @@ func _on_bar_button_pressed() -> void:
 func _on_bar_offline_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
+	
+	hide_Fehlermeldung()
+	end_artikelinfo()
 	
 	if zwischensumme == true && current_selected_user.user != null && !current_selected_user.current_item_list_array.is_empty():
 		change_zwischensummen_status(false, false)
@@ -591,6 +614,9 @@ func errorEftBarAlreadyInUse():
 func _on_duplizieren_button_pressed() -> void:
 	if current_selected_user.user_eft_running == true:
 		return
+	
+	hide_Fehlermeldung()
+	end_artikelinfo()
 	
 	if !(current_selected_user.user == null || current_selected_user.current_item_list_array.is_empty()):
 		if current_selcted_item_list_item == -1: #no item in array selected
@@ -626,7 +652,8 @@ func _on_button_zahlung_abbrechen_pressed() -> void:
 	current_selected_user.user_eft_cancelled = true
 	current_selected_user.eft_session_id += 1 #stops running EFTs
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
+	end_artikelinfo()
 
 
 #---------------------------------------------------------------------------------------------------
@@ -634,7 +661,8 @@ func _on_button_zahlung_abbrechen_pressed() -> void:
 func _on_button_anmelden_pressed() -> void:
 	current_selected_user.logInUser(user_login_id)
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
+	end_artikelinfo()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -642,15 +670,34 @@ func _on_button_anmelden_pressed() -> void:
 func _on_button_abmelden_pressed() -> void:
 	current_selected_user.logOutUser()
 	
-	hideFehlermeldung()
+	hide_Fehlermeldung()
+	end_artikelinfo()
 
 #---------------------------------------------------------------------------------------------------
 
-func hideFehlermeldung():
-	$Fehlermeldungen.hide()
+func hide_Fehlermeldung():
+	$displays/display_items/Fehlermeldungen.hide()
 
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_artikelinfo_pressed() -> void:
-	pass
+	change_zwischensummen_status(false) #hidefehler in change_zwischensumme_status()
+	
+	if artikleinfo_switch == false:
+		artikleinfo_switch = true
+		artikelinfo_button_on.show()
+	else:
+		artikleinfo_switch = false
 	#muss aktiviert sein bis nächstes item gedrückt wird - dann info pushen
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func _on_artikelinfo_button_on_pressed() -> void:
+	end_artikelinfo()
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func end_artikelinfo():
+	artikleinfo_switch = false
+	artikelinfo.hide()
+	artikelinfo_button_on.hide()

@@ -9,3 +9,8 @@ extends Control
 func pushError(fehlermeldungstext : String):
 	fehlermeledung_label.text = fehlermeldungstext
 	show()
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_button_pressed() -> void:
+	hide()

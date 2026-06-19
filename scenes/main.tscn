@@ -41,6 +41,7 @@
 [ext_resource type="Resource" uid="uid://yfx0j5nocsx1" path="res://data/items/Semmeln/helle Semmeln/Maurer_doppelt.tres" id="21_chjal"]
 [ext_resource type="Resource" uid="uid://cviwr8lecg352" path="res://data/items/Semmeln/helle Semmeln/Wallnusssemmel.tres" id="22_cjqg0"]
 [ext_resource type="Resource" uid="uid://uc8uh3ptbobc" path="res://data/items/Semmeln/helle Semmeln/Mais_Gewürzsemmel.tres" id="23_vchkt"]
+[ext_resource type="PackedScene" uid="uid://deot3i41ms1eo" path="res://scenes/artikelinfo.tscn" id="24_o7ddy"]
 [ext_resource type="Resource" uid="uid://dm8dy8cgd6hg0" path="res://data/items/Semmeln/helle Semmeln/Knusperstangerl_Bergkäse.tres" id="24_txyw0"]
 [ext_resource type="Resource" uid="uid://c71dyet2mnpmr" path="res://data/items/Semmeln/helle Semmeln/Ciabattini.tres" id="25_vc5cj"]
 [ext_resource type="Resource" uid="uid://cwhjv6fccoscs" path="res://data/items/Semmeln/helle Semmeln/Schweizer_Knoten_natur.tres" id="26_fuf3a"]
@@ -91,10 +92,10 @@ bg_color = Color(0.933333, 0.447059, 0, 1)
 bg_color = Color(0.933333, 0.447059, 0, 0.85098)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5poiv"]
-bg_color = Color(0.44808, 0.661626, 0.475923, 1)
+bg_color = Color(0, 0.317, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_txyw0"]
-bg_color = Color(0.447059, 0.662745, 0.47451, 0.85098)
+bg_color = Color(0, 0.26476732, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_o6xl0"]
 bg_color = Color(0.184314, 0.65098, 0.843137, 1)
@@ -907,7 +908,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button3" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=1308277721]
+[node name="Artikelinfo_Button" type="Button" parent="toolbar_bottom_1/MarginContainer/HBoxContainer" unique_id=1308277721]
 texture_filter = 1
 custom_minimum_size = Vector2(165, 70)
 layout_mode = 2
@@ -1103,6 +1104,29 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="Artikelinfo_Button_on" type="Button" parent="toolbar_bottom_1/MarginContainer" unique_id=1494712884]
+visible = false
+texture_filter = 1
+custom_minimum_size = Vector2(165, 70)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_txyw0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_5poiv")
+theme_override_styles/focus = SubResource("StyleBoxFlat_5poiv")
+text = "Artikelinfo"
+icon = ExtResource("11_2cjbq")
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
 [node name="toolbar_bottom_2" type="Control" parent="." unique_id=668671752]
 anchors_preset = 0
 offset_left = 1190.0
@@ -1192,6 +1216,22 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 2
+
+[node name="Fehlermeldungen" parent="displays/display_items" unique_id=71681328 instance=ExtResource("52_bu4jf")]
+visible = false
+layout_mode = 1
+offset_left = 0.0
+offset_top = -1.0
+offset_right = 0.0
+offset_bottom = -1.0
+
+[node name="Artikelinfo" parent="displays/display_items" unique_id=1478738412 instance=ExtResource("24_o7ddy")]
+visible = false
+layout_mode = 1
+offset_left = 0.0
+offset_top = 0.0
+offset_right = -514.0
+offset_bottom = -474.0
 
 [node name="display_money" type="ColorRect" parent="displays" unique_id=915281186]
 layout_mode = 1
@@ -1517,14 +1557,6 @@ item_category_id = 28
 layout_mode = 2
 item_category_id = 289
 
-[node name="Fehlermeldungen" parent="." unique_id=71681328 instance=ExtResource("52_bu4jf")]
-visible = false
-layout_mode = 1
-offset_left = 130.0
-offset_top = 81.0
-offset_right = 130.0
-offset_bottom = 81.0
-
 [connection signal="keyboard_button_pressed" from="keyboard/buttons_main/GridContainer/keyboard_button9" to="." method="_on_keyboard_button_9_keyboard_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_pressed"]
@@ -1535,7 +1567,7 @@ offset_bottom = 81.0
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]
-[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Button3" to="." method="_on_button_artikelinfo_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Artikelinfo_Button" to="." method="_on_button_artikelinfo_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/reset_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_reset_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/5_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_5_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/10_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_10_button_pressed"]
@@ -1543,6 +1575,7 @@ offset_bottom = 81.0
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/25_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_25_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/50_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_50_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer/return_Button" to="toolbar_bottom_1/MarginContainer/Rabatt_HBoxContainer" method="_on_return_button_pressed"]
+[connection signal="pressed" from="toolbar_bottom_1/MarginContainer/Artikelinfo_Button_on" to="." method="_on_artikelinfo_button_on_pressed"]
 [connection signal="pressed" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/EC_button" to="." method="_on_ec_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/ZWS_button" to="." method="_on_button_ZWS_button_pressed"]
 [connection signal="pressed" from="toolbar_bottom_2/MarginContainer2/HBoxContainer/BAR_button" to="." method="_on_bar_button_pressed"]
