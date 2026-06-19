@@ -193,6 +193,12 @@ func eftEnded(session_id: int):
 	label_name.add_theme_color_override("font_color", eft_done_font_color)
 	if MAIN.current_user == button_number:
 		zws_background.color = eft_done_font_color
+		
+	var newRechnungslistenelement
+	if user_raw != null:
+		newRechnungslistenelement = rechnungsliste_element.new(user_raw.username, user_raw.user_id, current_item_list_array.duplicate(), summedUpPrice, rabatt, payment_method_used) #0 = EC , 1 = BAR , 2 = BAR Offline
+	else: #EXTRA user used
+		newRechnungslistenelement = rechnungsliste_element.new("EXTRA", 0, current_item_list_array.duplicate(), summedUpPrice, rabatt, payment_method_used) #0 = EC , 1 = BAR , 2 = BAR Offline
 	
 	current_item_list_array.clear()
 	MAIN.updateItemListLabelV3()
@@ -207,12 +213,6 @@ func eftEnded(session_id: int):
 	if MAIN.current_user == button_number:
 		MAIN.label_current_price.hide()
 	
-	var newRechnungslistenelement
-	if user_raw != null:
-		newRechnungslistenelement = rechnungsliste_element.new(user_raw.username, user_raw.user_id, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR , 2 = BAR Offline
-	else: #EXTRA user used
-		newRechnungslistenelement = rechnungsliste_element.new("EXTRA", 0, summedUpPrice, payment_method_used) #0 = EC , 1 = BAR , 2 = BAR Offline
-
 	SystemData.rechnungsliste.append(newRechnungslistenelement)
 	last_rechnungslisten_array_index = (SystemData.rechnungsliste.size() - 1)
 	printRechnungAtIndex(last_rechnungslisten_array_index)
@@ -318,20 +318,43 @@ func printRechnungFromRechnungslisteElement(rl_element : rechnungsliste_element)
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
 func actuallyPrintRechnung(rl_element : rechnungsliste_element):
+	#in practice this data would be send to a printer, but I don`t want to buy one just for this sproject
+	
 	print("--------------------------------")
 	
-	print("Baäckerei Kasprovicz")
+	print("Bäckerei Kasprovicz")
 	print("Tel: 08153 / 9527091")
-	print("Wörthsee 82237")
 	print("Zum Kuckuksheim 3")
+	print("Wörthsee 82237")
+	
 	print("")
+	print("- - - - - - - - - - - - - - - - -")
 	print("")
+	
+	print(str(rl_element.item_list_array.size()))
+	for i in rl_element.item_list_array:
+		if i.weight == 0.000: #not a wiegeprodukt
+			print(i.item.name + "       " + str(i.quantity) + " x" + "       " + str(i.item.price) + "€")
+		else: #wiegeprodukt
+			print(i.item.name + "       " + str(i.weight) + " kg" + "       " + str(i.item.price * i.weight) + "€")
+	
 	print("")
+	print("- - - - - - - - - - - - - - - - -")
+	
+	#Auf steuern wird verzichtet, die werden hinterzogen
+	
+	if rl_element.rabatt == 0.0:
+		print(str(rl_element.revenue) + "€")
+	else:
+		print("Rabatt: " + str(rl_element.rabatt))
+		print("Betrag: " + str(rl_element.revenue * rl_element.rabatt) + "€")
+	
+	print("- - - - - - - - - - - - - - - - -")
 	print("")
+	
+	var day = Time.get_date_dict_from_system()
+	print("%02d.%02d.%02d" % [day.day, day.month, day.year])
 	print("%02d:%02d:%02d" % [rl_element.time.hour, rl_element.time.minute, rl_element.time.second])
 	print("Es bediente Sie: " + rl_element.user_name)
 	
 	print("--------------------------------")
-
-
-#print("%02d:%02d:%02d" % [e.time.hour, e.time.minute, e.time.second] + " User: " + e.user_name + " Revenue: " + str(e.revenue))
