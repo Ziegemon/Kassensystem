@@ -209,6 +209,8 @@ func eftEnded(session_id: int):
 		MAIN.eft_running_BAR = false
 	
 	rabatt = 1.0
+	MAIN.label_rabatt.hide()
+
 	
 	if MAIN.current_user == button_number:
 		MAIN.label_current_price.hide()
@@ -431,7 +433,7 @@ func actuallyPrintRechnung(rl_element: rechnungsliste_element):
 
 	# ---------------- SUMME / RABATT ----------------
 
-	if rl_element.rabatt == 0.0:
+	if rl_element.rabatt == 1:
 		print(format_line("Betrag", "%.2f€" % rl_element.revenue, width + 2))
 	else:
 		print(format_line("Rabatt", str(int(round((1 - rl_element.rabatt) * 100))) + "%", width + 2))

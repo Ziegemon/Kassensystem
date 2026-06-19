@@ -28,3 +28,4 @@ func printLastRechnung():
 	
 	if this_users_rechnungen.size() > 0:
 		printRechnungFromRechnungslisteElement(this_users_rechnungen[this_users_rechnungen.size() - 1])
+	
