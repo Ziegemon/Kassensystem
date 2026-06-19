@@ -2,7 +2,7 @@ extends Resource
 class_name rechnungsliste_element
 
 var user_name : String #bediener
-var user_id : int
+var user_id : int #0 = user_id of EXTRA user
 var revenue : float
 var time
 var payment_method : int

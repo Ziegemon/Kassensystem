@@ -701,3 +701,8 @@ func end_artikelinfo():
 	artikleinfo_switch = false
 	artikelinfo.hide()
 	artikelinfo_button_on.hide()
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_letzte_rechnung_button_pressed() -> void:
+	current_selected_user.printLastRechnung()

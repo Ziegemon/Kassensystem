@@ -99,3 +99,15 @@ func logInUser(user_id : int):
 func logOutUser():
 	removeUser()
 	get_tree().get_root().get_node("MAIN").activateCurrentuser()
+
+#---------------------------------------------------------------------------------------------------
+
+func printLastRechnung():
+	var this_users_rechnungen : Array[rechnungsliste_element] = []
+	
+	for e in SystemData.rechnungsliste:
+		if e.user_id == user.user_id:
+			this_users_rechnungen.append(e)
+	
+	if this_users_rechnungen.size() > 0:
+		printRechnungFromRechnungslisteElement(this_users_rechnungen[this_users_rechnungen.size() - 1])

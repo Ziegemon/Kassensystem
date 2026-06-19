@@ -215,7 +215,7 @@ func eftEnded(session_id: int):
 
 	SystemData.rechnungsliste.append(newRechnungslistenelement)
 	last_rechnungslisten_array_index = (SystemData.rechnungsliste.size() - 1)
-	printRechnung(last_rechnungslisten_array_index)
+	printRechnungAtIndex(last_rechnungslisten_array_index)
 	
 	await get_tree().create_timer(3).timeout
 	if session_id != eft_session_id:
@@ -226,12 +226,6 @@ func eftEnded(session_id: int):
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
 		zws_background.color = Color(1, 1, 1)
-	
-	#print all rechningsliste_elements
-	for e in SystemData.rechnungsliste:
-		print("%02d:%02d:%02d" % [e.time.hour, e.time.minute, e.time.second] + " User: " + e.user_name + " Revenue: " + str(e.revenue))
-	print("------")
-	#print all rechningsliste_elements
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
@@ -312,9 +306,18 @@ func cleanUpEft():
 
 #---------------------------------------------------------------------------------------------------
 
-func printRechnung(index : int):
-	var rechnugsliste_element = SystemData.rechnungsliste[index]
-	
+func printRechnungAtIndex(index : int):
+	var rl_element = SystemData.rechnungsliste[index]
+	actuallyPrintRechnung(rl_element)
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+func printRechnungFromRechnungslisteElement(rl_element : rechnungsliste_element):
+	actuallyPrintRechnung(rl_element)
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
+
+func actuallyPrintRechnung(rl_element : rechnungsliste_element):
 	print("--------------------------------")
 	
 	print("Baäckerei Kasprovicz")
@@ -325,12 +328,10 @@ func printRechnung(index : int):
 	print("")
 	print("")
 	print("")
-	print("Es bediente Sie: " + rechnugsliste_element.user_name)
+	print("%02d:%02d:%02d" % [rl_element.time.hour, rl_element.time.minute, rl_element.time.second])
+	print("Es bediente Sie: " + rl_element.user_name)
 	
 	print("--------------------------------")
-	#alle variabablen von rechnugsliste_element printn + Rechnungsgeplenkl
 
-#---------------------------------------------------------------------------------------------------
 
-func printLastRechnung():
-	pass
+#print("%02d:%02d:%02d" % [e.time.hour, e.time.minute, e.time.second] + " User: " + e.user_name + " Revenue: " + str(e.revenue))
