@@ -501,6 +501,9 @@ func _on_korrektur_button_pressed() -> void:
 	
 	current_selcted_item_list_item = -1
 	
+	@warning_ignore("narrowing_conversion")
+	labels_items_v_scroll_container.scroll_vertical = labels_items_v_scroll_container.get_v_scroll_bar().max_value
+	
 	updateItemListLabelV3()
 	change_zwischensummen_status(false)
 	resetKeyboardInput()
