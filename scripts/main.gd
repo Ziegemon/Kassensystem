@@ -3,7 +3,7 @@ extends Control
 #---------------------------------------------------------------------------------------------------
 
 var current_user : int
-var current_selected_user : Benutzerauswahl_raw
+var current_selected_user : Benutzerauswahl_raw = null
 var user_login_id : int
 
 #---------------------------------------------------------------------------------------------------
@@ -663,7 +663,7 @@ func _on_button_zahlung_abbrechen_pressed() -> void:
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_anmelden_pressed() -> void:
-	if current_selected_user.is_benutzerauswahl_extra():
+	if current_selected_user.is_benutzerauswahl_extra()  || current_selected_user.user == null:
 		return
 	
 	current_selected_user.logInUser(user_login_id)
@@ -676,8 +676,9 @@ func _on_button_anmelden_pressed() -> void:
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_button_abmelden_pressed() -> void:
-	if current_selected_user.is_benutzerauswahl_extra():
+	if current_selected_user.is_benutzerauswahl_extra() || current_selected_user.user == null:
 		return
+	
 	current_selected_user.logOutUser()
 	
 	hide_Fehlermeldung()
@@ -688,7 +689,7 @@ func _on_button_abmelden_pressed() -> void:
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_button_pause_pressed() -> void:
-	if current_selected_user.is_benutzerauswahl_extra():
+	if current_selected_user.is_benutzerauswahl_extra()  || current_selected_user.user == null:
 		return
 	
 	if current_selected_user.zeiterfassungs_status == true:
