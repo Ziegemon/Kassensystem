@@ -14,9 +14,9 @@
 [ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="9_choun"]
 [ext_resource type="Texture2D" uid="uid://co3qjjownfku3" path="res://assets/rabatt_icon_expanded_top.png" id="9_pibwh"]
 [ext_resource type="Script" uid="uid://co4feobmwvg1c" path="res://scripts/rabatt_h_box_container.gd" id="10_5he1u"]
+[ext_resource type="Texture2D" uid="uid://qxn8pnwfqt0a" path="res://assets/controller_icon.png" id="10_bjg73"]
 [ext_resource type="Texture2D" uid="uid://cvesq86f5wsja" path="res://assets/return_icon_02_expanded.png" id="10_c6pm6"]
 [ext_resource type="Texture2D" uid="uid://cxqgqsrgfhwfo" path="res://assets/cash_icon.png" id="10_cjqg0"]
-[ext_resource type="Texture2D" uid="uid://cxhb3splajhjx" path="res://assets/manager_icon.png" id="10_txyw0"]
 [ext_resource type="Texture2D" uid="uid://dbo2b8o0vv548" path="res://assets/cogwheel_icon_2.png" id="10_vchkt"]
 [ext_resource type="Resource" uid="uid://b75vvknh2ttwe" path="res://data/items/Semmeln/helle Semmeln/Kaisersemmel.tres" id="10_ya4ey"]
 [ext_resource type="Texture2D" uid="uid://s22swmqiucs8" path="res://assets/info_icon_expanded.png" id="11_2cjbq"]
@@ -596,7 +596,7 @@ theme_override_constants/separation = 6
 [node name="Button0" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1755479472]
 texture_filter = 1
 clip_contents = true
-custom_minimum_size = Vector2(70, 141.8)
+custom_minimum_size = Vector2(70, 104.999)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -612,8 +612,8 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
-text = "Chef Fkt."
-icon = ExtResource("10_txyw0")
+text = "Ablenkung"
+icon = ExtResource("10_bjg73")
 autowrap_mode = 2
 clip_text = true
 icon_alignment = 1
@@ -623,7 +623,7 @@ expand_icon = true
 [node name="Button1" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1403017609]
 texture_filter = 1
 clip_contents = true
-custom_minimum_size = Vector2(70, 141.8)
+custom_minimum_size = Vector2(70, 104.999)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -647,10 +647,60 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
+[node name="Button2" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1813754446]
+texture_filter = 1
+clip_contents = true
+custom_minimum_size = Vector2(70, 104.999)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
+autowrap_mode = 2
+clip_text = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Button3" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=2006079042]
+texture_filter = 1
+clip_contents = true
+custom_minimum_size = Vector2(70, 104.999)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
+autowrap_mode = 3
+clip_text = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
 [node name="Anmelden_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=603649136]
 texture_filter = 1
 clip_contents = true
-custom_minimum_size = Vector2(70, 141.8)
+custom_minimum_size = Vector2(70, 104.999)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -677,7 +727,7 @@ expand_icon = true
 [node name="Pause_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=574349411]
 texture_filter = 1
 clip_contents = true
-custom_minimum_size = Vector2(70, 141.8)
+custom_minimum_size = Vector2(70, 104.999)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -704,7 +754,7 @@ expand_icon = true
 [node name="Abmelden_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=932639844]
 texture_filter = 1
 clip_contents = true
-custom_minimum_size = Vector2(70, 141.8)
+custom_minimum_size = Vector2(70, 104.999)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -731,7 +781,7 @@ expand_icon = true
 [node name="BarOfflinieButton" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=244945421]
 texture_filter = 1
 clip_contents = true
-custom_minimum_size = Vector2(70, 141.8)
+custom_minimum_size = Vector2(70, 104.999)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
@@ -755,7 +805,7 @@ vertical_icon_alignment = 0
 expand_icon = true
 
 [node name="Placeholder" type="Control" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1508290917]
-custom_minimum_size = Vector2(70, 19)
+custom_minimum_size = Vector2(70, 21)
 layout_mode = 2
 
 [node name="Button_Zahlung_abbrechen" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1997799749]
