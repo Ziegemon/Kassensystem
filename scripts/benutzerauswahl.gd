@@ -5,7 +5,6 @@ class_name Benutzerauswahl
 
 
 @export var user : user_data
-var zeiterfassung_status : bool = false
 
 #signal user_changed
 #signal user_removed
@@ -56,7 +55,7 @@ func setupUser():
 	label_name.text = user.username
 	label_name.show()
 	
-	zeiterfassung_status = true
+	zeiterfassungs_status = true
 
 #---------------------------------------------------------------------------------------------------
 
@@ -136,6 +135,6 @@ func zeiterfassung():
 		user.arbeitszeit_datas.append(new_arbeitszeit_data)
 		current_arbeitszeit_data = user.arbeitszeit_datas.get(user.arbeitszeit_datas.size() -1)
 
-	while zeiterfassung_status == true:
+	while zeiterfassungs_status == true:
 		await get_tree().create_timer(1).timeout
 		current_arbeitszeit_data.time += (1.0/60.0)

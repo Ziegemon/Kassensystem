@@ -16,6 +16,8 @@ signal user_selected(button_number)
 
 var last_rechnungslisten_array_index : int = 0
 
+var zeiterfassungs_status : bool = false  #irrelevant for benutzerauswahl_extra, but its less complicated to put it here
+
 #---------------------------------------------------------------------------------------------------
 
 @onready var background: ColorRect = $background
