@@ -16,8 +16,6 @@ signal user_selected(button_number)
 
 var last_rechnungslisten_array_index : int = 0
 
-var zeiterfassungs_status : bool = false  #irrelevant for benutzerauswahl_extra, but its less complicated to put it here
-
 #---------------------------------------------------------------------------------------------------
 
 @onready var background: ColorRect = $background
@@ -462,3 +460,8 @@ func actuallyPrintRechnung(rl_element: rechnungsliste_element):
 	print(center_text("Es bediente Sie: " + rl_element.user_name, width))
 	
 	print("-----------------------------------------------")
+
+#---------------------------------------------------------------------------------------------------
+
+func is_benutzerauswahl_extra() -> bool:
+	return false

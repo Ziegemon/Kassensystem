@@ -5,6 +5,7 @@ class_name Benutzerauswahl
 
 
 @export var user : user_data
+var zeiterfassungs_status : bool = false 
 
 #signal user_changed
 #signal user_removed
@@ -125,6 +126,9 @@ func printLastRechnung():
 
 func zeiterfassung():
 	var current_arbeitszeit_data
+	
+	if user == null:
+		return
 	
 	for e in user.arbeitszeit_datas:
 		if e.date == Time.get_date_dict_from_system():

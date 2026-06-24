@@ -28,4 +28,8 @@ func printLastRechnung():
 	
 	if this_users_rechnungen.size() > 0:
 		printRechnungFromRechnungslisteElement(this_users_rechnungen[this_users_rechnungen.size() - 1])
-	
+
+#---------------------------------------------------------------------------------------------------
+
+func is_benutzerauswahl_extra() -> bool:
+	return true
