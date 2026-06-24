@@ -69,6 +69,7 @@ func _ready() -> void:
 	
 	label_rabatt.hide()
 
+
 #---------------------------------------------------------------------------------------------------
 
 @warning_ignore("unused_parameter")
@@ -666,15 +667,23 @@ func _on_button_anmelden_pressed() -> void:
 	
 	hide_Fehlermeldung()
 	end_artikelinfo()
+	
+	current_selected_user.user.zeiterfassungs_status = true
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
 
 func _on_button_abmelden_pressed() -> void:
 	current_selected_user.logOutUser()
 	
 	hide_Fehlermeldung()
 	end_artikelinfo()
+	
+	current_selected_user.user.zeiterfassungs_status = false
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func _on_button_pause_pressed() -> void:
+	current_selected_user.user.zeiterfassungs_status = false
 
 #---------------------------------------------------------------------------------------------------
 

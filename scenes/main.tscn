@@ -704,7 +704,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button4" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=603649136]
+[node name="Anmelden_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=603649136]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -731,7 +731,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button5" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=574349411]
+[node name="Pause_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=574349411]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -758,7 +758,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button6" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=932639844]
+[node name="Abmelden_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=932639844]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -1562,8 +1562,9 @@ item_category_id = 289
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_pressed"]
 [connection signal="pressed" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_pressed"]
-[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button4" to="." method="_on_button_anmelden_pressed"]
-[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button6" to="." method="_on_button_abmelden_pressed"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Anmelden_Button" to="." method="_on_button_anmelden_pressed"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Pause_Button" to="." method="_on_button_pause_pressed"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Abmelden_Button" to="." method="_on_button_abmelden_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_pressed"]
 [connection signal="pressed" from="toolbar_bottom_1/MarginContainer/HBoxContainer/Rabatt_Button" to="." method="_on_rabatt_button_pressed"]

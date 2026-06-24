@@ -5,7 +5,7 @@ class_name Benutzerauswahl
 
 
 @export var user : user_data
-
+var zeiterfassung_status : bool = false
 
 #signal user_changed
 #signal user_removed
@@ -19,6 +19,14 @@ class_name Benutzerauswahl
 
 
 #---------------------------------------------------------------------------------------------------
+#---------------------------------------------------------------------------------------------------
+
+
+@warning_ignore("unused_parameter")
+func _process(delta: float) -> void:
+	zeiterfassung()
+
+
 #---------------------------------------------------------------------------------------------------
 
 
@@ -47,6 +55,8 @@ func setupUser():
 	
 	label_name.text = user.username
 	label_name.show()
+	
+	zeiterfassung_status = true
 
 #---------------------------------------------------------------------------------------------------
 
@@ -111,3 +121,21 @@ func printLastRechnung():
 	
 	if this_users_rechnungen.size() > 0:
 		printRechnungFromRechnungslisteElement(this_users_rechnungen[this_users_rechnungen.size() - 1])
+
+#---------------------------------------------------------------------------------------------------
+
+func zeiterfassung():
+	var current_arbeitszeit_data
+	
+	for e in user.arbeitszeit_datas:
+		if e.date == Time.get_date_dict_from_system():
+			current_arbeitszeit_data = e
+	
+	if current_arbeitszeit_data == null:
+		var new_arbeitszeit_data = arbeitszeit_data.new(Time.get_date_dict_from_system())
+		user.arbeitszeit_datas.append(new_arbeitszeit_data)
+		current_arbeitszeit_data = user.arbeitszeit_datas.get(user.arbeitszeit_datas.size() -1)
+
+	while zeiterfassung_status == true:
+		await get_tree().create_timer(1).timeout
+		current_arbeitszeit_data.time += (1.0/60.0)

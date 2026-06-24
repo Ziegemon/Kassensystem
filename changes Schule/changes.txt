@@ -1,3 +1,0 @@
-in main seitenknöpfe reduziert
-arbeitszeitdata hinzugefpgt
-uder_data mit arbeitszeitdata geupdatet
