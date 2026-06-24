@@ -690,8 +690,11 @@ func _on_button_abmelden_pressed() -> void:
 func _on_button_pause_pressed() -> void:
 	if current_selected_user.is_benutzerauswahl_extra():
 		return
-		
-	current_selected_user.zeiterfassungs_status = false
+	
+	if current_selected_user.zeiterfassungs_status == true:
+		current_selected_user.zeiterfassungs_status = false
+	else:
+		current_selected_user.zeiterfassungs_status = false
 
 #---------------------------------------------------------------------------------------------------
 
