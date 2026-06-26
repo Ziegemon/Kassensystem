@@ -103,13 +103,16 @@ func logInUser(user_id : int):
 		get_tree().get_root().get_node("MAIN").activateCurrentuser()
 		setupUser()
 	
-	#zeoiterfassung???????????-------------------------
+	zeiterfassung_currently_active = false
+	zeiterfassungs_status = true
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func logOutUser():
+	abmeldungs_message()
 	removeUser()
 	get_tree().get_root().get_node("MAIN").activateCurrentuser()
+	zeiterfassung_currently_active = false
 
 #---------------------------------------------------------------------------------------------------
 
@@ -131,14 +134,17 @@ func zeiterfassung():
 	
 	zeiterfassung_currently_active = true
 	
-	var current_arbeitszeit_data
-	
 	if user == null:
 		return
+		
+	var current_arbeitszeit_data = get_todays_arbeitszeit_data()
 	
-	for e in user.arbeitszeit_datas:
-		if e.date == Time.get_date_dict_from_system():
-			current_arbeitszeit_data = e
+	
+	
+	#for e in user.arbeitszeit_datas:
+		#if e.date == Time.get_date_dict_from_system():
+			#current_arbeitszeit_data = e
+			#break
 	
 	if current_arbeitszeit_data == null:
 		var new_arbeitszeit_data = arbeitszeit_data.new(Time.get_date_dict_from_system())
@@ -150,3 +156,51 @@ func zeiterfassung():
 		current_arbeitszeit_data.time += (1.0/60.0)
 	
 	zeiterfassung_currently_active = false
+
+#---------------------------------------------------------------------------------------------------
+
+func abmeldungs_message():
+	var current_arbeitszeit_data = get_todays_arbeitszeit_data()
+	
+	#for e in user.arbeitszeit_datas:
+		#if e.date == Time.get_date_dict_from_system():
+			#current_arbeitszeit_data = e
+	
+	var width := 45
+	
+	print("")
+	print("")
+	print("-----------------------------------------------")
+	
+	print(center_text("Bäckerei Kasprovicz", width + 2))
+	print(center_text("Tel: 08153 / 9527091", width + 2))
+	print(center_text("Zum Kuckuksheim 3", width + 2))
+	print(center_text("Wörthsee 82237", width + 2))
+	
+	print("")
+	print("- - - - - - - - - - - - - - - - - - - - - - - -")
+	print("")
+
+	print(center_text(user.username, width + 2))
+	print(format_line("Arbeitszeit:", format_time(current_arbeitszeit_data.time), width + 2))
+
+	
+	print("")
+	print("-----------------------------------------------")
+	print("")
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func format_time(minutes_float: float) -> String:
+	var hours = int(minutes_float / 60)
+	var minutes = int(minutes_float) % 60
+	
+	return "%d:%02d h" % [hours, minutes]
+
+#---------------------------------------------------------------------------------------------------
+
+func get_todays_arbeitszeit_data():
+	for e in user.arbeitszeit_datas:
+		if e.date == Time.get_date_dict_from_system():
+			return e
+	return null
