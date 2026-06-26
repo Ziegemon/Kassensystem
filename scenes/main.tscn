@@ -448,6 +448,18 @@ text = "EFT EC"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Label_no_access" type="Label" parent="status_bar" unique_id=2092136248]
+visible = false
+layout_mode = 0
+offset_left = 1566.0
+offset_right = 1830.0
+offset_bottom = 72.0
+theme_override_colors/font_color = Color(1, 0.2627451, 0.19215687, 1)
+theme_override_font_sizes/font_size = 30
+text = "Kein Zugriff"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [node name="user_selection" type="Control" parent="." unique_id=1357200962]
 anchors_preset = 0
 offset_top = 82.0
@@ -593,33 +605,6 @@ theme_override_constants/margin_bottom = 10
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="Ablenkung_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1755479472]
-texture_filter = 1
-clip_contents = true
-custom_minimum_size = Vector2(70, 104.999)
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
-theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
-theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
-theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
-theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 12
-theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
-theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
-theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
-text = "Ablenkung"
-icon = ExtResource("10_bjg73")
-autowrap_mode = 2
-clip_text = true
-icon_alignment = 1
-vertical_icon_alignment = 0
-expand_icon = true
-
 [node name="Funktionen_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1403017609]
 texture_filter = 1
 clip_contents = true
@@ -641,6 +626,33 @@ theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
 theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
 text = "Funktionen"
 icon = ExtResource("10_vchkt")
+autowrap_mode = 2
+clip_text = true
+icon_alignment = 1
+vertical_icon_alignment = 0
+expand_icon = true
+
+[node name="Ablenkung_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1755479472]
+texture_filter = 1
+clip_contents = true
+custom_minimum_size = Vector2(70, 104.999)
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_tefeu")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/hover_pressed = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_0wfyh")
+theme_override_styles/focus = SubResource("StyleBoxFlat_0wfyh")
+text = "Ablenkung"
+icon = ExtResource("10_bjg73")
 autowrap_mode = 2
 clip_text = true
 icon_alignment = 1
@@ -1555,6 +1567,8 @@ item_category_id = 289
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Korrektur_button" to="." method="_on_korrektur_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Button3" to="." method="_on_button_X_button_pressed"]
 [connection signal="pressed" from="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra/Button" to="user_selection/MarginContainer/VBoxContainer/benutzerauswahl_extra" method="_on_button_pressed"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Funktionen_Button" to="." method="_on_funktionen_button_pressed"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Ablenkung_Button" to="." method="_on_ablenkung_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Anmelden_Button" to="." method="_on_button_anmelden_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Placeholder_1" to="." method="_on_button_pause_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Abmelden_Button" to="." method="_on_button_abmelden_pressed"]

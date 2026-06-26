@@ -13,7 +13,9 @@ var user_login_id : int
 @onready var label_clock: Label = $status_bar/Label_clock
 @onready var label_date: Label = $status_bar/Label_date
 @onready var label_rabatt: Label = $status_bar/Label_rabatt
+@onready var label_no_access: Label = $status_bar/Label_no_access
 
+var label_no_access_currently_flashing : bool = false
 
 #---------------------------------------------------------------------------------------------------
 
@@ -730,3 +732,25 @@ func end_artikelinfo():
 
 func _on_letzte_rechnung_button_pressed() -> void:
 	current_selected_user.printLastRechnung()
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_ablenkung_button_pressed() -> void:
+	pass # Replace with function body.
+	#switch to game scene of Simon & Dennis
+
+#---------------------------------------------------------------------------------------------------
+
+func _on_funktionen_button_pressed() -> void:
+	if label_no_access_currently_flashing == true:
+		return
+	
+	label_no_access_currently_flashing = true
+
+	for i in range(3):
+		label_no_access.show()
+		await  get_tree().create_timer(0.5).timeout
+		label_no_access.hide()
+		await  get_tree().create_timer(0.5).timeout
+	
+	label_no_access_currently_flashing = false
