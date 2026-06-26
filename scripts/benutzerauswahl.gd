@@ -6,6 +6,7 @@ class_name Benutzerauswahl
 
 @export var user : user_data
 var zeiterfassungs_status : bool = false 
+var zeiterfassung_currently_active : bool = false
 
 #signal user_changed
 #signal user_removed
@@ -125,6 +126,11 @@ func printLastRechnung():
 #---------------------------------------------------------------------------------------------------
 
 func zeiterfassung():
+	if zeiterfassung_currently_active == true:
+		return
+	
+	zeiterfassung_currently_active = true
+	
 	var current_arbeitszeit_data
 	
 	if user == null:
@@ -142,3 +148,5 @@ func zeiterfassung():
 	while zeiterfassungs_status == true:
 		await get_tree().create_timer(1).timeout
 		current_arbeitszeit_data.time += (1.0/60.0)
+	
+	zeiterfassung_currently_active = false
