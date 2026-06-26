@@ -692,19 +692,15 @@ func _on_button_abmelden_pressed() -> void:
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_button_pause_pressed() -> void:
-	if current_selected_user.is_benutzerauswahl_extra()  || current_selected_user.user == null:
+	if current_selected_user.is_benutzerauswahl_extra()  || current_selected_user.user == null || current_selected_user.user_eft_running == true || !current_selected_user.current_item_list_array.is_empty():
 		return
 	
 	if current_selected_user.zeiterfassungs_status == true:
 		current_selected_user.zeiterfassungs_status = false #pause started
 		update_pause_indicator()
-		#$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg48m1yetd55r") #green
-		print("g")
 	else:
 		current_selected_user.zeiterfassungs_status = true #pause ended
 		update_pause_indicator()
-		#$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg8ipv1xoc1cw") #black
-		print("b")
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
