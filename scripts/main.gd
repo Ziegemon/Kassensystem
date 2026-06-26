@@ -663,7 +663,7 @@ func _on_button_zahlung_abbrechen_pressed() -> void:
 #---------------------------------------------------------------------------------------------------
 
 func _on_button_anmelden_pressed() -> void:
-	if current_selected_user.is_benutzerauswahl_extra()  || current_selected_user.user == null:
+	if current_selected_user.is_benutzerauswahl_extra():
 		return
 	
 	current_selected_user.logInUser(user_login_id)
