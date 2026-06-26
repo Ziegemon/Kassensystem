@@ -711,7 +711,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Placeholder_1" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=574349411]
+[node name="Pause_Button" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=574349411]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -1570,7 +1570,7 @@ item_category_id = 289
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Funktionen_Button" to="." method="_on_funktionen_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Ablenkung_Button" to="." method="_on_ablenkung_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Anmelden_Button" to="." method="_on_button_anmelden_pressed"]
-[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Placeholder_1" to="." method="_on_button_pause_pressed"]
+[connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Pause_Button" to="." method="_on_button_pause_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Abmelden_Button" to="." method="_on_button_abmelden_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/BarOfflinieButton" to="." method="_on_bar_offline_button_pressed"]
 [connection signal="pressed" from="toolbar_right/MarginContainer/VBoxContainer/Button_Zahlung_abbrechen" to="." method="_on_button_zahlung_abbrechen_pressed"]

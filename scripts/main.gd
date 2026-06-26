@@ -102,6 +102,7 @@ func _on_user_selected(button_number: int) -> void:
 	changeRabattVisualizer()
 	hide_Fehlermeldung()
 	end_artikelinfo()
+	update_pause_indicator()
 	
 	if current_selected_user.rabatt == 1.0:
 		label_rabatt.hide()
@@ -193,7 +194,7 @@ func connectItemButtonSignals():
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func _on_item_button_pressed(button_item_data: item_data) -> void:
-	if current_selected_user.user_eft_running == true:
+	if current_selected_user.user_eft_running == true || current_selected_user.zeiterfassungs_status == false:
 		return
 	
 	if artikleinfo_switch == true:
@@ -695,9 +696,27 @@ func _on_button_pause_pressed() -> void:
 		return
 	
 	if current_selected_user.zeiterfassungs_status == true:
-		current_selected_user.zeiterfassungs_status = false
+		current_selected_user.zeiterfassungs_status = false #pause started
+		update_pause_indicator()
+		#$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg48m1yetd55r") #green
+		print("g")
 	else:
-		current_selected_user.zeiterfassungs_status = false
+		current_selected_user.zeiterfassungs_status = true #pause ended
+		update_pause_indicator()
+		#$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg8ipv1xoc1cw") #black
+		print("b")
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func update_pause_indicator():
+	if current_selected_user is Benutzerauswahl_extra || current_selected_user.user == null:
+		$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg8ipv1xoc1cw") #black
+		return
+	
+	if current_selected_user.zeiterfassungs_status == false:
+		$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg48m1yetd55r") #green
+	else:
+		$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg8ipv1xoc1cw") #black
 
 #---------------------------------------------------------------------------------------------------
 
