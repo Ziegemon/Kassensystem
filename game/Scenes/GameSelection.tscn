@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://1w1b1k5eq16j"]
+[gd_scene format=3 uid="uid://1w1b1k5eq16j"]
 
-[ext_resource type="Texture2D" uid="uid://cxqcby0weqbdy" path="res://Textures/UI/Fly Catcher 256x256 Logo.png" id="1_0swoh"]
-[ext_resource type="Script" path="res://Scripts/GameSelectButton.gd" id="2_xreyv"]
-[ext_resource type="Texture2D" uid="uid://csq6hshk2nwvq" path="res://Textures/UI/Statistics_Button.png" id="3_ux5e2"]
+[ext_resource type="Texture2D" uid="uid://cxqcby0weqbdy" path="res://game/Textures/UI/Fly Catcher 256x256 Logo.png" id="1_0swoh"]
+[ext_resource type="Script" uid="uid://c6q6gwxybnhym" path="res://game/Scripts/GameSelectButton.gd" id="2_w5awt"]
+[ext_resource type="Texture2D" uid="uid://csq6hshk2nwvq" path="res://game/Textures/UI/Statistics_Button.png" id="3_ux5e2"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_gn56n"]
 
@@ -11,7 +11,7 @@ font_size = 45
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_05hxs"]
 
-[node name="Control" type="Control"]
+[node name="Control" type="Control" unique_id=677833588]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -19,7 +19,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="BackgroundTexture" type="TextureRect" parent="."]
+[node name="BackgroundTexture" type="TextureRect" parent="." unique_id=1315812838]
 self_modulate = Color(0, 0, 0, 1)
 layout_mode = 1
 anchors_preset = 15
@@ -29,7 +29,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("PlaceholderTexture2D_gn56n")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=982720343]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -47,7 +47,7 @@ label_settings = SubResource("LabelSettings_wktsw")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1471768494]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -57,16 +57,16 @@ grow_vertical = 2
 theme_override_constants/separation = 275
 alignment = 1
 
-[node name="Row1" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Row1" type="HBoxContainer" parent="VBoxContainer" unique_id=740908088]
 layout_mode = 2
 theme_override_constants/separation = 275
 alignment = 1
 
-[node name="FlyCatcher" type="TextureRect" parent="VBoxContainer/Row1"]
+[node name="FlyCatcher" type="TextureRect" parent="VBoxContainer/Row1" unique_id=863393027]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="FlyCatcherButton" type="TextureButton" parent="VBoxContainer/Row1/FlyCatcher" node_paths=PackedStringArray("targetButton")]
+[node name="FlyCatcherButton" type="TextureButton" parent="VBoxContainer/Row1/FlyCatcher" unique_id=2082347857 node_paths=PackedStringArray("targetButton")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -82,16 +82,16 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(463, 317)
 texture_normal = ExtResource("1_0swoh")
-script = ExtResource("2_xreyv")
+script = ExtResource("2_w5awt")
 targetButton = NodePath(".")
 gameName = "Fly Catcher"
-gamePath = "res://Scenes/FlyCatcher.tscn"
+gamePath = "res://game/Scenes/FlyCatcher.tscn"
 
-[node name="Statistics" type="TextureRect" parent="VBoxContainer/Row1"]
+[node name="Statistics" type="TextureRect" parent="VBoxContainer/Row1" unique_id=2117549303]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="StatisticsButton" type="TextureButton" parent="VBoxContainer/Row1/Statistics" node_paths=PackedStringArray("targetButton")]
+[node name="StatisticsButton" type="TextureButton" parent="VBoxContainer/Row1/Statistics" unique_id=1442181887 node_paths=PackedStringArray("targetButton")]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -107,22 +107,22 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(463, 317)
 texture_normal = ExtResource("3_ux5e2")
-script = ExtResource("2_xreyv")
+script = ExtResource("2_w5awt")
 targetButton = NodePath(".")
-gameName = "Crack Your Stick"
-gamePath = "res://Scenes/Statistics.tscn"
+gameName = "Statistics"
+gamePath = "res://game/Scenes/Statisticsr.tscn"
 
-[node name="Row2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Row2" type="HBoxContainer" parent="VBoxContainer" unique_id=413596488]
 visible = false
 layout_mode = 2
 theme_override_constants/separation = 275
 alignment = 1
 
-[node name="GarlicPhone" type="TextureRect" parent="VBoxContainer/Row2"]
+[node name="GarlicPhone" type="TextureRect" parent="VBoxContainer/Row2" unique_id=1915952207]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="GarlicPhoneButton" type="TextureButton" parent="VBoxContainer/Row2/GarlicPhone" node_paths=PackedStringArray("targetButton")]
+[node name="GarlicPhoneButton" type="TextureButton" parent="VBoxContainer/Row2/GarlicPhone" unique_id=29190591]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -138,15 +138,12 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(463, 317)
 texture_normal = SubResource("CompressedTexture2D_05hxs")
-script = ExtResource("2_xreyv")
-targetButton = NodePath(".")
-gameName = "Garlic Phone"
 
-[node name="_placeholder" type="TextureRect" parent="VBoxContainer/Row2"]
+[node name="_placeholder" type="TextureRect" parent="VBoxContainer/Row2" unique_id=1573047495]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 
-[node name="_placeholderButton" type="TextureButton" parent="VBoxContainer/Row2/_placeholder" node_paths=PackedStringArray("targetButton")]
+[node name="_placeholderButton" type="TextureButton" parent="VBoxContainer/Row2/_placeholder" unique_id=234811609]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -162,6 +159,3 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(463, 317)
 texture_normal = SubResource("CompressedTexture2D_05hxs")
-script = ExtResource("2_xreyv")
-targetButton = NodePath(".")
-gameName = "Hello World!"

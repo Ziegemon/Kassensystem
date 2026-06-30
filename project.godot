@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 SystemData="*uid://itcypxuc78le"
+FlyCatcherGlobal="*uid://cfck53iuhggeo"
 
 [display]
 

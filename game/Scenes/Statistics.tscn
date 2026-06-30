@@ -1,24 +1,24 @@
-[gd_scene load_steps=4 format=3 uid="uid://dqewnihcps14m"]
+[gd_scene format=3 uid="uid://dqewnihcps14m"]
 
-[ext_resource type="Script" path="res://Scripts/Statistics/Statistics.gd" id="1_sex7h"]
-[ext_resource type="Texture2D" uid="uid://byerv8ra33tce" path="res://Textures/UI/Quit_Button.png" id="2_mv2mh"]
+[ext_resource type="Script" uid="uid://b84mepmkmblfk" path="res://game/Scripts/Statistics/Statistics.gd" id="1_0wow5"]
+[ext_resource type="Texture2D" uid="uid://byerv8ra33tce" path="res://game/Textures/UI/Quit_Button.png" id="2_mv2mh"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rpyyy"]
 font_size = 25
 
-[node name="Statistics" type="Control" node_paths=PackedStringArray("label", "quitButton")]
+[node name="Statistics" type="Control" unique_id=271983517 node_paths=PackedStringArray("label", "quitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_sex7h")
+script = ExtResource("1_0wow5")
 label = NodePath("Content/Label")
 quitButton = NodePath("Content/QuitButton")
-quitScreenPath = "res://Scenes/GameSelection.tscn"
+quitScreenPath = "res://game/Scenes/GameSelection.tscn"
 
-[node name="Content" type="Control" parent="."]
+[node name="Content" type="Control" parent="." unique_id=1148645910]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -32,7 +32,7 @@ offset_bottom = 250.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="Content"]
+[node name="Label" type="Label" parent="Content" unique_id=1543041669]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -42,7 +42,7 @@ label_settings = SubResource("LabelSettings_rpyyy")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="QuitButton" type="TextureButton" parent="Content"]
+[node name="QuitButton" type="TextureButton" parent="Content" unique_id=1355068884]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5

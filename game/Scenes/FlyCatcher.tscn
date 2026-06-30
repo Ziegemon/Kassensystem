@@ -1,16 +1,16 @@
-[gd_scene load_steps=18 format=3 uid="uid://bmo020pjtywdg"]
+[gd_scene format=3 uid="uid://bmo020pjtywdg"]
 
-[ext_resource type="Script" path="res://Scripts/FlyCatcher/FlyCatcherUI.gd" id="1_a60qy"]
-[ext_resource type="Script" path="res://Scripts/FlyCatcher/FlyCatcherSpawner.gd" id="1_knc3t"]
-[ext_resource type="PackedScene" uid="uid://75vlcpn6b2ox" path="res://Assets/FlyObject.tscn" id="1_vs0gh"]
-[ext_resource type="Texture2D" uid="uid://cgx587mdt67th" path="res://Textures/FlyCatcher/coordinate_system.png" id="2_x6vtd"]
-[ext_resource type="Texture2D" uid="uid://gyi8x75q7ji7" path="res://Textures/UI/Restart_Button.png" id="4_56c63"]
-[ext_resource type="Texture2D" uid="uid://cd5i13xxi87q0" path="res://Textures/UI/Start_Button.png" id="5_5ci2n"]
-[ext_resource type="Texture2D" uid="uid://c1p1uvahpug46" path="res://Textures/FlyCatcher/swatter.png" id="5_m7cb3"]
-[ext_resource type="Texture2D" uid="uid://byerv8ra33tce" path="res://Textures/UI/Quit_Button.png" id="6_6g6jv"]
-[ext_resource type="Script" path="res://Scripts/FlyCatcher/Swatter.gd" id="6_s76ef"]
-[ext_resource type="Texture2D" uid="uid://s8jv54t0fmk7" path="res://Textures/FlyCatcher/cobweb.png" id="8_bi6t7"]
-[ext_resource type="Texture2D" uid="uid://btjkyt611sq37" path="res://Textures/FlyCatcher/squash.png" id="11_7sgt6"]
+[ext_resource type="Script" uid="uid://bajgtemb643qo" path="res://game/Scripts/FlyCatcher/FlyCatcherUI.gd" id="1_pwble"]
+[ext_resource type="PackedScene" uid="uid://75vlcpn6b2ox" path="res://game/Assets/FlyObject.tscn" id="1_vs0gh"]
+[ext_resource type="Texture2D" uid="uid://cgx587mdt67th" path="res://game/Textures/FlyCatcher/coordinate_system.png" id="2_x6vtd"]
+[ext_resource type="Script" uid="uid://c27i1fi6u35be" path="res://game/Scripts/FlyCatcher/FlyCatcherSpawner.gd" id="3_axkiw"]
+[ext_resource type="Texture2D" uid="uid://gyi8x75q7ji7" path="res://game/Textures/UI/Restart_Button.png" id="4_56c63"]
+[ext_resource type="Texture2D" uid="uid://cd5i13xxi87q0" path="res://game/Textures/UI/Start_Button.png" id="5_5ci2n"]
+[ext_resource type="Texture2D" uid="uid://c1p1uvahpug46" path="res://game/Textures/FlyCatcher/swatter.png" id="5_m7cb3"]
+[ext_resource type="Texture2D" uid="uid://byerv8ra33tce" path="res://game/Textures/UI/Quit_Button.png" id="6_6g6jv"]
+[ext_resource type="Texture2D" uid="uid://s8jv54t0fmk7" path="res://game/Textures/FlyCatcher/cobweb.png" id="8_bi6t7"]
+[ext_resource type="Script" uid="uid://c8uck3jgylhhu" path="res://game/Scripts/FlyCatcher/Swatter.gd" id="9_bxoja"]
+[ext_resource type="Texture2D" uid="uid://btjkyt611sq37" path="res://game/Textures/FlyCatcher/squash.png" id="11_7sgt6"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_7i4xf"]
 
@@ -27,27 +27,27 @@ font_size = 55
 [sub_resource type="CircleShape2D" id="CircleShape2D_8e8ie"]
 radius = 64.0312
 
-[node name="Control" type="Control" node_paths=PackedStringArray("coordinateSystem", "gameLabel", "timeOutScreen", "timeOutLabel", "restartButton", "startScreen", "startLabel", "startButton", "modeButton", "quitButton")]
+[node name="Control" type="Control" unique_id=525986099 node_paths=PackedStringArray("coordinateSystem", "gameLabel", "timeOutScreen", "timeOutLabel", "restartButton", "startScreen", "startLabel", "startButton", "modeButton", "quitButton")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_a60qy")
+script = ExtResource("1_pwble")
 coordinateSystem = NodePath("CoordinateSystem")
 gameLabel = NodePath("GameLabel")
 timeOutScreen = NodePath("TimeOutScreen")
 timeOutLabel = NodePath("TimeOutScreen/Content/TimeOutLabel")
-restartButton = NodePath("TimeOutScreen/Content/RestartButton")
+restartButton = NodePath("StartScreen/Content/StartButton")
 startScreen = NodePath("StartScreen")
 startLabel = NodePath("StartScreen/Content/ModeSelection/ModeLabel")
 startButton = NodePath("StartScreen/Content/StartButton")
 modeButton = NodePath("StartScreen/Content/ModeSelection/ModeButton")
 quitButton = NodePath("StartScreen/Content/QuitButton")
-quitScreenPath = "res://Scenes/GameSelection.tscn"
+quitScreenPath = "res://game/Scenes/GameSelection.tscn"
 
-[node name="OpaqueBackground" type="TextureRect" parent="."]
+[node name="OpaqueBackground" type="TextureRect" parent="." unique_id=157961239]
 self_modulate = Color(1, 1, 1, 0.262745)
 layout_mode = 1
 anchors_preset = 15
@@ -57,7 +57,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_7i4xf")
 
-[node name="CoordinateSystem" type="TextureRect" parent="."]
+[node name="CoordinateSystem" type="TextureRect" parent="." unique_id=1951039168]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -66,12 +66,12 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_x6vtd")
 
-[node name="FlyCatcherSpawner" type="Node2D" parent="." node_paths=PackedStringArray("flyContainer")]
-script = ExtResource("1_knc3t")
+[node name="FlyCatcherSpawner" type="Node2D" parent="." unique_id=1068887622 node_paths=PackedStringArray("flyContainer")]
+script = ExtResource("3_axkiw")
 flyScene = ExtResource("1_vs0gh")
 flyContainer = NodePath(".")
 
-[node name="GameLabel" type="Label" parent="."]
+[node name="GameLabel" type="Label" parent="." unique_id=739333863]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
@@ -85,7 +85,7 @@ label_settings = SubResource("LabelSettings_57qc3")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Background" type="TextureRect" parent="GameLabel"]
+[node name="Background" type="TextureRect" parent="GameLabel" unique_id=176614734]
 self_modulate = Color(0, 0, 0, 0.313726)
 layout_mode = 1
 anchors_preset = 15
@@ -95,7 +95,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_ivawu")
 
-[node name="StartScreen" type="Control" parent="."]
+[node name="StartScreen" type="Control" parent="." unique_id=2072234735]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -104,7 +104,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartBackground" type="TextureRect" parent="StartScreen"]
+[node name="StartBackground" type="TextureRect" parent="StartScreen" unique_id=1698520950]
 self_modulate = Color(0, 0, 0, 0.784314)
 layout_mode = 1
 anchors_preset = 15
@@ -118,7 +118,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_6ae4f")
 
-[node name="Content" type="Control" parent="StartScreen"]
+[node name="Content" type="Control" parent="StartScreen" unique_id=1751499195]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -132,7 +132,7 @@ offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="StartButton" type="TextureButton" parent="StartScreen/Content"]
+[node name="StartButton" type="TextureButton" parent="StartScreen/Content" unique_id=958292931]
 layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
@@ -147,7 +147,7 @@ pivot_offset = Vector2(128, 78)
 texture_normal = ExtResource("5_5ci2n")
 stretch_mode = 1
 
-[node name="QuitButton" type="TextureButton" parent="StartScreen/Content"]
+[node name="QuitButton" type="TextureButton" parent="StartScreen/Content" unique_id=811912627]
 layout_mode = 1
 anchors_preset = 6
 anchor_left = 1.0
@@ -165,7 +165,7 @@ pivot_offset = Vector2(128, 78)
 texture_normal = ExtResource("6_6g6jv")
 stretch_mode = 1
 
-[node name="ModeSelection" type="Control" parent="StartScreen/Content"]
+[node name="ModeSelection" type="Control" parent="StartScreen/Content" unique_id=854699342]
 layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
@@ -173,7 +173,7 @@ offset_top = 45.0
 offset_bottom = 45.0
 grow_horizontal = 2
 
-[node name="ModeLabel" type="Label" parent="StartScreen/Content/ModeSelection"]
+[node name="ModeLabel" type="Label" parent="StartScreen/Content/ModeSelection" unique_id=1468917027]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -189,7 +189,7 @@ label_settings = SubResource("LabelSettings_n5fds")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ModeButton" type="OptionButton" parent="StartScreen/Content/ModeSelection"]
+[node name="ModeButton" type="OptionButton" parent="StartScreen/Content/ModeSelection" unique_id=1413302108]
 layout_direction = 3
 layout_mode = 1
 anchors_preset = 15
@@ -205,6 +205,7 @@ alignment = 1
 selected = 0
 item_count = 4
 popup/item_0/text = "EASY"
+popup/item_0/id = 0
 popup/item_1/text = "NORMAL"
 popup/item_1/id = 1
 popup/item_2/text = "RAGE"
@@ -212,7 +213,7 @@ popup/item_2/id = 2
 popup/item_3/text = "ASIAN"
 popup/item_3/id = 3
 
-[node name="TimeOutScreen" type="Control" parent="."]
+[node name="TimeOutScreen" type="Control" parent="." unique_id=127942255]
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -221,9 +222,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimeOutBackground" type="TextureRect" parent="TimeOutScreen"]
+[node name="TimeOutBackground" type="TextureRect" parent="TimeOutScreen" unique_id=568823256]
 self_modulate = Color(0, 0, 0, 0.784314)
-layout_mode = 2
+layout_mode = 0
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = -0.5
@@ -234,7 +235,7 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = SubResource("CanvasTexture_6ae4f")
 
-[node name="Content" type="Control" parent="TimeOutScreen"]
+[node name="Content" type="Control" parent="TimeOutScreen" unique_id=1221728024]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -248,7 +249,7 @@ offset_bottom = 175.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="TimeOutLabel" type="Label" parent="TimeOutScreen/Content"]
+[node name="TimeOutLabel" type="Label" parent="TimeOutScreen/Content" unique_id=771447601]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -269,7 +270,7 @@ Highscore: 7"
 label_settings = SubResource("LabelSettings_n5fds")
 horizontal_alignment = 1
 
-[node name="RestartButton" type="TextureButton" parent="TimeOutScreen/Content"]
+[node name="RestartButton" type="TextureButton" parent="TimeOutScreen/Content" unique_id=639202781]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -286,22 +287,22 @@ pivot_offset = Vector2(128, 156)
 texture_normal = ExtResource("4_56c63")
 stretch_mode = 1
 
-[node name="Swatter" type="Sprite2D" parent="." node_paths=PackedStringArray("swatterSprite", "swatterArea", "squashSprite")]
+[node name="Swatter" type="Sprite2D" parent="." unique_id=1034966709 node_paths=PackedStringArray("swatterSprite", "swatterArea", "squashSprite")]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_m7cb3")
-script = ExtResource("6_s76ef")
-swatterSprite = NodePath(".")
+script = ExtResource("9_bxoja")
+swatterSprite = NodePath("SquashSprite")
 swatterTexture = ExtResource("5_m7cb3")
 swatterArea = NodePath("Area2D")
 cobwebTexture = ExtResource("8_bi6t7")
 squashSprite = NodePath("SquashSprite")
 
-[node name="Area2D" type="Area2D" parent="Swatter"]
+[node name="Area2D" type="Area2D" parent="Swatter" unique_id=640579532]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Swatter/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Swatter/Area2D" unique_id=1925416485]
 position = Vector2(-4, 2)
 shape = SubResource("CircleShape2D_8e8ie")
 debug_color = Color(0.996078, 0, 0, 0.419608)
 
-[node name="SquashSprite" type="Sprite2D" parent="Swatter"]
+[node name="SquashSprite" type="Sprite2D" parent="Swatter" unique_id=1542948381]
 texture = ExtResource("11_7sgt6")

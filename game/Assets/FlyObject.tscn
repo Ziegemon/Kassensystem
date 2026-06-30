@@ -1,13 +1,13 @@
-[gd_scene load_steps=11 format=3 uid="uid://75vlcpn6b2ox"]
+[gd_scene format=3 uid="uid://75vlcpn6b2ox"]
 
-[ext_resource type="Script" path="res://Scripts/FlyCatcher/Fly.gd" id="1_u0r80"]
-[ext_resource type="Texture2D" uid="uid://cgvbt5hbbdyb4" path="res://Textures/FlyCatcher/Fly/fly1.png" id="2_1gkuw"]
-[ext_resource type="Texture2D" uid="uid://13r6aiu3b85v" path="res://Textures/FlyCatcher/Fly/fly2.png" id="3_b64pv"]
-[ext_resource type="Texture2D" uid="uid://bnkpgeaofxisg" path="res://Textures/FlyCatcher/Fly/fly3.png" id="4_hav3q"]
-[ext_resource type="Texture2D" uid="uid://dh373idgfw3yc" path="res://Textures/FlyCatcher/Fly/fly4.png" id="5_0uklb"]
-[ext_resource type="Texture2D" uid="uid://demij36pop1d0" path="res://Textures/FlyCatcher/Fly/fly_squish1.png" id="6_w16ae"]
-[ext_resource type="Texture2D" uid="uid://bnrsmgspy3hbi" path="res://Textures/FlyCatcher/Fly/fly_squish2.png" id="7_fj6wk"]
-[ext_resource type="Texture2D" uid="uid://de3gpbku1kci1" path="res://Textures/FlyCatcher/Fly/fly_squish3.png" id="8_11jh3"]
+[ext_resource type="Script" uid="uid://d1u7iuhguwxl" path="res://game/Scripts/FlyCatcher/Fly.gd" id="1_m6jms"]
+[ext_resource type="Texture2D" uid="uid://cgvbt5hbbdyb4" path="res://game/Textures/FlyCatcher/Fly/fly1.png" id="2_1gkuw"]
+[ext_resource type="Texture2D" uid="uid://13r6aiu3b85v" path="res://game/Textures/FlyCatcher/Fly/fly2.png" id="3_b64pv"]
+[ext_resource type="Texture2D" uid="uid://bnkpgeaofxisg" path="res://game/Textures/FlyCatcher/Fly/fly3.png" id="4_hav3q"]
+[ext_resource type="Texture2D" uid="uid://dh373idgfw3yc" path="res://game/Textures/FlyCatcher/Fly/fly4.png" id="5_0uklb"]
+[ext_resource type="Texture2D" uid="uid://demij36pop1d0" path="res://game/Textures/FlyCatcher/Fly/fly_squish1.png" id="6_w16ae"]
+[ext_resource type="Texture2D" uid="uid://bnrsmgspy3hbi" path="res://game/Textures/FlyCatcher/Fly/fly_squish2.png" id="7_fj6wk"]
+[ext_resource type="Texture2D" uid="uid://de3gpbku1kci1" path="res://game/Textures/FlyCatcher/Fly/fly_squish3.png" id="8_11jh3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_org7v"]
 animations = [{
@@ -62,13 +62,13 @@ animations = [{
 radius = 6.0
 height = 22.0
 
-[node name="Fly (CharacterBody2D)" type="CharacterBody2D" node_paths=PackedStringArray("character", "killTrigger", "animation")]
-script = ExtResource("1_u0r80")
+[node name="Fly (CharacterBody2D)" type="CharacterBody2D" unique_id=715627501 node_paths=PackedStringArray("character", "killTrigger", "animation")]
+script = ExtResource("1_m6jms")
 character = NodePath(".")
 killTrigger = NodePath("KillTrigger (Button)")
 animation = NodePath("AnimatedSprite2D")
 
-[node name="KillTrigger (Button)" type="Button" parent="."]
+[node name="KillTrigger (Button)" type="Button" parent="." unique_id=2100705295]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -83,12 +83,12 @@ grow_vertical = 2
 action_mode = 0
 flat = true
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710310155]
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_org7v")
 animation = &"Flying1"
 autoplay = "Flying1"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1467161613]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qavit")
