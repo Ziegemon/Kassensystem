@@ -3,7 +3,7 @@ extends Node
 const E: float = 2.718281828459045
 
 var configDict: Dictionary
-func getConfigByDifficulty(difficulty: Difficulty = self.difficulty) -> FlyCatcherConfig:
+func getConfigByDifficulty() -> FlyCatcherConfig:
 	return configDict[difficulty]
 
 enum Difficulty {EASY, NORMAL, RAGE, ASIAN}
@@ -29,10 +29,9 @@ var gameState: GameState :
 
 signal onGameStateChanged
 func setGameState(gameState: GameState) -> void:
-	if gameState == FlyCatcherGlobal.GameState.Start:
+	if gameState == FlyCatcherGlobal.GameState.Running:
 		score = 0
 		remainingTime = getConfigByDifficulty().time
-		print(remainingTime)
 		flyCount = 0
 	_gameState = gameState
 	onGameStateChanged.emit()

@@ -34,7 +34,6 @@ func onGameStateChanged() -> void:
 		modeButton.show()
 		quitButton.show()
 	elif FlyCatcherGlobal.gameState == FlyCatcherGlobal.GameState.Running:
-		print(FlyCatcherGlobal.difficulty)
 		if FlyCatcherGlobal.difficulty == FlyCatcherGlobal.Difficulty.ASIAN: coordinateSystem.show()
 		else: coordinateSystem.hide()
 		gameLabel.show()

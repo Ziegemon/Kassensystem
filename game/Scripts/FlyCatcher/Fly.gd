@@ -70,7 +70,6 @@ func _process(delta: float) -> void:
 			queue_free()
 
 func onClick() -> void:
-	print("!!!")
 	if FlyCatcherGlobal.difficulty != FlyCatcherGlobal.Difficulty.ASIAN:
 		if FlyCatcherGlobal.gameState == FlyCatcherGlobal.GameState.Running and alive:
 			animation.play("Squish" + str(RandomNumberGenerator.new().randi_range(1, 3)))
