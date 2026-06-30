@@ -110,7 +110,7 @@ texture_normal = ExtResource("3_ux5e2")
 script = ExtResource("2_w5awt")
 targetButton = NodePath(".")
 gameName = "Statistics"
-gamePath = "res://game/Scenes/Statisticsr.tscn"
+gamePath = "res://game/Scenes/Statistics.tscn"
 
 [node name="Row2" type="HBoxContainer" parent="VBoxContainer" unique_id=413596488]
 visible = false
@@ -159,3 +159,23 @@ grow_vertical = 2
 scale = Vector2(0.8, 0.8)
 pivot_offset = Vector2(463, 317)
 texture_normal = SubResource("CompressedTexture2D_05hxs")
+
+[node name="ExitButton" type="Button" parent="." unique_id=1973295408 node_paths=PackedStringArray("targetButton")]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_left = 1780.0
+offset_right = 1920.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.36078432, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.35898823, 6.708223e-07, 1.2032687e-07, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 96
+text = "X"
+flat = true
+script = ExtResource("2_w5awt")
+targetButton = NodePath(".")
+gameName = "Kassensystem"
+gamePath = "res://scenes/main.tscn"

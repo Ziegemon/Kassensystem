@@ -750,9 +750,8 @@ func _on_letzte_rechnung_button_pressed() -> void:
 
 #---------------------------------------------------------------------------------------------------
 
-@export var ablenkungScenePath: String
+const ablenkungScenePath: String = "res://game/Scenes/GameSelection.tscn"
 func _on_ablenkung_button_pressed() -> void:
-	print("aaaaaaa")
 	get_tree().change_scene_to_file(ablenkungScenePath)
 	#switch to game scene of Simon & Dennis
 
