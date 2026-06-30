@@ -1,0 +1,307 @@
+[gd_scene load_steps=18 format=3 uid="uid://bmo020pjtywdg"]
+
+[ext_resource type="Script" path="res://Scripts/FlyCatcher/FlyCatcherUI.gd" id="1_a60qy"]
+[ext_resource type="Script" path="res://Scripts/FlyCatcher/FlyCatcherSpawner.gd" id="1_knc3t"]
+[ext_resource type="PackedScene" uid="uid://75vlcpn6b2ox" path="res://Assets/FlyObject.tscn" id="1_vs0gh"]
+[ext_resource type="Texture2D" uid="uid://cgx587mdt67th" path="res://Textures/FlyCatcher/coordinate_system.png" id="2_x6vtd"]
+[ext_resource type="Texture2D" uid="uid://gyi8x75q7ji7" path="res://Textures/UI/Restart_Button.png" id="4_56c63"]
+[ext_resource type="Texture2D" uid="uid://cd5i13xxi87q0" path="res://Textures/UI/Start_Button.png" id="5_5ci2n"]
+[ext_resource type="Texture2D" uid="uid://c1p1uvahpug46" path="res://Textures/FlyCatcher/swatter.png" id="5_m7cb3"]
+[ext_resource type="Texture2D" uid="uid://byerv8ra33tce" path="res://Textures/UI/Quit_Button.png" id="6_6g6jv"]
+[ext_resource type="Script" path="res://Scripts/FlyCatcher/Swatter.gd" id="6_s76ef"]
+[ext_resource type="Texture2D" uid="uid://s8jv54t0fmk7" path="res://Textures/FlyCatcher/cobweb.png" id="8_bi6t7"]
+[ext_resource type="Texture2D" uid="uid://btjkyt611sq37" path="res://Textures/FlyCatcher/squash.png" id="11_7sgt6"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7i4xf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_57qc3"]
+font_size = 30
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ivawu"]
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_6ae4f"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_n5fds"]
+font_size = 55
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8e8ie"]
+radius = 64.0312
+
+[node name="Control" type="Control" node_paths=PackedStringArray("coordinateSystem", "gameLabel", "timeOutScreen", "timeOutLabel", "restartButton", "startScreen", "startLabel", "startButton", "modeButton", "quitButton")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_a60qy")
+coordinateSystem = NodePath("CoordinateSystem")
+gameLabel = NodePath("GameLabel")
+timeOutScreen = NodePath("TimeOutScreen")
+timeOutLabel = NodePath("TimeOutScreen/Content/TimeOutLabel")
+restartButton = NodePath("TimeOutScreen/Content/RestartButton")
+startScreen = NodePath("StartScreen")
+startLabel = NodePath("StartScreen/Content/ModeSelection/ModeLabel")
+startButton = NodePath("StartScreen/Content/StartButton")
+modeButton = NodePath("StartScreen/Content/ModeSelection/ModeButton")
+quitButton = NodePath("StartScreen/Content/QuitButton")
+quitScreenPath = "res://Scenes/GameSelection.tscn"
+
+[node name="OpaqueBackground" type="TextureRect" parent="."]
+self_modulate = Color(1, 1, 1, 0.262745)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_7i4xf")
+
+[node name="CoordinateSystem" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_x6vtd")
+
+[node name="FlyCatcherSpawner" type="Node2D" parent="." node_paths=PackedStringArray("flyContainer")]
+script = ExtResource("1_knc3t")
+flyScene = ExtResource("1_vs0gh")
+flyContainer = NodePath(".")
+
+[node name="GameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.0
+offset_right = 150.0
+offset_bottom = 50.0
+grow_horizontal = 2
+text = "Score: "
+label_settings = SubResource("LabelSettings_57qc3")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Background" type="TextureRect" parent="GameLabel"]
+self_modulate = Color(0, 0, 0, 0.313726)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_ivawu")
+
+[node name="StartScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartBackground" type="TextureRect" parent="StartScreen"]
+self_modulate = Color(0, 0, 0, 0.784314)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -0.5
+offset_right = -0.5
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_6ae4f")
+
+[node name="Content" type="Control" parent="StartScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -175.0
+offset_right = 400.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="TextureButton" parent="StartScreen/Content"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 100.0
+offset_top = -78.0
+offset_right = 356.0
+offset_bottom = 78.0
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(128, 78)
+texture_normal = ExtResource("5_5ci2n")
+stretch_mode = 1
+
+[node name="QuitButton" type="TextureButton" parent="StartScreen/Content"]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -356.0
+offset_top = -78.0
+offset_right = -100.0
+offset_bottom = 78.0
+grow_horizontal = 0
+grow_vertical = 2
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(128, 78)
+texture_normal = ExtResource("6_6g6jv")
+stretch_mode = 1
+
+[node name="ModeSelection" type="Control" parent="StartScreen/Content"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 45.0
+offset_bottom = 45.0
+grow_horizontal = 2
+
+[node name="ModeLabel" type="Label" parent="StartScreen/Content/ModeSelection"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -41.5
+offset_right = -250.0
+offset_bottom = 41.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Select a difficulty:"
+label_settings = SubResource("LabelSettings_n5fds")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ModeButton" type="OptionButton" parent="StartScreen/Content/ModeSelection"]
+layout_direction = 3
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -31.5
+offset_right = -550.0
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "EASY"
+popup/item_1/text = "NORMAL"
+popup/item_1/id = 1
+popup/item_2/text = "RAGE"
+popup/item_2/id = 2
+popup/item_3/text = "ASIAN"
+popup/item_3/id = 3
+
+[node name="TimeOutScreen" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeOutBackground" type="TextureRect" parent="TimeOutScreen"]
+self_modulate = Color(0, 0, 0, 0.784314)
+layout_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.5
+offset_top = -0.5
+offset_right = -0.5
+offset_bottom = -0.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_6ae4f")
+
+[node name="Content" type="Control" parent="TimeOutScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -175.0
+offset_right = 400.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeOutLabel" type="Label" parent="TimeOutScreen/Content"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -175.0
+offset_right = 400.0
+offset_bottom = 175.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(400, 175)
+size_flags_horizontal = 4
+text = "Time out!
+Score: 6
+Highscore: 7"
+label_settings = SubResource("LabelSettings_n5fds")
+horizontal_alignment = 1
+
+[node name="RestartButton" type="TextureButton" parent="TimeOutScreen/Content"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -128.0
+offset_top = -156.0
+offset_right = 128.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.6, 0.6)
+pivot_offset = Vector2(128, 156)
+texture_normal = ExtResource("4_56c63")
+stretch_mode = 1
+
+[node name="Swatter" type="Sprite2D" parent="." node_paths=PackedStringArray("swatterSprite", "swatterArea", "squashSprite")]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_m7cb3")
+script = ExtResource("6_s76ef")
+swatterSprite = NodePath(".")
+swatterTexture = ExtResource("5_m7cb3")
+swatterArea = NodePath("Area2D")
+cobwebTexture = ExtResource("8_bi6t7")
+squashSprite = NodePath("SquashSprite")
+
+[node name="Area2D" type="Area2D" parent="Swatter"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Swatter/Area2D"]
+position = Vector2(-4, 2)
+shape = SubResource("CircleShape2D_8e8ie")
+debug_color = Color(0.996078, 0, 0, 0.419608)
+
+[node name="SquashSprite" type="Sprite2D" parent="Swatter"]
+texture = ExtResource("11_7sgt6")
