@@ -149,7 +149,7 @@ func zeiterfassung():
 	if current_arbeitszeit_data == null:
 		var new_arbeitszeit_data = arbeitszeit_data.new(Time.get_date_dict_from_system())
 		user.arbeitszeit_datas.append(new_arbeitszeit_data)
-		current_arbeitszeit_data = user.arbeitszeit_datas.get(user.arbeitszeit_datas.size() -1)
+		current_arbeitszeit_data = user.arbeitszeit_datas[(user.arbeitszeit_datas.size() -1)]
 
 	while zeiterfassungs_status == true:
 		await get_tree().create_timer(1).timeout
