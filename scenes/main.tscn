@@ -1447,6 +1447,7 @@ item_category_id = 1
 [node name="item_category_button2" parent="item_categories/MarginContainer/GridContainer" unique_id=2003912992 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 2
+item_category_name = "Kaffee"
 
 [node name="item_category_button3" parent="item_categories/MarginContainer/GridContainer" unique_id=1026300357 instance=ExtResource("7_o6xl0")]
 layout_mode = 2

@@ -73,7 +73,7 @@ func _process(delta: float) -> void:
 	if FlyCatcherGlobal.difficulty == FlyCatcherGlobal.Difficulty.ASIAN:
 		gameLabel.text += "\n%s" % FlyCatcherGlobal.path.description
 	else:
-		gameLabel.text += "\nScore: %s" % FlyCatcherGlobal.score
+		gameLabel.text += "\nScore: %s" % int(FlyCatcherGlobal.score)
 
 func onRestartButtonPressed() -> void:
 	FlyCatcherGlobal.gameState = FlyCatcherGlobal.GameState.Start
