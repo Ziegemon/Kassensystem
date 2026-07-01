@@ -74,6 +74,7 @@ func onClick() -> void:
 		if FlyCatcherGlobal.gameState == FlyCatcherGlobal.GameState.Running and alive:
 			animation.play("Squish" + str(RandomNumberGenerator.new().randi_range(1, 3)))
 			velocity = 0
+			FlyCatcherGlobal.remainingTime += 0.5
 			FlyCatcherGlobal.score += 1
 			FlyCatcherGlobal.flyCount -= 1
 			alive = false
