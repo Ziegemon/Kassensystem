@@ -77,20 +77,46 @@
 [ext_resource type="Resource" uid="uid://peskapjnyjsb" path="res://data/items/Semmeln/Dinkelsemmeln/Dinkelbürli_4er.tres" id="66_ksmap"]
 [ext_resource type="Resource" uid="uid://bmibt0o1auoyk" path="res://data/items/Semmeln/Dinkelsemmeln/Vollwertbürli.tres" id="67_ygd8o"]
 [ext_resource type="Resource" uid="uid://bbqxsq8eydsbd" path="res://data/items/Semmeln/Dinkelsemmeln/Vollwertbürli_3er.tres" id="68_2s0kr"]
+[ext_resource type="Resource" uid="uid://c4duh4r84lidt" path="res://data/items/Plunder/Croissant.tres" id="69_raiwf"]
 [ext_resource type="Resource" uid="uid://ciaf1g7lskj7h" path="res://data/items/Semmeln/Dinkelsemmeln/Rosensemmel.tres" id="69_xaipn"]
 [ext_resource type="Resource" uid="uid://ctute22tth6ow" path="res://data/items/Semmeln/Dinkelsemmeln/Goldkissen.tres" id="70_ndrjj"]
+[ext_resource type="Resource" uid="uid://clr8jfdo8gpol" path="res://data/items/Plunder/Schokocroissant.tres" id="70_roort"]
+[ext_resource type="Resource" uid="uid://ddxcef2lfo2g6" path="res://data/items/Plunder/Pistaziencroissant.tres" id="71_gm02q"]
 [ext_resource type="Resource" uid="uid://bnixybo008cpx" path="res://data/items/Semmeln/Dinkelsemmeln/Allgäuer_Dinkelseele.tres" id="71_ih3m7"]
+[ext_resource type="Resource" uid="uid://rnhhd1wpxxh1" path="res://data/items/Plunder/Dinkel_Apfel_Tasche.tres" id="72_07pt3"]
 [ext_resource type="Resource" uid="uid://by4oxihwoyfm3" path="res://data/items/Semmeln/Körnersemmeln/Malzkornsemmel.tres" id="72_ih3m7"]
 [ext_resource type="Resource" uid="uid://b4x0b63whmfmc" path="res://data/items/Semmeln/Körnersemmeln/Sonnenblumensemmel.tres" id="73_11yus"]
+[ext_resource type="Resource" uid="uid://beilm12inqrop" path="res://data/items/Plunder/Dinkel_Kirsch_Tasche.tres" id="73_37xlc"]
+[ext_resource type="Resource" uid="uid://bepxyy4ht2mxq" path="res://data/items/Plunder/Birne_Helene.tres" id="74_83607"]
 [ext_resource type="Resource" uid="uid://blg3ucuffavio" path="res://data/items/Semmeln/Körnersemmeln/Kürbiskernsemmel.tres" id="74_b6ruc"]
 [ext_resource type="Resource" uid="uid://sn0hpeh3ejvn" path="res://data/items/Semmeln/Körnersemmeln/Kornländer.tres" id="75_155or"]
+[ext_resource type="Resource" uid="uid://c5djku3mswl7g" path="res://data/items/Plunder/Bienenstischtasche.tres" id="75_vny5k"]
+[ext_resource type="Resource" uid="uid://boitbw6juhkxl" path="res://data/items/Plunder/Nussschnecke.tres" id="76_8lcmr"]
 [ext_resource type="Resource" uid="uid://cn1rbr281g53v" path="res://data/items/Semmeln/Körnersemmeln/Kornspitz.tres" id="76_vtx2l"]
 [ext_resource type="Resource" uid="uid://dnwhqq8o0hmi4" path="res://data/items/Semmeln/Körnersemmeln/Vinschgerl.tres" id="77_63lxy"]
+[ext_resource type="Resource" uid="uid://c83fir3org0yo" path="res://data/items/Plunder/Rosinenschnecke.tres" id="77_ga3rw"]
+[ext_resource type="Resource" uid="uid://bgvfmrc0p7d0s" path="res://data/items/Plunder/Quarkschnecke.tres" id="78_f5chs"]
 [ext_resource type="Resource" uid="uid://da31v77xadnen" path="res://data/items/Semmeln/Körnersemmeln/Hoch_Proteinstangerl.tres" id="78_fjhjs"]
 [ext_resource type="Resource" uid="uid://b4fkvy0crt06l" path="res://data/items/Semmeln/Körnersemmeln/Roggensemmel.tres" id="79_bfu41"]
+[ext_resource type="Resource" uid="uid://dr3rfv3bp6jbv" path="res://data/items/Plunder/Mohnschnecke.tres" id="79_eh25q"]
+[ext_resource type="Resource" uid="uid://cjevc6df3wykn" path="res://data/items/Plunder/Dinkel_Nuss_Schleife.tres" id="80_joh2r"]
 [ext_resource type="Resource" uid="uid://d1l7ha4mhrnim" path="res://data/items/Semmeln/Körnersemmeln/Brioche_Burger_Bun.tres" id="80_r4ag1"]
 [ext_resource type="Resource" uid="uid://baveubebp567d" path="res://data/items/Semmeln/Körnersemmeln/Dinkel_Burgersemmel.tres" id="81_v0wtd"]
+[ext_resource type="Resource" uid="uid://b1ayi5p8l47n0" path="res://data/items/Plunder/Nusshörnchen.tres" id="81_yton5"]
+[ext_resource type="Resource" uid="uid://bjqv2081oxr4c" path="res://data/items/Plunder/Quarktasche.tres" id="82_4ahvx"]
 [ext_resource type="Resource" uid="uid://dbcfhxu3om810" path="res://data/items/Semmeln/Körnersemmeln/Vitalcroissant.tres" id="82_11yus"]
+[ext_resource type="Resource" uid="uid://dy5bdkmhswpdc" path="res://data/items/Plunder/Zimtschnecke.tres" id="83_2cr71"]
+[ext_resource type="Resource" uid="uid://cl2p0b2pau85x" path="res://data/items/Plunder/Amarena_Kirschplunder.tres" id="84_1hbcg"]
+[ext_resource type="Resource" uid="uid://dxy4nwpw7vtrf" path="res://data/items/Plunder/Rosinensemmel.tres" id="85_m4o51"]
+[ext_resource type="Resource" uid="uid://c5ombqxmrgv75" path="res://data/items/Aktion/Aktionsgebäck.tres" id="86_07pt3"]
+[ext_resource type="Resource" uid="uid://dbb4no4810h54" path="res://data/items/Aktion/Kuchen_vom_Vortag.tres" id="87_37xlc"]
+[ext_resource type="Resource" uid="uid://duqhbixhaled4" path="res://data/items/Aktion/Johanniter_Brot.tres" id="88_83607"]
+[ext_resource type="Resource" uid="uid://k7kmnmg76c2i" path="res://data/items/Dauergebäck/Preiselbeertaler.tres" id="100_f5chs"]
+[ext_resource type="Resource" uid="uid://c2a1m8dbakekc" path="res://data/items/Dauergebäck/Spitzbube.tres" id="101_eh25q"]
+[ext_resource type="Resource" uid="uid://dhwh6f4wo0fao" path="res://data/items/Dauergebäck/Orangenstange.tres" id="102_joh2r"]
+[ext_resource type="Resource" uid="uid://bcvtekkti30u4" path="res://data/items/Dauergebäck/Mandelhörnchen.tres" id="103_yton5"]
+[ext_resource type="Resource" uid="uid://hsv6eyc7f3in" path="res://data/items/Dauergebäck/Nussecke.tres" id="104_4ahvx"]
+[ext_resource type="Resource" uid="uid://6djq3dyuyjkb" path="res://data/items/Dauergebäck/Muffin.tres" id="105_2cr71"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.544974, 0.544974, 0.544974, 1)
@@ -1500,11 +1526,13 @@ items_array = Array[ExtResource("9_choun")]([ExtResource("11_trceg"), ExtResourc
 layout_mode = 2
 item_category_id = 4
 item_category_name = "Plunder"
+items_array = Array[ExtResource("9_choun")]([ExtResource("69_raiwf"), ExtResource("70_roort"), ExtResource("71_gm02q"), null, ExtResource("72_07pt3"), ExtResource("73_37xlc"), ExtResource("74_83607"), ExtResource("75_vny5k"), ExtResource("76_8lcmr"), ExtResource("77_ga3rw"), ExtResource("78_f5chs"), ExtResource("79_eh25q"), ExtResource("80_joh2r"), ExtResource("81_yton5"), ExtResource("82_4ahvx"), ExtResource("83_2cr71"), ExtResource("84_1hbcg"), null, null, ExtResource("85_m4o51")])
 
 [node name="item_category_button5" parent="item_categories/MarginContainer/GridContainer" unique_id=2018858188 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 5
 item_category_name = "Aktionen"
+items_array = Array[ExtResource("9_choun")]([ExtResource("86_07pt3"), ExtResource("87_37xlc"), ExtResource("88_83607")])
 
 [node name="item_category_button6" parent="item_categories/MarginContainer/GridContainer" unique_id=284279473 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1516,6 +1544,7 @@ items_array = Array[ExtResource("9_choun")]([ExtResource("61_gdvew"), ExtResourc
 layout_mode = 2
 item_category_id = 7
 item_category_name = "Dauergebäck"
+items_array = Array[ExtResource("9_choun")]([ExtResource("100_f5chs"), ExtResource("101_eh25q"), null, ExtResource("102_joh2r"), ExtResource("103_yton5"), ExtResource("104_4ahvx"), null, ExtResource("105_2cr71"), null])
 
 [node name="item_category_button8" parent="item_categories/MarginContainer/GridContainer" unique_id=1699819301 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1595,6 +1624,7 @@ item_category_name = "Rührteig"
 layout_mode = 2
 item_category_id = 23
 item_category_name = "Bäckerei divers"
+is_just_button = true
 
 [node name="item_category_button24" parent="item_categories/MarginContainer/GridContainer" unique_id=1105311188 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1610,6 +1640,7 @@ item_category_name = "Zöpfe"
 layout_mode = 2
 item_category_id = 26
 item_category_name = "Kuchen divers"
+is_just_button = true
 
 [node name="item_category_button27" parent="item_categories/MarginContainer/GridContainer" unique_id=87453205 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1625,6 +1656,7 @@ item_category_name = "Saisonartikel"
 layout_mode = 2
 item_category_id = 29
 item_category_name = "Getränke divers"
+is_just_button = true
 
 [connection signal="keyboard_button_pressed" from="keyboard/buttons_main/GridContainer/keyboard_button9" to="." method="_on_keyboard_button_9_keyboard_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_pressed"]

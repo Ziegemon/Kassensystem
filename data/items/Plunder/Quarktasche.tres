@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://bjqv2081oxr4c"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_q1g6k"]
+
+[resource]
+script = ExtResource("1_q1g6k")
+name = "Quarktasche"
+price = 2.35
+item_id = 113
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

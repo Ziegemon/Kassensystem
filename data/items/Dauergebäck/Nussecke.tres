@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://hsv6eyc7f3in"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_7t4ho"]
+
+[resource]
+script = ExtResource("1_7t4ho")
+name = "Nussecke"
+price = 2.75
+item_id = 144
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

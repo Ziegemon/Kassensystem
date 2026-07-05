@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://c83fir3org0yo"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_dmqec"]
+
+[resource]
+script = ExtResource("1_dmqec")
+name = "Rosinen-Schnecke"
+price = 2.4
+item_id = 108
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

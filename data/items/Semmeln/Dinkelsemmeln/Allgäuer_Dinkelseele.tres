@@ -6,5 +6,6 @@
 script = ExtResource("1_fdsvc")
 name = "Allgäuer Dinkelseele"
 price = 8.5
+wiegeprodukt = true
 item_id = 60
 metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

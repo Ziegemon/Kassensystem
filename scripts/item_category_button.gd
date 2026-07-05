@@ -6,6 +6,8 @@ extends Control
 @export var item_category_name : String
 @export var items_array : Array[item_data] = []
 
+@export var is_just_button : bool = false
+
 signal category_selected(item_category_id)
 
 

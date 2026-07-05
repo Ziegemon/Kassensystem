@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://b1ayi5p8l47n0"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_edhmi"]
+
+[resource]
+script = ExtResource("1_edhmi")
+name = "Nusshörnchen"
+price = 2.3
+item_id = 112
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

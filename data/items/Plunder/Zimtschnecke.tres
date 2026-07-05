@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://dy5bdkmhswpdc"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_m2e5o"]
+
+[resource]
+script = ExtResource("1_m2e5o")
+name = "Zimtschnecke"
+price = 2.4
+item_id = 114
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://cl2p0b2pau85x"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_5bbf6"]
+
+[resource]
+script = ExtResource("1_5bbf6")
+name = "Amarena-Kirschplunder"
+price = 2.45
+item_id = 115
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

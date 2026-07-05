@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://beilm12inqrop"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_tov02"]
+
+[resource]
+script = ExtResource("1_tov02")
+name = "Dinkel-Kirschtasche"
+price = 2.45
+item_id = 104
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

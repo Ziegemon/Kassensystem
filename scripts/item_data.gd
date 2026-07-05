@@ -15,4 +15,6 @@ class_name item_data
 #id 50 - 69: Dinkelsemmeln
 #id 70 - 89: Körnersemmeln
 #id 90 - 99: Kaffee
-#id 100 - xx: Plunder
+#id 100 - 129: Plunder
+#id 130 - 139: Aktion
+#id 140 - 159: Dauergebäck
