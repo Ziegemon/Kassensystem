@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b84mepmkmblfk" path="res://game/Scripts/Statistics/Statistics.gd" id="1_0wow5"]
 [ext_resource type="Texture2D" uid="uid://byerv8ra33tce" path="res://game/Textures/UI/Quit_Button.png" id="2_mv2mh"]
+[ext_resource type="Script" uid="uid://c6q6gwxybnhym" path="res://game/Scripts/GameSelectButton.gd" id="3_6m5gm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_rpyyy"]
 font_size = 25
@@ -58,3 +59,23 @@ scale = Vector2(0.6, 0.6)
 pivot_offset = Vector2(128, 78)
 texture_normal = ExtResource("2_mv2mh")
 stretch_mode = 1
+
+[node name="ExitButton" type="Button" parent="." unique_id=343171812 node_paths=PackedStringArray("targetButton")]
+texture_filter = 1
+custom_minimum_size = Vector2(140, 140)
+layout_mode = 0
+offset_left = 1780.0
+offset_right = 1920.0
+offset_bottom = 140.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.36078432, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.35898823, 6.708223e-07, 1.2032687e-07, 1)
+theme_override_colors/font_outline_color = Color(1, 0, 0, 1)
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 96
+text = "X"
+flat = true
+script = ExtResource("3_6m5gm")
+targetButton = NodePath(".")
+gameName = "Kassensystem"
+gamePath = "res://scenes/main.tscn"
