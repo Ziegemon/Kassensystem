@@ -288,6 +288,7 @@ texture_normal = ExtResource("4_56c63")
 stretch_mode = 1
 
 [node name="Swatter" type="Sprite2D" parent="." unique_id=1034966709 node_paths=PackedStringArray("swatterSprite", "swatterArea", "squashSprite")]
+texture_filter = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_m7cb3")
 script = ExtResource("9_bxoja")
@@ -305,4 +306,5 @@ shape = SubResource("CircleShape2D_8e8ie")
 debug_color = Color(0.996078, 0, 0, 0.419608)
 
 [node name="SquashSprite" type="Sprite2D" parent="Swatter" unique_id=1542948381]
+texture_filter = 1
 texture = ExtResource("11_7sgt6")

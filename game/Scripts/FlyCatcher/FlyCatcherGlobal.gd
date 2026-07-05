@@ -13,27 +13,27 @@ var difficulty: Difficulty :
 	set(value): setDifficulty(value)
 
 signal onDifficultyChanged
-func setDifficulty(difficulty: Difficulty) -> void:
+func setDifficulty(newDifficulty: Difficulty) -> void:
 	if gameState == GameState.Running:
 		gameState = GameState.TimeOut
-	if difficulty == Difficulty.ASIAN:
+	if newDifficulty == Difficulty.ASIAN:
 		path = pathList.pick_random()
-	_difficulty = difficulty
+	_difficulty = newDifficulty
 	onDifficultyChanged.emit()
 
 enum GameState {Start, Running, TimeOut}
 var _gameState: GameState
-var gameState: GameState :
+var gameState: GameState:
 	get: return _gameState
 	set(value): setGameState(value)
 
 signal onGameStateChanged
-func setGameState(gameState: GameState) -> void:
-	if gameState == FlyCatcherGlobal.GameState.Running:
+func setGameState(newGameState: GameState) -> void:
+	if newGameState == FlyCatcherGlobal.GameState.Running:
 		score = 0
 		remainingTime = getConfigByDifficulty().time
 		flyCount = 0
-	_gameState = gameState
+	_gameState = newGameState
 	onGameStateChanged.emit()
 
 var highscore: Dictionary = {
@@ -66,14 +66,28 @@ var pathList: Array[Path] = [
 	Path.new(func (x: float) -> float: return 2.0 - x * x / 50.0 + x * x * x * x / 5000.0, "f(x) = 2 - (x^2)/50 + (x^4)/5000"),
 	Path.new(func (x: float) -> float: return 50.0 / (x * x + 10.0), "f(x) = 50 / (x^2 + 10)"),
 	Path.new(func (x: float) -> float: return sqrt(x + 11.0) + 2, "f(x) = (x + 11)^0.5 + 2"),
-	Path.new(func (x: float) -> float: return 3.0 * log(x + 11.0), "f(x) = 3 * ln(x + 11)"),
+	Path.new(func (x: float) -> float: return log(x + 11.0), "f(x) = ln(x + 11)"),
 	Path.new(func (x: float) -> float: return 5.0 * pow(E, -0.1 * (x + 10.0)), "f(x) = 5 * e^(-0.1 * (x + 10))"),
 	Path.new(func (x: float) -> float: return 5.0 * sin(x), "f(x) = 5 * sin(x)"),
 	Path.new(func (x: float) -> float: return 4.0 * cos(x / 2.0), "f(x) = 4 * cos(x/2)"),
 	Path.new(func (x: float) -> float: return 4.0 * cos(x) + x / 10.0, "f(x) = 4 * cos(x) + x/10"),
 	Path.new(func (x: float) -> float: return x * x / 25 - 4 * cos(x/3), "f(x) = (x^2)/25 - 4 * cos(x/3)"),
 	Path.new(func (x: float) -> float: return 5 * pow(E, -0.05 * (x + 10)) - sin(x / 2), "f(x) = 5 * e^(-0.05 * (x + 10)) - sin(x/2)"),
-	Path.new(func (x: float) -> float: return 3 * log(x + 11) + 2 * sin(x), "f(x) = 3 * ln(x + 11) + 2 * sin(x)")
+	Path.new(func (x: float) -> float: return 3 * log(x + 11) + 2 * sin(x) - 6, "f(x) = 3 * ln(x + 11) + 2 * sin(x) - 6"),
+	Path.new(func (x: float) -> float: return 1 / (x + 5) - 0.5, "f(x) = 1 / (x + 5) - (e^(i2pi) / (log10(9) / log10(3))"),
+	Path.new(func (x: float) -> float: return (x * x - x + x) / pow(x, x), "f(x) = (x * x - x + x) / x^x"),
+	Path.new(func (x: float) -> float: return cos(pow(E, 2 - x)), "f(x) = cos(e^(2 - x))"),
+	Path.new(func (x: float) -> float: return pow(E, 9 * x) - 5, "f(x) = e^9x / 2 - x"),
+	Path.new(func (x: float) -> float: return 0.25 * sqrt(4 * pow(x, 2) - 7) - 3, "f(x) = 0.25 * (4x^2 - 7)^0.5 - 3"),
+	Path.new(func (x: float) -> float: return 67 / (69 * x), "f(x) = 67 / (69 * x)"),
+	Path.new(func (x: float) -> float: return 4 * x / 20 * sin(x), "f(x) = (4 * x / 20) * sin(x)"),
+	Path.new(func (x: float) -> float: return tan(1 / x), "f(x) = tan(1 / x)"),
+	Path.new(func (x: float) -> float: return sin(cos(tan(x))), "f(x) = sin(cos(tan(x)))"),
+	Path.new(func (x: float) -> float: return pow(E, -x - 9), "f(x) = e^(-x - 9)"),
+	Path.new(func (x: float) -> float: return 6 * pow(E, x - 9), "f(x) = 6 * e^(x - 9)"),
+	Path.new(func (x: float) -> float: return 0.3 * x - 2, "f(x) = 0.3x - 2"),
+	Path.new(func (x: float) -> float: return 1 / sin(x), "f(x) = 1 / sin(x)"),
+	Path.new(func (x: float) -> float: return cos(100 * x) / x, "f(x) = cos(100 * x) / x")
 ]
 
 const asianLeftBoundaryX: float = -576.0 / 56.0

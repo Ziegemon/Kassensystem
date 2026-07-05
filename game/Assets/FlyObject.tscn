@@ -63,6 +63,7 @@ radius = 6.0
 height = 22.0
 
 [node name="Fly (CharacterBody2D)" type="CharacterBody2D" unique_id=715627501 node_paths=PackedStringArray("character", "killTrigger", "animation")]
+texture_filter = 1
 script = ExtResource("1_m6jms")
 character = NodePath(".")
 killTrigger = NodePath("KillTrigger (Button)")
@@ -84,6 +85,7 @@ action_mode = 0
 flat = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1710310155]
+texture_filter = 1
 scale = Vector2(0.2, 0.2)
 sprite_frames = SubResource("SpriteFrames_org7v")
 animation = &"Flying1"
