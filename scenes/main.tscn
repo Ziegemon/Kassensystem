@@ -1458,10 +1458,12 @@ items_array = Array[ExtResource("9_choun")]([ExtResource("11_trceg"), ExtResourc
 [node name="item_category_button4" parent="item_categories/MarginContainer/GridContainer" unique_id=969957191 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 4
+item_category_name = "Plunder"
 
 [node name="item_category_button5" parent="item_categories/MarginContainer/GridContainer" unique_id=2018858188 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 5
+item_category_name = "Aktionen"
 
 [node name="item_category_button6" parent="item_categories/MarginContainer/GridContainer" unique_id=284279473 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1472,6 +1474,7 @@ items_array = Array[ExtResource("9_choun")]([null, null])
 [node name="item_category_button7" parent="item_categories/MarginContainer/GridContainer" unique_id=55502348 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 7
+item_category_name = "Dauergebäck"
 
 [node name="item_category_button8" parent="item_categories/MarginContainer/GridContainer" unique_id=1699819301 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1480,26 +1483,32 @@ item_category_id = 8
 [node name="item_category_button9" parent="item_categories/MarginContainer/GridContainer" unique_id=92203587 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 9
+item_category_name = "Körner"
 
 [node name="item_category_button10" parent="item_categories/MarginContainer/GridContainer" unique_id=660175166 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 10
+item_category_name = "Obstschnitten"
 
 [node name="item_category_button11" parent="item_categories/MarginContainer/GridContainer" unique_id=635879131 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 11
+item_category_name = "Handelsware"
 
 [node name="item_category_button12" parent="item_categories/MarginContainer/GridContainer" unique_id=1745032526 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 12
+item_category_name = "Snacks"
 
 [node name="item_category_button13" parent="item_categories/MarginContainer/GridContainer" unique_id=1123684054 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 13
+item_category_name = "Cremeschnitten"
 
 [node name="item_category_button14" parent="item_categories/MarginContainer/GridContainer" unique_id=1314074350 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 14
+item_category_name = "Pfand"
 
 [node name="item_category_button15" parent="item_categories/MarginContainer/GridContainer" unique_id=453843286 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1510,6 +1519,7 @@ items_array = Array[ExtResource("9_choun")]([null, null, null, ExtResource("15_j
 [node name="item_category_button16" parent="item_categories/MarginContainer/GridContainer" unique_id=1290676551 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 16
+item_category_name = "Sahneschnitten"
 
 [node name="item_category_button17" parent="item_categories/MarginContainer/GridContainer" unique_id=143127195 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1518,10 +1528,12 @@ item_category_id = 17
 [node name="item_category_button18" parent="item_categories/MarginContainer/GridContainer" unique_id=2110559010 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 18
+item_category_name = "Weizenbrote"
 
 [node name="item_category_button19" parent="item_categories/MarginContainer/GridContainer" unique_id=1519102172 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 19
+item_category_name = "veredelte Kuchen"
 
 [node name="item_category_button20" parent="item_categories/MarginContainer/GridContainer" unique_id=801852030 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1530,38 +1542,47 @@ item_category_id = 20
 [node name="item_category_button21" parent="item_categories/MarginContainer/GridContainer" unique_id=1902172721 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 21
+item_category_name = "Dinkelbrote"
 
 [node name="item_category_button22" parent="item_categories/MarginContainer/GridContainer" unique_id=612685576 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 22
+item_category_name = "Rührteig"
 
 [node name="item_category_button23" parent="item_categories/MarginContainer/GridContainer" unique_id=1129920283 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 23
+item_category_name = "Bäckerei divers"
 
 [node name="item_category_button24" parent="item_categories/MarginContainer/GridContainer" unique_id=1105311188 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 24
+item_category_name = "Körnerbrote"
 
 [node name="item_category_button25" parent="item_categories/MarginContainer/GridContainer" unique_id=1082117806 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 25
+item_category_name = "Zöpfe"
 
 [node name="item_category_button26" parent="item_categories/MarginContainer/GridContainer" unique_id=1422369807 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 26
+item_category_name = "Kuchen divers"
 
 [node name="item_category_button27" parent="item_categories/MarginContainer/GridContainer" unique_id=87453205 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 27
+item_category_name = "Wiegeprodukte"
 
 [node name="item_category_button28" parent="item_categories/MarginContainer/GridContainer" unique_id=1821209226 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 28
+item_category_name = "Saisonartikel"
 
 [node name="item_category_button29" parent="item_categories/MarginContainer/GridContainer" unique_id=1329989286 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
-item_category_id = 289
+item_category_id = 29
+item_category_name = "Getränke divers"
 
 [connection signal="keyboard_button_pressed" from="keyboard/buttons_main/GridContainer/keyboard_button9" to="." method="_on_keyboard_button_9_keyboard_button_pressed"]
 [connection signal="pressed" from="keyboard/buttons_secodary/VBoxContainer/Duplizieren_Button" to="." method="_on_duplizieren_button_pressed"]
