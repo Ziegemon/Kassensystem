@@ -9,3 +9,10 @@ class_name item_data
 @export var price : float
 @export var wiegeprodukt : bool
 @export var item_id : int
+
+#id 0- 29: helle Semmeln
+#id 29 - 49: Laugenzeug
+#id 50 - 69: Dinkelsemmeln
+#id 70 - 89: Körnersemmeln
+#id 90 - 99: Kaffee
+#id 100 - xx: Plunder

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://cg2d7r0ih6627"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_tle5b"]
+
+[resource]
+script = ExtResource("1_tle5b")
+name = "Käse Laugenstange"
+price = 1.8
+item_id = 38
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

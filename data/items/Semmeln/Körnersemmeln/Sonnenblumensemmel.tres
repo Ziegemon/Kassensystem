@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://b4x0b63whmfmc"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_vdx6s"]
+
+[resource]
+script = ExtResource("1_vdx6s")
+name = "Sonnenblumen-Semmel"
+price = 1.05
+item_id = 71
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

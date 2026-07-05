@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://q87vbwyx3kyt"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_u1prk"]
+
+[resource]
+script = ExtResource("1_u1prk")
+name = "Zwiebellaugenstange"
+price = 1.75
+item_id = 41
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

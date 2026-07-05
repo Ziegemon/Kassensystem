@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://c7kh4bpdhw4fi"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_ygkxt"]
+
+[resource]
+script = ExtResource("1_ygkxt")
+name = "Käsebreze"
+price = 1.8
+item_id = 37
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

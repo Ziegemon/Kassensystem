@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://dydfy8uaioe1h"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_wf616"]
+
+[resource]
+script = ExtResource("1_wf616")
+name = "Cappuccino"
+price = 3.8
+item_id = 91
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

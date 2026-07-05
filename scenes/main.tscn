@@ -50,7 +50,47 @@
 [ext_resource type="Resource" uid="uid://clpatbkni6w7w" path="res://data/items/Semmeln/helle Semmeln/Partysemmel.tres" id="29_bjg73"]
 [ext_resource type="Resource" uid="uid://b4wesi878t2qx" path="res://data/items/Semmeln/helle Semmeln/Partykranz_klein.tres" id="30_bu4jf"]
 [ext_resource type="Resource" uid="uid://n410tdr4gfs8" path="res://data/items/Semmeln/helle Semmeln/Partykranz_groß.tres" id="31_o7ddy"]
+[ext_resource type="Resource" uid="uid://dbfrn535ql7y0" path="res://data/items/Kaffe/Kaffee.tres" id="48_v0wtd"]
+[ext_resource type="Resource" uid="uid://dydfy8uaioe1h" path="res://data/items/Kaffe/Cappuccino.tres" id="49_sgvw8"]
+[ext_resource type="Resource" uid="uid://b64y55hncor7m" path="res://data/items/Kaffe/Latte machiato.tres" id="50_6nfnn"]
+[ext_resource type="Resource" uid="uid://c7bdpt2wg6kjb" path="res://data/items/Kaffe/Milchkaffee.tres" id="51_4ue30"]
+[ext_resource type="Resource" uid="uid://b1x6yrvx3dr4i" path="res://data/items/Semmeln/Lauge/Laugenknoten.tres" id="51_t5ykj"]
 [ext_resource type="PackedScene" uid="uid://bhawr0ffulv2c" path="res://scenes/fehlermeldungen.tscn" id="52_bu4jf"]
+[ext_resource type="Resource" uid="uid://cuqmlvcsvyl1l" path="res://data/items/Semmeln/Lauge/Gesämte_Stange.tres" id="52_e755i"]
+[ext_resource type="Resource" uid="uid://bhpiqc5u6x2rn" path="res://data/items/Kaffe/Espresso.tres" id="52_k42av"]
+[ext_resource type="Resource" uid="uid://ijcp23oxiwnb" path="res://data/items/Kaffe/Espresso_doppelt.tres" id="53_gr8w0"]
+[ext_resource type="Resource" uid="uid://b3qc6r0j74ay1" path="res://data/items/Semmeln/Lauge/Gesämter_Zopf.tres" id="53_ro3en"]
+[ext_resource type="Resource" uid="uid://dity1t3nw7pb3" path="res://data/items/Kaffe/Heiße_Schokolade.tres" id="54_673bd"]
+[ext_resource type="Resource" uid="uid://b242ow0rmqaax" path="res://data/items/Semmeln/Lauge/Gesämter_Knoten.tres" id="54_od4ux"]
+[ext_resource type="Resource" uid="uid://djchogdcbdgms" path="res://data/items/Kaffe/Tee.tres" id="55_akjxb"]
+[ext_resource type="Resource" uid="uid://c7kh4bpdhw4fi" path="res://data/items/Semmeln/Lauge/Käsebreze.tres" id="55_xhfw6"]
+[ext_resource type="Resource" uid="uid://cg2d7r0ih6627" path="res://data/items/Semmeln/Lauge/Käsestange.tres" id="56_1epgm"]
+[ext_resource type="Resource" uid="uid://q87vbwyx3kyt" path="res://data/items/Semmeln/Lauge/Zwiebellaugenstange.tres" id="57_152kg"]
+[ext_resource type="Resource" uid="uid://dhrstbru6wate" path="res://data/items/Semmeln/Lauge/Pfefferbreze.tres" id="58_r4e17"]
+[ext_resource type="Resource" uid="uid://dqwn43nbgcijk" path="res://data/items/Semmeln/Lauge/Dinkelring.tres" id="59_y57op"]
+[ext_resource type="Resource" uid="uid://b365n5yk72teh" path="res://data/items/Semmeln/Lauge/Laugencroissant.tres" id="60_mlv25"]
+[ext_resource type="Resource" uid="uid://dqt13rd7ig43r" path="res://data/items/Semmeln/Dinkelsemmeln/Dinkelsemmel.tres" id="61_gdvew"]
+[ext_resource type="Resource" uid="uid://c2m4kpssv6wn1" path="res://data/items/Semmeln/Dinkelsemmeln/Dinkelkrusti.tres" id="62_kjtvk"]
+[ext_resource type="Resource" uid="uid://bp8vmpr58n2a" path="res://data/items/Semmeln/Dinkelsemmeln/Dinkelkissen.tres" id="63_xrs0c"]
+[ext_resource type="Resource" uid="uid://di7cd6aep37et" path="res://data/items/Semmeln/Dinkelsemmeln/Dinkel_Vollkorn_Semmel.tres" id="64_xljpf"]
+[ext_resource type="Resource" uid="uid://brsioupihklpe" path="res://data/items/Semmeln/Dinkelsemmeln/Dinkelbürli.tres" id="65_j4bwh"]
+[ext_resource type="Resource" uid="uid://peskapjnyjsb" path="res://data/items/Semmeln/Dinkelsemmeln/Dinkelbürli_4er.tres" id="66_ksmap"]
+[ext_resource type="Resource" uid="uid://bmibt0o1auoyk" path="res://data/items/Semmeln/Dinkelsemmeln/Vollwertbürli.tres" id="67_ygd8o"]
+[ext_resource type="Resource" uid="uid://bbqxsq8eydsbd" path="res://data/items/Semmeln/Dinkelsemmeln/Vollwertbürli_3er.tres" id="68_2s0kr"]
+[ext_resource type="Resource" uid="uid://ciaf1g7lskj7h" path="res://data/items/Semmeln/Dinkelsemmeln/Rosensemmel.tres" id="69_xaipn"]
+[ext_resource type="Resource" uid="uid://ctute22tth6ow" path="res://data/items/Semmeln/Dinkelsemmeln/Goldkissen.tres" id="70_ndrjj"]
+[ext_resource type="Resource" uid="uid://bnixybo008cpx" path="res://data/items/Semmeln/Dinkelsemmeln/Allgäuer_Dinkelseele.tres" id="71_ih3m7"]
+[ext_resource type="Resource" uid="uid://by4oxihwoyfm3" path="res://data/items/Semmeln/Körnersemmeln/Malzkornsemmel.tres" id="72_ih3m7"]
+[ext_resource type="Resource" uid="uid://b4x0b63whmfmc" path="res://data/items/Semmeln/Körnersemmeln/Sonnenblumensemmel.tres" id="73_11yus"]
+[ext_resource type="Resource" uid="uid://blg3ucuffavio" path="res://data/items/Semmeln/Körnersemmeln/Kürbiskernsemmel.tres" id="74_b6ruc"]
+[ext_resource type="Resource" uid="uid://sn0hpeh3ejvn" path="res://data/items/Semmeln/Körnersemmeln/Kornländer.tres" id="75_155or"]
+[ext_resource type="Resource" uid="uid://cn1rbr281g53v" path="res://data/items/Semmeln/Körnersemmeln/Kornspitz.tres" id="76_vtx2l"]
+[ext_resource type="Resource" uid="uid://dnwhqq8o0hmi4" path="res://data/items/Semmeln/Körnersemmeln/Vinschgerl.tres" id="77_63lxy"]
+[ext_resource type="Resource" uid="uid://da31v77xadnen" path="res://data/items/Semmeln/Körnersemmeln/Hoch_Proteinstangerl.tres" id="78_fjhjs"]
+[ext_resource type="Resource" uid="uid://b4fkvy0crt06l" path="res://data/items/Semmeln/Körnersemmeln/Roggensemmel.tres" id="79_bfu41"]
+[ext_resource type="Resource" uid="uid://d1l7ha4mhrnim" path="res://data/items/Semmeln/Körnersemmeln/Brioche_Burger_Bun.tres" id="80_r4ag1"]
+[ext_resource type="Resource" uid="uid://baveubebp567d" path="res://data/items/Semmeln/Körnersemmeln/Dinkel_Burgersemmel.tres" id="81_v0wtd"]
+[ext_resource type="Resource" uid="uid://dbcfhxu3om810" path="res://data/items/Semmeln/Körnersemmeln/Vitalcroissant.tres" id="82_11yus"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.544974, 0.544974, 0.544974, 1)
@@ -1448,12 +1488,13 @@ item_category_id = 1
 layout_mode = 2
 item_category_id = 2
 item_category_name = "Kaffee"
+items_array = Array[ExtResource("9_choun")]([ExtResource("48_v0wtd"), ExtResource("49_sgvw8"), ExtResource("50_6nfnn"), ExtResource("51_4ue30"), ExtResource("52_k42av"), ExtResource("53_gr8w0"), null, null, ExtResource("54_673bd"), ExtResource("55_akjxb")])
 
 [node name="item_category_button3" parent="item_categories/MarginContainer/GridContainer" unique_id=1026300357 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 3
 item_category_name = "Laugengebäck"
-items_array = Array[ExtResource("9_choun")]([ExtResource("11_trceg"), ExtResource("12_a8y0u"), ExtResource("13_jkv2x"), null, null, null])
+items_array = Array[ExtResource("9_choun")]([ExtResource("11_trceg"), ExtResource("12_a8y0u"), ExtResource("13_jkv2x"), ExtResource("51_t5ykj"), null, ExtResource("52_e755i"), ExtResource("53_ro3en"), ExtResource("54_od4ux"), ExtResource("55_xhfw6"), ExtResource("56_1epgm"), null, null, ExtResource("58_r4e17"), ExtResource("57_152kg"), null, null, null, ExtResource("59_y57op"), null, ExtResource("60_mlv25"), null])
 
 [node name="item_category_button4" parent="item_categories/MarginContainer/GridContainer" unique_id=969957191 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1469,7 +1510,7 @@ item_category_name = "Aktionen"
 layout_mode = 2
 item_category_id = 6
 item_category_name = "Dinkelsemmel"
-items_array = Array[ExtResource("9_choun")]([null, null])
+items_array = Array[ExtResource("9_choun")]([ExtResource("61_gdvew"), ExtResource("62_kjtvk"), ExtResource("63_xrs0c"), ExtResource("64_xljpf"), ExtResource("65_j4bwh"), ExtResource("66_ksmap"), ExtResource("67_ygd8o"), ExtResource("68_2s0kr"), ExtResource("69_xaipn"), ExtResource("70_ndrjj"), null, ExtResource("71_ih3m7"), null, null, null])
 
 [node name="item_category_button7" parent="item_categories/MarginContainer/GridContainer" unique_id=55502348 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1483,7 +1524,8 @@ item_category_id = 8
 [node name="item_category_button9" parent="item_categories/MarginContainer/GridContainer" unique_id=92203587 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
 item_category_id = 9
-item_category_name = "Körner"
+item_category_name = "Körnersemmeln"
+items_array = Array[ExtResource("9_choun")]([ExtResource("72_ih3m7"), ExtResource("73_11yus"), ExtResource("74_b6ruc"), ExtResource("75_155or"), ExtResource("76_vtx2l"), ExtResource("77_63lxy"), ExtResource("78_fjhjs"), ExtResource("79_bfu41"), ExtResource("80_r4ag1"), ExtResource("81_v0wtd"), null, ExtResource("82_11yus")])
 
 [node name="item_category_button10" parent="item_categories/MarginContainer/GridContainer" unique_id=660175166 instance=ExtResource("7_o6xl0")]
 layout_mode = 2

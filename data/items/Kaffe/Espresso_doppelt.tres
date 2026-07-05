@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://ijcp23oxiwnb"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_ivkc6"]
+
+[resource]
+script = ExtResource("1_ivkc6")
+name = "Espresso doppelt"
+price = 3.3
+item_id = 95
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"
