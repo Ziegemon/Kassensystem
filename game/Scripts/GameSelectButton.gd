@@ -9,7 +9,10 @@ func _ready() -> void:
 	#targetButton.pivot_offset = targetButton.size / 2
 
 func onTargetButtonPressed() -> void:
+	#print(Main.current_selected_user.user.username)
 	#print(gameName + " selected")
-	get_tree().change_scene_to_file(gamePath)
+	#get_tree().change_scene_to_file(gamePath)
 	if gamePath == "res://scenes/main.tscn":
+		get_tree().current_scene.hide()
 		Main.show()
+		
