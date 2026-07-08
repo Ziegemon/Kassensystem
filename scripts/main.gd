@@ -71,8 +71,6 @@ func _ready() -> void:
 	
 	label_rabatt.hide()
 
-
-
 #---------------------------------------------------------------------------------------------------
 
 @warning_ignore("unused_parameter")
@@ -754,9 +752,10 @@ func _on_letzte_rechnung_button_pressed() -> void:
 const ablenkungScenePath: String = "res://game/Scenes/GameSelection.tscn"
 func _on_ablenkung_button_pressed() -> void:
 	if current_selected_user.user_raw == null:
-		Exchange.current_selected_user_id = 0
+		Exchange.current_selected_user_id = "EXTRA"
 	else:
-		Exchange.current_selected_user_id = current_selected_user.user.user_id
+		Exchange.current_selected_user_id = current_selected_user.user.username
+		FlyCatcherGlobal.ensureUserHighscoresExist(Exchange.current_selected_user_id)
 		
 		
 	Main.hide()

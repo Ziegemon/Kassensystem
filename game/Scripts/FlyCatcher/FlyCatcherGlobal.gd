@@ -38,8 +38,10 @@ func setGameState(newGameState: GameState) -> void:
 	onGameStateChanged.emit()
 
 var userHighscores: Dictionary = {
-	1: {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0},
-	2: {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0}
+	"EXTRA": {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0},
+	"Thilo Mutz": {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0},
+	"Simon Sanktjohanser": {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0},
+	"Dennis Chen": {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0},
 }
 var userHighscoresXMLPath: String = "res://game/Scripts/UserHighscores.xml"
 
@@ -143,7 +145,7 @@ func loadUserHighscores(xmlPath: String) -> void:
 	parser.open(xmlPath)
 	
 	userHighscores = {}
-	var currentUserID: int
+	var currentUserID: String
 	var insideValidUserScope: bool = false
 	
 	while parser.read() != ERR_FILE_EOF:
@@ -151,7 +153,7 @@ func loadUserHighscores(xmlPath: String) -> void:
 			insideValidUserScope = false
 			for attributeIndex in range(parser.get_attribute_count()):
 				if parser.get_attribute_name(attributeIndex) == "id":
-					currentUserID = int(parser.get_attribute_value(attributeIndex))
+					currentUserID = parser.get_attribute_value(attributeIndex)
 					userHighscores.get_or_add(currentUserID, {
 						Difficulty.EASY: 0,
 						Difficulty.NORMAL: 0,
@@ -184,7 +186,7 @@ func loadUserHighscores(xmlPath: String) -> void:
 		#Difficulty.ASIAN: 0
 	#})
 	
-func ensureUserHighscoresExist(userID: int) -> void:
+func ensureUserHighscoresExist(userID: String) -> void:
 	if !userHighscores.has(userID):
 		userHighscores[userID] = {}
 	
