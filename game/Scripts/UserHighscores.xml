@@ -1,0 +1,43 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+
+<xs:simpleType name = "Difficulty">
+	xs:restriction base = "xs:string">
+		<xs:enumeration value = "EASY"/>
+		<xs:enumeration value = "NORMAL"/>
+		<xs:enumeration value = "RAGE"/>
+		<xs:enumeration value = "ASIAN"/>
+	</xs:restriction>
+</xs:simpleType>
+
+<xs:element name = "id" type = "xs:integer"/>
+<xs:element name = "difficulty" type = "Difficulty"/>
+<xs:element name = "highscore" type = "xs:float"/>
+
+<user id = "1">
+	<entry difficulty = "EASY" highscore = "20.0"/>
+	<entry difficulty = "NORMAL" highscore = "0.0"/>
+	<entry difficulty = "RAGE" highscore = "0.0"/>
+	<entry difficulty = "ASIAN" highscore = "0.0"/>
+</user>
+
+<user id = "3">
+	<entry difficulty = "EASY" highscore = "3.0"/>
+	<entry difficulty = "NORMAL" highscore = "0.0"/>
+	<entry difficulty = "RAGE" highscore = "0.0"/>
+	<entry difficulty = "ASIAN" highscore = "120.972058666667"/>
+</user>
+
+<user id = "0">
+	<entry difficulty = "EASY" highscore = "0.0"/>
+	<entry difficulty = "NORMAL" highscore = "0.0"/>
+	<entry difficulty = "RAGE" highscore = "0.0"/>
+	<entry difficulty = "ASIAN" highscore = "0.0"/>
+</user>
+
+<user id = "2">
+	<entry difficulty = "EASY" highscore = "7.0"/>
+	<entry difficulty = "NORMAL" highscore = "0.0"/>
+	<entry difficulty = "RAGE" highscore = "0.0"/>
+	<entry difficulty = "ASIAN" highscore = "8.28707377115885"/>
+</user>
+

@@ -11,8 +11,12 @@ func _ready() -> void:
 func onTargetButtonPressed() -> void:
 	#print(Main.current_selected_user.user.username)
 	#print(gameName + " selected")
-	#get_tree().change_scene_to_file(gamePath)
+	
 	if gamePath == "res://scenes/main.tscn":
 		get_tree().current_scene.hide()
 		Main.show()
+		#return
+	
+	get_tree().change_scene_to_file(gamePath)
+	
 		

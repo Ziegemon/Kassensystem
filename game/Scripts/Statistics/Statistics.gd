@@ -6,11 +6,12 @@ extends Node
 
 func _ready() -> void:
 	quitButton.pressed.connect(onQuitButtonPressed)
-	label.text = "Statistics:\nFly catcher highscore:\nEASY: %s\nNORMAL: %s\nRAGE: %s\nASIAN: %s" % [
-		FlyCatcherGlobal.highscore[FlyCatcherGlobal.Difficulty.EASY],
-		FlyCatcherGlobal.highscore[FlyCatcherGlobal.Difficulty.NORMAL],
-		FlyCatcherGlobal.highscore[FlyCatcherGlobal.Difficulty.RAGE],
-		FlyCatcherGlobal.highscore[FlyCatcherGlobal.Difficulty.ASIAN]
+	label.text = "Statistics for user %s:\n\n" % Exchange.current_selected_user_id
+	label.text += "Fly catcher highscore:\nEASY: %s\nNORMAL: %s\nRAGE: %s\nASIAN: %s\n" % [
+		FlyCatcherGlobal.userHighscores[Exchange.current_selected_user_id][FlyCatcherGlobal.Difficulty.EASY],
+		FlyCatcherGlobal.userHighscores[Exchange.current_selected_user_id][FlyCatcherGlobal.Difficulty.NORMAL],
+		FlyCatcherGlobal.userHighscores[Exchange.current_selected_user_id][FlyCatcherGlobal.Difficulty.RAGE],
+		FlyCatcherGlobal.userHighscores[Exchange.current_selected_user_id][FlyCatcherGlobal.Difficulty.ASIAN]
 	]
 
 func onQuitButtonPressed() -> void:

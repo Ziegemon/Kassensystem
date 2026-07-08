@@ -33,15 +33,15 @@ func setGameState(newGameState: GameState) -> void:
 		score = 0
 		remainingTime = getConfigByDifficulty().time
 		flyCount = 0
+		#loadUserHighscores(userHighscoresXMLPath)
 	_gameState = newGameState
 	onGameStateChanged.emit()
 
-var highscore: Dictionary = {
-	Difficulty.EASY: 0.0,
-	Difficulty.NORMAL: 0.0,
-	Difficulty.RAGE: 0.0,
-	Difficulty.ASIAN: 0.0
+var userHighscores: Dictionary = {
+	1: {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0},
+	2: {Difficulty.EASY: 0, Difficulty.NORMAL: 0, Difficulty.RAGE: 0, Difficulty.ASIAN: 0}
 }
+var userHighscoresXMLPath: String = "res://game/Scripts/UserHighscores.xml"
 
 var score: float = 0
 var remainingTime: float = 1
@@ -97,6 +97,7 @@ const asianBottomBoundaryY: float = -324.0 / 56.0
 const crossTime: float = 10
 
 func _ready() -> void:
+	loadUserHighscores(userHighscoresXMLPath)
 	#minV, maxV, minSpawnI, maxSpawnI, minSpawnR, maxSpawnR, time, bounce
 	configDict = {
 		Difficulty.EASY: FlyCatcherConfig.new(150, 250, 0.8, 1.2, 0.1, 0.2, 20, true),
@@ -106,14 +107,17 @@ func _ready() -> void:
 	}
 	difficulty = Difficulty.EASY
 	gameState = GameState.Start
+	
+	ensureUserHighscoresExist(Exchange.current_selected_user_id)
 
 func _process(delta: float) -> void:
 	if gameState == GameState.Running:
 		remainingTime = max(remainingTime - delta, 0)
 		if difficulty != Difficulty.ASIAN:
 			if remainingTime <= 0:
-				if score > highscore[difficulty]:
-					highscore[difficulty] = score
+				if score > userHighscores[Exchange.current_selected_user_id][difficulty]:
+					userHighscores[Exchange.current_selected_user_id][difficulty] = score
+					saveUserHighscores(userHighscoresXMLPath)
 				gameState = GameState.TimeOut
 		else:
 			if (remainingTime <= 0 and !asianInputComfirmed) or asianRoundEnded:
@@ -121,8 +125,9 @@ func _process(delta: float) -> void:
 					asianRoundEndedType = AsianRoundEndedType.TimeOut
 				asianInputComfirmed = false
 				asianRoundEnded = false
-				if score > highscore[difficulty]:
-					highscore[difficulty] = score
+				if score > userHighscores[Exchange.current_selected_user_id][difficulty]:
+					userHighscores[Exchange.current_selected_user_id][difficulty] = score
+					saveUserHighscores(userHighscoresXMLPath)
 				gameState = GameState.TimeOut
 
 func coordinateToScreenSpace(v: Vector2) -> Vector2:
@@ -131,4 +136,89 @@ func coordinateToScreenSpace(v: Vector2) -> Vector2:
 
 func screenToCoordinateSpace(v: Vector2) -> Vector2:
 	return Vector2(v.x / get_viewport().size.x * (FlyCatcherGlobal.asianRightBoundaryX - FlyCatcherGlobal.asianLeftBoundaryX) + FlyCatcherGlobal.asianLeftBoundaryX,
-		(1.0 - v.y / get_viewport().size.y) * (FlyCatcherGlobal.asianTopBoundaryY - FlyCatcherGlobal.asianBottomBoundaryY) + FlyCatcherGlobal.asianBottomBoundaryY) 
+		(1.0 - v.y / get_viewport().size.y) * (FlyCatcherGlobal.asianTopBoundaryY - FlyCatcherGlobal.asianBottomBoundaryY) + FlyCatcherGlobal.asianBottomBoundaryY)
+
+func loadUserHighscores(xmlPath: String) -> void:
+	var parser: XMLParser = XMLParser.new()
+	parser.open(xmlPath)
+	
+	userHighscores = {}
+	var currentUserID: int
+	var insideValidUserScope: bool = false
+	
+	while parser.read() != ERR_FILE_EOF:
+		if parser.get_node_name() == "user":
+			insideValidUserScope = false
+			for attributeIndex in range(parser.get_attribute_count()):
+				if parser.get_attribute_name(attributeIndex) == "id":
+					currentUserID = int(parser.get_attribute_value(attributeIndex))
+					userHighscores.get_or_add(currentUserID, {
+						Difficulty.EASY: 0,
+						Difficulty.NORMAL: 0,
+						Difficulty.RAGE: 0,
+						Difficulty.ASIAN: 0
+					})
+					insideValidUserScope = true
+					break
+		elif parser.get_node_name() == "entry":
+			if insideValidUserScope:
+				var currentDifficulty: Difficulty
+				var currentDifficultyAssigned: bool = false
+				var currentHighscore: float
+				var currentHighscoreAssigned: bool = false
+				for attributeIndex in range(parser.get_attribute_count()):
+					if parser.get_attribute_name(attributeIndex) == "difficulty":
+						currentDifficulty = Difficulty[parser.get_attribute_value(attributeIndex)]
+						currentDifficultyAssigned = true
+					elif parser.get_attribute_name(attributeIndex) == "highscore":
+						currentHighscore = float(parser.get_attribute_value(attributeIndex))
+						currentHighscoreAssigned = true
+					if currentDifficultyAssigned and currentHighscoreAssigned:
+						userHighscores[currentUserID].get_or_add(currentDifficulty, currentHighscore)
+						userHighscores[currentUserID][currentDifficulty] = currentHighscore
+						break
+	#userHighscores.get_or_add(Exchange.current_selected_user_id, {
+		#Difficulty.EASY: 0,
+		#Difficulty.NORMAL: 0,
+		#Difficulty.RAGE: 0,
+		#Difficulty.ASIAN: 0
+	#})
+	
+func ensureUserHighscoresExist(userID: int) -> void:
+	if !userHighscores.has(userID):
+		userHighscores[userID] = {}
+	
+	userHighscores[userID].get_or_add(Difficulty.EASY, 0.0)
+	userHighscores[userID].get_or_add(Difficulty.NORMAL, 0.0)
+	userHighscores[userID].get_or_add(Difficulty.RAGE, 0.0)
+	userHighscores[userID].get_or_add(Difficulty.ASIAN, 0.0)
+
+func saveUserHighscores(xmlPath: String) -> void:
+	var xmlContent: String = ""
+	xmlContent += "<?xml version = \"1.0\" encoding = \"UTF-8\"?>\n"
+	xmlContent += "\n"
+	xmlContent += "<xs:simpleType name = \"Difficulty\">\n"
+	xmlContent += "	xs:restriction base = \"xs:string\">\n"
+	xmlContent += "		<xs:enumeration value = \"EASY\"/>\n"
+	xmlContent += "		<xs:enumeration value = \"NORMAL\"/>\n"
+	xmlContent += "		<xs:enumeration value = \"RAGE\"/>\n"
+	xmlContent += "		<xs:enumeration value = \"ASIAN\"/>\n"
+	xmlContent += "	</xs:restriction>\n"
+	xmlContent += "</xs:simpleType>\n"
+	xmlContent += "\n"
+	xmlContent += "<xs:element name = \"id\" type = \"xs:integer\"/>\n"
+	xmlContent += "<xs:element name = \"difficulty\" type = \"Difficulty\"/>\n"
+	xmlContent += "<xs:element name = \"highscore\" type = \"xs:float\"/>\n"
+	xmlContent += "\n"
+	
+	for userID in userHighscores.keys():
+		xmlContent += "<user id = \"%s\">\n" % userID
+		var currentUserHighscores: Dictionary = userHighscores[userID]
+		for difficulty in currentUserHighscores.keys():
+			xmlContent += "	<entry difficulty = \"%s\" highscore = \"%s\"/>\n" % [Difficulty.keys()[difficulty], currentUserHighscores[difficulty]]
+		xmlContent += "</user>\n"
+		xmlContent += "\n"
+	
+	var file: FileAccess = FileAccess.open(xmlPath, FileAccess.WRITE)
+	file.store_string(xmlContent)
+	file.close()

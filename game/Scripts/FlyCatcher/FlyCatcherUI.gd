@@ -63,7 +63,8 @@ func onGameStateChanged() -> void:
 				FlyCatcherGlobal.AsianRoundEndedType.Caught: timeOutLabel.text = "Fly caught!"
 				FlyCatcherGlobal.AsianRoundEndedType.TimeOut: timeOutLabel.text = "Time out!"
 				FlyCatcherGlobal.AsianRoundEndedType.Missed: timeOutLabel.text = "Fly missed!"
-		timeOutLabel.text += "\nScore: %s\nHighscore: %s"% [FlyCatcherGlobal.score, FlyCatcherGlobal.highscore[FlyCatcherGlobal.difficulty]]
+		timeOutLabel.text += "\nScore: %s" % FlyCatcherGlobal.score
+		timeOutLabel.text += "\nPersonal highscore: %s" % FlyCatcherGlobal.userHighscores[Exchange.current_selected_user_id][FlyCatcherGlobal.difficulty]
 
 func onDifficultyChanged() -> void:
 	pass
