@@ -5,6 +5,7 @@ extends Control
 var current_user : int
 var current_selected_user : Benutzerauswahl_raw = null
 var user_login_id : int
+var current_selected_user_name : String
 
 #---------------------------------------------------------------------------------------------------
 
@@ -119,12 +120,15 @@ func activateCurrentuser():
 	if current_selected_user is Benutzerauswahl && current_selected_user.user != null:
 		label_user_id.text = str(current_selected_user.user.user_id)
 		label_user_name.text = str(current_selected_user.user.username)
+		current_selected_user_name = str(current_selected_user.user.username)
 	elif current_selected_user is Benutzerauswahl_extra:
 		label_user_id.text = "X"
 		label_user_name.text = "EXTRA"
+		current_selected_user_name = "EXTRA"
 	else:
 		label_user_id.text = "X"
 		label_user_name.text = "__________________"
+		current_selected_user_name = "EXTRA"
 	
 	change_zwischensummen_status(false)
 
@@ -134,12 +138,15 @@ func setUpStatusBar():
 	if current_selected_user is Benutzerauswahl && current_selected_user.user != null:
 		label_user_id.text = str(current_selected_user.user.user_id)
 		label_user_name.text = str(current_selected_user.user.username)
+		current_selected_user_name = str(current_selected_user.user.username)
 	elif current_selected_user is Benutzerauswahl_extra:
 		label_user_id.text = "X"
 		label_user_name.text = "EXTRA"
+		current_selected_user_name = "EXTRA"
 	else:
 		label_user_id.text = "X"
 		label_user_name.text = "__________________"
+		current_selected_user_name = "EXTRA"
 
 #---------------------------------------------------------------------------------------------------
 
@@ -767,13 +774,9 @@ func _on_ablenkung_button_pressed() -> void:
 	
 	
 	if current_selected_user is Benutzerauswahl_extra:
-		Exchange.current_selected_user_id = "EXTRA"
+		Main.current_selected_user_name = "EXTRA"
 	
-	elif current_selected_user.user != null:
-		Exchange.current_selected_user_id = current_selected_user.user.username
-		FlyCatcherGlobal.ensureUserHighscoresExist(Exchange.current_selected_user_id)
-	else:
-		return
+	FlyCatcherGlobal.ensureUserHighscoresExist(Main.current_selected_user_name)
 	
 	Main.hide()
 	#get_tree().change_scene_to_file("res://game/Scenes/GameSelection.tscn") #switch to the game

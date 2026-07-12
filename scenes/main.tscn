@@ -107,7 +107,6 @@
 [ext_resource type="Resource" uid="uid://dbcfhxu3om810" path="res://data/items/Semmeln/Körnersemmeln/Vitalcroissant.tres" id="82_11yus"]
 [ext_resource type="Resource" uid="uid://dy5bdkmhswpdc" path="res://data/items/Plunder/Zimtschnecke.tres" id="83_2cr71"]
 [ext_resource type="Resource" uid="uid://cl2p0b2pau85x" path="res://data/items/Plunder/Amarena_Kirschplunder.tres" id="84_1hbcg"]
-[ext_resource type="Resource" uid="uid://dxy4nwpw7vtrf" path="res://data/items/Plunder/Rosinensemmel.tres" id="85_m4o51"]
 [ext_resource type="Resource" uid="uid://c5ombqxmrgv75" path="res://data/items/Aktion/Aktionsgebäck.tres" id="86_07pt3"]
 [ext_resource type="Resource" uid="uid://dbb4no4810h54" path="res://data/items/Aktion/Kuchen_vom_Vortag.tres" id="87_37xlc"]
 [ext_resource type="Resource" uid="uid://duqhbixhaled4" path="res://data/items/Aktion/Johanniter_Brot.tres" id="88_83607"]
@@ -1526,7 +1525,7 @@ items_array = Array[ExtResource("9_choun")]([ExtResource("11_trceg"), ExtResourc
 layout_mode = 2
 item_category_id = 4
 item_category_name = "Plunder"
-items_array = Array[ExtResource("9_choun")]([ExtResource("69_raiwf"), ExtResource("70_roort"), ExtResource("71_gm02q"), null, ExtResource("72_07pt3"), ExtResource("73_37xlc"), ExtResource("74_83607"), ExtResource("75_vny5k"), ExtResource("76_8lcmr"), ExtResource("77_ga3rw"), ExtResource("78_f5chs"), ExtResource("79_eh25q"), ExtResource("80_joh2r"), ExtResource("81_yton5"), ExtResource("82_4ahvx"), ExtResource("83_2cr71"), ExtResource("84_1hbcg"), null, null, ExtResource("85_m4o51")])
+items_array = Array[ExtResource("9_choun")]([ExtResource("69_raiwf"), ExtResource("70_roort"), ExtResource("71_gm02q"), null, ExtResource("72_07pt3"), ExtResource("73_37xlc"), ExtResource("74_83607"), ExtResource("75_vny5k"), ExtResource("76_8lcmr"), ExtResource("77_ga3rw"), ExtResource("78_f5chs"), ExtResource("79_eh25q"), ExtResource("80_joh2r"), ExtResource("81_yton5"), ExtResource("82_4ahvx"), ExtResource("83_2cr71"), ExtResource("84_1hbcg"), null, null, null])
 
 [node name="item_category_button5" parent="item_categories/MarginContainer/GridContainer" unique_id=2018858188 instance=ExtResource("7_o6xl0")]
 layout_mode = 2

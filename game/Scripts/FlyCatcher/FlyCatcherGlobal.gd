@@ -110,15 +110,15 @@ func _ready() -> void:
 	difficulty = Difficulty.EASY
 	gameState = GameState.Start
 	
-	ensureUserHighscoresExist(Exchange.current_selected_user_id)
+	ensureUserHighscoresExist(Main.current_selected_user_name)
 
 func _process(delta: float) -> void:
 	if gameState == GameState.Running:
 		remainingTime = max(remainingTime - delta, 0)
 		if difficulty != Difficulty.ASIAN:
 			if remainingTime <= 0:
-				if score > userHighscores[Exchange.current_selected_user_id][difficulty]:
-					userHighscores[Exchange.current_selected_user_id][difficulty] = score
+				if score > userHighscores[Main.current_selected_user_name][difficulty]:
+					userHighscores[Main.current_selected_user_name][difficulty] = score
 					saveUserHighscores(userHighscoresXMLPath)
 				gameState = GameState.TimeOut
 		else:
@@ -127,8 +127,8 @@ func _process(delta: float) -> void:
 					asianRoundEndedType = AsianRoundEndedType.TimeOut
 				asianInputComfirmed = false
 				asianRoundEnded = false
-				if score > userHighscores[Exchange.current_selected_user_id][difficulty]:
-					userHighscores[Exchange.current_selected_user_id][difficulty] = score
+				if score > userHighscores[Main.current_selected_user_name][difficulty]:
+					userHighscores[Main.current_selected_user_name][difficulty] = score
 					saveUserHighscores(userHighscoresXMLPath)
 				gameState = GameState.TimeOut
 
@@ -179,7 +179,7 @@ func loadUserHighscores(xmlPath: String) -> void:
 						userHighscores[currentUserID].get_or_add(currentDifficulty, currentHighscore)
 						userHighscores[currentUserID][currentDifficulty] = currentHighscore
 						break
-	#userHighscores.get_or_add(Exchange.current_selected_user_id, {
+	#userHighscores.get_or_add(Main.current_selected_user_name, {
 		#Difficulty.EASY: 0,
 		#Difficulty.NORMAL: 0,
 		#Difficulty.RAGE: 0,
