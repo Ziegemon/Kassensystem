@@ -725,7 +725,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Button2" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1813754446]
+[node name="Space_1" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=1813754446]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)
@@ -831,7 +831,7 @@ icon_alignment = 1
 vertical_icon_alignment = 0
 expand_icon = true
 
-[node name="Placeholder_2" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=2006079042]
+[node name="Space_2" type="Button" parent="toolbar_right/MarginContainer/VBoxContainer" unique_id=2006079042]
 texture_filter = 1
 clip_contents = true
 custom_minimum_size = Vector2(70, 104.999)

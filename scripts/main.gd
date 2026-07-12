@@ -57,7 +57,10 @@ var artikleinfo_switch : bool = false
 
 func _ready() -> void:
 	connectBenutzerauswahlSignals()
-	current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(0)
+	if Exchange.preset_current_selected_user_button_number != 0:
+		current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(Exchange.preset_current_selected_user_button_number - 1)
+	else:
+		current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(0)
 	current_selected_user.userSelected()
 	setUpStatusBar()
 	
@@ -77,8 +80,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	updateClockDate()
 	updateEftIndicators()
-	
-	#print(current_keyboard_input)
 
 
 #---------------------------------------------------------------------------------------------------
@@ -193,7 +194,7 @@ func connectItemButtonSignals():
 #-  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  -  
 
 func _on_item_button_pressed(button_item_data: item_data) -> void:
-	if current_selected_user.user_eft_running == true || current_selected_user.zeiterfassungs_status == false:
+	if current_selected_user.user_eft_running == true || (!(current_selected_user is Benutzerauswahl_extra) && (current_selected_user.zeiterfassungs_status == false)):
 		return
 	
 	if artikleinfo_switch == true:
@@ -749,18 +750,53 @@ func _on_letzte_rechnung_button_pressed() -> void:
 
 #---------------------------------------------------------------------------------------------------
 
-const ablenkungScenePath: String = "res://game/Scenes/GameSelection.tscn"
 func _on_ablenkung_button_pressed() -> void:
 	if current_selected_user.user_raw == null:
-		Exchange.current_selected_user_id = "EXTRA"
+		return
+	
+	elif current_selected_user.current_item_list_array.size() > 0:
+		if current_selected_user.current_item_list_array.size() > 0:
+			activeKundeError()
+		return
+	
+	elif eft_running_EC == true || eft_running_BAR == true:
+		activeKundeError2()
+		return
+	
 	else:
+		for u in $user_selection/MarginContainer/VBoxContainer.get_children():
+			if u.current_item_list_array.size() > 0:
+				activeKundeError3()
+				return
+	
+	
+	if current_selected_user is Benutzerauswahl_extra:
+		Exchange.current_selected_user_id = "EXTRA"
+	
+	elif current_selected_user.user != null:
 		Exchange.current_selected_user_id = current_selected_user.user.username
 		FlyCatcherGlobal.ensureUserHighscoresExist(Exchange.current_selected_user_id)
-		
-		
+	else:
+		return
+	
+	Exchange.preset_current_selected_user_button_number = current_selected_user.button_number
 	Main.hide()
-	get_tree().change_scene_to_file(ablenkungScenePath)
-	#switch to game scene of Simon & Dennis
+	get_tree().change_scene_to_file("res://game/Scenes/GameSelection.tscn") #switch to the game
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func activeKundeError():
+	fehlermeldungen.pushError("Du hast einen Kunden. Vielleicht solltest du ihn zuerst mal bedienen?")
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func activeKundeError2():
+	fehlermeldungen.pushError("Es bezahlt gerade jemand. Warte das doch noch ab.")
+
+#- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+func activeKundeError3():
+	fehlermeldungen.pushError("Jemand anderes bedient gerade einen Kunden. Vielleicht solltest du ihn zuerst mal fertig machen lassen?")
 
 #---------------------------------------------------------------------------------------------------
 

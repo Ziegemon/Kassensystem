@@ -13,8 +13,19 @@ func onTargetButtonPressed() -> void:
 	#print(gameName + " selected")
 	
 	if gamePath == "res://scenes/main.tscn":
-		get_tree().current_scene.hide()
-		Main.show()
+		pass
+		#get_tree().current_scene.hide()
+		#Main.show()
+		#return
+		
+		#get_tree().change_scene_to_file("res://game/Scenes/GameSelection.tscn")
+
+		#for c in Main.get_children():
+			#if c != %GameSelection:
+				#c.show()
+			#else:
+				#c.hide()
+		#
 		#return
 	
 	get_tree().change_scene_to_file(gamePath)
