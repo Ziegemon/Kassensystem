@@ -56,11 +56,6 @@ var artikleinfo_switch : bool = false
 
 
 func _ready() -> void:
-	
-	get_tree().current_scene.hide()
-	Main.show()
-	get_tree().current_scene = Main
-	
 	connectBenutzerauswahlSignals()
 	current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(0)
 	current_selected_user.userSelected()
@@ -752,7 +747,7 @@ func _on_letzte_rechnung_button_pressed() -> void:
 #---------------------------------------------------------------------------------------------------
 
 func _on_ablenkung_button_pressed() -> void:
-	if current_selected_user.user_raw == null:
+	if current_selected_user is Benutzerauswahl && current_selected_user.user == null:
 		return
 	
 	elif current_selected_user.current_item_list_array.size() > 0:

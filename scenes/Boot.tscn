@@ -1,11 +1,6 @@
 [gd_scene format=3 uid="uid://rqs8tc4w6knk"]
 
-[sub_resource type="GDScript" id="GDScript_vhm5l"]
-script/source = "extends Node
-
-func _ready() -> void:
-	Main.show()
-"
+[ext_resource type="Script" uid="uid://dv8ttqnhno1cs" path="res://scripts/boot.gd" id="1_bq0a7"]
 
 [node name="Boot" type="Node" unique_id=1638777363]
-script = SubResource("GDScript_vhm5l")
+script = ExtResource("1_bq0a7")
