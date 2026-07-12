@@ -42,11 +42,11 @@ var eft_done_font_color = Color(0.0, 0.463, 0.0)
 @onready var label_name: Label = $label_name
 
 var zws_background_basic_color = Color(1, 1, 1)
-@onready var zws_background = get_tree().root.get_node("MAIN/toolbar_bottom_2/background")
+@onready var zws_background = get_tree().root.get_node("Main/toolbar_bottom_2/background")
 
 var payment_method_used : int #0 = EC , 1 = BAR , 2 = BAR Offline
 
-@onready var MAIN = get_tree().root.get_node("MAIN")
+@onready var Main = get_tree().root.get_node("Main")
 
 
 #---------------------------------------------------------------------------------------------------
@@ -84,7 +84,7 @@ func userSelected():
 		await get_tree().process_frame
 		#await get_tree().create_timer(0.1).timeout
 		zws_background.color = eft_font_color
-		MAIN.show_summed_up_price_for_running_efts()
+		Main.show_summed_up_price_for_running_efts()
 	
 	else:
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
@@ -113,7 +113,7 @@ func startEft(used_payment_method : int):
 	label_number_s.add_theme_color_override("font_color", eft_font_color)
 	label_name.add_theme_color_override("font_color", eft_font_color)
 	
-	if MAIN.current_user == button_number:
+	if Main.current_user == button_number:
 		zws_background.color = eft_font_color #red
 	
 	#simulation of paymentprocessing due to lack of external ec terminal and cash machine
@@ -142,7 +142,7 @@ func startEft(used_payment_method : int):
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
 func startEftOffline():
-	#if MAIN.current_user == button_number:
+	#if Main.current_user == button_number:
 			#zws_background.color = eft_done_font_color
 	#label_number_s.add_theme_color_override("font_color", eft_done_font_color)
 	#label_name.add_theme_color_override("font_color", eft_done_font_color)
@@ -154,7 +154,7 @@ func startEftOffline():
 	eftEnded(this_eft_session_id)
 	
 	#current_item_list_array.clear()
-	#MAIN.updateItemListLabelV3()
+	#Main.updateItemListLabelV3()
 	#
 	#rabatt = 1.0
 	
@@ -164,21 +164,21 @@ func startEftOffline():
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
 func eftOfflineCashReturn():
-	var current_keyboard_input = MAIN.current_keyboard_input
+	var current_keyboard_input = Main.current_keyboard_input
 	var payed_cash : float = 0.0
-	#summedUpPrice = MAIN.summ_up_price()
+	#summedUpPrice = Main.summ_up_price()
 	
-	if MAIN.current_user != button_number:
+	if Main.current_user != button_number:
 		return
 	
-	MAIN.label_current_price.hide()
+	Main.label_current_price.hide()
 	
 	if current_keyboard_input != "0,000":
-		payed_cash = snapped(MAIN.keayboardInputToFloat(current_keyboard_input), 0.01)
-		MAIN.label_current_price.show()
-		MAIN.label_current_price.text = (MAIN.formatPrice(payed_cash - summedUpPrice) + " €")
+		payed_cash = snapped(Main.keayboardInputToFloat(current_keyboard_input), 0.01)
+		Main.label_current_price.show()
+		Main.label_current_price.text = (Main.formatPrice(payed_cash - summedUpPrice) + " €")
 	
-	MAIN._on_button_X_button_pressed(true)
+	Main._on_button_X_button_pressed(true)
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  
 
@@ -191,7 +191,7 @@ func eftEnded(session_id: int):
 	
 	label_number_s.add_theme_color_override("font_color", eft_done_font_color)
 	label_name.add_theme_color_override("font_color", eft_done_font_color)
-	if MAIN.current_user == button_number:
+	if Main.current_user == button_number:
 		zws_background.color = eft_done_font_color
 		
 	var newRechnungslistenelement
@@ -201,19 +201,19 @@ func eftEnded(session_id: int):
 		newRechnungslistenelement = rechnungsliste_element.new("EXTRA", 0, current_item_list_array.duplicate(), summedUpPrice, rabatt, payment_method_used) #0 = EC , 1 = BAR , 2 = BAR Offline
 	
 	current_item_list_array.clear()
-	MAIN.updateItemListLabelV3()
+	Main.updateItemListLabelV3()
 	
 	if payment_method_used == 0:
-		MAIN.eft_running_EC = false
+		Main.eft_running_EC = false
 	elif payment_method_used == 1:
-		MAIN.eft_running_BAR = false
+		Main.eft_running_BAR = false
 	
 	rabatt = 1.0
-	MAIN.label_rabatt.hide()
+	Main.label_rabatt.hide()
 
 	
-	if MAIN.current_user == button_number:
-		MAIN.label_current_price.hide()
+	if Main.current_user == button_number:
+		Main.label_current_price.hide()
 	
 	SystemData.rechnungsliste.append(newRechnungslistenelement)
 	last_rechnungslisten_array_index = (SystemData.rechnungsliste.size() - 1)
@@ -224,7 +224,7 @@ func eftEnded(session_id: int):
 		cleanUpEft()
 		return
 	
-	if MAIN.current_user == button_number:
+	if Main.current_user == button_number:
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
 		zws_background.color = Color(1, 1, 1)
@@ -239,14 +239,14 @@ func eftFailed(session_id: int):
 	user_eft_running = false
 	user_eft_failed = true
 	#user_eft_ended = true
-	#MAIN.change_zwischensummen_status(false)
+	#Main.change_zwischensummen_status(false)
 	
 	#breakEftFailed()
 	
 	if payment_method_used == 0:
-		MAIN.eft_running_EC = false
+		Main.eft_running_EC = false
 	else:
-		MAIN.eft_running_BAR = false
+		Main.eft_running_BAR = false
 	
 	var eft_failed_blinking_timer = Timer.new()
 	eft_failed_blinking_timer.wait_time = 4.0
@@ -256,24 +256,24 @@ func eftFailed(session_id: int):
 	
 	
 	while user_eft_failed == true:
-		if session_id != eft_session_id || (eft_failed_blinking_timer.is_stopped() && MAIN.current_user == button_number):
+		if session_id != eft_session_id || (eft_failed_blinking_timer.is_stopped() && Main.current_user == button_number):
 			cleanUpEft()
 			return
 		
 		label_number_s.add_theme_color_override("font_color", eft_font_color) 
 		label_name.add_theme_color_override("font_color", eft_font_color)
-		if MAIN.current_user == button_number:
+		if Main.current_user == button_number:
 			zws_background.color = eft_font_color
 		
 		await get_tree().create_timer(0.5).timeout
 		
-		if session_id != eft_session_id || (eft_failed_blinking_timer.is_stopped() && MAIN.current_user == button_number) || user_eft_failed == false:
+		if session_id != eft_session_id || (eft_failed_blinking_timer.is_stopped() && Main.current_user == button_number) || user_eft_failed == false:
 			cleanUpEft()
 			return
 		
 		label_number_s.add_theme_color_override("font_color", basic_font_color)
 		label_name.add_theme_color_override("font_color", basic_font_color)
-		if MAIN.current_user == button_number:
+		if Main.current_user == button_number:
 			zws_background.color = zws_background_basic_color
 		
 		await get_tree().create_timer(0.5).timeout
@@ -284,7 +284,7 @@ func eftFailed(session_id: int):
 #func breakEftFailed():
 	#await get_tree().create_timer(4).timeout
 	#user_eft_ended = false
-	#if MAIN.current_user == button_number:
+	#if Main.current_user == button_number:
 		#user_eft_failed = false
 		#user_eft_running = false
 		#label_number_s.add_theme_color_override("font_color", basic_font_color)
@@ -298,13 +298,13 @@ func cleanUpEft():
 	
 	label_number_s.add_theme_color_override("font_color", basic_font_color)
 	label_name.add_theme_color_override("font_color", basic_font_color)
-	if MAIN.current_user == button_number:
+	if Main.current_user == button_number:
 		zws_background.color = Color(1, 1, 1)
 	
 	if payment_method_used == 0:
-		MAIN.eft_running_EC = false
+		Main.eft_running_EC = false
 	else:
-		MAIN.eft_running_BAR = false
+		Main.eft_running_BAR = false
 
 #---------------------------------------------------------------------------------------------------
 

@@ -173,7 +173,7 @@ bg_color = Color(0.154876, 0.154876, 0.154876, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_choun"]
 bg_color = Color(0.29219, 0.29219, 0.29219, 1)
 
-[node name="MAIN" type="Control" unique_id=1770059592]
+[node name="Main" type="Control" unique_id=1770059592]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_o5qli")

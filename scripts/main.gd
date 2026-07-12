@@ -56,6 +56,11 @@ var artikleinfo_switch : bool = false
 
 
 func _ready() -> void:
+	
+	get_tree().current_scene.hide()
+	Main.show()
+	get_tree().current_scene = Main
+	
 	connectBenutzerauswahlSignals()
 	if Exchange.preset_current_selected_user_button_number != 0:
 		current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(Exchange.preset_current_selected_user_button_number - 1)
@@ -668,6 +673,7 @@ func _on_button_anmelden_pressed() -> void:
 		return
 	
 	current_selected_user.logInUser(user_login_id)
+	Main.get_node("user_selection/MarginContainer/VBoxContainer").get_child(current_selected_user.button_number - 1).logInUser(user_login_id)
 	
 	hide_Fehlermeldung()
 	end_artikelinfo()
@@ -786,7 +792,11 @@ func _on_ablenkung_button_pressed() -> void:
 	
 	Exchange.preset_current_selected_user_button_number = current_selected_user.button_number
 	Main.hide()
-	get_tree().change_scene_to_file("res://game/Scenes/GameSelection.tscn") #switch to the game
+	#get_tree().change_scene_to_file("res://game/Scenes/GameSelection.tscn") #switch to the game
+	
+	var game_scene = load("res://game/Scenes/GameSelection.tscn").instantiate()
+	get_tree().get_root().add_child(game_scene)
+	get_tree().current_scene = game_scene
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 

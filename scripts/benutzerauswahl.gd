@@ -87,9 +87,9 @@ func removeUser():
 func logInUser(user_id : int):
 	var path := "res://data/users/%d.tres" % user_id
 	
-	get_tree().get_root().get_node("MAIN").user_login_id = 0
+	get_tree().get_root().get_node("Main").user_login_id = 0
 	
-	var vBoxChildren = get_tree().get_root().get_node("MAIN/user_selection/MarginContainer/VBoxContainer").get_children()
+	var vBoxChildren = get_tree().get_root().get_node("Main/user_selection/MarginContainer/VBoxContainer").get_children()
 	for e in range(vBoxChildren.size() - 1):
 		if vBoxChildren[e].user == ResourceLoader.load(path):
 			return
@@ -100,7 +100,7 @@ func logInUser(user_id : int):
 	elif user == null:
 		user = ResourceLoader.load(path)
 		user_raw = ResourceLoader.load(path)
-		get_tree().get_root().get_node("MAIN").activateCurrentuser()
+		get_tree().get_root().get_node("Main").activateCurrentuser()
 		setupUser()
 	
 	zeiterfassung_currently_active = false
@@ -111,7 +111,7 @@ func logInUser(user_id : int):
 func logOutUser():
 	abmeldungs_message()
 	removeUser()
-	get_tree().get_root().get_node("MAIN").activateCurrentuser()
+	get_tree().get_root().get_node("Main").activateCurrentuser()
 	zeiterfassung_currently_active = false
 
 #---------------------------------------------------------------------------------------------------

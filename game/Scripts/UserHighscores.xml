@@ -14,10 +14,10 @@
 <xs:element name = "highscore" type = "xs:float"/>
 
 <user id = "Dennis Chen">
-	<entry difficulty = "EASY" highscore = "3.0"/>
+	<entry difficulty = "EASY" highscore = "0.0"/>
 	<entry difficulty = "NORMAL" highscore = "0.0"/>
 	<entry difficulty = "RAGE" highscore = "0.0"/>
-	<entry difficulty = "ASIAN" highscore = "120.972058666667"/>
+	<entry difficulty = "ASIAN" highscore = "0.0"/>
 </user>
 
 <user id = "EXTRA">
@@ -28,20 +28,27 @@
 </user>
 
 <user id = "Simon Sanktjohanser">
-	<entry difficulty = "EASY" highscore = "24.0"/>
+	<entry difficulty = "EASY" highscore = "0.0"/>
 	<entry difficulty = "NORMAL" highscore = "0.0"/>
 	<entry difficulty = "RAGE" highscore = "0.0"/>
-	<entry difficulty = "ASIAN" highscore = "8.28707377115885"/>
+	<entry difficulty = "ASIAN" highscore = "0.0"/>
 </user>
 
 <user id = "Thilo Mutz">
-	<entry difficulty = "EASY" highscore = "20.0"/>
+	<entry difficulty = "EASY" highscore = "0.0"/>
 	<entry difficulty = "NORMAL" highscore = "0.0"/>
 	<entry difficulty = "RAGE" highscore = "0.0"/>
 	<entry difficulty = "ASIAN" highscore = "0.0"/>
 </user>
 
 <user id = "">
+	<entry difficulty = "EASY" highscore = "0.0"/>
+	<entry difficulty = "NORMAL" highscore = "0.0"/>
+	<entry difficulty = "RAGE" highscore = "0.0"/>
+	<entry difficulty = "ASIAN" highscore = "0.0"/>
+</user>
+
+<user id = "Basir Musawi">
 	<entry difficulty = "EASY" highscore = "0.0"/>
 	<entry difficulty = "NORMAL" highscore = "0.0"/>
 	<entry difficulty = "RAGE" highscore = "0.0"/>
