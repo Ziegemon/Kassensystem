@@ -9,28 +9,13 @@ func _ready() -> void:
 	#targetButton.pivot_offset = targetButton.size / 2
 
 func onTargetButtonPressed() -> void:
-	#print(Main.current_selected_user.user.username)
-	#print(gameName + " selected")
-	
+	if get_tree().current_scene.scene_file_path == "res://game/Scenes/FlyCatcher.tscn":
+		FlyCatcherGlobal.gameState = FlyCatcherGlobal.GameState.Start
+
 	if gamePath == "res://scenes/main.tscn":
 		Main.show()
 		get_tree().current_scene.hide()
 		get_tree().current_scene = Main
-		pass
-		#get_tree().current_scene.hide()
-		#Main.show()
-		#return
 		
-		#get_tree().change_scene_to_file("res://game/Scenes/GameSelection.tscn")
-
-		#for c in Main.get_children():
-			#if c != %GameSelection:
-				#c.show()
-			#else:
-				#c.hide()
-		#
-		#return
 	else:
 		get_tree().change_scene_to_file(gamePath)
-	
-		
