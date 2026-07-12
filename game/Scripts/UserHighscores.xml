@@ -14,7 +14,7 @@
 <xs:element name = "highscore" type = "xs:float"/>
 
 <user id = "Dennis Chen">
-	<entry difficulty = "EASY" highscore = "0.0"/>
+	<entry difficulty = "EASY" highscore = "1.0"/>
 	<entry difficulty = "NORMAL" highscore = "0.0"/>
 	<entry difficulty = "RAGE" highscore = "0.0"/>
 	<entry difficulty = "ASIAN" highscore = "0.0"/>

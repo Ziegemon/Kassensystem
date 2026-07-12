@@ -62,10 +62,7 @@ func _ready() -> void:
 	get_tree().current_scene = Main
 	
 	connectBenutzerauswahlSignals()
-	if Exchange.preset_current_selected_user_button_number != 0:
-		current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(Exchange.preset_current_selected_user_button_number - 1)
-	else:
-		current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(0)
+	current_selected_user = $user_selection/MarginContainer/VBoxContainer.get_child(0)
 	current_selected_user.userSelected()
 	update_pause_indicator()
 	setUpStatusBar()
@@ -713,10 +710,6 @@ func update_pause_indicator():
 		$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg8ipv1xoc1cw") #black
 		return
 	
-	if Exchange.preset_zeiterfassungs_status == false:
-		Exchange.preset_zeiterfassungs_status = true
-		current_selected_user.zeiterfassungs_status = false #pause started
-	
 	if current_selected_user.zeiterfassungs_status == false:
 		$toolbar_right/MarginContainer/VBoxContainer/Pause_Button.icon = preload("uid://cg48m1yetd55r") #green
 	else:
@@ -787,10 +780,6 @@ func _on_ablenkung_button_pressed() -> void:
 	else:
 		return
 	
-	if current_selected_user.zeiterfassungs_status == false:
-		Exchange.preset_zeiterfassungs_status = false
-	
-	Exchange.preset_current_selected_user_button_number = current_selected_user.button_number
 	Main.hide()
 	#get_tree().change_scene_to_file("res://game/Scenes/GameSelection.tscn") #switch to the game
 	
