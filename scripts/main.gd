@@ -292,8 +292,6 @@ func _on_keyboard_button_pressed(button_number: int, button_semicolon : bool) ->
 		current_keyboard_input = (current_keyboard_input_semicolon + str(button_number))
 		current_keyboard_input_semicolon += str(button_number)
 	
-	#change_zwischensummen_status(false)
-	
 	label_current_price.text = current_keyboard_input 
 	
 	hide_Fehlermeldung()
@@ -319,7 +317,6 @@ func resetKeyboardInput():
 
 func formatPrice(price : float) -> String:
 	return ("%.2f" % price).replace(".", ",")
-	#return ("%.2f" % price).to_float()
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -340,7 +337,7 @@ func _on_display_item_element_button_transmit_id(button_id : int):
 	for e in labels_items_scroll_container_vbox_container.get_children():
 		e.get_child(0).button_pressed = false
 	
-	labels_items_scroll_container_vbox_container.get_child(button_id).get_child(0).button_pressed = true #!!!!!!!!!!!!!!!!!!!!!!!!!kann get_child(button_id) bleiben, wenn die button_ids nach KOrrektur neu zugewiesenw erden
+	labels_items_scroll_container_vbox_container.get_child(button_id).get_child(0).button_pressed = true
 	current_selcted_item_list_item = button_id
 
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
