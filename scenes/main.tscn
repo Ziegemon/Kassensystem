@@ -551,12 +551,12 @@ theme_override_constants/separation = 102
 
 [node name="benutzerauswahl" parent="user_selection/MarginContainer/VBoxContainer" unique_id=665998001 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
-user = ExtResource("3_jyhfs")
 button_number = 1
 selected_button_color = Color(0, 0, 1, 1)
 
 [node name="benutzerauswahl2" parent="user_selection/MarginContainer/VBoxContainer" unique_id=1610535480 instance=ExtResource("2_0wfyh")]
 layout_mode = 2
+user = ExtResource("3_jyhfs")
 button_number = 2
 selected_button_color = Color(0.231373, 0.305882, 0.396078, 1)
 

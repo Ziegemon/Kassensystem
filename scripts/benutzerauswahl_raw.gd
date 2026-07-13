@@ -117,7 +117,7 @@ func startEft(used_payment_method : int):
 		zws_background.color = eft_font_color #red
 	
 	#simulation of paymentprocessing due to lack of external ec terminal and cash machine
-	var eft_waiting_duration = randi_range(4, 28) #maybe raise back to 40, Grrrr Rentner mit viel Kleingeld --------------------------------
+	var eft_waiting_duration = randi_range(4, 28) #maybe raise back to 40, Grrrr Rentner mit viel Kleingeld
 	var elapsed = 0.0
 	
 	while elapsed < eft_waiting_duration:
