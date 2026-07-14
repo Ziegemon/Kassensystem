@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://c6wc82sv4x7ng"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_c8ne5"]
+
+[resource]
+script = ExtResource("1_c8ne5")
+name = "Kürbiskernbrot"
+price = 7.7
+wiegeprodukt = true
+item_id = 186
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

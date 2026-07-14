@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://dqqmij464l356"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_r7juw"]
+
+[resource]
+script = ExtResource("1_r7juw")
+name = "Wallnuss-Wurzel"
+price = 6.6
+wiegeprodukt = true
+item_id = 173
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

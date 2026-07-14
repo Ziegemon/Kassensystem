@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://dvyq4f11qn4pg"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_2flk0"]
+
+[resource]
+script = ExtResource("1_2flk0")
+name = "Klosterkruste"
+price = 7.8
+wiegeprodukt = true
+item_id = 175
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

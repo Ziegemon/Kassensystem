@@ -28,7 +28,6 @@
 [ext_resource type="Resource" uid="uid://dan36kpydo75j" path="res://data/items/Semmeln/helle Semmeln/Schnittsemmel.tres" id="14_kmb1v"]
 [ext_resource type="Texture2D" uid="uid://cg8ipv1xoc1cw" path="res://assets/pause_icon_3.png" id="15_bjg73"]
 [ext_resource type="Resource" uid="uid://lgd6lsesrj1g" path="res://data/items/Semmeln/helle Semmeln/Mohnsemmel.tres" id="15_fuf3a"]
-[ext_resource type="Resource" uid="uid://e3tqsxrmlw66" path="res://data/items/Brote/Roggenmischbrote/roggen_vollkorn.tres" id="15_jkv2x"]
 [ext_resource type="Texture2D" uid="uid://duf55a75ys7pk" path="res://assets/logout_icon.png" id="16_bu4jf"]
 [ext_resource type="Texture2D" uid="uid://dby3dmf6jxmde" path="res://assets/printer_icon.png" id="16_nvyfr"]
 [ext_resource type="Resource" uid="uid://b4w5lyr1072y5" path="res://data/items/Semmeln/helle Semmeln/Sesamsemmel.tres" id="16_pibwh"]
@@ -116,6 +115,29 @@
 [ext_resource type="Resource" uid="uid://bcvtekkti30u4" path="res://data/items/Dauergebäck/Mandelhörnchen.tres" id="103_yton5"]
 [ext_resource type="Resource" uid="uid://hsv6eyc7f3in" path="res://data/items/Dauergebäck/Nussecke.tres" id="104_4ahvx"]
 [ext_resource type="Resource" uid="uid://6djq3dyuyjkb" path="res://data/items/Dauergebäck/Muffin.tres" id="105_2cr71"]
+[ext_resource type="Resource" uid="uid://vyt8d7b16ty6" path="res://data/items/Brote/Roggenmischbrote/bauernbrot.tres" id="116_2cr71"]
+[ext_resource type="Resource" uid="uid://cswdcuwus025r" path="res://data/items/Brote/Roggenmischbrote/Heimatbrot.tres" id="117_1hbcg"]
+[ext_resource type="Resource" uid="uid://dqabe7l5ircow" path="res://data/items/Brote/Roggenmischbrote/Hausbrot.tres" id="118_m4o51"]
+[ext_resource type="Resource" uid="uid://dytkc44y4v40t" path="res://data/items/Brote/Roggenmischbrote/Ammerseer.tres" id="119_jp61a"]
+[ext_resource type="Resource" uid="uid://bpb7iqd4xuajn" path="res://data/items/Brote/Roggenmischbrote/Sonnenblumenkornbrot.tres" id="120_esrwe"]
+[ext_resource type="Resource" uid="uid://d2rybe8qtlawm" path="res://data/items/Brote/Roggenmischbrote/Kornkammer.tres" id="121_4b36k"]
+[ext_resource type="Resource" uid="uid://ccn00bc5mcngu" path="res://data/items/Brote/Roggenmischbrote/Steinofenbrot_gewürzt.tres" id="122_1v8b0"]
+[ext_resource type="Resource" uid="uid://byo81l564x0jf" path="res://data/items/Brote/Weizenbrote/Steinofenbaguette.tres" id="123_wi1le"]
+[ext_resource type="Resource" uid="uid://bikyybcgvd0an" path="res://data/items/Brote/Weizenbrote/Baguette_klein.tres" id="124_o7pr5"]
+[ext_resource type="Resource" uid="uid://dyspof7nxhn18" path="res://data/items/Brote/Weizenbrote/Wurzelbrot.tres" id="125_hyj2l"]
+[ext_resource type="Resource" uid="uid://dqqmij464l356" path="res://data/items/Brote/Weizenbrote/Wallnusswurzelbrot.tres" id="126_vuqay"]
+[ext_resource type="Resource" uid="uid://c2mh3fhkpkxb0" path="res://data/items/Brote/Weizenbrote/St.Marthinerbrot.tres" id="127_wfmv0"]
+[ext_resource type="Resource" uid="uid://c5uhrlbw2e5bf" path="res://data/items/Brote/Weizenbrote/Kastenweißbrot.tres" id="128_wxrqn"]
+[ext_resource type="Resource" uid="uid://dvyq4f11qn4pg" path="res://data/items/Brote/Weizenbrote/Klosterkruste.tres" id="129_n756u"]
+[ext_resource type="Resource" uid="uid://br8d7wnbkcqru" path="res://data/items/Brote/Weizenbrote/Wallnuss_Karotten_Brot.tres" id="130_k33j2"]
+[ext_resource type="Resource" uid="uid://b3r6bmr521gfu" path="res://data/items/Brote/Weizenbrote/Toskanabrot.tres" id="131_2cjf7"]
+[ext_resource type="Resource" uid="uid://dionbl67tmoak" path="res://data/items/Brote/Weizenbrote/Kartoffelkruste.tres" id="132_4e8e3"]
+[ext_resource type="Resource" uid="uid://c6wc82sv4x7ng" path="res://data/items/Brote/Weizenbrote/Kürbiskernbrot.tres" id="133_5gihh"]
+[ext_resource type="Resource" uid="uid://bwp6vgre3k3gb" path="res://data/items/Brote/Weizenbrote/Mais_Gewürz_KRuste.tres" id="134_407df"]
+[ext_resource type="Resource" uid="uid://bsyfuyrqtlgxu" path="res://data/items/Brote/Weizenbrote/Ciabatta natur.tres" id="135_4sqen"]
+[ext_resource type="Resource" uid="uid://dt4ay56smk57p" path="res://data/items/Brote/Weizenbrote/Olivenciabatta.tres" id="136_w6a6y"]
+[ext_resource type="Resource" uid="uid://xuuoid1nd470" path="res://data/items/Brote/Weizenbrote/Tomaten_Ciabatta.tres" id="137_knlx5"]
+[ext_resource type="Resource" uid="uid://ces44h3dsgwyh" path="res://data/items/Brote/Weizenbrote/Kräuter_Zupfbrot.tres" id="138_pes4l"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0wfyh"]
 bg_color = Color(0.544974, 0.544974, 0.544974, 1)
@@ -1584,7 +1606,7 @@ item_category_name = "Pfand"
 layout_mode = 2
 item_category_id = 15
 item_category_name = "Roggenmisch-brot"
-items_array = Array[ExtResource("9_choun")]([null, null, null, ExtResource("15_jkv2x")])
+items_array = Array[ExtResource("9_choun")]([ExtResource("116_2cr71"), ExtResource("117_1hbcg"), ExtResource("118_m4o51"), null, ExtResource("119_jp61a"), ExtResource("120_esrwe"), ExtResource("121_4b36k"), null, ExtResource("122_1v8b0"), null, null, null, null, null, null, null, null, null, null, null])
 
 [node name="item_category_button16" parent="item_categories/MarginContainer/GridContainer" unique_id=1290676551 instance=ExtResource("7_o6xl0")]
 layout_mode = 2
@@ -1599,6 +1621,7 @@ item_category_id = 17
 layout_mode = 2
 item_category_id = 18
 item_category_name = "Weizenbrote"
+items_array = Array[ExtResource("9_choun")]([ExtResource("123_wi1le"), ExtResource("124_o7pr5"), ExtResource("125_hyj2l"), ExtResource("126_vuqay"), ExtResource("127_wfmv0"), ExtResource("128_wxrqn"), ExtResource("129_n756u"), ExtResource("130_k33j2"), ExtResource("131_2cjf7"), ExtResource("132_4e8e3"), ExtResource("133_5gihh"), ExtResource("134_407df"), ExtResource("135_4sqen"), ExtResource("136_w6a6y"), ExtResource("137_knlx5"), null, ExtResource("138_pes4l"), null, null, null])
 
 [node name="item_category_button19" parent="item_categories/MarginContainer/GridContainer" unique_id=1519102172 instance=ExtResource("7_o6xl0")]
 layout_mode = 2

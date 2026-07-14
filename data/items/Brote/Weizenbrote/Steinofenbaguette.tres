@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://byo81l564x0jf"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_7wi87"]
+
+[resource]
+script = ExtResource("1_7wi87")
+name = "Steinofen-Baguette"
+price = 5.9
+wiegeprodukt = true
+item_id = 170
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

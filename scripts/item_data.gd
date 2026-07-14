@@ -18,3 +18,5 @@ class_name item_data
 #id 100 - 129: Plunder
 #id 130 - 139: Aktion
 #id 140 - 159: Dauergebäck
+#id 160 - 169: Roggenbrote
+#id 170 - 189: Weizenbrote

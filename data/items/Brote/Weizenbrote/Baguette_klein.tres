@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://bikyybcgvd0an"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_4hetd"]
+
+[resource]
+script = ExtResource("1_4hetd")
+name = "Baguette klein"
+price = 5.9
+wiegeprodukt = true
+item_id = 171
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

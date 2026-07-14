@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://xuuoid1nd470"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_6r8ex"]
+
+[resource]
+script = ExtResource("1_6r8ex")
+name = "Ciabatta Tomate"
+price = 6.6
+wiegeprodukt = true
+item_id = 180
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

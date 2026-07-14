@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://b3r6bmr521gfu"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_h12bl"]
+
+[resource]
+script = ExtResource("1_h12bl")
+name = "Toskanabrot"
+price = 7.9
+wiegeprodukt = true
+item_id = 182
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

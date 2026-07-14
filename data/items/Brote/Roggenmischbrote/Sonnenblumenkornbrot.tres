@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://bpb7iqd4xuajn"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_padj5"]
+
+[resource]
+script = ExtResource("1_padj5")
+name = "Sonnenblumen-kornbrot"
+price = 6.8
+wiegeprodukt = true
+item_id = 165
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

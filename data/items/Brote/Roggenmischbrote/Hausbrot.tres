@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://dqabe7l5ircow"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_d51mq"]
+
+[resource]
+script = ExtResource("1_d51mq")
+name = "Hausbrot"
+price = 7.2
+wiegeprodukt = true
+item_id = 163
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://bsyfuyrqtlgxu"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_ubp3m"]
+
+[resource]
+script = ExtResource("1_ubp3m")
+name = "Ciabatta natur"
+price = 6.3
+wiegeprodukt = true
+item_id = 178
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"

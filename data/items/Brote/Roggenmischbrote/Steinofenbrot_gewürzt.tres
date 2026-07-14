@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="item_data" format=3 uid="uid://ccn00bc5mcngu"]
+
+[ext_resource type="Script" uid="uid://dtbgd0jd6d0u5" path="res://scripts/item_data.gd" id="1_wtc3s"]
+
+[resource]
+script = ExtResource("1_wtc3s")
+name = "Steinofenbrot gewürzt"
+price = 8.4
+wiegeprodukt = true
+item_id = 168
+metadata/_custom_type_script = "uid://dtbgd0jd6d0u5"
