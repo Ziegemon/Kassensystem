@@ -682,7 +682,11 @@ func _on_button_anmelden_pressed() -> void:
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_button_abmelden_pressed() -> void:
-	if current_selected_user.is_benutzerauswahl_extra() || current_selected_user.user == null:
+	if  current_selected_user.user_eft_running == true || !current_selected_user.current_item_list_array.is_empty():
+		activeKundeError()
+		return
+		
+	elif current_selected_user.is_benutzerauswahl_extra() || current_selected_user.user == null:
 		return
 	
 	current_selected_user.logOutUser()
@@ -695,7 +699,12 @@ func _on_button_abmelden_pressed() -> void:
 #- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 func _on_button_pause_pressed() -> void:
-	if current_selected_user.is_benutzerauswahl_extra()  || current_selected_user.user == null || current_selected_user.user_eft_running == true || !current_selected_user.current_item_list_array.is_empty():
+	
+	if  current_selected_user.user_eft_running == true || !current_selected_user.current_item_list_array.is_empty():
+		activeKundeError()
+		return
+		
+	elif current_selected_user.is_benutzerauswahl_extra()  || current_selected_user.user == null:
 		return
 	
 	if current_selected_user.zeiterfassungs_status == true:
